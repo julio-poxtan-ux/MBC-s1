@@ -1,0 +1,438 @@
+<!doctype html>
+<html lang="es-MX">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Backoffice Maktub: gestión de carteras, depósitos, transferencias y retiros." />
+    <meta name="robots" content="index,follow" />
+    <meta name="author" content="Maktub" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Backoffice - Maktub | Carteras" />
+    <meta property="og:description" content="Sección Carteras del backoffice Maktub." />
+    <meta property="og:locale" content="es_MX" />
+    <meta property="og:url" content="./carteras.html" />
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:title" content="Backoffice - Maktub | Carteras" />
+    <meta property="twitter:description" content="Sección Carteras del backoffice Maktub." />
+    <link rel="canonical" href="./carteras.html" />
+    <link rel="icon" type="image/png" href="assets/img/logo.png" />
+    <title>Backoffice - Maktub | Carteras</title>
+    <link rel="preconnect" href="https://fonts.cdnfonts.com" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/tokens.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/charts.css" />
+  </head>
+  <body>
+    <div class="cm-app" data-cm-app>
+      <header class="cm-header" role="banner">
+        <div class="cm-header__inner">
+          <a class="cm-brand" href="index.html" aria-label="Inicio Maktub">
+            <img class="cm-brand__logo" src="assets/img/logo.png" alt="Logo Club Maktub" width="100" height="37" />
+          </a>
+
+          <nav class="cm-nav cm-nav--desktop" aria-label="Navegación principal">
+            <a class="cm-nav__item" href="index.html">
+              <img class="cm-nav__icon" src="assets/icons/icon-panel.svg" alt="" aria-hidden="true" />
+              <span>Panel</span>
+            </a>
+            <a class="cm-nav__item cm-nav__item--active" href="carteras.html" aria-current="page">
+              <img class="cm-nav__icon" src="assets/icons/icon-carteras.svg" alt="" aria-hidden="true" />
+              <span>Carteras</span>
+            </a>
+            <a class="cm-nav__item" href="membresias.html">
+              <img class="cm-nav__icon" src="assets/icons/icon-membresia.svg" alt="" aria-hidden="true" />
+              <span>Membresías</span>
+            </a>
+            <a class="cm-nav__item" href="referidos.html">
+              <img class="cm-nav__icon" src="assets/icons/icon-users-round.svg" alt="" aria-hidden="true" />
+              <span>Referidos</span>
+            </a>
+            <a class="cm-nav__item" href="transacciones.html">
+              <img class="cm-nav__icon" src="assets/icons/icon-transacciones.svg" alt="" aria-hidden="true" />
+              <span>Transacciones</span>
+            </a>
+            <a class="cm-nav__item" href="#" aria-label="Maktub DeFi (próximamente)">
+              <img class="cm-nav__icon" src="assets/icons/icon-defi.svg" alt="" aria-hidden="true" />
+              <span>Maktub DeFi</span>
+            </a>
+            <a class="cm-nav__item" href="mis-servicios.html">
+              <img class="cm-nav__icon" src="assets/icons/icon-globe.svg" alt="" aria-hidden="true" />
+              <span>Mis servicios</span>
+            </a>
+          </nav>
+
+          <button class="cm-user-btn" type="button" aria-label="Perfil de usuario">
+            <img class="cm-nav__icon" src="assets/icons/icon-perfil.svg" alt="" aria-hidden="true" />
+          </button>
+
+          <button
+            class="cm-menu-toggle"
+            type="button"
+            data-cm-menu-toggle
+            aria-expanded="false"
+            aria-controls="cm-mobile-menu"
+            aria-label="Abrir menú"
+          >
+            <svg class="cm-menu-toggle__icon cm-menu-toggle__icon--open" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+              <path d="M2 3.75A.75.75 0 0 1 2.75 3h10.5a.75.75 0 0 1 0 1.5H2.75A.75.75 0 0 1 2 3.75Zm0 4A.75.75 0 0 1 2.75 7h10.5a.75.75 0 0 1 0 1.5H2.75A.75.75 0 0 1 2 7.75Zm0 4A.75.75 0 0 1 2.75 11h10.5a.75.75 0 0 1 0 1.5H2.75A.75.75 0 0 1 2 11.75Z" />
+            </svg>
+            <svg class="cm-menu-toggle__icon cm-menu-toggle__icon--close" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+              <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8L4.646 5.354a.5.5 0 0 1 0-.708Z" />
+            </svg>
+          </button>
+        </div>
+
+        <nav class="cm-mobile-menu" id="cm-mobile-menu" data-cm-mobile-menu hidden aria-label="Navegación móvil">
+          <div class="cm-mobile-menu__panel">
+            <div class="cm-mobile-menu__list">
+              <a class="cm-nav__item cm-mobile-menu__item" href="index.html">
+                <img class="cm-nav__icon" src="assets/icons/icon-panel.svg" alt="" aria-hidden="true" />
+                <span>Panel</span>
+              </a>
+              <a class="cm-nav__item cm-mobile-menu__item cm-nav__item--active" href="carteras.html" aria-current="page">
+                <img class="cm-nav__icon" src="assets/icons/icon-carteras.svg" alt="" aria-hidden="true" />
+                <span>Carteras</span>
+              </a>
+              <a class="cm-nav__item cm-mobile-menu__item" href="membresias.html">
+                <img class="cm-nav__icon" src="assets/icons/icon-membresia.svg" alt="" aria-hidden="true" />
+                <span>Membresías</span>
+              </a>
+              <a class="cm-nav__item cm-mobile-menu__item" href="referidos.html">
+                <img class="cm-nav__icon" src="assets/icons/icon-users-round.svg" alt="" aria-hidden="true" />
+                <span>Referidos</span>
+              </a>
+              <a class="cm-nav__item cm-mobile-menu__item" href="transacciones.html">
+                <img class="cm-nav__icon" src="assets/icons/icon-transacciones.svg" alt="" aria-hidden="true" />
+                <span>Transacciones</span>
+              </a>
+              <a class="cm-nav__item cm-mobile-menu__item" href="#" aria-label="Maktub DeFi (próximamente)">
+                <img class="cm-nav__icon" src="assets/icons/icon-defi.svg" alt="" aria-hidden="true" />
+                <span>Maktub DeFi</span>
+              </a>
+              <a class="cm-nav__item cm-mobile-menu__item" href="mis-servicios.html">
+                <img class="cm-nav__icon" src="assets/icons/icon-globe.svg" alt="" aria-hidden="true" />
+                <span>Mis servicios</span>
+              </a>
+            </div>
+            <div class="cm-mobile-menu__divider" aria-hidden="true"></div>
+            <a class="cm-nav__item cm-mobile-menu__item" href="#" aria-label="Perfil de usuario">
+              <img class="cm-nav__icon" src="assets/icons/icon-perfil.svg" alt="" aria-hidden="true" />
+              <span>Perfil de usuario</span>
+            </a>
+          </div>
+        </nav>
+      </header>
+
+      <main class="cm-main" role="main">
+        <section class="cm-wallets" aria-label="Gestión de carteras">
+          <div class="cm-wallets__layout" data-cm-wallets>
+            <aside class="cm-wallets-card cm-wallets__actions" aria-label="Acciones de cartera">
+              <button
+                class="cm-wallet-action cm-wallet-action--active"
+                type="button"
+                data-cm-wallet-action="deposit"
+                aria-controls="cm-wallet-view-deposit"
+                aria-pressed="true"
+              >
+                <span class="cm-wallet-action__icon" aria-hidden="true">
+                  <img src="assets/icons/icon-depositar.svg" alt="Depositar">
+                </span>
+                <span class="cm-wallet-action__label" data-cm-wallet-primary-label data-label-default="Depositar" data-label-active="Depositar a cartera">Depositar a cartera</span>
+              </button>
+
+              <button
+                class="cm-wallet-action"
+                type="button"
+                data-cm-wallet-action="transfer-wallets"
+                aria-controls="cm-wallet-view-transfer-wallets"
+                aria-pressed="false"
+              >
+                <span class="cm-wallet-action__icon" aria-hidden="true">
+                  <img src="assets/icons/icon-transferir.svg" alt="Transferir">
+                </span>
+                <span class="cm-wallet-action__label">Transferir carteras</span>
+              </button>
+
+              <button
+                class="cm-wallet-action"
+                type="button"
+                data-cm-wallet-action="transfer-user"
+                aria-controls="cm-wallet-view-transfer-user"
+                aria-pressed="false"
+              >
+                <span class="cm-wallet-action__icon" aria-hidden="true">
+                  <img src="assets/icons/icon-transferir-usuario.svg" alt="Transferir">
+                </span>
+                <span class="cm-wallet-action__label">Transferir usuario</span>
+              </button>
+
+              <button
+                class="cm-wallet-action"
+                type="button"
+                data-cm-wallet-action="withdraw"
+                aria-controls="cm-wallet-view-withdraw"
+                aria-pressed="false"
+              >
+                <span class="cm-wallet-action__icon" aria-hidden="true">
+                 <img src="assets/icons/icon-retirar.svg" alt="Retirar">
+                </span>
+                <span class="cm-wallet-action__label">Retirar</span>
+              </button>
+            </aside>
+
+            <section class="cm-wallets-card cm-wallets__panel" aria-label="Formulario de acción">
+              <article
+                id="cm-wallet-view-deposit"
+                class="cm-wallet-view cm-wallet-view--deposit cm-wallet-view--active"
+                data-cm-wallet-view="deposit"
+                aria-hidden="false"
+              >
+                <div class="cm-wallet-view__inner">
+                  <header class="cm-wallet-view__header">
+                    <h1 class="cm-wallet-view__title">Depositar a<br />cartera Club</h1>
+                  </header>
+
+                  <form class="cm-wallet-form" data-cm-wallet-form="deposit" novalidate>
+                    <label class="cm-wallet-field">
+                      <span class="cm-wallet-field__label">Cantidad a depositar en USDT (POL MATIC)</span>
+                      <span class="cm-wallet-input-wrap">
+                        <input
+                          class="cm-wallet-input"
+                          data-cm-wallet-amount
+                          name="depositAmount"
+                          type="number"
+                          min="50"
+                          step="0.01"
+                          value="50"
+                          inputmode="decimal"
+                          aria-describedby="cm-wallet-deposit-hint"
+                          required
+                        />
+                        <span class="cm-wallet-field__suffix">USDT</span>
+                      </span>
+                    </label>
+
+                    <p id="cm-wallet-deposit-hint" class="cm-wallet-hint">Monto mínimo: 50 USDT</p>
+                    <p class="cm-wallet-error" data-cm-wallet-error aria-live="polite"></p>
+                    <button class="cm-wallet-submit" data-cm-wallet-submit type="submit">Solicitar Fondeo</button>
+                    <p class="cm-wallet-success" data-cm-wallet-success aria-live="polite"></p>
+                  </form>
+                </div>
+              </article>
+
+              <article
+                id="cm-wallet-view-transfer-wallets"
+                class="cm-wallet-view cm-wallet-view--transfer-wallets"
+                data-cm-wallet-view="transfer-wallets"
+                aria-hidden="true"
+              >
+                <div class="cm-wallet-view__inner">
+                  <header class="cm-wallet-view__header">
+                    <h2 class="cm-wallet-view__title">Transferir<br />entre carteras</h2>
+                  </header>
+
+                  <form class="cm-wallet-form cm-wallet-form--transfer" data-cm-wallet-form="transfer-wallets" novalidate>
+                    <div class="cm-wallet-grid-2 cm-wallet-grid-2--transfer">
+                      <label class="cm-wallet-field cm-wallet-field--transfer">
+                        <span class="cm-wallet-field__label">De:</span>
+                        <span class="cm-wallet-select-wrap cm-wallet-select-wrap--transfer cm-wallet-select-wrap--from">
+                          <span class="cm-wallet-chip" data-cm-wallet-chip>
+                            <select
+                              class="cm-wallet-select cm-wallet-select--chip"
+                              data-cm-wallet-from
+                              name="walletFrom"
+                              aria-label="Cartera de origen"
+                              required
+                            >
+                              <option value="">Selecciona cartera</option>
+                              <option value="membresia" selected>Membresía</option>
+                              <option value="club">Club</option>
+                              <option value="residual">Residual Conex</option>
+                              <option value="pg2">PG2</option>
+                              <option value="pg3">PG3</option>
+                            </select>
+                            <span class="cm-wallet-chip__icon" aria-hidden="true">
+                              <svg viewBox="0 0 16 16" focusable="false">
+                                <path d="M4.75 6.5 8 9.5l3.25-3" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                              </svg>
+                            </span>
+                          </span>
+                          <span class="cm-wallet-balance" data-cm-wallet-balance-from aria-live="polite">0.00</span>
+                          <button class="cm-wallet-clear" type="button" data-cm-wallet-clear-from aria-label="Limpiar origen">
+                            <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+                              <circle cx="8" cy="8" r="6.6" fill="none" stroke="currentColor" stroke-width="1.2" />
+                              <path d="M5.5 5.5 10.5 10.5M10.5 5.5 5.5 10.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" />
+                            </svg>
+                          </button>
+                        </span>
+                      </label>
+
+                      <label class="cm-wallet-field cm-wallet-field--transfer">
+                        <span class="cm-wallet-field__label">Para:</span>
+                        <span class="cm-wallet-select-wrap cm-wallet-select-wrap--transfer">
+                          <select class="cm-wallet-select cm-wallet-select--plain" data-cm-wallet-to name="walletTo" aria-label="Cartera de destino" required>
+                            <option value="">Selecciona cartera</option>
+                            <option value="club" selected>Club</option>
+                            <option value="membresia">Membresía</option>
+                            <option value="residual">Residual Conex</option>
+                            <option value="pg2">PG2</option>
+                            <option value="pg3">PG3</option>
+                          </select>
+                          <span class="cm-wallet-select-icon" aria-hidden="true">
+                            <svg viewBox="0 0 16 16" focusable="false">
+                              <path d="M4.75 9.5 8 6.5l3.25 3" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                          </span>
+                          <span class="cm-wallet-balance" data-cm-wallet-balance-to aria-live="polite">0.00</span>
+                        </span>
+                      </label>
+                    </div>
+
+                    <label class="cm-wallet-field cm-wallet-field--transfer">
+                      <span class="cm-wallet-field__label">Cantidad a transferir en USDT</span>
+                      <span class="cm-wallet-input-wrap">
+                        <input
+                          class="cm-wallet-input"
+                          data-cm-wallet-amount
+                          name="walletTransferAmount"
+                          type="number"
+                          min="0.1"
+                          step="0.01"
+                          value=""
+                          inputmode="decimal"
+                          placeholder="0.1"
+                          required
+                        />
+                        <span class="cm-wallet-field__suffix">USDT</span>
+                      </span>
+                    </label>
+
+                    <p class="cm-wallet-error" data-cm-wallet-error aria-live="polite"></p>
+                    <button class="cm-wallet-submit" data-cm-wallet-submit type="submit">Transferir Fondos</button>
+                    <p class="cm-wallet-success" data-cm-wallet-success aria-live="polite"></p>
+                  </form>
+                </div>
+              </article>
+
+              <article
+                id="cm-wallet-view-transfer-user"
+                class="cm-wallet-view cm-wallet-view--transfer-user"
+                data-cm-wallet-view="transfer-user"
+                aria-hidden="true"
+              >
+                <div class="cm-wallet-view__inner">
+                  <header class="cm-wallet-view__header">
+                    <h2 class="cm-wallet-view__title">Transferir<br />a otro usuario</h2>
+                  </header>
+
+                  <form class="cm-wallet-form" data-cm-wallet-form="transfer-user" data-cm-wallet-show-error="true" novalidate>
+                    <label class="cm-wallet-field">
+                      <span class="cm-wallet-field__head">
+                        <span class="cm-wallet-field__label">Escribe el MIU del destinatario</span>
+                        <span class="cm-wallet-recipient" data-cm-wallet-recipient>
+                          <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false">
+                            <circle cx="10" cy="10" r="7.4" fill="none" stroke="currentColor" stroke-width="1.4" />
+                            <path d="m6.6 10.2 2.2 2.2 4.6-4.8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+                          </svg>
+                          <span data-cm-wallet-recipient-name>Le transferirá a José Rafael Perez</span>
+                        </span>
+                      </span>
+                      <input
+                        class="cm-wallet-input"
+                        data-cm-wallet-miu
+                        name="recipientMiu"
+                        type="text"
+                        inputmode="numeric"
+                        pattern="^[0-9]{6,10}$"
+                        maxlength="10"
+                        value="1212312"
+                        required
+                      />
+                    </label>
+
+                    <label class="cm-wallet-field">
+                      <span class="cm-wallet-field__label">Cantidad a transferir</span>
+                      <span class="cm-wallet-input-wrap">
+                        <input
+                          class="cm-wallet-input"
+                          data-cm-wallet-amount
+                          name="userTransferAmount"
+                          type="number"
+                          min="0.1"
+                          step="0.01"
+                          value=""
+                          inputmode="decimal"
+                          placeholder="0.1"
+                          required
+                        />
+                        <span class="cm-wallet-field__suffix">USDT</span>
+                      </span>
+                    </label>
+
+                    <p class="cm-wallet-error" data-cm-wallet-error aria-live="polite"></p>
+                    <button class="cm-wallet-submit" data-cm-wallet-submit type="submit">Transferir a Usuario</button>
+                    <p class="cm-wallet-success" data-cm-wallet-success aria-live="polite"></p>
+                  </form>
+                </div>
+              </article>
+
+              <article
+                id="cm-wallet-view-withdraw"
+                class="cm-wallet-view cm-wallet-view--withdraw"
+                data-cm-wallet-view="withdraw"
+                aria-hidden="true"
+              >
+                <div class="cm-wallet-view__inner">
+                  <header class="cm-wallet-view__header">
+                    <h2 class="cm-wallet-view__title">Retirar Fondos</h2>
+                    <p class="cm-wallet-available">Disponible: 0.00 USDT</p>
+                  </header>
+
+                  <form class="cm-wallet-form" data-cm-wallet-form="withdraw" data-cm-wallet-show-error="true" data-cm-wallet-available="0" novalidate>
+                    <label class="cm-wallet-field">
+                      <span class="cm-wallet-field__label">Cantidad a retirar</span>
+                      <span class="cm-wallet-input-wrap">
+                        <input
+                          class="cm-wallet-input"
+                          data-cm-wallet-amount
+                          name="withdrawAmount"
+                          type="number"
+                          min="0.1"
+                          step="0.01"
+                          value="0.1"
+                          inputmode="decimal"
+                          required
+                        />
+                        <span class="cm-wallet-field__suffix">USDT</span>
+                      </span>
+                    </label>
+
+                    <div class="cm-wallet-field">
+                      <span class="cm-wallet-field__label">Dirección de retiro</span>
+                      <section class="cm-wallet-warning" aria-label="Información importante de seguridad">
+                        <p class="cm-wallet-warning__title"><span aria-hidden="true">⚠️</span> Información importante</p>
+                        <ul class="cm-wallet-warning__list">
+                          <li>Todos los retiros llegan a tu wallet de <span class="cm-wallet-chip-note">CaDes</span>.</li>
+                          <li>El tiempo de retiro son 72 horas hábiles.</li>
+                        </ul>
+                      </section>
+                    </div>
+
+                    <p class="cm-wallet-error" data-cm-wallet-error aria-live="polite"></p>
+                    <button class="cm-wallet-submit" data-cm-wallet-submit type="submit">Solicitar retiro</button>
+                    <p class="cm-wallet-success" data-cm-wallet-success aria-live="polite"></p>
+                  </form>
+                </div>
+              </article>
+            </section>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.8/dist/chart.umd.min.js" defer></script>
+    <script src="js/main.js" defer></script>
+  </body>
+</html>

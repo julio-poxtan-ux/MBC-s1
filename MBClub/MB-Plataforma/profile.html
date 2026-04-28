@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MB eLearning | Configuración</title>
+  <meta name="description" content="Perfil de usuario y preferencias de notificaciones.">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="css/tokens.css" rel="stylesheet">
+  <link href="css/styles.css" rel="stylesheet">
+</head>
+
+<body>
+  <!-- Navbar -->
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg fixed-top mb-navbar">
+    <div class="container-fluid mb-container">
+      <a class="navbar-brand d-flex align-items-center gap-2" href="index.html" aria-label="MB eLearning">
+        <span class="mb-brand">
+          <img src="./assets/icon-logo-menu.png" alt="MB Club" class="img-fluid" />
+        </span>
+      </a>
+
+      <div class="position-relative mb-search">
+        <i class="bi bi-search" aria-hidden="true"></i>
+        <label class="visually-hidden" for="mbSearch">Buscar</label>
+        <input id="mbSearch" class="form-control" type="search" placeholder="Buscar..." autocomplete="off"
+          aria-expanded="false" aria-controls="mbSearchResults" />
+        <div id="mbSearchResults" class="mb-search-results" role="listbox" aria-label="Resultados de búsqueda" hidden>
+          <div class="mb-search-count" data-search-count>0 resultados</div>
+          <div class="mb-search-empty" data-search-empty>
+            Escribe para buscar en la página.
+          </div>
+          <div class="mb-search-list" data-search-list></div>
+        </div>
+      </div>
+
+      <div class="ms-auto d-flex align-items-center gap-2">
+        <!-- <button class="mb-nav-icon" type="button" aria-label="Notificaciones">
+          <i class="bi bi-bell" aria-hidden="true"></i>
+        </button> -->
+        <div class="dropdown">
+          <button class="mb-userchip mb-userchip-button dropdown-toggle" type="button" id="mbUserMenu"
+            data-bs-toggle="dropdown" aria-expanded="false" aria-label="Abrir menu de usuario">
+            <div class="me-1 text-start">
+              <div class="name">Sergio Jacobo</div>
+              <div class="meta pt-1">Elite</div>
+            </div>
+            <img src="assets/img/Perfil%20de%20usuario.png" alt="Foto de perfil de Sergio" />
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end mb-user-menu" aria-labelledby="mbUserMenu">
+            <li>
+              <a class="dropdown-item" href="profile.html">
+                <i class="bi bi-gear" aria-hidden="true"></i>
+                Opciones
+              </a>
+            </li>
+            <li>
+              <button class="dropdown-item" type="button">
+                <i class="bi bi-life-preserver" aria-hidden="true"></i>
+                Centro de ayuda
+              </button>
+            </li>
+            <li>
+              <hr class="dropdown-divider" />
+            </li>
+            <li>
+              <button class="dropdown-item mb-logout" type="button">
+                <i class="bi bi-box-arrow-right" aria-hidden="true"></i>
+                Cerrar sesion
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container-fluid mb-container mb-section pt-4">
+    <header class="mb-4">
+      <h1 style="font-size:2rem; font-weight:var(--weight-bold); margin:0;">Configuración</h1>
+      <p class="mb-0" style="color:var(--color-text-3);">Gestiona tu perfil y preferencias de la cuenta</p>
+    </header>
+
+    <!-- Perfil público -->
+    <section class="mb-panel mb-4">
+      <div class="mb-panel-header">
+        <div class="mb-nav-icon" style="width:38px;height:38px;">
+          <i class="bi bi-person" aria-hidden="true"></i>
+        </div>
+        <div class="fw-semibold">Perfil Público</div>
+      </div>
+
+      <div class="mb-panel-body">
+        <form class="needs-validation" novalidate>
+          <div class="d-flex align-items-center gap-3 mb-4">
+            <img id="mbPhotoPreview2" class="mb-avatar" src="assets/img/Perfil%20de%20usuario.png" alt="Foto de perfil actual">
+            <div>
+              <input id="mbPhotoInput" type="file" accept="image/*" class="visually-hidden">
+              <button class="btn mb-button-secondary" type="button" data-photo-pick>Cambiar Foto</button>
+              <div class="text-muted mt-2" style="font-size:.82rem;">JPG o PNG, recomendado 512×512.</div>
+            </div>
+          </div>
+
+          <div class="row g-3">
+            <div class="col-12 col-lg-6">
+              <label class="mb-form-label" for="mbFullName">Nombre Completo</label>
+              <input id="mbFullName" class="form-control mb-input" type="text" value="Sergio Jacobo" required>
+              <div class="invalid-feedback">Ingresa tu nombre completo.</div>
+            </div>
+
+            <div class="col-12 col-lg-6">
+              <label class="mb-form-label" for="mbEmail">Email</label>
+              <input id="mbEmail" class="form-control mb-input" type="email" value="sergio@example.com" required>
+              <div class="invalid-feedback">Ingresa un email válido.</div>
+            </div>
+
+            <div class="col-12">
+              <label class="mb-form-label" for="mbBio">Bio</label>
+              <textarea id="mbBio" class="form-control mb-input" rows="4" placeholder="Escribe una breve biografía..." style="border-radius: var(--radius-lg);"></textarea>
+            </div>
+          </div>
+
+          <div class="mt-4 d-flex flex-wrap gap-2">
+            <button class="btn mb-button-primary" type="submit">Guardar cambios</button>
+            <a class="btn mb-button-secondary" href="index.html">Volver al inicio</a>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- Notificaciones -->
+    <section class="mb-panel">
+      <div class="mb-panel-header">
+        <div class="mb-nav-icon" style="width:38px;height:38px;">
+          <i class="bi bi-bell" aria-hidden="true"></i>
+        </div>
+        <div class="fw-semibold">Notificaciones</div>
+      </div>
+
+      <div class="mb-panel-body">
+        <div class="d-flex align-items-center justify-content-between gap-3 py-3" style="border-bottom: 1px solid rgba(255,255,255,.08);">
+          <div>
+            <div class="fw-semibold">Notificaciones de Cursos</div>
+            <div class="text-muted" style="font-size:.85rem;">Recibe alertas sobre nuevas lecciones y material.</div>
+          </div>
+          <div class="mb-switch" role="switch" tabindex="0" aria-checked="true" data-switch aria-label="Activar notificaciones de cursos"></div>
+        </div>
+
+        <div class="d-flex align-items-center justify-content-between gap-3 py-3">
+          <div>
+            <div class="fw-semibold">Mentorías en Vivo</div>
+            <div class="text-muted" style="font-size:.85rem;">Avisos 30 minutos antes de que empiece una sesión.</div>
+          </div>
+          <div class="mb-switch" role="switch" tabindex="0" aria-checked="true" data-switch aria-label="Activar notificaciones de mentorías"></div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="mb-footer mt-4">
+      <div class="d-flex flex-wrap align-items-center justify-content-between gap-2">
+        <div>© <span id="mbYear"></span> MB eLearning</div>
+        <div class="d-flex gap-3">
+          <a class="text-decoration-none" href="index.html">Inicio</a>
+          <a class="text-decoration-none" href="course.html">Curso</a>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    document.getElementById('mbYear').textContent = new Date().getFullYear();
+    // Mirror navbar avatar preview with selected file
+    const input = document.getElementById('mbPhotoInput');
+    const preview1 = document.getElementById('mbPhotoPreview');
+    const preview2 = document.getElementById('mbPhotoPreview2');
+    if (input) {
+      input.addEventListener('change', () => {
+        const f = input.files && input.files[0];
+        if (!f) return;
+        const url = URL.createObjectURL(f);
+        if (preview1) preview1.src = url;
+        if (preview2) preview2.src = url;
+      });
+    }
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

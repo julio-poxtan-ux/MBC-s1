@@ -1,0 +1,35 @@
+:root {
+  --mk-rewards-chart-grid: rgba(255, 255, 255, 0.9);
+  --mk-rewards-chart-axis: #f6f7f9;
+  --mk-rewards-chart-line-start: #2290ff;
+  --mk-rewards-chart-line-mid: #74b6f2;
+  --mk-rewards-chart-line-end: #ffffff;
+  --mk-rewards-chart-tooltip-bg: rgba(5, 24, 40, 0.95);
+  --mk-rewards-chart-tick-x: 12;
+  --mk-rewards-chart-tick-y: 16;
+  --mk-rewards-chart-line-width: 6;
+}
+
+.mk-page-shell--recompensas {
+  --mk-rewards-chart-grid: rgba(255, 255, 255, 0.9);
+  --mk-rewards-chart-axis: #f6f7f9;
+  --mk-rewards-chart-line-start: #2a94ff;
+  --mk-rewards-chart-line-mid: #6fb5f6;
+  --mk-rewards-chart-line-end: #ffffff;
+}
+
+@media (max-width: 991.98px) {
+  :root {
+    --mk-rewards-chart-tick-x: 11;
+    --mk-rewards-chart-tick-y: 14;
+    --mk-rewards-chart-line-width: 5;
+  }
+}
+
+@media (max-width: 575.98px) {
+  :root {
+    --mk-rewards-chart-tick-x: 10;
+    --mk-rewards-chart-tick-y: 12;
+    --mk-rewards-chart-line-width: 4;
+  }
+}

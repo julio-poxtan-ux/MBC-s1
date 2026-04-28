@@ -1,0 +1,63 @@
+@font-face {
+    font-family: 'TWK Everett';
+    src: url('TWKEverett-Black.woff2') format('woff2'),
+        url('TWKEverett-Black.woff') format('woff');
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'TWK Everett';
+    src: url('TWKEverett-Bold.woff2') format('woff2'),
+        url('TWKEverett-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'TWK Everett';
+    src: url('TWKEverett-Extrabold.woff2') format('woff2'),
+        url('TWKEverett-Extrabold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'TWK Everett';
+    src: url('TWKEverett-Light.woff2') format('woff2'),
+        url('TWKEverett-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'TWK Everett';
+    src: url('TWKEverett-Super.woff2') format('woff2'),
+        url('TWKEverett-Super.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'TWK Everett';
+    src: url('TWKEverett-Medium.woff2') format('woff2'),
+        url('TWKEverett-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'TWK Everett';
+    src: url('TWKEverett-Regular.woff2') format('woff2'),
+        url('TWKEverett-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+

@@ -1,0 +1,417 @@
+/* ============================================================
+   MB Capital — Auth Pages  |  Bootstrap 5.3
+   ============================================================ */
+
+:root {
+  --mb-blue:        #0073bc;
+  --mb-blue-dark:   #1a6cac;
+  --mb-bg:          #000;
+  --mb-white:       #fff;
+  --mb-muted:       #9c9ca4;
+  --mb-grey:        #dfdfdf;
+  --mb-soft-grey:   #f5f5f7;
+  --mb-placeholder: #cecece;
+  --mb-border:      rgba(255, 255, 255, 0.85);
+  --mb-border-pw:   #f5f5f7;
+  --mb-radius:      10px;
+}
+
+/* ── Base ── */
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  background: var(--mb-bg);
+  color: var(--mb-white);
+  font-family: 'Roboto', sans-serif;
+  min-height: 100vh;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+/* ============================================================
+   AUTH PAGE LAYOUT
+   ============================================================ */
+
+.auth-page {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* ── Brand Panel (left 50% on desktop) ── */
+.auth-brand {
+  position: relative;
+  width: 50%;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  padding: 3rem 4.5rem;
+}
+
+.auth-brand__bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.auth-brand__gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(140deg, rgba(0, 115, 188, 0.12) 0%, rgba(0, 0, 0, 0.72) 62%);
+}
+
+.auth-brand__wave {
+  position: absolute;
+  inset: -30% -20%;
+  width: 140%;
+  height: 160%;
+  object-fit: cover;
+  mix-blend-mode: screen;
+  opacity: 0.25;
+  pointer-events: none;
+  transform: rotate(-19deg);
+}
+
+.auth-brand__content {
+  position: relative;
+  z-index: 2;
+  max-width: 500px;
+}
+
+.auth-brand__logo {
+  height: 56px;
+  width: auto;
+  display: block;
+  margin-bottom: 1.25rem;
+}
+
+.auth-brand__title {
+  font-family: 'TWK Everett', sans-serif;
+  font-weight: 500;
+  font-size: clamp(2rem, 3vw, 3rem);
+  line-height: 1.2;
+  color: var(--mb-blue-dark);
+  margin-bottom: 0.35rem;
+}
+
+.auth-brand__subtitle {
+  font-family: 'TWK Everett', sans-serif;
+  font-weight: 500;
+  font-size: clamp(1.25rem, 2vw, 1.75rem);
+  color: var(--mb-white);
+  margin: 0;
+}
+
+/* ── Form Panel (right 50% on desktop) ── */
+.auth-form-panel {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 2rem;
+}
+
+.auth-form-inner {
+  width: 100%;
+  max-width: 395px;
+}
+
+/* ============================================================
+   TYPOGRAPHY
+   ============================================================ */
+
+.auth-title {
+  font-family: 'TWK Everett', sans-serif;
+  font-weight: 500;
+  font-size: 2.625rem;
+  line-height: 1.3;
+  color: var(--mb-white);
+  margin: 0;
+}
+
+.auth-subtitle {
+  font-family: 'TWK Everett', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--mb-white);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.auth-link-row {
+  font-family: 'TWK Everett', sans-serif;
+  font-size: 0.875rem;
+  color: var(--mb-white);
+  line-height: 2;
+}
+
+.auth-link-row a {
+  color: var(--mb-blue);
+  text-decoration: none;
+}
+.auth-link-row a:hover { text-decoration: underline; }
+
+.auth-muted {
+  font-family: 'TWK Everett', sans-serif;
+  font-size: 0.875rem;
+  color: var(--mb-muted);
+  text-decoration: none;
+  white-space: nowrap;
+  line-height: 1.5;
+}
+.auth-muted:hover { color: var(--mb-white); }
+
+.auth-helper {
+  font-size: 0.75rem;
+  color: var(--mb-muted);
+  line-height: 1.5;
+}
+
+/* ============================================================
+   FORM CONTROLS
+   ============================================================ */
+
+.auth-label {
+  display: block;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--mb-white);
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+}
+
+.auth-input {
+  display: block;
+  width: 100%;
+  height: 50px;
+  padding: 0 1.25rem;
+  background: transparent;
+  border: 1px solid var(--mb-border);
+  border-radius: var(--mb-radius);
+  color: var(--mb-white);
+  font-size: 1rem;
+  font-family: 'Roboto', sans-serif;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  outline: none;
+  -webkit-appearance: none;
+}
+
+.auth-input::placeholder { color: var(--mb-placeholder); }
+
+.auth-input:focus {
+  border-color: var(--mb-blue);
+  box-shadow: 0 0 0 3px rgba(0, 115, 188, 0.25);
+}
+
+/* Password fields use lighter border per design */
+.auth-input--pw {
+  border-color: var(--mb-border-pw);
+  padding-right: 3rem;
+}
+
+.auth-input--pw::placeholder { color: var(--mb-muted); }
+
+/* ── Validation states ── */
+.auth-input.is-invalid {
+  border-color: #f87171 !important;
+  box-shadow: none;
+}
+.auth-input.is-valid {
+  border-color: #4ade80 !important;
+  box-shadow: none;
+}
+
+/* Override Bootstrap's built-in icons on validated inputs */
+.auth-input.is-invalid,
+.auth-input.is-valid {
+  background-image: none;
+  padding-right: 1.25rem;
+}
+.auth-input--pw.is-invalid,
+.auth-input--pw.is-valid {
+  padding-right: 3rem;
+}
+
+.invalid-feedback {
+  display: none;
+  color: #f87171;
+  font-size: 0.72rem;
+  margin-top: 0.25rem;
+  line-height: 1.4;
+}
+.auth-input.is-invalid ~ .invalid-feedback { display: block; }
+
+/* ── Password toggle ── */
+.password-wrap { position: relative; }
+
+.password-toggle {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: var(--mb-muted);
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  font-size: 1.1rem;
+  line-height: 1;
+  z-index: 2;
+}
+.password-toggle:hover { color: var(--mb-white); }
+.password-toggle:focus-visible {
+  outline: 2px solid var(--mb-blue);
+  border-radius: 4px;
+}
+
+/* ============================================================
+   BUTTON
+   ============================================================ */
+
+.btn-mb {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  background: var(--mb-blue);
+  color: var(--mb-white);
+  border: none;
+  border-radius: var(--mb-radius);
+  font-size: 0.875rem;
+  font-weight: 500;
+  font-family: 'Roboto', sans-serif;
+  cursor: pointer;
+  transition: background 0.2s, opacity 0.2s;
+  text-decoration: none;
+  white-space: nowrap;
+  padding: 0 1.5rem;
+}
+
+.btn-mb:hover  { background: #005a99; color: var(--mb-white); }
+.btn-mb:active { opacity: 0.85; }
+
+.btn-mb--full  { width: 100%; }
+
+/* ============================================================
+   FORGOT PASSWORD — sent confirmation state
+   ============================================================ */
+
+.sent-state { display: none; }
+.sent-state.active { display: block; }
+.form-state.hidden { display: none; }
+
+.sent-icon {
+  width: 64px;
+  height: 64px;
+  background: var(--mb-blue);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.75rem;
+  color: #fff;
+  margin-bottom: 1.5rem;
+}
+
+.sent-title {
+  font-family: 'TWK Everett', sans-serif;
+  font-weight: 500;
+  font-size: 1.75rem;
+  color: #fff;
+  margin-bottom: 0.75rem;
+}
+
+.sent-body {
+  font-size: 0.875rem;
+  color: var(--mb-muted);
+  line-height: 1.6;
+}
+
+.sent-body a { color: var(--mb-blue); text-decoration: none; }
+.sent-body a:hover { text-decoration: underline; }
+
+/* ============================================================
+   NEW PASSWORD — strength & match indicators
+   ============================================================ */
+
+.pw-strength {
+  height: 4px;
+  border-radius: 2px;
+  background: rgba(255,255,255,0.12);
+  overflow: hidden;
+  margin-top: 0.5rem;
+}
+
+.pw-strength__bar {
+  height: 100%;
+  border-radius: 2px;
+  transition: width 0.3s, background 0.3s;
+  width: 0%;
+}
+
+.pw-strength__label {
+  font-size: 0.7rem;
+  margin-top: 0.25rem;
+}
+
+.match-hint {
+  font-size: 0.7rem;
+  margin-top: 0.25rem;
+  min-height: 1rem;
+}
+
+/* ============================================================
+   MOBILE  (<992 px)
+   ============================================================ */
+
+@media (max-width: 991.98px) {
+  .auth-page {
+    flex-direction: column;
+    position: relative;
+  }
+
+  /* Form panel: on top, with blue gradient header */
+  .auth-form-panel {
+    order: 1;
+    width: 100%;
+    min-height: auto;
+    padding: 3rem 1.5rem 2.5rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .auth-form-panel::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 232px;
+    background: linear-gradient(to bottom, var(--mb-blue), transparent);
+    z-index: -1;
+    pointer-events: none;
+  }
+
+  /* Brand panel: at the bottom */
+  .auth-brand {
+    order: 2;
+    width: 100%;
+    min-height: 380px;
+    padding: 2.5rem 1.5rem;
+    align-items: flex-end;
+  }
+
+  .auth-brand__wave { display: none; }
+
+  /* Logo centered on mobile brand */
+  .auth-brand__content {
+    width: 100%;
+    text-align: left;
+  }
+
+  .auth-title  { font-size: 2.25rem; }
+  .auth-brand__title    { font-size: 2.25rem; }
+  .auth-brand__subtitle { font-size: 1.25rem; }
+}

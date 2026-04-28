@@ -1,0 +1,675 @@
+:root {
+  /* Core palette */
+  --neo-color-primary: #1C73B8;
+  --neo-color-accent: #7AB8EB;
+  --neo-color-secondary: #23446B;
+
+  --neo-color-bg: #020617;
+  --neo-color-surface: #020617;
+  --neo-color-surface-elevated: #020617;
+  --neo-color-border-subtle: #1e293b;
+  --neo-color-input-bg: #020617;
+  --neo-color-input-border: #1e293b;
+  --neo-color-input-border-active: #1C73B8;
+  --neo-color-input-border-error: #ef4444;
+  --neo-color-input-placeholder: #64748b;
+
+  --neo-color-text-main: #e5e7eb;
+  --neo-color-text-muted: #94a3b8;
+  --neo-color-text-strong: #f9fafb;
+
+  /* Shadows */
+  --neo-shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.65);
+
+  /* Form controls */
+  --neo-input-padding-y: 0.85rem;
+  --neo-input-padding-x: 1.1rem;
+  --neo-input-border-radius: 0.85rem;
+  --neo-input-border-width: 1px;
+  --neo-input-background: var(--neo-color-input-bg);
+
+  /* Panel / section containers */
+  --neo-panel-padding: 1.75rem;
+  --neo-panel-border-radius: 1.25rem;
+  --neo-panel-background: radial-gradient(circle at top left, #020617, #020617);
+  --neo-panel-border-width: 1px;
+  --neo-panel-border-color: rgba(148, 163, 184, 0.18);
+
+  /* Buttons */
+  --neo-btn-padding-y: 0.65rem;
+  --neo-btn-padding-x: 1.4rem;
+  --neo-btn-radius: 16px;
+  --neo-btn-border-width: 1px;
+  --neo-btn-bg: var(--neo-color-primary);
+  --neo-btn-bg-hover: #2b82c7;
+  --neo-btn-bg-active: #155182;
+  --neo-btn-border-color: transparent;
+
+  --neo-btn-outline-bg: transparent;
+  --neo-btn-outline-border-color: rgba(148, 163, 184, 0.5);
+
+  --neo-btn-destructive-bg: #ef4444;
+  --neo-btn-destructive-bg-hover: #f97373;
+
+  --neo-btn-glass-bg: rgba(15, 23, 42, 0.7);
+  --neo-btn-glass-border-color: rgba(148, 163, 184, 0.4);
+
+  /* Gradient button */
+  --neo-btn-gradient-bg: linear-gradient(90deg, #1C73B8, #7AB8EB);
+
+  /* Pills */
+  --neo-pill-padding-y: 0.45rem;
+  --neo-pill-padding-x: 1.1rem;
+  --neo-pill-radius: 16px;
+  --neo-pill-bg: rgba(15, 23, 42, 0.75);
+  --neo-pill-bg-active: rgba(28, 115, 184, 0.95);
+
+  /* Cards */
+  --neo-card-padding: 1.5rem;
+  --neo-card-radius: 1.5rem;
+  --neo-card-bg: radial-gradient(circle at top left, #020617, #020617);
+  --neo-card-border-width: 1px;
+  --neo-card-border-color: rgba(15, 23, 42, 0.95);
+
+  /* Alerts */
+  --neo-alert-padding-y: 0.9rem;
+  --neo-alert-padding-x: 1.1rem;
+  --neo-alert-radius: 0.9rem;
+  --neo-alert-bg: rgba(15, 23, 42, 0.95);
+  --neo-alert-border-width: 1px;
+
+  /* Checkboxes / switches */
+  --neo-check-radius: 0.75rem;
+  --neo-check-bg: rgba(15, 23, 42, 0.8);
+  --neo-check-border-color: rgba(148, 163, 184, 0.6);
+
+  --neo-switch-track-bg: #020617;
+  --neo-switch-track-border: rgba(148, 163, 184, 0.7);
+  --neo-switch-thumb-bg: #020617;
+
+  /* Elevation spacing */
+  --neo-section-spacing: 4rem;
+}
+
+/* Global layout */
+
+body.neo-body-bg {
+  background: radial-gradient(circle at top, #020617, #020617);
+  color: var(--neo-color-text-main);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+    "Segoe UI", sans-serif;
+}
+
+.neo-main {
+  padding-top: 5.5rem;
+  padding-bottom: 4rem;
+}
+
+.neo-section {
+  margin-bottom: var(--neo-section-spacing);
+}
+
+.neo-section-header {
+  margin-bottom: 1.5rem;
+}
+
+.neo-eyebrow {
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 0.73rem;
+  color: var(--neo-color-accent);
+}
+
+.neo-label {
+  color: var(--neo-color-text-main);
+}
+
+/* Navbar */
+
+.neo-navbar {
+  background: rgba(15, 23, 42, 0.96);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(148, 163, 184, 0.18);
+}
+
+/* Panels */
+
+.neo-panel {
+  padding: var(--neo-panel-padding);
+  border-radius: var(--neo-panel-border-radius);
+  background: var(--neo-panel-background);
+  border: var(--neo-panel-border-width) solid var(--neo-panel-border-color);
+  box-shadow: var(--neo-shadow-soft);
+}
+
+/* Inputs */
+
+.neo-input,
+.neo-input-group .neo-input {
+  padding: var(--neo-input-padding-y) var(--neo-input-padding-x);
+  border-radius: var(--neo-input-border-radius);
+  border-width: var(--neo-input-border-width);
+  border-style: solid;
+  border-color: var(--neo-color-input-border);
+  background-color: var(--neo-input-background);
+  color: var(--neo-color-text-main);
+  font-size: 0.9rem;
+}
+
+.neo-input::placeholder {
+  color: var(--neo-color-input-placeholder);
+}
+
+.neo-input:focus,
+.neo-input:focus-visible {
+  border-color: var(--neo-color-input-border-active);
+  box-shadow: 0 0 0 1px rgba(124, 189, 235, 0.4);
+  outline: none;
+}
+
+.neo-input-active {
+  border-color: var(--neo-color-input-border-active);
+}
+
+.neo-input-error {
+  border-color: var(--neo-color-input-border-error);
+}
+
+.neo-help-text {
+  color: var(--neo-color-text-muted);
+}
+
+.neo-error-text {
+  color: #fca5a5;
+}
+
+/* Input group */
+
+.neo-input-group {
+  border-radius: var(--neo-input-border-radius);
+  overflow: hidden;
+}
+
+.neo-input-password {
+  border-right: none;
+  border-radius: var(--neo-input-border-radius) 0 0 var(--neo-input-border-radius);
+}
+
+.neo-password-toggle {
+  border-left: none !important;
+  border-radius: 0 var(--neo-input-border-radius) var(--neo-input-border-radius) 0;
+}
+
+/* Generic input shell used for custom selects */
+.neo-input-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  color: var(--neo-color-text-muted);
+}
+
+/* Tags (chips) */
+
+.neo-tag {
+  padding: 0.25rem 0.7rem;
+  border-radius: 999px;
+  background: rgba(28, 115, 184, 0.16);
+  color: var(--neo-color-accent);
+  border: 1px solid rgba(28, 115, 184, 0.5);
+  font-size: 0.75rem;
+}
+
+.neo-tag-muted {
+  opacity: 0.7;
+}
+
+/* Toggles & checkboxes */
+
+.neo-toggle-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.85rem 1rem;
+  border-radius: 1rem;
+  background: rgba(15, 23, 42, 0.85);
+  border: 1px solid rgba(15, 23, 42, 0.9);
+}
+
+.neo-switch .form-check-input {
+  width: 2.8rem;
+  height: 1.55rem;
+  background-color: var(--neo-switch-track-bg);
+  border-color: var(--neo-switch-track-border);
+  box-shadow: none;
+  cursor: pointer;
+}
+
+.neo-switch .form-check-input:focus {
+  box-shadow: 0 0 0 1px rgba(122, 184, 235, 0.35);
+}
+
+.neo-switch .form-check-input:checked {
+  background-color: var(--neo-color-primary);
+  border-color: var(--neo-color-primary);
+}
+
+.neo-checkbox-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.neo-check {
+  padding: 0.55rem 0.75rem;
+  border-radius: 0.75rem;
+  background: var(--neo-check-bg);
+  border: 1px solid var(--neo-check-border-color);
+}
+
+.neo-check .form-check-input {
+  border-radius: 0.45rem;
+  background-color: transparent;
+  border-color: rgba(148, 163, 184, 0.7);
+}
+
+.neo-check .form-check-input:checked {
+  background-color: var(--neo-color-primary);
+  border-color: var(--neo-color-primary);
+}
+
+.neo-check .form-check-label {
+  color: var(--neo-color-text-main);
+}
+
+/* Buttons */
+
+.btn-neo-primary {
+  --bs-btn-padding-y: var(--neo-btn-padding-y);
+  --bs-btn-padding-x: var(--neo-btn-padding-x);
+  --bs-btn-border-radius: var(--neo-btn-radius);
+  --bs-btn-border-width: var(--neo-btn-border-width);
+  --bs-btn-border-color: var(--neo-btn-border-color);
+  --bs-btn-bg: var(--neo-btn-bg);
+  --bs-btn-color: #f9fafb;
+  --bs-btn-hover-bg: var(--neo-btn-bg-hover);
+  --bs-btn-hover-border-color: transparent;
+  --bs-btn-active-bg: var(--neo-btn-bg-active);
+  --bs-btn-active-border-color: transparent;
+  --bs-btn-disabled-bg: rgba(148, 163, 184, 0.35);
+  --bs-btn-disabled-border-color: transparent;
+  --bs-btn-disabled-color: rgba(15, 23, 42, 0.85);
+  font-size: 0.87rem;
+}
+
+.btn-neo-outline {
+  --bs-btn-padding-y: var(--neo-btn-padding-y);
+  --bs-btn-padding-x: var(--neo-btn-padding-x);
+  --bs-btn-border-radius: var(--neo-btn-radius);
+  --bs-btn-border-width: var(--neo-btn-border-width);
+  --bs-btn-border-color: var(--neo-btn-outline-border-color);
+  --bs-btn-bg: transparent;
+  --bs-btn-color: var(--neo-color-text-main);
+  --bs-btn-hover-bg: rgba(15, 23, 42, 0.9);
+  --bs-btn-hover-border-color: rgba(148, 163, 184, 0.9);
+  --bs-btn-active-bg: rgba(15, 23, 42, 1);
+  --bs-btn-active-border-color: rgba(148, 163, 184, 1);
+  font-size: 0.87rem;
+}
+
+.btn-neo-secondary {
+  --bs-btn-padding-y: var(--neo-btn-padding-y);
+  --bs-btn-padding-x: var(--neo-btn-padding-x);
+  --bs-btn-border-radius: var(--neo-btn-radius);
+  --bs-btn-border-width: var(--neo-btn-border-width);
+  --bs-btn-border-color: transparent;
+  --bs-btn-bg: var(--neo-color-secondary);
+  --bs-btn-color: #e5e7eb;
+  --bs-btn-hover-bg: #29547b;
+  --bs-btn-active-bg: #163557;
+  font-size: 0.87rem;
+}
+
+.btn-neo-glass {
+  --bs-btn-padding-y: var(--neo-btn-padding-y);
+  --bs-btn-padding-x: var(--neo-btn-padding-x);
+  --bs-btn-border-radius: var(--neo-btn-radius);
+  --bs-btn-border-width: var(--neo-btn-border-width);
+  --bs-btn-border-color: var(--neo-btn-glass-border-color);
+  --bs-btn-bg: var(--neo-btn-glass-bg);
+  --bs-btn-color: var(--neo-color-text-main);
+  --bs-btn-hover-bg: rgba(15, 23, 42, 0.95);
+  --bs-btn-active-bg: rgba(15, 23, 42, 1);
+  font-size: 0.87rem;
+  backdrop-filter: blur(12px);
+}
+
+.btn-neo-destructive {
+  --bs-btn-padding-y: var(--neo-btn-padding-y);
+  --bs-btn-padding-x: var(--neo-btn-padding-x);
+  --bs-btn-border-radius: var(--neo-btn-radius);
+  --bs-btn-border-width: var(--neo-btn-border-width);
+  --bs-btn-border-color: transparent;
+  --bs-btn-bg: var(--neo-btn-destructive-bg);
+  --bs-btn-color: #fef2f2;
+  --bs-btn-hover-bg: var(--neo-btn-destructive-bg-hover);
+  --bs-btn-active-bg: #dc2626;
+  font-size: 0.87rem;
+}
+
+.btn-neo-neoBlack {
+  --bs-btn-padding-y: var(--neo-btn-padding-y);
+  --bs-btn-padding-x: 1.6rem;
+  --bs-btn-border-radius: 0.9rem;
+  --bs-btn-border-width: var(--neo-btn-border-width);
+  --bs-btn-border-color: rgba(148, 163, 184, 0.25);
+  --bs-btn-bg: #f9fafb;
+  --bs-btn-color: #020617;
+  --bs-btn-hover-bg: #e5e7eb;
+  --bs-btn-hover-border-color: rgba(148, 163, 184, 0.5);
+  font-size: 0.87rem;
+}
+
+.btn-neo-ghost {
+  --bs-btn-padding-y: 0.4rem;
+  --bs-btn-padding-x: 0.8rem;
+  --bs-btn-border-radius: 0;
+  --bs-btn-border-width: 0;
+  --bs-btn-border-color: transparent;
+  --bs-btn-bg: transparent;
+  --bs-btn-color: var(--neo-color-text-muted);
+  --bs-btn-hover-bg: rgba(15, 23, 42, 0.9);
+  --bs-btn-hover-border-color: transparent;
+  font-size: 0.8rem;
+}
+
+/* Sizes using CSS variables so they can be adjusted from :root if needed */
+.btn-neo-sm {
+  --bs-btn-padding-y: 0.45rem;
+  --bs-btn-padding-x: 1.1rem;
+  font-size: 0.8rem;
+}
+
+.btn-neo-lg {
+  --bs-btn-padding-y: 0.9rem;
+  --bs-btn-padding-x: 1.8rem;
+  font-size: 0.94rem;
+}
+
+/* Gradient button */
+.btn-neo-gradient {
+  --bs-btn-padding-y: var(--neo-btn-padding-y);
+  --bs-btn-padding-x: 1.8rem;
+  --bs-btn-border-radius: var(--neo-btn-radius);
+  --bs-btn-border-width: 0;
+  --bs-btn-border-color: transparent;
+  --bs-btn-bg: transparent;
+  --bs-btn-hover-bg: transparent;
+  --bs-btn-color: #f9fafb;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 12px 32px rgba(16, 185, 255, 0.3);
+}
+
+.btn-neo-gradient::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: var(--neo-btn-gradient-bg);
+  opacity: 1;
+  transition: opacity 0.2s ease-out, transform 0.2s ease-out;
+}
+
+.btn-neo-gradient > * {
+  position: relative;
+}
+
+.btn-neo-gradient:hover::before {
+  opacity: 0.95;
+  transform: translateY(-1px);
+}
+
+.form-control:focus {
+  background-color: black !important;
+}
+/* Icon-only buttons */
+
+.btn-neo-outline-icon,
+.btn-neo-secondary-icon {
+  --bs-btn-padding-y: 0.55rem;
+  --bs-btn-padding-x: 0.55rem;
+  --bs-btn-border-radius: 999px;
+  --bs-btn-border-width: 1px;
+  font-size: 1rem;
+}
+
+.btn-neo-outline-icon {
+  --bs-btn-border-color: rgba(148, 163, 184, 0.5);
+  --bs-btn-bg: transparent;
+  --bs-btn-color: var(--neo-color-text-main);
+  --bs-btn-hover-bg: rgba(15, 23, 42, 0.95);
+}
+
+.btn-neo-secondary-icon {
+  --bs-btn-border-color: transparent;
+  --bs-btn-bg: var(--neo-color-secondary);
+  --bs-btn-color: #e5e7eb;
+  --bs-btn-hover-bg: #29547b;
+}
+
+/* Button states preview (visual only) */
+
+.neo-state-hover {
+  filter: brightness(1.07);
+}
+
+.neo-state-active {
+  box-shadow: inset 0 2px 4px rgba(15, 23, 42, 0.55);
+  transform: translateY(1px);
+}
+
+.neo-state-disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.neo-state-focus {
+  box-shadow: 0 0 0 2px rgba(122, 184, 235, 0.5);
+}
+
+/* Segment pills */
+
+.neo-pill-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.btn-neo-pill {
+  --bs-btn-padding-y: var(--neo-pill-padding-y);
+  --bs-btn-padding-x: var(--neo-pill-padding-x);
+  --bs-btn-border-radius: var(--neo-pill-radius);
+  --bs-btn-border-width: 1px;
+  --bs-btn-border-color: rgba(148, 163, 184, 0.6);
+  --bs-btn-bg: var(--neo-pill-bg);
+  --bs-btn-color: var(--neo-color-text-main);
+  --bs-btn-hover-bg: rgba(15, 23, 42, 0.95);
+  --bs-btn-hover-border-color: rgba(148, 163, 184, 1);
+  font-size: 0.8rem;
+}
+
+.btn-neo-pill.active,
+.btn-neo-pill[aria-pressed="true"] {
+  --bs-btn-bg: var(--neo-pill-bg-active);
+  --bs-btn-border-color: transparent;
+  --bs-btn-color: #f9fafb;
+}
+
+/* Cards */
+
+.neo-card {
+  padding: var(--neo-card-padding);
+  border-radius: var(--neo-card-radius);
+  background: var(--neo-card-bg);
+  border: var(--neo-card-border-width) solid var(--neo-card-border-color);
+  box-shadow: var(--neo-shadow-soft);
+}
+
+.neo-card-course {
+  background: radial-gradient(circle at top left, #020617, #020617);
+}
+
+.neo-card-pricing {
+  background: radial-gradient(circle at top left, #020617, #020617);
+}
+
+/* Course media placeholder */
+
+.neo-card-media-placeholder {
+  width: 100%;
+  border-radius: 1.25rem;
+  min-height: 220px;
+  background-image: radial-gradient(circle at top left, #1C73B8, #020617 55%);
+  border: 1px solid rgba(15, 23, 42, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Badges */
+
+.neo-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.2rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #e5e7eb;
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid rgba(148, 163, 184, 0.5);
+}
+
+.neo-badge-soft {
+  background: rgba(28, 115, 184, 0.12);
+  border-color: rgba(28, 115, 184, 0.6);
+  color: var(--neo-color-accent);
+}
+
+/* Pricing card specifics */
+
+.neo-pricing-amount {
+  font-size: 2.4rem;
+  font-weight: 700;
+}
+
+.neo-pricing-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.4rem;
+  color: var(--neo-color-text-main);
+}
+
+.neo-pricing-list i {
+  color: #22c55e;
+}
+
+/* Alerts */
+
+.neo-alert {
+  position: relative;
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  padding: var(--neo-alert-padding-y) var(--neo-alert-padding-x);
+  border-radius: var(--neo-alert-radius);
+  background: var(--neo-alert-bg);
+  border-width: var(--neo-alert-border-width);
+  border-style: solid;
+  border-color: transparent;
+  font-size: 0.85rem;
+}
+
+.neo-alert-icon {
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 0.05rem;
+}
+
+.neo-alert-info {
+  border-color: rgba(59, 130, 246, 0.6);
+  box-shadow: 0 0 0 1px rgba(59, 130, 246, 0.18);
+}
+
+.neo-alert-info .neo-alert-icon {
+  background: rgba(59, 130, 246, 0.18);
+  color: #93c5fd;
+}
+
+.neo-alert-success {
+  border-color: rgba(34, 197, 94, 0.6);
+  box-shadow: 0 0 0 1px rgba(34, 197, 94, 0.18);
+}
+
+.neo-alert-success .neo-alert-icon {
+  background: rgba(34, 197, 94, 0.18);
+  color: #bbf7d0;
+}
+
+.neo-alert-warning {
+  border-color: rgba(234, 179, 8, 0.6);
+  box-shadow: 0 0 0 1px rgba(234, 179, 8, 0.18);
+}
+
+.neo-alert-warning .neo-alert-icon {
+  background: rgba(234, 179, 8, 0.18);
+  color: #facc15;
+}
+
+.neo-alert-danger {
+  border-color: rgba(248, 113, 113, 0.6);
+  box-shadow: 0 0 0 1px rgba(248, 113, 113, 0.18);
+}
+
+.neo-alert-danger .neo-alert-icon {
+  background: rgba(248, 113, 113, 0.18);
+  color: #fecaca;
+}
+
+/* Footer */
+
+.neo-footer {
+  background: rgba(15, 23, 42, 0.96);
+}
+
+/* Utility tweaks */
+
+.text-muted {
+  color: var(--neo-color-text-muted) !important;
+}
+
+.small {
+  font-size: 0.83rem;
+}
+
+@media (max-width: 767.98px) {
+  .neo-panel {
+    padding: 1.25rem;
+  }
+
+  .neo-card-media-placeholder {
+    min-height: 180px;
+  }
+
+  .neo-main {
+    padding-top: 5rem;
+  }
+}

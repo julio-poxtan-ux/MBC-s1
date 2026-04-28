@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="es-MX">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Onboarding MBK | Inicio de sesión</title>
+  <meta name="description" content="Inicia sesión en MBK con correo y contraseña o conecta tu wallet." />
+  <meta name="robots" content="index,follow" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Onboarding MBK | Inicio de sesión" />
+  <meta property="og:description" content="Accede a tu cuenta MBK desde la pantalla de inicio de sesión." />
+  <meta property="og:locale" content="es_MX" />
+  <meta name="theme-color" content="#0f2b42" />
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="css/tokens.css" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="assets/fonts/stylesheet.css" />
+</head>
+
+<body class="mk-page-shell mk-page-shell--login">
+  <a class="mk-skip-link" href="#mk-main">Saltar al formulario</a>
+
+  <main id="mk-main" class="mk-main" aria-labelledby="mk-login-title" data-mk-page="login-session">
+    <section class="mk-register container-fluid px-0">
+      <div class="mk-register__wrapper d-flex flex-column flex-lg-row align-items-center justify-content-center">
+        <div class="mk-register__panel">
+          <form class="mk-login-form" data-mk-login-form novalidate>
+            <div class="mk-login-form__wallet-wrap">
+            </div>
+            
+            <header class="mk-login-form__header">
+              <img src="assets/img/logo-header.svg" alt="MBK" class="logo-header_login">
+              <h1 id="mk-login-title" class="mk-login-form__title pt-5 mt-5">Inicio de sesión</h1>
+              <hr style="border: 1px solid white;">
+            </header>
+
+            <div class="mk-login-form__fields">
+              <div class="mk-input">
+                <label class="mk-input__label" for="mkLoginEmail">Email</label>
+                <div class="mk-input__field mk-input__field--soft">
+                  <input id="mkLoginEmail" class="form-control mk-input__control mk-focus-ring" type="email"
+                    name="email" autocomplete="email" placeholder="Correo MIU 0000" data-mk-login-field="email"
+                    aria-describedby="mkLoginErrorEmail" required />
+                </div>
+                <p id="mkLoginErrorEmail" class="mk-input__hint mk-input__hint--full" data-mk-login-error-for="email"
+                  hidden></p>
+              </div>
+
+              <div class="mk-input">
+                <label class="mk-input__label" for="mkLoginPassword">Password</label>
+                <div class="mk-input__field">
+                  <input id="mkLoginPassword" class="form-control mk-input__control mk-focus-ring" type="password"
+                    name="password" autocomplete="current-password" placeholder="Ingresa tu contraseña"
+                    data-mk-login-field="password" aria-describedby="mkLoginErrorPassword" required />
+                  <button class="mk-login-form__eye mk-focus-ring" type="button" data-mk-login-toggle="password"
+                    aria-label="Mostrar contraseña">
+                    <img src="assets/img/b1b14ef57141cc036bfc83195364ca4a06471781.svg" alt="" width="19" height="14"
+                      aria-hidden="true" />
+                  </button>
+                </div>
+                <p id="mkLoginErrorPassword" class="mk-input__hint mk-input__hint--full"
+                  data-mk-login-error-for="password" hidden></p>
+              </div>
+
+              <p class="mk-login-form__recover">
+                <a href="#" class="mk-focus-ring" aria-label="Recuperar contraseña">Recuperar contraseña</a>
+              </p>
+            </div>
+
+            <div class="mk-btn-wrap mk-login-form__btn-wrap">
+              <button type="submit" class="btn mk-btn-primary mk-focus-ring" data-mk-login-submit disabled
+                aria-disabled="true">
+                Ingresar
+              </button>
+            </div>
+
+            <p class="mk-login-prompt mk-login-form__prompt">
+              <span>¿Ya tienes cuenta?</span>
+              <a class="mk-login-link mk-focus-ring" href="crear-cuenta.html">Registrate</a>
+            </p>
+
+            <p class="mk-form-feedback mk-login-form__feedback" data-mk-login-feedback aria-live="polite"></p>
+          </form>
+        </div>
+
+        <aside class="mk-onboarding__visual d-flex justify-content-center" aria-label="Ilustración de sesión">
+          <img src="assets/img/78bef4883c0542258477b6b066ab4e9f94306b94.png"
+            alt="Ilustración tecnológica de un cubo brillante con elementos espaciales" width="686" height="915"
+            decoding="async" fetchpriority="high" class="img-contend-onboarding" />
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/main.js" defer></script>
+</body>
+
+</html>

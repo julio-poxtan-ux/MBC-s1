@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="es-MX">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Onboarding MBK | UI Kit</title>
+    <meta name="description" content="UI Kit de componentes base para el flujo de onboarding MBK." />
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <link rel="stylesheet" href="css/tokens.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body class="mk-page-shell mk-page-shell--base">
+    <a class="mk-skip-link" href="#mk-main">Saltar al contenido principal</a>
+
+    <header class="mk-header" role="banner">
+      <div class="mk-header__inner">
+        <a href="index.html" class="mk-header__brand mk-focus-ring" aria-label="Volver al onboarding">MB<span>K</span> Onboarding</a>
+        <nav class="mk-header__nav" aria-label="Navegación de soporte">
+          <a class="mk-header__link mk-focus-ring" href="layout_base.html">Layout Base</a>
+          <a class="mk-header__link mk-focus-ring" href="crear-cuenta.html">Crea tu cuenta</a>
+          <a class="mk-header__link mk-focus-ring" href="index.html">Pantalla Bienvenido</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="mk-main" class="mk-main">
+      <section class="mk-layout-card">
+        <h1>UI Kit</h1>
+        <p>Catálogo de componentes reutilizables utilizados en la pantalla de onboarding importada desde Figma.</p>
+
+        <div class="mk-uikit-grid">
+          <article class="mk-uikit-card mk-uikit-card--full">
+            <h2>Inputs (Figma 142:308)</h2>
+            <p class="mk-uikit-note">
+              Variantes de input implementadas 1:1 desde Figma: normal, filled/select, focus, icono, error y seguridad de contraseña.
+            </p>
+
+            <div class="mk-input-showcase">
+              <div class="mk-input">
+                <label class="mk-input__label" for="mkInputNormal">Nombre</label>
+                <div class="mk-input__field">
+                  <input
+                    id="mkInputNormal"
+                    class="form-control mk-input__control"
+                    type="text"
+                    value=""
+                    placeholder="Nombre completo"
+                    readonly
+                  />
+                </div>
+              </div>
+
+              <div class="mk-input">
+                <label class="mk-input__label" for="mkInputSelect">Nombre</label>
+                <div class="mk-input__field">
+                  <input
+                    id="mkInputSelect"
+                    class="form-control mk-input__control mk-input__control--fill"
+                    type="text"
+                    value="NOMBRE COMPLETO"
+                    readonly
+                  />
+                </div>
+              </div>
+
+              <div class="mk-input">
+                <label class="mk-input__label" for="mkInputFocus">Nombre</label>
+                <div class="mk-input__field mk-input__field--focus">
+                  <input
+                    id="mkInputFocus"
+                    class="form-control mk-input__control mk-input__control--fill"
+                    type="text"
+                    value="NOMBRE COMPLETO"
+                    readonly
+                  />
+                </div>
+              </div>
+
+              <div class="mk-input">
+                <label class="mk-input__label" for="mkInputIcon">Nombre</label>
+                <div class="mk-input__field">
+                  <input
+                    id="mkInputIcon"
+                    class="form-control mk-input__control"
+                    type="text"
+                    value=""
+                    placeholder="Nombre completo"
+                    readonly
+                  />
+                  <button class="mk-input__icon" type="button" aria-label="Mostrar contraseña">
+                    <i class="bi bi-eye" aria-hidden="true"></i>
+                  </button>
+                </div>
+              </div>
+
+              <div class="mk-input">
+                <label class="mk-input__label" for="mkInputDropdown">Nombre</label>
+                <div class="mk-input__field">
+                  <input
+                    id="mkInputDropdown"
+                    class="form-control mk-input__control mk-input__control--fill"
+                    type="text"
+                    value="NOMBRE COMPLETO"
+                    readonly
+                  />
+                  <button class="mk-input__icon" type="button" aria-label="Mostrar opciones">
+                    <i class="bi bi-chevron-down" aria-hidden="true"></i>
+                  </button>
+                </div>
+              </div>
+
+              <div class="mk-input">
+                <label class="mk-input__label" for="mkInputError">Nombre</label>
+                <div class="mk-input__field mk-input__field--error">
+                  <input
+                    id="mkInputError"
+                    class="form-control mk-input__control"
+                    type="text"
+                    value=""
+                    placeholder="Nombre completo"
+                    readonly
+                  />
+                  <button class="mk-input__icon" type="button" aria-label="Mostrar contraseña">
+                    <i class="bi bi-eye" aria-hidden="true"></i>
+                  </button>
+                </div>
+                <p class="mk-input__hint">El nombre es necesario</p>
+              </div>
+
+              <div class="mk-input">
+                <label class="mk-input__label" for="mkInputPassHigh">Nombre</label>
+                <div class="mk-input__field">
+                  <input
+                    id="mkInputPassHigh"
+                    class="form-control mk-input__control"
+                    type="text"
+                    value=""
+                    placeholder="Nombre completo"
+                    readonly
+                  />
+                  <button class="mk-input__icon" type="button" aria-label="Mostrar contraseña">
+                    <i class="bi bi-eye" aria-hidden="true"></i>
+                  </button>
+                </div>
+                <div class="mk-input__security" aria-label="Seguridad de contraseña alta">
+                  <p class="mk-input__security-label">Seguridad: <b data-level="high">ALTA</b></p>
+                  <div class="mk-input__security-bar" data-level="high" role="presentation"></div>
+                </div>
+              </div>
+
+              <div class="mk-input">
+                <label class="mk-input__label" for="mkInputPassMedium">Nombre</label>
+                <div class="mk-input__field">
+                  <input
+                    id="mkInputPassMedium"
+                    class="form-control mk-input__control"
+                    type="text"
+                    value=""
+                    placeholder="Nombre completo"
+                    readonly
+                  />
+                  <button class="mk-input__icon" type="button" aria-label="Mostrar contraseña">
+                    <i class="bi bi-eye" aria-hidden="true"></i>
+                  </button>
+                </div>
+                <div class="mk-input__security" aria-label="Seguridad de contraseña media">
+                  <p class="mk-input__security-label">Seguridad: <b data-level="medium">MEDIA</b></p>
+                  <div class="mk-input__security-bar" data-level="medium" role="presentation"></div>
+                </div>
+                <p class="mk-input__hint mk-input__hint--full">
+                  La contraseña debe tener 8+ caracteres, mayúscula, minúscula, número y símbolo.
+                </p>
+              </div>
+
+              <div class="mk-input">
+                <label class="mk-input__label" for="mkInputPassLow">Nombre</label>
+                <div class="mk-input__field">
+                  <input
+                    id="mkInputPassLow"
+                    class="form-control mk-input__control"
+                    type="text"
+                    value=""
+                    placeholder="Nombre completo"
+                    readonly
+                  />
+                  <button class="mk-input__icon" type="button" aria-label="Mostrar contraseña">
+                    <i class="bi bi-eye" aria-hidden="true"></i>
+                  </button>
+                </div>
+                <div class="mk-input__security" aria-label="Seguridad de contraseña baja">
+                  <p class="mk-input__security-label">Seguridad: <b data-level="low">BAJA</b></p>
+                  <div class="mk-input__security-bar" data-level="low" role="presentation"></div>
+                </div>
+                <p class="mk-input__hint mk-input__hint--full">
+                  La contraseña debe tener 8+ caracteres, mayúscula, minúscula, número y símbolo.
+                </p>
+              </div>
+            </div>
+          </article>
+
+          <article class="mk-uikit-card">
+            <h2>Tipografía</h2>
+            <p class="mk-title mb-2">¡Bienvenido!</p>
+            <p class="mk-lead mb-0">Completa los siguientes pasos para crear tu cuenta.</p>
+          </article>
+
+          <article class="mk-uikit-card">
+            <h2>Chips de estado</h2>
+            <div class="mk-uikit-row">
+              <span class="mk-chip">Registro</span>
+              <span class="mk-chip">Confirmación</span>
+              <span class="mk-chip">Membresía</span>
+            </div>
+          </article>
+
+          <article class="mk-uikit-card">
+            <h2>Steps Indicator</h2>
+            <ol class="mk-step-list" aria-label="Pasos de onboarding">
+              <li class="mk-step" aria-current="step">
+                <span class="mk-step__badge" aria-hidden="true">1</span>
+                <span class="mk-step__label">Crear tu cuenta</span>
+              </li>
+              <li class="mk-step">
+                <span class="mk-step__badge" aria-hidden="true">2</span>
+                <span class="mk-step__label">Confirmar código</span>
+              </li>
+              <li class="mk-step">
+                <span class="mk-step__badge" aria-hidden="true">3</span>
+                <span class="mk-step__label">Bienvenido a Maktub</span>
+              </li>
+            </ol>
+          </article>
+
+          <article class="mk-uikit-card">
+            <h2>Checkbox + copy legal</h2>
+            <fieldset class="mk-consent-block border-0 p-0 m-0">
+              <legend class="visually-hidden">Consentimiento de términos</legend>
+              <div class="form-check mk-form-check">
+                <input class="form-check-input mk-check-input" type="checkbox" id="mkTermsKit" checked />
+                <label class="form-check-label mk-check-label" for="mkTermsKit">
+                  Leí y estoy de acuerdo con <a href="#">Términos y condiciones</a>.
+                </label>
+              </div>
+            </fieldset>
+          </article>
+
+          <article class="mk-uikit-card">
+            <h2>Botón primario</h2>
+            <div class="mk-uikit-row">
+              <button class="btn mk-btn-primary" type="button">Continuar</button>
+              <button class="btn mk-btn-primary" type="button" disabled>Continuar</button>
+            </div>
+          </article>
+
+          <article class="mk-uikit-card">
+            <h2>Prompt de login</h2>
+            <p class="mk-login-prompt mb-0">
+              <span>¿Ya tienes cuenta?</span>
+              <a class="mk-login-link" href="#">Inicia sesión</a>
+            </p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="mk-footer">UI Kit para evolución del flujo de onboarding MBK</footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

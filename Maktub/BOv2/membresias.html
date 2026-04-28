@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="es-MX">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Backoffice Maktub: membresía activa con estado de suscripción, detalles de plan y beneficios del miembro elite."
+    />
+    <meta name="robots" content="index,follow" />
+    <meta name="author" content="Maktub" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Backoffice - Maktub | Membresías" />
+    <meta property="og:description" content="Sección de membresías del backoffice Maktub." />
+    <meta property="og:locale" content="es_MX" />
+    <meta property="og:url" content="./membresias.html" />
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:title" content="Backoffice - Maktub | Membresías" />
+    <meta property="twitter:description" content="Sección de membresías del backoffice Maktub." />
+    <link rel="canonical" href="./membresias.html" />
+    <link rel="icon" type="image/png" href="assets/img/logo.png" />
+    <title>Backoffice - Maktub | Membresías</title>
+    <link rel="preconnect" href="https://fonts.cdnfonts.com" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/tokens.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/charts.css" />
+  </head>
+  <body class="cm-page--memberships">
+    <div class="cm-app" data-cm-app>
+      <header class="cm-header" role="banner">
+        <div class="cm-header__inner">
+          <a class="cm-brand" href="index.html" aria-label="Inicio Maktub">
+            <img class="cm-brand__logo" src="assets/img/logo.png" alt="Logo Club Maktub" width="100" height="37" />
+          </a>
+
+          <nav class="cm-nav cm-nav--desktop" aria-label="Navegación principal">
+            <a class="cm-nav__item" href="index.html">
+              <img class="cm-nav__icon" src="assets/icons/icon-panel.svg" alt="" aria-hidden="true" />
+              <span>Panel</span>
+            </a>
+            <a class="cm-nav__item" href="carteras.html">
+              <img class="cm-nav__icon" src="assets/icons/icon-carteras.svg" alt="" aria-hidden="true" />
+              <span>Carteras</span>
+            </a>
+            <a class="cm-nav__item cm-nav__item--active" href="membresias.html" aria-current="page">
+              <img class="cm-nav__icon" src="assets/icons/icon-membresia.svg" alt="" aria-hidden="true" />
+              <span>Membresías</span>
+            </a>
+            <a class="cm-nav__item" href="referidos.html">
+              <img class="cm-nav__icon" src="assets/icons/icon-users-round.svg" alt="" aria-hidden="true" />
+              <span>Referidos</span>
+            </a>
+            <a class="cm-nav__item" href="transacciones.html">
+              <img class="cm-nav__icon" src="assets/icons/icon-transacciones.svg" alt="" aria-hidden="true" />
+              <span>Transacciones</span>
+            </a>
+            <a class="cm-nav__item" href="#" aria-label="Maktub DeFi (próximamente)">
+              <img class="cm-nav__icon" src="assets/icons/icon-defi.svg" alt="" aria-hidden="true" />
+              <span>Maktub DeFi</span>
+            </a>
+            <a class="cm-nav__item" href="mis-servicios.html">
+              <img class="cm-nav__icon" src="assets/icons/icon-globe.svg" alt="" aria-hidden="true" />
+              <span>Mis servicios</span>
+            </a>
+          </nav>
+
+          <button class="cm-user-btn" type="button" aria-label="Perfil de usuario">
+            <img class="cm-nav__icon" src="assets/icons/icon-perfil.svg" alt="" aria-hidden="true" />
+          </button>
+
+          <button
+            class="cm-menu-toggle"
+            type="button"
+            data-cm-menu-toggle
+            aria-expanded="false"
+            aria-controls="cm-mobile-menu"
+            aria-label="Abrir menú"
+          >
+            <svg class="cm-menu-toggle__icon cm-menu-toggle__icon--open" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+              <path d="M2 3.75A.75.75 0 0 1 2.75 3h10.5a.75.75 0 0 1 0 1.5H2.75A.75.75 0 0 1 2 3.75Zm0 4A.75.75 0 0 1 2.75 7h10.5a.75.75 0 0 1 0 1.5H2.75A.75.75 0 0 1 2 7.75Zm0 4A.75.75 0 0 1 2.75 11h10.5a.75.75 0 0 1 0 1.5H2.75A.75.75 0 0 1 2 11.75Z" />
+            </svg>
+            <svg class="cm-menu-toggle__icon cm-menu-toggle__icon--close" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+              <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8L4.646 5.354a.5.5 0 0 1 0-.708Z" />
+            </svg>
+          </button>
+        </div>
+
+        <nav class="cm-mobile-menu" id="cm-mobile-menu" data-cm-mobile-menu hidden aria-label="Navegación móvil">
+          <div class="cm-mobile-menu__panel">
+            <div class="cm-mobile-menu__list">
+              <a class="cm-nav__item cm-mobile-menu__item" href="index.html">
+                <img class="cm-nav__icon" src="assets/icons/icon-panel.svg" alt="" aria-hidden="true" />
+                <span>Panel</span>
+              </a>
+              <a class="cm-nav__item cm-mobile-menu__item" href="carteras.html">
+                <img class="cm-nav__icon" src="assets/icons/icon-carteras.svg" alt="" aria-hidden="true" />
+                <span>Carteras</span>
+              </a>
+              <a class="cm-nav__item cm-mobile-menu__item cm-nav__item--active" href="membresias.html" aria-current="page">
+                <img class="cm-nav__icon" src="assets/icons/icon-membresia.svg" alt="" aria-hidden="true" />
+                <span>Membresías</span>
+              </a>
+              <a class="cm-nav__item cm-mobile-menu__item" href="referidos.html">
+                <img class="cm-nav__icon" src="assets/icons/icon-users-round.svg" alt="" aria-hidden="true" />
+                <span>Referidos</span>
+              </a>
+              <a class="cm-nav__item cm-mobile-menu__item" href="transacciones.html">
+                <img class="cm-nav__icon" src="assets/icons/icon-transacciones.svg" alt="" aria-hidden="true" />
+                <span>Transacciones</span>
+              </a>
+              <a class="cm-nav__item cm-mobile-menu__item" href="#" aria-label="Maktub DeFi (próximamente)">
+                <img class="cm-nav__icon" src="assets/icons/icon-defi.svg" alt="" aria-hidden="true" />
+                <span>Maktub DeFi</span>
+              </a>
+              <a class="cm-nav__item cm-mobile-menu__item" href="mis-servicios.html">
+                <img class="cm-nav__icon" src="assets/icons/icon-globe.svg" alt="" aria-hidden="true" />
+                <span>Mis servicios</span>
+              </a>
+            </div>
+            <div class="cm-mobile-menu__divider" aria-hidden="true"></div>
+            <a class="cm-nav__item cm-mobile-menu__item" href="perfil-usuario.html" aria-label="Perfil de usuario">
+              <img class="cm-nav__icon" src="assets/icons/icon-perfil.svg" alt="" aria-hidden="true" />
+              <span>Perfil de usuario</span>
+            </a>
+          </div>
+        </nav>
+      </header>
+
+      <main class="cm-main" role="main">
+        <section class="cm-memberships" aria-label="Membresía activa">
+          <article class="cm-memberships-active">
+            <header class="cm-memberships-active__header">
+              <div class="cm-memberships-active__title-wrap">
+                <h1 class="cm-memberships-active__title">Membresía Activa</h1>
+                <p class="cm-memberships-active__subtitle">Estado actual y detalles de tu suscripción</p>
+              </div>
+              <span class="cm-memberships-active__status">En curso</span>
+            </header>
+
+            <div class="cm-memberships-active__content">
+              <aside class="cm-memberships-pass">
+                <div class="cm-memberships-pass__image-wrap">
+                  <img src="assets/img/cm-membresia-elite.png" alt="Membresía Maktub Elite" />
+                </div>
+
+                <div class="cm-memberships-pass__progress">
+                  <div class="cm-memberships-pass__progress-head">
+                    <span>Pool 1</span>
+                    <span>65%</span>
+                  </div>
+                  <div class="cm-memberships-pass__progress-track" aria-label="Progreso del pool 1">
+                    <span class="cm-memberships-pass__progress-fill" style="width: 65%"></span>
+                  </div>
+                  <div class="cm-memberships-pass__progress-foot">
+                    <span>20% Poll siguiente</span>
+                    <span>Hasta 1/2026</span>
+                  </div>
+                </div>
+              </aside>
+
+              <div class="cm-memberships-info">
+                <div class="cm-memberships-info__grid">
+                  <article class="cm-memberships-info__card">
+                    <p class="cm-memberships-info__label">Tipo de plan</p>
+                    <p class="cm-memberships-info__value">Membresía base</p>
+                  </article>
+                  <article class="cm-memberships-info__card">
+                    <p class="cm-memberships-info__label">Fecha de registro</p>
+                    <p class="cm-memberships-info__value">01 Nov 2026</p>
+                  </article>
+                  <article class="cm-memberships-info__card">
+                    <p class="cm-memberships-info__label">Curso FID</p>
+                    <p class="cm-memberships-info__value">ASISTIDO/ PENDIENTE</p>
+                  </article>
+                  <article class="cm-memberships-info__card">
+                    <p class="cm-memberships-info__label">Próxima Renovación</p>
+                    <p class="cm-memberships-info__value">01 Nov 2027</p>
+                  </article>
+                </div>
+
+                <button class="cm-memberships-info__renew" type="button">Renovar Membresía</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="cm-memberships-elite" aria-label="Beneficios Elite">
+            <div class="cm-memberships-elite__decor" aria-hidden="true">
+              <img src="assets/img/cm-membresia-elite.png" alt="" />
+            </div>
+
+            <div class="cm-memberships-elite__content">
+              <p class="cm-memberships-elite__caption">Felicidades por ser</p>
+              <div class="cm-memberships-elite__badge">MIEMBRO ELITE</div>
+              <p class="cm-memberships-elite__message">Tienes tu futuro asegurado con nosotros, gracias por invertir hoy</p>
+              <button class="cm-memberships-elite__btn" type="button">Ver beneficios</button>
+            </div>
+          </article>
+        </section>
+      </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.8/dist/chart.umd.min.js" defer></script>
+    <script src="js/main.js" defer></script>
+  </body>
+</html>

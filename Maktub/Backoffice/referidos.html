@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Referidos | Backoffice Maktub</title>
+  <meta name="description" content="Panel de referidos para seguimiento de enlaces, conversión de registros y control de comisiones por nivel.">
+  <meta name="robots" content="index,follow">
+  <meta name="theme-color" content="#2b7fff">
+  <meta property="og:title" content="Referidos | Backoffice Maktub">
+  <meta property="og:description" content="Gestiona el programa de referidos, niveles y métricas de conversión desde un panel único.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_MX">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Referidos | Backoffice Maktub">
+  <meta name="twitter:description" content="Supervisa enlaces de referido, conversiones y estatus de nuevos miembros.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.cdnfonts.com/css/satoshi" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="cm-body">
+  <a class="cm-skip-link" href="#cm-main-content">Saltar al contenido</a>
+
+  <div class="cm-page">
+    <header class="cm-topbar" role="banner">
+      <div class="cm-topbar__shell">
+        <a class="cm-topbar__brand" href="index.html" aria-label="Maktub Club">
+          <img class="cm-brand-logo" src="assets/img/logo.png" alt="CM">
+        </a>
+
+        <button class="cm-topbar__toggle" type="button" data-cm-menu-toggle aria-expanded="false" aria-controls="cm-main-nav" aria-label="Abrir menú">
+          <i class="cm-topbar__toggle-icon bi bi-list"></i>
+        </button>
+
+        <nav id="cm-main-nav" class="cm-topbar__nav" data-cm-menu aria-label="Navegación principal">
+          <a class="cm-nav-link cm-nav-link--panel" data-cm-nav href="index.html"><span class="cm-nav-link__icon" aria-hidden="true"></span><span>Panel</span></a>
+          <a class="cm-nav-link cm-nav-link--carteras" data-cm-nav href="carteras.html"><span class="cm-nav-link__icon" aria-hidden="true"></span><span>Carteras</span></a>
+          <a class="cm-nav-link cm-nav-link--membresias" data-cm-nav href="membresias.html"><span class="cm-nav-link__icon" aria-hidden="true"></span><span>Membresías</span></a>
+          <a class="cm-nav-link cm-nav-link--referidos" data-cm-nav href="referidos.html"><span class="cm-nav-link__icon" aria-hidden="true"></span><span>Referidos</span></a>
+          <a class="cm-nav-link cm-nav-link--transacciones" data-cm-nav href="transacciones.html"><span class="cm-nav-link__icon" aria-hidden="true"></span><span>Transacciones</span></a>
+          <a class="cm-nav-link cm-nav-link--defi" href="#" aria-label="Maktub DeFi"><span class="cm-nav-link__icon" aria-hidden="true"></span><span>Maktub DeFi</span></a>
+        </nav>
+
+        <div class="cm-topbar__user-menu" data-cm-user-menu>
+          <button class="cm-topbar__user" type="button" aria-label="Abrir menú de usuario" aria-expanded="false" aria-haspopup="menu" aria-controls="cm-user-menu-panel" data-cm-user-menu-toggle>
+            <i class="cm-topbar__user-icon bi bi-person"></i>
+          </button>
+          <div id="cm-user-menu-panel" class="cm-user-menu" role="menu" aria-label="Opciones de usuario" data-cm-user-menu-panel hidden>
+            <a class="cm-user-menu__item" href="perfil.html" role="menuitem">
+              <span class="cm-user-menu__icon" aria-hidden="true">
+                <img src="assets/figma/0593dfecd25a4407ce26fa48f5426a0b80e2885b.svg" alt="">
+              </span>
+              <span class="cm-user-menu__label">Perfil</span>
+            </a>
+            <span class="cm-user-menu__separator" aria-hidden="true"></span>
+            <button class="cm-user-menu__item cm-user-menu__item--button" type="button" role="menuitem" data-cm-user-menu-close>
+              <span class="cm-user-menu__icon" aria-hidden="true">
+                <img src="assets/figma/b7a306d69fd84e57343ad8d74441d21e87445893.svg" alt="">
+              </span>
+              <span class="cm-user-menu__label">Cerrar sesión</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+
+    <main id="cm-main-content" class="cm-main cm-referrals-page">
+      <section class="cm-referrals-top" aria-label="Programa de referidos">
+        <article class="cm-referrals-promo" aria-labelledby="cm-referrals-title">
+          <span class="cm-referrals-promo__badge">Programa de Afiliados</span>
+          <h1 id="cm-referrals-title" class="cm-referrals-promo__title">Invita con Maktub</h1>
+          <p class="cm-referrals-promo__description">Construye tu red y obtén recompensas exclusivas por cada nuevo miembro activo.</p>
+
+          <div class="cm-referrals-promo__stats" aria-label="Indicadores de referidos">
+            <article class="cm-referrals-stat">
+              <p class="cm-referrals-stat__label">Total Referidos</p>
+              <p class="cm-referrals-stat__value">12</p>
+              <p class="cm-referrals-stat__trend cm-referrals-stat__trend--up"><i class="bi bi-lightning-charge-fill" aria-hidden="true"></i>+2 este mes</p>
+            </article>
+            <article class="cm-referrals-stat">
+              <p class="cm-referrals-stat__label">Comisiones</p>
+              <p class="cm-referrals-stat__value">450 <span>USDT</span></p>
+              <p class="cm-referrals-stat__trend cm-referrals-stat__trend--up"><i class="bi bi-lightning-charge-fill" aria-hidden="true"></i>Disponible</p>
+            </article>
+          </div>
+        </article>
+
+        <article class="cm-referrals-share" aria-label="Enlace de referencia">
+          <header class="cm-referrals-share__head">
+            <h2 class="cm-referrals-share__title">Tu Enlace Único</h2>
+            <p class="cm-referrals-share__subtitle">Comparte este enlace para registrar nuevos socios en tu equipo.</p>
+          </header>
+
+          <div class="cm-referrals-share__link">
+            <label class="cm-visually-hidden" for="cm-ref-link">Enlace de referido</label>
+            <div class="cm-referrals-link-field">
+              <i class="bi bi-globe2" aria-hidden="true"></i>
+              <input id="cm-ref-link" class="cm-referrals-link-input" type="url" value="https://clubmktb.com/registro.php?r=258" readonly>
+            </div>
+            <button class="cm-referrals-copy-btn" type="button" data-cm-copy-button data-cm-copy-target="cm-ref-link" data-cm-feedback="cm-master-feedback" data-cm-text-copy="Copiar" data-cm-text-copied="Copiado">
+              <i class="bi bi-copy" aria-hidden="true"></i>
+              <span data-cm-copy-label>Copiar</span>
+            </button>
+          </div>
+          <p id="cm-master-feedback" class="cm-copy-feedback cm-referrals-copy-feedback" role="status" aria-live="polite"></p>
+
+          <div class="cm-referrals-share__actions">
+            <a class="cm-referrals-share-btn" href="https://wa.me/?text=https%3A%2F%2Fclubmktb.com%2Fregistro.php%3Fr%3D258" target="_blank" rel="noopener noreferrer">
+              <i class="bi bi-share" aria-hidden="true"></i>
+              WhatsApp
+            </a>
+            <a class="cm-referrals-share-btn" href="https://t.me/share/url?url=https%3A%2F%2Fclubmktb.com%2Fregistro.php%3Fr%3D258" target="_blank" rel="noopener noreferrer">
+              <i class="bi bi-share" aria-hidden="true"></i>
+              Telegram
+            </a>
+            <a class="cm-referrals-share-btn" href="mailto:?subject=Invitaci%C3%B3n%20Maktub&body=Reg%C3%ADstrate%20aqu%C3%AD:%20https%3A%2F%2Fclubmktb.com%2Fregistro.php%3Fr%3D258">
+              <i class="bi bi-share" aria-hidden="true"></i>
+              Email
+            </a>
+          </div>
+        </article>
+      </section>
+
+      <section class="cm-referrals-middle" aria-label="Métricas de crecimiento y recompensas">
+        <article class="cm-card cm-referrals-growth">
+          <header class="cm-card__head cm-referrals-section-head">
+            <div>
+              <h2 class="cm-card__title"><i class="bi bi-bar-chart-line" aria-hidden="true"></i>Crecimiento de Red</h2>
+              <p class="cm-card__subtitle">Nuevos registros en los últimos 6 meses</p>
+            </div>
+          </header>
+          <div class="cm-referrals-growth__chart">
+            <canvas data-cm-chart="referral" aria-label="Crecimiento de red en los últimos 6 meses" role="img"></canvas>
+          </div>
+        </article>
+
+        <article class="cm-card cm-referrals-reward">
+          <header class="cm-card__head cm-referrals-section-head">
+            <div>
+              <h2 class="cm-card__title">Próxima Recompensa</h2>
+              <p class="cm-card__subtitle">Al alcanzar 20 referidos activos</p>
+            </div>
+          </header>
+
+          <i class="cm-referrals-reward__ghost bi bi-trophy" aria-hidden="true"></i>
+          <figure class="cm-referrals-reward__trophy">
+            <img src="https://www.figma.com/api/mcp/asset/9f2537cf-ae5f-46c9-8481-30710275731a" alt="Trofeo de recompensa Bono Líder">
+          </figure>
+          <p class="cm-referrals-reward__title">Bono Líder: 100 USDT</p>
+          <p class="cm-referrals-reward__text">Estás a solo <strong>8 referidos</strong> de desbloquear este nivel.</p>
+
+          <div class="cm-referrals-progress" role="img" aria-label="Progreso de referidos 12 de 20">
+            <span class="cm-referrals-progress__value"></span>
+          </div>
+          <p class="cm-referrals-reward__counter">12/20</p>
+        </article>
+      </section>
+
+      <section class="cm-card cm-referrals-list-card" aria-label="Referidos recientes">
+        <header class="cm-card__head cm-referrals-list-head">
+          <div>
+            <h2 class="cm-card__title">Referidos Recientes</h2>
+            <p class="cm-card__subtitle">Últimos usuarios unidos a tu red</p>
+          </div>
+          <button class="cm-referrals-view-btn" type="button">Ver todos <i class="bi bi-arrow-right" aria-hidden="true"></i></button>
+        </header>
+
+        <ul class="cm-referrals-list">
+          <li class="cm-referrals-item">
+            <div class="cm-referrals-user">
+              <span class="cm-referrals-user__avatar">
+                <img src="https://www.figma.com/api/mcp/asset/665096cd-f66a-42e4-9b35-f7fb703adea6" alt="Avatar de Usuario Nuevo 1">
+              </span>
+              <div>
+                <h3 class="cm-referrals-user__name">Usuario Nuevo 1</h3>
+                <p class="cm-referrals-user__meta"><i class="bi bi-person-plus" aria-hidden="true"></i>Nivel 1 • 07 Nov 2025</p>
+              </div>
+            </div>
+            <div class="cm-referrals-state">
+              <span class="cm-referrals-state__badge">Activo</span>
+              <p class="cm-referrals-state__id">ID: MKB-2581</p>
+            </div>
+          </li>
+
+          <li class="cm-referrals-item">
+            <div class="cm-referrals-user">
+              <span class="cm-referrals-user__avatar">
+                <img src="https://www.figma.com/api/mcp/asset/665096cd-f66a-42e4-9b35-f7fb703adea6" alt="Avatar de Usuario Nuevo 2">
+              </span>
+              <div>
+                <h3 class="cm-referrals-user__name">Usuario Nuevo 2</h3>
+                <p class="cm-referrals-user__meta"><i class="bi bi-person-plus" aria-hidden="true"></i>Nivel 1 • 07 Nov 2025</p>
+              </div>
+            </div>
+            <div class="cm-referrals-state">
+              <span class="cm-referrals-state__badge">Activo</span>
+              <p class="cm-referrals-state__id">ID: MKB-2582</p>
+            </div>
+          </li>
+
+          <li class="cm-referrals-item">
+            <div class="cm-referrals-user">
+              <span class="cm-referrals-user__avatar">
+                <img src="https://www.figma.com/api/mcp/asset/665096cd-f66a-42e4-9b35-f7fb703adea6" alt="Avatar de Usuario Nuevo 3">
+              </span>
+              <div>
+                <h3 class="cm-referrals-user__name">Usuario Nuevo 3</h3>
+                <p class="cm-referrals-user__meta"><i class="bi bi-person-plus" aria-hidden="true"></i>Nivel 1 • 07 Nov 2025</p>
+              </div>
+            </div>
+            <div class="cm-referrals-state">
+              <span class="cm-referrals-state__badge">Activo</span>
+              <p class="cm-referrals-state__id">ID: MKB-2583</p>
+            </div>
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <footer class="cm-footer">
+      © 2026 Backoffice Maktub v.2.0
+    </footer>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.9/dist/chart.umd.min.js" defer></script>
+  <script src="js/main.js" defer></script>
+</body>
+</html>

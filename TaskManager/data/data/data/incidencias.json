@@ -1,0 +1,55 @@
+{
+  "version": "1.0",
+  "actualizadoEn": "2026-04-21T20:07:02.189Z",
+  "totalIncidencias": 3,
+  "incidencias": [
+    {
+      "id": "i_mo8d8793r4jg02",
+      "titulo": "Cambiar texto de CONEX",
+      "plataforma": "",
+      "comentario": "Cambiar el texto a mayusculas CONEX",
+      "imagen": null,
+      "imagenNombre": null,
+      "imagenEsperada": null,
+      "imagenEsperadaNombre": null,
+      "urlSitio": "",
+      "urlGithub": "",
+      "revisado": false,
+      "archivado": false,
+      "creadoEn": "2026-04-21T08:32:13.239Z",
+      "actualizadoEn": "2026-04-21T08:32:13.239Z"
+    },
+    {
+      "id": "i_mo81p4pojebp0n",
+      "titulo": "Olvidaste contraseña",
+      "plataforma": "backend, frontend",
+      "comentario": "La pantalla de olvidaste contraseña no corresponde a su pantalla, quitar el modal y cambiar por la pantalla",
+      "imagen": null,
+      "imagenNombre": null,
+      "imagenEsperada": null,
+      "imagenEsperadaNombre": "Captura de pantalla 2026-04-20 a las 9.09.03 p. m..png",
+      "urlSitio": "",
+      "urlGithub": "",
+      "revisado": false,
+      "archivado": false,
+      "creadoEn": "2026-04-21T03:09:27.707Z",
+      "actualizadoEn": "2026-04-21T03:09:27.707Z"
+    },
+    {
+      "id": "i_mo80ukmust5qjw",
+      "titulo": "Inicio de sesión - MB",
+      "plataforma": "backend",
+      "comentario": "El texto del login debe ir antes de la linea y el logotipo debe quedar arriba.",
+      "imagen": null,
+      "imagenNombre": null,
+      "imagenEsperada": null,
+      "imagenEsperadaNombre": "Captura de pantalla 2026-04-20 a las 8.42.23 p. m..png",
+      "urlSitio": "https://julio-poxtan-ux.github.io/MBCapital/Maktub/InicioSesionMBK/inicio-sesion.html",
+      "urlGithub": "https://github.com/julio-poxtan-ux/MBCapital/tree/main/Maktub/InicioSesion",
+      "revisado": false,
+      "archivado": false,
+      "creadoEn": "2026-04-21T02:45:42.006Z",
+      "actualizadoEn": "2026-04-21T02:45:42.006Z"
+    }
+  ]
+}

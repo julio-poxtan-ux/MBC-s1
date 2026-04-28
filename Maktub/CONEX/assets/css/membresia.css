@@ -1,0 +1,192 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    scroll-behavior: smooth;
+}
+
+.service-card {
+    background: linear-gradient(180deg, #1ea68e 0%, #0c1b1a 100%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.service-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+}
+
+.investor-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.investor-card:hover {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.4);
+}
+
+.object-fit-cover {
+    object-fit: cover;
+    height: 100%;
+}
+
+.adn-card {
+    min-width: 200px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    flex: 0 0 auto;
+}
+
+.adn-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5);
+}
+
+#adn-carousel {
+    scroll-behavior: smooth;
+    overflow-x: auto;
+}
+
+#adn-carousel::-webkit-scrollbar {
+    height: 6px;
+}
+
+#adn-carousel::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 3px;
+}
+
+.team-img {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.team-img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);
+}
+
+.seccion-conex {
+    background: linear-gradient(to left, #2dbda3 0%, #000 40%);
+    padding: 100px 0;
+    min-height: 100vh;
+}
+
+.conex-grande {
+    max-height: 350px;
+    width: auto;
+}
+
+.descripcion-conex {
+    font-size: 1rem;
+    line-height: 1.5;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+    .descripcion-conex {
+        padding: 0 20px;
+    }
+
+    .conex-grande {
+        max-width: 70%;
+        height: auto;
+    }
+
+    .seccion-conex {
+        text-align: center;
+    }
+}
+
+
+.seccion-plan {
+    background: radial-gradient(circle at right, #08705b 0%, #0e1b1a 32%, #000 90%);
+    padding: 130px 0;
+    overflow: hidden;
+    position: relative;
+}
+
+.seccion-plan .subtitulo {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+.seccion-plan .titulo {
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+.seccion-plan .linea {
+    width: 50px;
+    height: 2px;
+    background-color: #fff;
+    border: none;
+    margin: 20px 0;
+}
+
+.seccion-plan .descripcion {
+    font-size: 1rem;
+    max-width: 400px;
+}
+
+.coins-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    height: 220px;
+    margin: auto;
+}
+
+.coin {
+    position: absolute;
+    width: 220px;
+    transition: transform 0.4s ease, filter 0.4s ease;
+    cursor: pointer;
+}
+
+.coin-main {
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+}
+
+.coin-back-left {
+    left: 10%;
+    top: 0px;
+    z-index: 1;
+    opacity: 0.8;
+}
+
+.coin-back-right {
+    right: 10%;
+    top: 0px;
+    z-index: 1;
+    opacity: 0.8;
+}
+
+.coin-main:hover {
+    transform: translateX(-50%) scale(1.07);
+    filter: brightness(1.15);
+}
+
+.coin-back-left:hover,
+.coin-back-right:hover {
+    transform: translateY(-10px) scale(1.05);
+    filter: brightness(1.2);
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .seccion-plan .titulo {
+        font-size: 1.8rem;
+    }
+
+    .coin {
+        width: 140px;
+    }
+
+    .coin-back-left,
+    .coin-back-right {
+        top: 0px;
+    }
+}

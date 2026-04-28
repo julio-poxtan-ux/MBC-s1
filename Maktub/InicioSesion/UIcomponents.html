@@ -1,0 +1,461 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UI Components - Hub Maktub</title>
+    <link
+      rel="stylesheet"
+      href="https://api.fontshare.com/v2/css?f[]=satoshi@500,700&display=swap"
+    />
+    <style>
+      :root {
+        --mk-font-primary: "Satoshi", "HK Guise", -apple-system, BlinkMacSystemFont,
+          "Segoe UI", sans-serif;
+        --mk-font-alt: "HK Guise", "Satoshi", -apple-system, BlinkMacSystemFont,
+          "Segoe UI", sans-serif;
+        --mk-bg: #030f21;
+        --mk-white: #ffffff;
+        --mk-gray-700: #566680;
+        --mk-gray-600: #7687a3;
+        --mk-gray-400: #b3bccc;
+        --mk-gray-300: #c8cfda;
+        --mk-gray-100: #edeff3;
+        --mk-gray-50: #f6f7f9;
+        --mk-red-400: #ff5c63;
+        --mk-red-300: #ff9499;
+        --mk-red-200: #ffbfc2;
+        --mk-yellow-400: #fac94d;
+        --mk-green-400: #4ddb8a;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        color: var(--mk-white);
+        font-family: var(--mk-font-primary);
+        background:
+          radial-gradient(100% 120% at 0% 50%, rgba(0, 167, 228, 0.14), transparent 55%),
+          var(--mk-bg);
+      }
+
+      .mk-uikit {
+        width: min(680px, 100%);
+        margin: 0 auto;
+        padding: 20px 16px 60px;
+        display: flex;
+        flex-direction: column;
+        gap: 28px;
+      }
+
+      .mk-section-title {
+        margin: 0 0 12px 20px;
+        font-size: 13px;
+        line-height: 16px;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--mk-gray-300);
+      }
+
+      .mk-button-frame {
+        width: min(567px, 100%);
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+      }
+
+      .mk-button {
+        width: min(527px, 100%);
+        min-height: 64px;
+        border-radius: 12px;
+        border: 1px solid var(--mk-gray-700);
+        background: linear-gradient(90deg, #00a7e4 4.712%, #161618 55.607%);
+        color: var(--mk-white);
+        font-family: var(--mk-font-primary);
+        font-size: 18px;
+        font-weight: 500;
+        line-height: 24px;
+        letter-spacing: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px 10px;
+      }
+
+      .mk-button--normal {
+        cursor: pointer;
+      }
+
+      .mk-button--hover {
+        border-color: #00a7e4;
+        box-shadow: 0 7px 15px 0 #1c73b8;
+      }
+
+      .mk-button--select {
+        border-color: #c1e7fe;
+      }
+
+      .mk-button--disabled {
+        border: 0;
+        color: rgba(255, 255, 255, 0.29);
+        background: linear-gradient(
+          90deg,
+          rgba(0, 167, 228, 0.5) 4.712%,
+          rgba(22, 22, 24, 0.5) 55.607%
+        );
+      }
+
+      .mk-input-frame {
+        width: min(616px, 100%);
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 46px;
+      }
+
+      .mk-input-variant {
+        width: min(576px, 100%);
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .mk-input-variant--pass-baja {
+        width: min(569px, 100%);
+      }
+
+      .mk-input-label {
+        margin: 0;
+        color: var(--mk-white);
+        font-family: var(--mk-font-primary);
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 20px;
+        letter-spacing: 0;
+      }
+
+      .mk-input-control {
+        width: 100%;
+        min-height: 64px;
+        border-radius: 8px;
+        border: 1px solid var(--mk-gray-600);
+        background: #1b1b1b;
+        padding: 8px 24px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        box-shadow: inset 0 5px 8px 0 rgba(0, 0, 0, 0.4);
+      }
+
+      .mk-input-control--select {
+        border-color: var(--mk-gray-100);
+      }
+
+      .mk-input-control--focus {
+        border-color: #1c73b8;
+      }
+
+      .mk-input-control--error {
+        border-color: var(--mk-red-400);
+      }
+
+      .mk-input-control--pass-error {
+        border-color: var(--mk-gray-400);
+      }
+
+      .mk-input-content {
+        flex: 1;
+        min-width: 0;
+        font-family: var(--mk-font-alt);
+        font-size: 18px;
+        font-weight: 500;
+        line-height: 48px;
+        letter-spacing: 0;
+        color: var(--mk-gray-600);
+      }
+
+      .mk-input-content--filled {
+        font-family: var(--mk-font-primary);
+        line-height: 24px;
+        color: var(--mk-gray-50);
+      }
+
+      .mk-input-content--error {
+        color: #7a7a7a;
+      }
+
+      .mk-icon {
+        width: 21px;
+        height: 21px;
+        flex-shrink: 0;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .mk-icon img {
+        display: block;
+        width: 18.84px;
+        height: 13.58px;
+      }
+
+      .mk-icon--chevron img {
+        width: 11.84px;
+        height: 6.58px;
+      }
+
+      .mk-error-inline {
+        width: fit-content;
+        border-radius: 6px;
+        background: #450407;
+        padding: 8px 16px;
+        color: var(--mk-red-200);
+        font-family: var(--mk-font-primary);
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 16px;
+      }
+
+      .mk-security {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .mk-security-copy {
+        margin: 0;
+        font-family: var(--mk-font-primary);
+        font-size: 12px;
+        font-weight: 500;
+        line-height: 16px;
+        letter-spacing: 0;
+        color: var(--mk-white);
+      }
+
+      .mk-security-level {
+        font-weight: 700;
+      }
+
+      .mk-security-level--alta {
+        color: var(--mk-green-400);
+      }
+
+      .mk-security-level--media {
+        color: var(--mk-yellow-400);
+      }
+
+      .mk-security-level--baja {
+        color: var(--mk-red-400);
+      }
+
+      .mk-progress-fill {
+        height: 8px;
+        border-radius: 9999px;
+      }
+
+      .mk-progress-fill--alta {
+        width: 100%;
+        background: var(--mk-green-400);
+      }
+
+      .mk-progress-fill--media {
+        width: min(409px, 100%);
+        background: var(--mk-yellow-400);
+      }
+
+      .mk-progress-fill--baja {
+        width: min(231px, 100%);
+        background: var(--mk-red-400);
+      }
+
+      .mk-error-block {
+        width: 100%;
+        border-radius: 6px;
+        background: rgba(251, 44, 54, 0.2);
+        padding: 8px 16px;
+        color: var(--mk-red-300);
+        font-family: var(--mk-font-primary);
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 16px;
+        letter-spacing: 0;
+      }
+
+      @media (max-width: 640px) {
+        .mk-uikit {
+          padding-inline: 10px;
+        }
+
+        .mk-button-frame,
+        .mk-input-frame {
+          padding-inline: 10px;
+        }
+
+        .mk-section-title {
+          margin-left: 10px;
+        }
+
+        .mk-input-control {
+          padding-inline: 18px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="mk-uikit">
+      <section aria-labelledby="mk-title-button">
+        <h2 id="mk-title-button" class="mk-section-title">Button Primary (142:367)</h2>
+        <div class="mk-button-frame">
+          <button class="mk-button mk-button--normal" type="button">Continuar</button>
+          <div class="mk-button mk-button--hover" aria-hidden="true">Continuar</div>
+          <div class="mk-button mk-button--select" aria-hidden="true">Continuar</div>
+          <button
+            class="mk-button mk-button--disabled"
+            type="button"
+            disabled
+            aria-disabled="true"
+          >
+            Continuar
+          </button>
+        </div>
+      </section>
+
+      <section aria-labelledby="mk-title-input">
+        <h2 id="mk-title-input" class="mk-section-title">Input (142:308)</h2>
+        <div class="mk-input-frame">
+          <div class="mk-input-variant">
+            <p class="mk-input-label">Nombre</p>
+            <div class="mk-input-control">
+              <span class="mk-input-content">Nombre completo</span>
+            </div>
+          </div>
+
+          <div class="mk-input-variant">
+            <p class="mk-input-label">Nombre</p>
+            <div class="mk-input-control mk-input-control--select">
+              <span class="mk-input-content mk-input-content--filled">NOMBRE COMPLETO</span>
+            </div>
+          </div>
+
+          <div class="mk-input-variant">
+            <p class="mk-input-label">Nombre</p>
+            <div class="mk-input-control mk-input-control--focus">
+              <span class="mk-input-content mk-input-content--filled">NOMBRE COMPLETO</span>
+            </div>
+          </div>
+
+          <div class="mk-input-variant">
+            <p class="mk-input-label">Nombre</p>
+            <div class="mk-input-control">
+              <span class="mk-input-content">Nombre completo</span>
+              <span class="mk-icon" aria-hidden="true">
+                <img
+                  src="./.figma-assets/b1b14ef57141cc036bfc83195364ca4a06471781.svg"
+                  alt=""
+                />
+              </span>
+            </div>
+          </div>
+
+          <div class="mk-input-variant">
+            <p class="mk-input-label">Nombre</p>
+            <div class="mk-input-control mk-input-control--error">
+              <span class="mk-input-content mk-input-content--error">Nombre completo</span>
+              <span class="mk-icon" aria-hidden="true">
+                <img
+                  src="./.figma-assets/b1b14ef57141cc036bfc83195364ca4a06471781.svg"
+                  alt=""
+                />
+              </span>
+            </div>
+            <div class="mk-error-inline">El nombre es necesario</div>
+          </div>
+
+          <div class="mk-input-variant">
+            <p class="mk-input-label">Nombre</p>
+            <div class="mk-input-control">
+              <span class="mk-input-content">Nombre completo</span>
+              <span class="mk-icon" aria-hidden="true">
+                <img
+                  src="./.figma-assets/b1b14ef57141cc036bfc83195364ca4a06471781.svg"
+                  alt=""
+                />
+              </span>
+            </div>
+            <div class="mk-security">
+              <p class="mk-security-copy">
+                Seguridad:
+                <span class="mk-security-level mk-security-level--alta">ALTA</span>
+              </p>
+              <div class="mk-progress-fill mk-progress-fill--alta" aria-hidden="true"></div>
+            </div>
+          </div>
+
+          <div class="mk-input-variant">
+            <p class="mk-input-label">Nombre</p>
+            <div class="mk-input-control mk-input-control--pass-error">
+              <span class="mk-input-content">Nombre completo</span>
+              <span class="mk-icon" aria-hidden="true">
+                <img
+                  src="./.figma-assets/b1b14ef57141cc036bfc83195364ca4a06471781.svg"
+                  alt=""
+                />
+              </span>
+            </div>
+            <div class="mk-security">
+              <p class="mk-security-copy">
+                Seguridad:
+                <span class="mk-security-level mk-security-level--media">MEDIA</span>
+              </p>
+              <div class="mk-progress-fill mk-progress-fill--media" aria-hidden="true"></div>
+            </div>
+            <div class="mk-error-block">
+              La contraseña debe tener 8+ caracteres, mayúscula, minúscula, número y símbolo.
+            </div>
+          </div>
+
+          <div class="mk-input-variant mk-input-variant--pass-baja">
+            <p class="mk-input-label">Nombre</p>
+            <div class="mk-input-control mk-input-control--pass-error">
+              <span class="mk-input-content">Nombre completo</span>
+              <span class="mk-icon" aria-hidden="true">
+                <img
+                  src="./.figma-assets/b1b14ef57141cc036bfc83195364ca4a06471781.svg"
+                  alt=""
+                />
+              </span>
+            </div>
+            <div class="mk-security">
+              <p class="mk-security-copy">
+                Seguridad:
+                <span class="mk-security-level mk-security-level--baja">BAJA</span>
+              </p>
+              <div class="mk-progress-fill mk-progress-fill--baja" aria-hidden="true"></div>
+            </div>
+            <div class="mk-error-block">
+              La contraseña debe tener 8+ caracteres, mayúscula, minúscula, número y símbolo.
+            </div>
+          </div>
+
+          <div class="mk-input-variant" aria-label="Input dropdown">
+            <p class="mk-input-label">Nombre</p>
+            <div class="mk-input-control">
+              <span class="mk-input-content">Nombre completo</span>
+              <span class="mk-icon mk-icon--chevron" aria-hidden="true">
+                <img
+                  src="./.figma-assets/9eaac31ce8a43025f844ed4cca33a1c6f9bd1017.svg"
+                  alt=""
+                />
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

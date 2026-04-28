@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Inicio de sesión - Maktub</title>
+    <meta
+      name="description"
+      content="Inicia sesión en Maktub con tu correo y contraseña."
+    />
+    <meta
+      name="keywords"
+      content="Maktub, login, inicio de sesión, acceso"
+    />
+    <meta name="author" content="Maktub Frontend Team" />
+    <meta property="og:title" content="Inicio de sesión - Maktub" />
+    <meta
+      property="og:description"
+      content="Pantalla de inicio de sesión para acceder a tu cuenta Maktub."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_MX" />
+    <link rel="preconnect" href="https://api.fontshare.com" />
+    <link
+      rel="stylesheet"
+      href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <link rel="stylesheet" href="./css/tokens.css" />
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
+  <body class="mk-body">
+    <a class="mk-skip-link" href="#mk-login-main">Saltar a inicio de sesión</a>
+    <div class="mk-app-shell">
+      <img
+        class="mk-bg-spheres"
+        src="./assets/img/esferas.png"
+        alt=""
+        aria-hidden="true"
+      />
+
+      <header class="mk-header container-fluid px-3 px-md-4">
+        <div class="d-flex justify-content-center align-items-center">
+          <a href="./index_1.html" aria-label="Volver al inicio">
+            <img
+              src="./assets/img/mk-logo.svg"
+              alt="Maktub"
+              class="mk-brand-logo"
+              width="80"
+              height="92"
+            />
+          </a>
+        </div>
+      </header>
+
+      <main
+        id="mk-login-main"
+        class="mk-main container-fluid d-flex justify-content-center align-items-start px-3 px-md-4"
+      >
+        <section class="mk-register-card w-100" aria-labelledby="mk-login-title">
+          <form id="mk-login-form" class="mk-register-form" novalidate data-mk-login-form>
+            <header class="mk-register-header text-center">
+              <h1 id="mk-login-title" class="mk-title">Inicio de sesión</h1>
+              <p class="mk-register-subtitle">Ingresa con tu correo y contraseña</p>
+            </header>
+
+            <div class="mk-input-field w-100">
+              <label for="mk-login-email" class="mk-input-label">Correo electrónico o MIU</label>
+              <div class="mk-input-control">
+                <input
+                  id="mk-login-email"
+                  name="email"
+                  class="mk-input-element"
+                  type="email"
+                  placeholder="Ingresa tu Correo electrónico o MIU 0000"
+                  autocomplete="email"
+                  inputmode="email"
+                  aria-describedby="mk-login-email-error"
+                />
+              </div>
+              <p id="mk-login-email-error" class="mk-inline-error visually-hidden" role="alert"></p>
+            </div>
+
+            <div class="mk-input-field w-100">
+              <label for="mk-login-password" class="mk-input-label">Contraseña</label>
+              <div class="mk-input-control">
+                <input
+                  id="mk-login-password"
+                  name="password"
+                  class="mk-input-element"
+                  type="password"
+                  placeholder="Ingresa tu contraseña"
+                  autocomplete="current-password"
+                  aria-describedby="mk-login-password-error"
+                />
+                <button
+                  class="mk-input-icon-btn"
+                  type="button"
+                  aria-label="Mostrar contraseña"
+                  aria-controls="mk-login-password"
+                  data-mk-toggle-password
+                >
+                  <i class="bi bi-eye" aria-hidden="true"></i>
+                </button>
+              </div>
+              <p id="mk-login-password-error" class="mk-inline-error visually-hidden" role="alert"></p>
+            </div>
+
+            <p class="mk-login-copy text-end">
+              <a href="./olvidaste-contrasena.html" class="mk-login-link">¿Olvidaste tu contraseña?</a>
+            </p>
+
+            <button id="mk-login-submit" type="submit" class="mk-btn-primary" disabled aria-disabled="true">Iniciar sesión</button>
+          </form>
+        </section>
+      </main>
+    </div>
+
+    <script src="./js/main.js" defer></script>
+  </body>
+</html>

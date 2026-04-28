@@ -1,0 +1,66 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    scroll-behavior: smooth;
+}
+
+.service-card {
+    background: linear-gradient(180deg, #1ea68e 0%, #0c1b1a 100%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.service-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+}
+
+.investor-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.investor-card:hover {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.4);
+}
+
+.object-fit-cover {
+    object-fit: cover;
+    height: 100%;
+}
+
+.adn-card {
+    min-width: 200px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    flex: 0 0 auto;
+}
+
+.adn-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5);
+}
+
+#adn-carousel {
+    scroll-behavior: smooth;
+    overflow-x: auto;
+}
+
+#adn-carousel::-webkit-scrollbar {
+    height: 6px;
+}
+
+#adn-carousel::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 3px;
+}
+
+.team-img {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.team-img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);
+}

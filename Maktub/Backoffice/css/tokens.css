@@ -1,0 +1,113 @@
+:root {
+  --cm-font-family-base: "Satoshi", "Inter", "Segoe UI", sans-serif;
+  --cm-font-size-xs: 0.75rem;
+  --cm-font-size-sm: 0.875rem;
+  --cm-font-size-md: 1rem;
+  --cm-font-size-lg: 1.25rem;
+  --cm-font-size-xl: 1.75rem;
+  --cm-font-size-2xl: 2rem;
+
+  --cm-font-weight-regular: 400;
+  --cm-font-weight-medium: 500;
+  --cm-font-weight-semibold: 600;
+  --cm-font-weight-bold: 700;
+
+  --cm-space-1: 0.25rem;
+  --cm-space-2: 0.5rem;
+  --cm-space-3: 0.75rem;
+  --cm-space-4: 1rem;
+  --cm-space-5: 1.25rem;
+  --cm-space-6: 1.5rem;
+  --cm-space-7: 2rem;
+  --cm-space-8: 2.5rem;
+
+  --cm-radius-sm: 0.5rem;
+  --cm-radius-md: 0.75rem;
+  --cm-radius-lg: 1rem;
+  --cm-radius-pill: 999px;
+
+  --cm-color-bg-body: rgb(224, 242, 254);
+  --cm-color-bg-elevated: rgb(239, 246, 255);
+  --cm-color-surface: rgb(219, 234, 254);
+  --cm-color-surface-soft: rgb(245, 245, 245);
+  --cm-color-white: rgb(255, 255, 255);
+  --cm-color-border: rgba(20, 71, 230, 0.14);
+  --cm-color-wallet-shell: rgb(193, 210, 229);
+  --cm-color-wallet-input: rgb(229, 232, 237);
+  --cm-color-wallet-input-border: rgb(194, 200, 208);
+  --cm-color-wallet-note: rgb(95, 117, 151);
+  --cm-color-wallet-danger: rgb(225, 70, 70);
+  --cm-color-wallet-danger-soft: rgba(225, 70, 70, 0.14);
+  --cm-color-wallet-warning: rgb(186, 71, 9);
+  --cm-color-wallet-warning-soft: rgba(246, 170, 72, 0.16);
+  --cm-color-wallet-success: rgb(4, 159, 82);
+
+  --cm-color-brand-900: rgb(23, 50, 78);
+  --cm-color-brand-700: rgb(28, 115, 184);
+  --cm-color-brand-500: rgb(43, 127, 255);
+  --cm-color-brand-400: rgb(34, 144, 255);
+  --cm-color-brand-300: rgb(0, 184, 219);
+  --cm-color-referrals-dark-start: rgb(23, 50, 78);
+  --cm-color-referrals-dark-end: rgb(15, 23, 42);
+  --cm-color-referrals-dark-muted: rgba(219, 234, 254, 0.8);
+  --cm-color-referrals-soft-border: rgb(241, 245, 249);
+  --cm-color-referrals-badge-text: rgb(190, 219, 255);
+  --cm-color-referrals-badge-text-soft: rgba(190, 219, 255, 0.75);
+  --cm-color-referrals-link-surface: rgb(248, 250, 252);
+  --cm-color-referrals-link-border: rgb(226, 232, 240);
+  --cm-color-referrals-link-text: rgb(69, 85, 108);
+  --cm-color-referrals-button-dark: rgb(3, 2, 19);
+  --cm-color-referrals-positive: rgb(5, 223, 114);
+  --cm-color-referrals-id: rgb(144, 161, 185);
+  --cm-color-referrals-meta: rgb(98, 116, 142);
+  --cm-color-referrals-track: rgb(226, 232, 240);
+  --cm-color-referrals-fill: rgb(255, 185, 0);
+  --cm-color-referrals-accent: rgb(254, 154, 0);
+  --cm-color-trans-surface: rgba(255, 255, 255, 0.4);
+  --cm-color-trans-surface-strong: rgba(255, 255, 255, 0.95);
+  --cm-color-trans-surface-elevated: rgba(255, 255, 255, 0.8);
+  --cm-color-trans-surface-mid: rgba(255, 255, 255, 0.7);
+  --cm-color-trans-surface-soft: rgba(255, 255, 255, 0.5);
+  --cm-color-trans-card-border: rgba(255, 255, 255, 0.6);
+  --cm-color-trans-border: rgba(255, 255, 255, 0.5);
+  --cm-color-trans-border-soft: rgba(255, 255, 255, 0.2);
+  --cm-color-trans-title-muted: rgb(117, 117, 117);
+  --cm-color-trans-placeholder: rgb(153, 161, 175);
+  --cm-color-trans-icon: rgb(143, 154, 174);
+  --cm-color-trans-row-text: rgb(68, 68, 68);
+  --cm-color-trans-user: rgb(74, 85, 101);
+  --cm-color-trans-date: rgb(106, 114, 130);
+  --cm-color-trans-export: rgb(10, 152, 252);
+  --cm-color-trans-positive: rgb(0, 166, 62);
+  --cm-color-trans-negative: rgb(251, 44, 54);
+  --cm-color-trans-done-bg: rgb(220, 252, 231);
+  --cm-color-trans-done-border: rgb(185, 248, 207);
+  --cm-color-trans-done-text: rgb(0, 130, 54);
+  --cm-color-trans-pending-bg: rgb(254, 249, 194);
+  --cm-color-trans-pending-border: rgb(255, 240, 133);
+  --cm-color-trans-pending-text: rgb(166, 95, 0);
+
+  --cm-color-success-700: rgb(0, 130, 54);
+  --cm-color-success-100: rgb(220, 252, 231);
+  --cm-color-danger-700: rgb(231, 0, 11);
+
+  --cm-color-text: rgb(23, 50, 78);
+  --cm-color-text-muted: rgb(100, 116, 139);
+  --cm-color-text-subtle: rgb(113, 113, 130);
+
+  --cm-shadow-card: 0 8px 30px rgba(0, 0, 0, 0.04);
+  --cm-shadow-soft: 0 4px 12px rgba(43, 127, 255, 0.12);
+
+  --cm-container-max: 86rem;
+  --cm-topbar-height: 4rem;
+
+  --cm-chart-gridline: rgba(20, 71, 230, 0.14);
+  --cm-chart-label: rgb(100, 116, 139);
+  --cm-chart-bar-primary: rgb(43, 127, 255);
+  --cm-chart-bar-secondary: rgba(43, 127, 255, 0.76);
+  --cm-chart-bar-dark: rgb(23, 50, 78);
+  --cm-chart-line: rgb(0, 184, 219);
+
+  --cm-transition-fast: 160ms ease;
+  --cm-transition-base: 240ms ease;
+}

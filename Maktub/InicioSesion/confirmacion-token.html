@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Validar token - Maktub</title>
+    <meta
+      name="description"
+      content="Validación de token de seguridad Maktub para finalizar el onboarding."
+    />
+    <meta
+      name="keywords"
+      content="Maktub, token, verificación, PIN, onboarding, seguridad"
+    />
+    <meta name="author" content="Maktub Frontend Team" />
+    <meta property="og:title" content="Validar token - Maktub" />
+    <meta
+      property="og:description"
+      content="Pantalla de confirmación de token para completar el registro en Maktub."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_MX" />
+    <link rel="preconnect" href="https://api.fontshare.com" />
+    <link
+      rel="stylesheet"
+      href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <link rel="stylesheet" href="./css/tokens.css" />
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
+  <body class="mk-body">
+    <a class="mk-skip-link" href="#mk-checktoken-main">Saltar a validación de token</a>
+    <div class="mk-app-shell">
+      <img
+        class="mk-bg-spheres"
+        src="./assets/img/esferas.png"
+        alt=""
+        aria-hidden="true"
+      />
+
+      <header class="mk-header container-fluid px-3 px-md-4">
+        <div class="d-flex justify-content-center align-items-center">
+          <a href="./index_1.html" aria-label="Volver al inicio">
+            <img
+              src="./assets/img/mk-logo.svg"
+              alt="Maktub"
+              class="mk-brand-logo"
+              width="80"
+              height="92"
+            />
+          </a>
+        </div>
+      </header>
+
+      <main
+        id="mk-checktoken-main"
+        class="mk-main container-fluid d-flex justify-content-center align-items-start px-3 px-md-4"
+      >
+        <section class="mk-checktoken-card w-100" aria-labelledby="mk-checktoken-title">
+          <form id="mk-checktoken-form" class="mk-checktoken-form" novalidate data-mk-checktoken-form>
+            <header class="mk-checktoken-header text-center">
+              <h1 id="mk-checktoken-title" class="mk-title">Confirmación de código</h1>
+              <p class="mk-checktoken-subtitle">Ingresa el código de 6 dígitos que enviamos a tu correo, para confirmar la creación de tu cuenta.</p>
+            </header>
+
+            
+            <div class="mk-pin-field">
+              <label class="mk-pin-label" for="mk-token-digit-1">Código PIN</label>
+              <div
+                class="mk-pin-group"
+                role="group"
+                aria-label="Código de verificación de 6 dígitos"
+                aria-describedby="mk-pin-helper mk-pin-error"
+                data-mk-pin-group
+                data-mk-pin-length="6"
+              >
+                <input
+                  id="mk-token-digit-1"
+                  class="mk-pin-input"
+                  type="text"
+                  inputmode="numeric"
+                  pattern="[0-9]*"
+                  maxlength="1"
+                  autocomplete="one-time-code"
+                  data-mk-pin-input
+                />
+                <input
+                  class="mk-pin-input"
+                  type="text"
+                  inputmode="numeric"
+                  pattern="[0-9]*"
+                  maxlength="1"
+                  data-mk-pin-input
+                />
+                <input
+                  class="mk-pin-input"
+                  type="text"
+                  inputmode="numeric"
+                  pattern="[0-9]*"
+                  maxlength="1"
+                  data-mk-pin-input
+                />
+                <input
+                  class="mk-pin-input"
+                  type="text"
+                  inputmode="numeric"
+                  pattern="[0-9]*"
+                  maxlength="1"
+                  data-mk-pin-input
+                />
+                <input
+                  class="mk-pin-input"
+                  type="text"
+                  inputmode="numeric"
+                  pattern="[0-9]*"
+                  maxlength="1"
+                  data-mk-pin-input
+                />
+                <input
+                  class="mk-pin-input"
+                  type="text"
+                  inputmode="numeric"
+                  pattern="[0-9]*"
+                  maxlength="1"
+                  data-mk-pin-input
+                />
+              </div>
+
+              <p id="mk-pin-error" class="mk-inline-error visually-hidden" role="alert"></p>
+            </div>
+
+            <p class="mk-checktoken-resend text-center mb-0">
+              ¿No recibiste el código?
+              <a href="#" class="mk-checktoken-link" data-mk-resend-token>Reenviar</a>
+            </p>
+
+            <button
+              id="mk-checktoken-submit"
+              type="submit"
+              class="mk-btn-primary"
+              disabled
+              aria-disabled="true"
+            >
+              Validar código
+            </button>
+
+            <p
+              id="mk-checktoken-success"
+              class="mk-inline-success text-center visually-hidden"
+              role="status"
+              aria-live="polite"
+            >
+              Token validado correctamente. Bienvenido a Maktub.
+            </p>
+          </form>
+        </section>
+      </main>
+    </div>
+
+    <script src="./js/main.js" defer></script>
+  </body>
+</html>

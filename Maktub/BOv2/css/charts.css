@@ -1,0 +1,31 @@
+.cm-chart-canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.cm-chart-card .cm-chart-wrap,
+.cm-line-card .cm-line-card__chart {
+  background: transparent;
+}
+
+.cm-chart-legend {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: var(--cm-fs-12);
+  color: var(--cm-color-muted-3);
+}
+
+.cm-chart-legend__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+}
+
+.cm-chart-legend__dot--blue {
+  background: var(--cm-chart-blue);
+}
+
+.cm-chart-legend__dot--navy {
+  background: var(--cm-chart-navy);
+}

@@ -1,0 +1,392 @@
+
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="HubMaktub - Panel de criptomonedas: resumen, carteras, comprar/vender e historial." />
+  <meta name="keywords" content="swap, comprar cripto, vender cripto, exchange, maktub" />
+  <meta name="theme-color" content="#042254" />
+  <meta property="og:title" content="Comprar / Vender | HubMaktub" />
+  <meta property="og:description" content="Panel de gestión de activos y órdenes." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/img/logo.svg" />
+  <title>Comprar / Vender | HubMaktub</title>
+
+  <!-- Tipografía -->
+  <link rel="preconnect" href="https://fonts.cdnfonts.com" />
+  <link href="https://fonts.cdnfonts.com/css/satoshi" rel="stylesheet">
+
+  <!-- Bootstrap 5.3.8 + Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <!-- Tokens + estilos -->
+  <link rel="stylesheet" href="css/tokens.css" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+<header class="hmk-topbar">
+  <nav class="navbar navbar-expand-lg navbar-dark py-3">
+    <div class="container hmk-container">
+      <a class="hmk-brand" href="index.html" aria-label="Ir a resumen">
+        <img src="assets/img/logo.svg" alt="MAKTUB" width="40" height="40" />
+        <span>MAKTUB</span>
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#hmkNav" aria-controls="hmkNav" aria-expanded="false" aria-label="Abrir navegación">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse justify-content-center" id="hmkNav">
+        <div class="hmk-mobile-menu">
+          <div class="hmk-mobile-header hmk-mobile-only">
+            <div class="hmk-mobile-brand">
+              <img src="assets/img/logo.svg" alt="MAKTUB" width="40" height="40" />
+            </div>
+            <button class="hmk-mobile-close" type="button" data-bs-toggle="collapse" data-bs-target="#hmkNav" aria-label="Cerrar menú">
+              <i class="bi bi-x-lg" aria-hidden="true"></i>
+            </button>
+          </div>
+          <div class="d-flex hmk-nav flex-wrap align-items-center ms-lg-4">
+          <a class="hmk-nav-link" data-hmk-nav href="index.html">
+            <i class="bi bi-graph-up hmk-nav-ico" aria-hidden="true"></i>
+            <span>Resumen</span>
+          </a>
+          <a class="hmk-nav-link" data-hmk-nav href="carteras.html">
+            <i class="bi bi-wallet2 hmk-nav-ico" aria-hidden="true"></i>
+            <span>Carteras</span>
+          </a>
+          <a class="hmk-nav-link" data-hmk-nav href="comprar-vender.html">
+            <i class="bi bi-arrow-left-right hmk-nav-ico" aria-hidden="true"></i>
+            <span>Comprar / Vender</span>
+          </a>
+          <a class="hmk-nav-link" data-hmk-nav href="historial.html">
+            <i class="bi bi-clock-history hmk-nav-ico" aria-hidden="true"></i>
+            <span>Historial órdenes</span>
+          </a>
+          <div class="dropdown hmk-nav-dropdown">
+            <button class="hmk-nav-link hmk-nav-link--dropdown dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="bi bi-globe2 hmk-nav-ico" aria-hidden="true"></i>
+              <span class="hmk-nav-label">Ecosistema <i class="bi bi-chevron-down hmk-nav-caret" aria-hidden="true"></i></span>
+            </button>
+            <ul class="dropdown-menu hmk-dropdown-menu">
+              <li>
+                <a class="dropdown-item hmk-dropdown-item" href="https://clubmaktub.com" data-hmk-external data-hmk-external-name="Club Maktub" rel="noopener">
+                  <i class="bi bi-people" aria-hidden="true"></i>
+                  <span>Club Maktub</span>
+                </a>
+              </li>
+              <li>
+                <a class="dropdown-item hmk-dropdown-item" href="https://mbcapital.com" data-hmk-external data-hmk-external-name="MB CAPITAL" rel="noopener">
+                  <i class="bi bi-buildings" aria-hidden="true"></i>
+                  <span>MB CAPITAL</span>
+                </a>
+              </li>
+              <li>
+                <a class="dropdown-item hmk-dropdown-item" href="https://maktub.com/compra-mak" data-hmk-external data-hmk-external-name="Compra Mak" rel="noopener">
+                  <i class="bi bi-bag" aria-hidden="true"></i>
+                  <span>Compra Mak</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="hmk-mobile-ecosystem hmk-mobile-only">
+          <div class="hmk-mobile-section">Ecosistema</div>
+          <a class="hmk-mobile-link" href="https://clubmaktub.com" data-hmk-external data-hmk-external-name="Club Maktub" rel="noopener">
+            <span class="hmk-mobile-label"><i class="bi bi-people" aria-hidden="true"></i> Club Maktub</span>
+            <i class="bi bi-box-arrow-up-right hmk-mobile-ext" aria-hidden="true"></i>
+          </a>
+          <a class="hmk-mobile-link" href="https://mbcapital.com" data-hmk-external data-hmk-external-name="MB CAPITAL" rel="noopener">
+            <span class="hmk-mobile-label"><i class="bi bi-buildings" aria-hidden="true"></i> MB CAPITAL</span>
+            <i class="bi bi-box-arrow-up-right hmk-mobile-ext" aria-hidden="true"></i>
+          </a>
+          <a class="hmk-mobile-link" href="https://maktub.com/compra-mak" data-hmk-external data-hmk-external-name="Compra Mak" rel="noopener">
+            <span class="hmk-mobile-label"><i class="bi bi-bag" aria-hidden="true"></i> Compra Mak</span>
+            <i class="bi bi-box-arrow-up-right hmk-mobile-ext" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<main class="hmk-section">
+  <div class="container hmk-container">
+    <!-- <h1 class="hmk-page-title">Comprar / <span class="hmk-accent">Vender</span></h1> -->
+    <!-- <p class="hmk-subtitle">Intercambia tus activos de forma segura y al mejor precio</p> -->
+    <section class="mt-5">
+      <div class="hmk-card hmk-card--glow hmk-swap-card">
+        <div class="hmk-card-header d-flex align-items-start justify-content-between flex-wrap gap-3">
+          <div>
+            <div class="h4 mb-1 fw-bold">Comprar / Vender</div>
+            <div class="text-white-50">Convierte tus activos instantáneamente</div>
+          </div>
+          <div class="text-end hmk-swap-balance">
+            <div class="text-white-50 small">Balance total estimado</div>
+            <div class="h5 mb-0">$45,230.00 USD</div>
+          </div>
+        </div>
+
+        <div class="hmk-card-body hmk-swap-body">
+          <div class="hmk-swap-block">
+            <div class="hmk-swap-head">
+              <div>
+                <div class="hmk-swap-label">Tú pagas</div>
+                <div class="hmk-text-muted small">Selecciona el activo que quieres intercambiar</div>
+              </div>
+              <div class="hmk-swap-available">
+                <span class="text-white-50">Disponible:</span>
+                <span class="text-white fw-semibold" data-hmk-token-balance>120.5 ASTER</span>
+                <button class="hmk-chip" type="button" data-hmk-max data-hmk-max-target="pay">MAX</button>
+              </div>
+            </div>
+
+            <div class="hmk-swap-panel">
+              <div class="hmk-swap-input">
+                <label class="form-label text-white-50 mb-1" for="payAmount">Monto</label>
+                <input id="payAmount" class="hmk-swap-amount" inputmode="decimal" placeholder="0.00" aria-describedby="payHint" data-hmk-amount-input="pay">
+                <div id="payHint" class="hmk-swap-hint">≈ $0 USD</div>
+              </div>
+              <div class="hmk-swap-token">
+                <label class="form-label text-white-50 mb-1" for="payToken">Token</label>
+                <div class="hmk-token-select" data-hmk-token-select="pay">
+                  <button id="payToken" class="hmk-token-trigger" type="button" aria-haspopup="listbox" aria-expanded="false">
+                    <span class="hmk-asset-icon hmk-asset-icon--aster">A</span>
+                    <span class="hmk-token-meta">
+                      <span class="hmk-token-symbol">ASTER</span>
+                      <span class="hmk-token-name">Aster</span>
+                    </span>
+                    <i class="bi bi-chevron-down" aria-hidden="true"></i>
+                  </button>
+                  <div class="hmk-token-dropdown" role="listbox">
+                    <label class="hmk-token-search" aria-label="Buscar moneda">
+                      <i class="bi bi-search" aria-hidden="true"></i>
+                      <input type="search" placeholder="Buscar moneda..." data-hmk-token-search>
+                    </label>
+                    <div class="hmk-token-list">
+                      <button class="hmk-token-item is-selected" type="button" role="option" aria-selected="true" data-token-id="aster" data-token-symbol="ASTER" data-token-name="Aster" data-token-icon="aster" data-token-letter="A" data-token-network="1 RED" data-token-balance="120.5 ASTER" data-token-balance-value="120.5">
+                        <span class="hmk-asset-icon hmk-asset-icon--aster">A</span>
+                        <span class="hmk-token-meta">
+                          <span class="hmk-token-symbol">ASTER</span>
+                          <span class="hmk-token-name">Aster</span>
+                        </span>
+                        <span class="hmk-token-badge">1 RED</span>
+                        <i class="bi bi-check2" aria-hidden="true"></i>
+                      </button>
+                      <button class="hmk-token-item" type="button" role="option" aria-selected="false" data-token-id="avalanche" data-token-symbol="AVAX" data-token-name="Avalanche" data-token-icon="avax" data-token-letter="AV" data-token-network="C-CHAIN" data-token-balance="24.2 AVAX" data-token-balance-value="24.2">
+                        <span class="hmk-asset-icon hmk-asset-icon--avax">AV</span>
+                        <span class="hmk-token-meta">
+                          <span class="hmk-token-symbol">AVAX</span>
+                          <span class="hmk-token-name">Avalanche</span>
+                        </span>
+                        <span class="hmk-token-badge">C-CHAIN</span>
+                        <i class="bi bi-check2" aria-hidden="true"></i>
+                      </button>
+                      <button class="hmk-token-item" type="button" role="option" aria-selected="false" data-token-id="binance-coin" data-token-symbol="BNB" data-token-name="BNB" data-token-icon="bnb" data-token-letter="BNB" data-token-network="BSC" data-token-balance="3.2 BNB" data-token-balance-value="3.2">
+                        <span class="hmk-asset-icon hmk-asset-icon--bnb">BNB</span>
+                        <span class="hmk-token-meta">
+                          <span class="hmk-token-symbol">BNB</span>
+                          <span class="hmk-token-name">BNB</span>
+                        </span>
+                        <span class="hmk-token-badge">BSC</span>
+                        <i class="bi bi-check2" aria-hidden="true"></i>
+                      </button>
+                      <button class="hmk-token-item" type="button" role="option" aria-selected="false" data-token-id="bitcoin" data-token-symbol="BTC" data-token-name="Bitcoin" data-token-icon="btc" data-token-letter="BTC" data-token-network="BITCOIN" data-token-balance="0.08 BTC" data-token-balance-value="0.08">
+                        <span class="hmk-asset-icon hmk-asset-icon--btc">BTC</span>
+                        <span class="hmk-token-meta">
+                          <span class="hmk-token-symbol">BTC</span>
+                          <span class="hmk-token-name">Bitcoin</span>
+                        </span>
+                        <span class="hmk-token-badge">BITCOIN</span>
+                        <i class="bi bi-check2" aria-hidden="true"></i>
+                      </button>
+                      <button class="hmk-token-item" type="button" role="option" aria-selected="false" data-token-id="ethereum" data-token-symbol="ETH" data-token-name="Ethereum" data-token-icon="eth" data-token-letter="ETH" data-token-network="ERC-20" data-token-balance="12.0 ETH" data-token-balance-value="12.0">
+                        <span class="hmk-asset-icon hmk-asset-icon--eth">ETH</span>
+                        <span class="hmk-token-meta">
+                          <span class="hmk-token-symbol">ETH</span>
+                          <span class="hmk-token-name">Ethereum</span>
+                        </span>
+                        <span class="hmk-token-badge">ERC-20</span>
+                        <i class="bi bi-check2" aria-hidden="true"></i>
+                      </button>
+                      <button class="hmk-token-item" type="button" role="option" aria-selected="false" data-token-id="tether" data-token-symbol="USDT" data-token-name="Tether" data-token-icon="usdt" data-token-letter="USDT" data-token-network="ERC-20" data-token-balance="3,200 USDT" data-token-balance-value="3200">
+                        <span class="hmk-asset-icon hmk-asset-icon--usdt">USDT</span>
+                        <span class="hmk-token-meta">
+                          <span class="hmk-token-symbol">USDT</span>
+                          <span class="hmk-token-name">Tether</span>
+                        </span>
+                        <span class="hmk-token-badge">ERC-20</span>
+                        <i class="bi bi-check2" aria-hidden="true"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="hmk-swap-switch">
+            <button class="hmk-swap-switch-btn" type="button" aria-label="Intercambiar tokens" data-hmk-swap-toggle>
+              <i class="bi bi-arrow-down-up" aria-hidden="true"></i>
+            </button>
+          </div>
+
+          <div class="hmk-swap-block">
+            <div class="hmk-swap-head">
+              <div>
+                <div class="hmk-swap-label">Tú recibes</div>
+                <div class="hmk-text-muted small">El monto estimado al mejor precio</div>
+              </div>
+              <span class="hmk-swap-badge"><i class="bi bi-shield-check" aria-hidden="true"></i> Mejor precio garantizado</span>
+            </div>
+
+            <div class="hmk-swap-panel">
+              <div class="hmk-swap-input">
+                <label class="form-label text-white-50 mb-1" for="receiveAmount">Monto</label>
+                <input id="receiveAmount" class="hmk-swap-amount" inputmode="decimal" placeholder="0.00" aria-describedby="receiveHint" data-hmk-amount-input="receive">
+                <div id="receiveHint" class="hmk-swap-hint">≈ $0 USD</div>
+              </div>
+              <div class="hmk-swap-token">
+                <label class="form-label text-white-50 mb-1" for="receiveToken">Token</label>
+                <div class="hmk-token-select" data-hmk-token-select="receive">
+                  <button id="receiveToken" class="hmk-token-trigger" type="button" aria-haspopup="listbox" aria-expanded="false">
+                    <span class="hmk-asset-icon hmk-asset-icon--avax">AV</span>
+                    <span class="hmk-token-meta">
+                      <span class="hmk-token-symbol">AVAX</span>
+                      <span class="hmk-token-name">Avalanche</span>
+                    </span>
+                    <i class="bi bi-chevron-down" aria-hidden="true"></i>
+                  </button>
+                  <div class="hmk-token-dropdown" role="listbox">
+                    <label class="hmk-token-search" aria-label="Buscar moneda">
+                      <i class="bi bi-search" aria-hidden="true"></i>
+                      <input type="search" placeholder="Buscar moneda..." data-hmk-token-search>
+                    </label>
+                    <div class="hmk-token-list">
+                      <button class="hmk-token-item" type="button" role="option" aria-selected="false" data-token-id="aster" data-token-symbol="ASTER" data-token-name="Aster" data-token-icon="aster" data-token-letter="A" data-token-network="1 RED">
+                        <span class="hmk-asset-icon hmk-asset-icon--aster">A</span>
+                        <span class="hmk-token-meta">
+                          <span class="hmk-token-symbol">ASTER</span>
+                          <span class="hmk-token-name">Aster</span>
+                        </span>
+                        <span class="hmk-token-badge">1 RED</span>
+                        <i class="bi bi-check2" aria-hidden="true"></i>
+                      </button>
+                      <button class="hmk-token-item is-selected" type="button" role="option" aria-selected="true" data-token-id="avalanche" data-token-symbol="AVAX" data-token-name="Avalanche" data-token-icon="avax" data-token-letter="AV" data-token-network="C-CHAIN">
+                        <span class="hmk-asset-icon hmk-asset-icon--avax">AV</span>
+                        <span class="hmk-token-meta">
+                          <span class="hmk-token-symbol">AVAX</span>
+                          <span class="hmk-token-name">Avalanche</span>
+                        </span>
+                        <span class="hmk-token-badge">C-CHAIN</span>
+                        <i class="bi bi-check2" aria-hidden="true"></i>
+                      </button>
+                      <button class="hmk-token-item" type="button" role="option" aria-selected="false" data-token-id="binance-coin" data-token-symbol="BNB" data-token-name="BNB" data-token-icon="bnb" data-token-letter="BNB" data-token-network="BSC">
+                        <span class="hmk-asset-icon hmk-asset-icon--bnb">BNB</span>
+                        <span class="hmk-token-meta">
+                          <span class="hmk-token-symbol">BNB</span>
+                          <span class="hmk-token-name">BNB</span>
+                        </span>
+                        <span class="hmk-token-badge">BSC</span>
+                        <i class="bi bi-check2" aria-hidden="true"></i>
+                      </button>
+                      <button class="hmk-token-item" type="button" role="option" aria-selected="false" data-token-id="bitcoin" data-token-symbol="BTC" data-token-name="Bitcoin" data-token-icon="btc" data-token-letter="BTC" data-token-network="BITCOIN">
+                        <span class="hmk-asset-icon hmk-asset-icon--btc">BTC</span>
+                        <span class="hmk-token-meta">
+                          <span class="hmk-token-symbol">BTC</span>
+                          <span class="hmk-token-name">Bitcoin</span>
+                        </span>
+                        <span class="hmk-token-badge">BITCOIN</span>
+                        <i class="bi bi-check2" aria-hidden="true"></i>
+                      </button>
+                      <button class="hmk-token-item" type="button" role="option" aria-selected="false" data-token-id="ethereum" data-token-symbol="ETH" data-token-name="Ethereum" data-token-icon="eth" data-token-letter="ETH" data-token-network="ERC-20">
+                        <span class="hmk-asset-icon hmk-asset-icon--eth">ETH</span>
+                        <span class="hmk-token-meta">
+                          <span class="hmk-token-symbol">ETH</span>
+                          <span class="hmk-token-name">Ethereum</span>
+                        </span>
+                        <span class="hmk-token-badge">ERC-20</span>
+                        <i class="bi bi-check2" aria-hidden="true"></i>
+                      </button>
+                      <button class="hmk-token-item" type="button" role="option" aria-selected="false" data-token-id="tether" data-token-symbol="USDT" data-token-name="Tether" data-token-icon="usdt" data-token-letter="USDT" data-token-network="ERC-20">
+                        <span class="hmk-asset-icon hmk-asset-icon--usdt">USDT</span>
+                        <span class="hmk-token-meta">
+                          <span class="hmk-token-symbol">USDT</span>
+                          <span class="hmk-token-name">Tether</span>
+                        </span>
+                        <span class="hmk-token-badge">ERC-20</span>
+                        <i class="bi bi-check2" aria-hidden="true"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="hmk-swap-foot">
+            <div class="hmk-swap-rate" data-hmk-rate>1 ASTER ≈ 0.035511 AVAX</div>
+            <div class="hmk-swap-note">
+              <span>Actualización: <strong class="text-white" data-hmk-price-updated>--</strong></span>
+              <a href="#" class="text-decoration-none">Refresh auto</a>
+            </div>
+          </div>
+
+          <div class="mt-2">
+            <button class="btn w-100 hmk-btn-primary hmk-swap-cta" type="button">Confirmar Intercambio</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<!-- Botón flotante de Ayuda (cambia a Cerrar al abrir) -->
+<button id="hmkHelpFab" class="hmk-help-fab" type="button" aria-label="Abrir ayuda" aria-expanded="false" aria-controls="hmkHelpInline">
+  <i class="bi bi-headset" aria-hidden="true"></i>
+</button>
+
+<!-- Panel de Ayuda (Offcanvas) -->
+
+
+  <!-- Bootstrap bundle -->
+  
+<!-- Modal de salida a enlaces externos -->
+<div class="modal fade hmk-exit-modal" id="hmkExitModal" tabindex="-1" aria-labelledby="hmkExitModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="hmk-exit-icon">
+          <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i>
+        </div>
+        <div class="hmk-exit-content">
+          <h2 class="h5 mb-2" id="hmkExitModalLabel">Estás saliendo de Maktub</h2>
+          <p class="hmk-text-muted mb-2">Estás siendo redirigido a <span class="hmk-text-soft" data-hmk-exit-dest>Club Maktub</span>, un sitio externo de nuestro ecosistema.</p>
+          <p class="hmk-text-muted small mb-0">Asegúrate de que la dirección sea correcta antes de realizar cualquier transacción.</p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn hmk-btn-ghost" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn hmk-btn-primary d-inline-flex align-items-center gap-2" data-hmk-exit-confirm>
+          Continuar <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Sección de ayuda inline -->
+<section id="hmkHelpInline" class="hmk-help-inline" aria-hidden="true">
+  <div class="hmk-help-inline__inner" data-hmk-help-inline>
+    <div class="p-4 text-white-50">Cargando…</div>
+  </div>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

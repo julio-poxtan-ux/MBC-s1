@@ -1,0 +1,109 @@
+/* Estilos de botones e inputs controlados por variables :root */
+
+/* Botón principal */
+.btn-main {
+  background-color: var(--btn-bg);
+  border-radius: var(--btn-radius);
+  border: 0;
+  color: var(--btn-color);
+  padding: var(--btn-padding-y) var(--btn-padding-x);
+  font-size: var(--btn-font-size);
+  font-weight: 500;
+  /* box-shadow: 0 8px 18px rgba(0, 139, 255, 0.4); */
+  transition: background-color 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
+}
+
+.btn-main:hover {
+  background-color: var(--btn-bg-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 14px 26px rgba(0, 139, 255, 0.25);
+}
+
+.btn-main:active {
+  transform: translateY(0);
+  box-shadow: 0 6px 12px rgba(0, 139, 255, 0.25);
+}
+
+/* Inputs de texto */
+.form-control-rounded {
+  background-color: var(--input-bg);
+  border-radius: var(--input-radius);
+  border: 1px solid var(--input-border);
+  color: var(--input-color);
+  height: var(--input-height);
+  font-size: var(--input-font-size);
+  padding: 0.75rem 1.2rem;
+}
+
+.form-label {
+  margin-bottom: 0.55rem;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 0.95rem;
+}
+
+.input-with-icon .form-control-rounded {
+  padding-right: 3rem;
+}
+
+.input-icon {
+  position: absolute;
+  top: 50%;
+  right: 1rem;
+  transform: translateY(-50%);
+  color: var(--input-placeholder);
+  font-size: 1.1rem;
+  pointer-events: none;
+}
+
+.form-control-rounded::placeholder {
+  color: var(--input-placeholder);
+}
+
+.form-control-rounded:focus {
+  background-color: var(--input-bg);
+  border-color: var(--input-border-focus);
+  color: var(--input-color);
+  box-shadow: 0 0 0 1px rgba(11, 130, 255, 0.6);
+}
+
+.was-validated .form-control-rounded:invalid,
+.form-control-rounded.is-invalid {
+  border-color: #ff6b6b;
+  box-shadow: 0 0 0 1px rgba(255, 107, 107, 0.28);
+}
+
+.invalid-feedback {
+  color: #ff8b8b;
+  font-size: 0.85rem;
+}
+
+.alert-success {
+  background: rgba(39, 174, 96, 0.16);
+  border: 1px solid rgba(39, 174, 96, 0.4);
+  color: #b5f5cb;
+}
+
+/* Radios y checkboxes */
+.form-check-input {
+  width: var(--check-size);
+  height: var(--check-size);
+  border-radius: var(--check-border-radius);
+  border: 1px solid var(--check-border-color);
+  background-color: transparent;
+  cursor: pointer;
+  margin-top: 0.14rem;
+}
+
+.form-check-input:checked {
+  background-color: var(--check-bg-checked);
+  border-color: var(--check-bg-checked);
+}
+
+.form-check-input:focus {
+  box-shadow: 0 0 0 2px rgba(11, 130, 255, 0.6);
+}
+
+/* Hacer los radios perfectamente redondos */
+input[type="radio"].form-check-input {
+  border-radius: 50%;
+}

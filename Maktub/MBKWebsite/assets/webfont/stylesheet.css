@@ -1,0 +1,77 @@
+@font-face {
+    font-family: 'HK Guise';
+    src: url('HKGuiseBold.eot');
+    src: url('HKGuiseBold.eot?#iefix') format('embedded-opentype'),
+        url('HKGuiseBold.woff2') format('woff2'),
+        url('HKGuiseBold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'HK Guise';
+    src: url('HKGuiseLight.eot');
+    src: url('HKGuiseLight.eot?#iefix') format('embedded-opentype'),
+        url('HKGuiseLight.woff2') format('woff2'),
+        url('HKGuiseLight.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'HK Guise';
+    src: url('HKGuiseExtraLight.eot');
+    src: url('HKGuiseExtraLight.eot?#iefix') format('embedded-opentype'),
+        url('HKGuiseExtraLight.woff2') format('woff2'),
+        url('HKGuiseExtraLight.woff') format('woff');
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'HK Guise';
+    src: url('HKGuiseMedium.eot');
+    src: url('HKGuiseMedium.eot?#iefix') format('embedded-opentype'),
+        url('HKGuiseMedium.woff2') format('woff2'),
+        url('HKGuiseMedium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'HK Guise';
+    src: url('HKGuiseThin.eot');
+    src: url('HKGuiseThin.eot?#iefix') format('embedded-opentype'),
+        url('HKGuiseThin.woff2') format('woff2'),
+        url('HKGuiseThin.woff') format('woff');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'HK Guise';
+    src: url('HKGuiseSemiBold.eot');
+    src: url('HKGuiseSemiBold.eot?#iefix') format('embedded-opentype'),
+        url('HKGuiseSemiBold.woff2') format('woff2'),
+        url('HKGuiseSemiBold.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'HK Guise';
+    src: url('HKGuiseRegular.eot');
+    src: url('HKGuiseRegular.eot?#iefix') format('embedded-opentype'),
+        url('HKGuiseRegular.woff2') format('woff2'),
+        url('HKGuiseRegular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+

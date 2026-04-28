@@ -1,0 +1,218 @@
+/* css/tokens.css */
+:root {
+    /* Colores base */
+    --hmk-color-bg-900: #000f22; /* Secundario / Fondo global */
+    --hmk-color-bg-850: #001126; /* Fondo profundo */
+    --hmk-color-bg-800: #042254; /* Principal / Paneles */
+    --hmk-color-bg-700: #061b3d; /* Inputs / Elementos oscuros */
+    --hmk-color-bg-650: #0b1d36; /* Superficie neutra */
+    --hmk-color-bg-600: #000b1a; /* Fondo base */
+
+    --hmk-color-brand-500: #1c73b8; /* Azul vibrante */
+    --hmk-color-brand-600: #145a9b; /* Azul profundo */
+    --hmk-color-brand-650: #1a5e9a; /* Azul medio */
+    --hmk-color-brand-400: #517dac; /* Azul claro */
+    --hmk-color-brand-200: #c1e7fe; /* Azul pálido */
+
+    --hmk-color-text-100: #ffffff;
+    --hmk-color-text-200: #d6e2f0;
+    --hmk-color-text-400: #8ca0b8;
+
+    --hmk-color-ink: #07162e;
+    --hmk-color-ink-strong: #0c0f1a;
+
+    --hmk-color-success: #2ed573;
+    --hmk-color-warning: #f5c542;
+    --hmk-color-danger: #ff4d4f;
+
+    --hmk-color-border: rgba(255, 255, 255, 0.08);
+    --hmk-color-border-strong: rgba(28, 115, 184, 0.35);
+    --hmk-color-glow: rgba(28, 115, 184, 0.35);
+
+    --hmk-line-100: rgba(255, 255, 255, 0.03);
+    --hmk-line-150: rgba(255, 255, 255, 0.04);
+    --hmk-line-250: rgba(255, 255, 255, 0.05);
+    --hmk-line-200: rgba(255, 255, 255, 0.06);
+    --hmk-line-300: rgba(255, 255, 255, 0.08);
+    --hmk-line-350: rgba(255, 255, 255, 0.1);
+    --hmk-line-400: rgba(255, 255, 255, 0.12);
+    --hmk-line-500: rgba(255, 255, 255, 0.18);
+    --hmk-line-600: rgba(255, 255, 255, 0.28);
+    --hmk-line-700: rgba(255, 255, 255, 0.4);
+
+    --hmk-line-brand-200: rgba(28, 115, 184, 0.2);
+    --hmk-line-brand-600: rgba(28, 115, 184, 0.6);
+
+    --hmk-surface-card-top: rgba(6, 22, 48, 0.9);
+    --hmk-surface-card-bottom: rgba(4, 18, 40, 0.75);
+    --hmk-surface-card-flat-top: rgba(5, 16, 34, 0.9);
+    --hmk-surface-card-flat-bottom: rgba(4, 18, 40, 0.65);
+    --hmk-surface-input: rgba(6, 27, 61, 0.7);
+    --hmk-surface-input-focus: rgba(6, 27, 61, 0.9);
+    --hmk-surface-table-row: rgba(7, 20, 40, 0.8);
+    --hmk-surface-table-row-strong: rgba(12, 16, 28, 0.85);
+    --hmk-surface-table-head: rgba(0, 0, 0, 0.35);
+    --hmk-surface-accordion: rgba(6, 22, 48, 0.7);
+    --hmk-surface-panel-dark: rgba(3, 12, 28, 0.98);
+    --hmk-surface-panel-dark-soft: rgba(3, 12, 28, 0.92);
+    --hmk-surface-topbar: rgba(0, 15, 34, 0.95);
+    --hmk-surface-topbar-soft: rgba(0, 15, 34, 0.85);
+    --hmk-surface-mobile-header: rgba(0, 15, 34, 0.8);
+    --hmk-surface-pill: rgba(255, 255, 255, 0.06);
+    --hmk-surface-ghost: rgba(255, 255, 255, 0.02);
+    --hmk-surface-ghost-hover: rgba(81, 125, 172, 0.18);
+    --hmk-surface-highlight: rgba(28, 115, 184, 0.15);
+    --hmk-surface-chat-user: rgba(28, 115, 184, 0.25);
+    --hmk-surface-chat-bot: rgba(255, 255, 255, 0.06);
+    --hmk-surface-kpi: rgba(6, 18, 36, 0.8);
+    --hmk-surface-search: rgba(6, 27, 61, 0.6);
+
+    --hmk-color-coin-btc: #f7931a;
+    --hmk-color-coin-matic: #8247e5;
+    --hmk-color-coin-eth: #3c8cff;
+    --hmk-color-coin-usdt: #26a17b;
+    --hmk-color-coin-aster: #ff8a00;
+    --hmk-color-coin-avax: #e84142;
+    --hmk-color-coin-bnb: #f3ba2f;
+
+    --hmk-text-placeholder: rgba(255, 255, 255, 0.35);
+    --hmk-asset-ring-color: var(--hmk-line-400);
+    --hmk-asset-ring-size: 2px;
+
+    --hmk-badge-ok-bg: rgba(46, 213, 115, 0.12);
+    --hmk-badge-ok-border: rgba(46, 213, 115, 0.4);
+    --hmk-badge-pending-bg: rgba(245, 197, 66, 0.12);
+    --hmk-badge-pending-border: rgba(245, 197, 66, 0.35);
+    --hmk-badge-fail-bg: rgba(255, 77, 79, 0.12);
+    --hmk-badge-fail-border: rgba(255, 77, 79, 0.35);
+
+    --hmk-shadow-glow-strong: 0 0 32px rgba(28, 115, 184, 0.6);
+    --hmk-shadow-tab: 0 6px 18px rgba(0, 0, 0, 0.2);
+
+    /* Fondo */
+    --hmk-bg-gradient:
+      radial-gradient(800px 500px at 15% 10%, rgba(28, 115, 184, 0.18), transparent 60%),
+      radial-gradient(600px 400px at 85% 20%, rgba(81, 125, 172, 0.18), transparent 65%),
+      radial-gradient(900px 700px at 40% 90%, rgba(4, 34, 84, 0.45), transparent 60%),
+      linear-gradient(180deg, var(--hmk-color-bg-850) 0%, var(--hmk-color-bg-600) 100%);
+
+    /* Tipografía */
+    --hmk-font-family: "Satoshi", sans-serif;
+    --hmk-font-size-2xs: 0.6875rem;
+    --hmk-font-size-xs: 0.75rem;
+    --hmk-font-size-sm: 0.875rem;
+    --hmk-font-size-md: 1rem;
+    --hmk-font-size-lg: 1.125rem;
+    --hmk-font-size-xl: 1.5rem;
+    --hmk-font-size-2xl: 2rem;
+    --hmk-font-size-3xl: 2.75rem;
+    --hmk-font-size-4xl: 3.25rem;
+
+    --hmk-line-height-tight: 1.1;
+    --hmk-line-height-normal: 1.4;
+    --hmk-line-height-relaxed: 1.7;
+
+    /* Espaciados */
+    --hmk-space-2xs: 0.25rem;
+    --hmk-space-xs: 0.5rem;
+    --hmk-space-sm: 0.75rem;
+    --hmk-space-md: 1rem;
+    --hmk-space-lg: 1.5rem;
+    --hmk-space-xl: 2rem;
+    --hmk-space-2xl: 2.5rem;
+    --hmk-space-3xl: 3rem;
+    --hmk-space-4xl: 4rem;
+
+    --hmk-hero-title-min: 2.4rem;
+    --hmk-hero-title-fluid: 4vw;
+    --hmk-page-title-min: 2rem;
+    --hmk-page-title-fluid: 3vw;
+
+    /* Layout */
+    --hmk-container-max: 1440px;
+    --hmk-header-height: 88px;
+
+    /* Bordes */
+    --hmk-radius-sm: 8px;
+    --hmk-radius-md: 16px;
+    --hmk-radius-lg: 24px;
+    --hmk-radius-xl: 32px;
+    --hmk-radius-pill: 999px;
+
+    /* Sombras */
+    --hmk-shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.25);
+    --hmk-shadow-card: 0 16px 40px rgba(1, 8, 24, 0.6);
+    --hmk-shadow-glow: 0 0 28px rgba(28, 115, 184, 0.5);
+
+    /* Transiciones */
+    --hmk-transition-fast: 150ms ease;
+    --hmk-transition-base: 280ms ease;
+    --hmk-transition-slow: 450ms ease;
+
+    /* Tamaños específicos */
+    --hmk-size-icon: 20px;
+    --hmk-size-fab: 56px;
+    --hmk-size-badge: 28px;
+    --hmk-size-pill: 42px;
+    --hmk-size-asset: 36px;
+    --hmk-size-nav-icon: 1rem;
+    --hmk-size-logo: 40px;
+    --hmk-size-nav-dot: 6px;
+    --hmk-size-nav-indicator: 6px;
+    --hmk-size-table-menu: 32px;
+
+    --hmk-outline-size: 2px;
+    --hmk-outline-offset: 2px;
+    --hmk-nav-dot-offset: 4px;
+    --hmk-nav-dot-offset-start: 6px;
+    --hmk-nav-dot-offset-bounce: -2px;
+    --hmk-nav-indicator-bottom: 0px;
+    --hmk-nav-indicator-padding: 0.5rem;
+    --hmk-nav-icon-hover: -3px;
+    --hmk-nav-fallback-offset: -0.35rem;
+
+    --hmk-btn-hover-offset: -2px;
+    --hmk-fab-hover-offset: -4px;
+    --hmk-fab-hover-scale: 1.02;
+
+    --hmk-blur-sm: 12px;
+    --hmk-blur-lg: 16px;
+    --hmk-search-width: 180px;
+    --hmk-search-width-sm: 120px;
+    --hmk-help-panel-width: 420px;
+    --hmk-chat-body-min: 220px;
+    --hmk-chat-body-max: 320px;
+    --hmk-dropdown-width: 220px;
+    --hmk-dropdown-item-py: 0.65rem;
+    --hmk-dropdown-item-px: 0.75rem;
+    --hmk-exit-icon-size: 44px;
+    --hmk-exit-modal-width: 560px;
+    --hmk-help-inline-max: 2400px;
+    --hmk-help-inline-shift: 16px;
+    --hmk-help-inline-padding-y: var(--hmk-space-2xl);
+
+    --hmk-btn-primary-py: 0.85rem;
+    --hmk-btn-primary-px: 1.8rem;
+    --hmk-btn-ghost-py: 0.8rem;
+    --hmk-btn-ghost-px: 1.6rem;
+    --hmk-btn-outline-py: 0.7rem;
+    --hmk-btn-outline-px: 1.4rem;
+
+    --hmk-input-py: 0.85rem;
+    --hmk-input-px: 1rem;
+
+    --hmk-tab-py: 0.6rem;
+    --hmk-tab-px: 1.4rem;
+
+    --hmk-badge-py: 0.35rem;
+    --hmk-badge-px: 0.8rem;
+
+    --hmk-search-py: 0.7rem;
+    --hmk-search-px: 1rem;
+
+    --hmk-chat-bubble-py: 0.8rem;
+    --hmk-chat-bubble-px: 1rem;
+
+    --hmk-fab-offset: 2rem;
+    --hmk-fab-offset-sm: 1.2rem;
+}

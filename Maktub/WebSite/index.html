@@ -1,0 +1,1130 @@
+<!-- <?php
+ob_start("ob_gzhandler");
+require_once("oficinavirtual/conexion.php");
+session_start();
+define('TIMEZONE', 'America/Mexico_City');
+date_default_timezone_set(TIMEZONE);
+setlocale(LC_ALL,"es_ES");
+
+if(isset($_GET['cerrar'])){
+    session_destroy();
+    header('Location:/');
+}
+?> -->
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Club Maktub</title>
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Icons (opcional, para flecha) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <!-- Fuente -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.cdnfonts.com/css/satoshi" rel="stylesheet">
+  <link rel="stylesheet" href="css/font-hkguise.css">
+  <link rel="stylesheet" href="css/stylemk.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="cm-navbar navbar navbar-expand-md navbar-light py-3">
+    <div class="container">
+      <!-- Brand -->
+      <a class="navbar-brand d-flex align-items-center" href="/">
+        <img src="img/new/seccion1_logo.png" alt="Club Maktub" class="cm-logo me-2">
+      </a>
+
+      <!-- Botón hamburguesa (solo móvil) -->
+      <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="offcanvas"
+        data-bs-target="#cmMobileNav" aria-controls="cmMobileNav" aria-label="Abrir menú">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Navegación escritorio -->
+      <!-- <div class="d-none d-md-flex align-items-center ms-auto">
+        <ul class="navbar-nav me-3">
+          <?php if(isset($_SESSION['id'])){ ?>
+            <li class="nav-item">
+              <a class="nav-link text-dark px-3" href="https://mbcapitaldlt.com/membresia.php?l=<?php echo $_SESSION['id']; ?>">Mis Servicios</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-dark px-3" href="https://clubmktb.com/oficinavirtual/">Oficina virtual</a>
+            </li>
+          <?php } ?>
+        </ul> -->
+      <div class="d-flex gap-2">
+        <?php if(!empty($_SESSION['id'])){ ?>
+        <!-- <a class="btn btn-sm btn-outline-dark rounded-pill px-3" href="?cerrar=1">Cerrar sesión</a> -->
+        <?php } else { ?>
+        <a class="btn btn-primary-mk rounded-pill px-3" href="oficinavirtual">Iniciar sesión</a>
+        <?php } ?>
+      </div>
+    </div>
+    </div>
+  </nav>
+
+  <!-- OFFCANVAS MÓVIL -->
+  <div class="offcanvas offcanvas-end cm-offcanvas" tabindex="-1" id="cmMobileNav" aria-labelledby="cmMobileNavLabel"
+    data-bs-scroll="true">
+    <div class="offcanvas-header">
+      <div class="d-flex align-items-center">
+        <img src="img/new/seccion1_logo.png" class="cm-logo me-2" alt="Club Maktub">
+      </div>
+      <button type="button" class="btn-close text-reset shadow-none" data-bs-dismiss="offcanvas"
+        aria-label="Cerrar"></button>
+    </div>
+
+    <div class="offcanvas-body d-flex flex-column justify-content-between">
+      <ul class="navbar-nav">
+        <?php if(isset($_SESSION['id'])){ ?>
+        <li class="nav-item">
+          <a class="nav-link cm-mobile-link"
+            href="https://mbcapitaldlt.com/membresia.php?l=<?php echo $_SESSION['id']; ?>">Mis Servicios</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link cm-mobile-link" href="https://clubmktb.com/oficinavirtual/">Oficina virtual</a>
+        </li>
+        <?php } ?>
+      </ul>
+
+      <div class="mt-3">
+        <?php if(!empty($_SESSION['id'])){ ?>
+        <a class="btn btn-dark w-100 rounded-pill py-2" href="?cerrar=1">Cerrar sesión</a>
+        <?php } else { ?>
+        <a class="btn btn-dark w-100 rounded-pill py-2 cm-footlink" href="oficinavirtual">Iniciar sesión</a>
+        <?php } ?>
+      </div>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero-wrap">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="hero-overlay" aria-hidden="true"></div>
+    <div class="container hero-inner">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-8 px-5">
+          <h4 class="mb-2">Construye tu salud financiera desde</h4>
+          <h1 class="hero">
+            La consciencia, <br />
+            el conocimiento y la innovación
+          </h1>
+          <h4 class="mt-3 text-gray01">
+            Descubre cómo multiplicar tu capital, entender el nuevo sistema
+            financiero y conectar con las tecnologías que están cambiando el
+            mundo.
+          </h4>
+        </div>
+        <!-- Derecha: Texto y KPIs -->
+        <div class="col-lg-4">
+          <div class="flex-row-reverse kpis gap-5 reveal text-center">
+            <div class="col-12">
+              <div class="kpi" data-countto="1000000">0</div>
+              <div class="kpi-label">Miembros</div>
+            </div>
+            <div class="col-12">
+              <div class="kpi" data-countto="200000">0</div>
+              <div class="kpi-label">Embajadores</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- HERO -->
+  <div class="cm-sec2 position-relative overflow-hidden" data-aos="zoom-in">
+    <div class="container">
+      <div class="row align-items-center justify-content-center text-center text-lg-start g-5">
+        <!-- Lado visual (reemplaza el div.col-lg-6 izquierdo anterior) -->
+        <div class="col-lg-5">
+          <div class="cm-card-tilted reveal">
+            <!-- Grid dentro del contenedor grande -->
+            <div class="cm-grid"></div>
+            <!-- Anillo dentro del grid -->
+            <div class="cm-ellipse-area"data-aos="fade-right"
+     data-aos-offset="300"
+     data-aos-easing="ease-in-sine">
+              <img class="cm-ellipse-img img-subir-bajar" src="assets/image-mk.png" alt="Red Maktub">
+            </div>
+          </div>
+        </div>
+        <!-- Lado texto -->
+        <div class="col-lg-7"data-aos="fade-left"
+     data-aos-offset="300"
+     data-aos-easing="ease-in-sine">
+          <div class="reveal text-left">
+            <h3 data-aos="fade-left fw-bold">Innovación</h3>
+            <h2 class="cm-sec2-title text-gradient-ink mb-3">
+              Conectando personas con soluciones efectivas
+            </h2>
+            <h5 class="mt-3 text-gray01" data-aos="fade-in">
+              Tu salud financiera empieza con una conexión.
+            </h5>
+            <hr>
+            <h5 class=".cm-sec3-subtitle pt-3 text-gray01">En
+              Club Maktub somos
+              el puente entre personas, tecnología y oportunidades que construyen
+              salud financiera.</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- HERO -->
+  <div class="cm-sec3 position-relative overflow-hidden" data-aos="zoom-in-down">
+    <div class="container">
+      <div class="row align-items-center justify-content-center text-center text-lg-start">
+        <div class="col-lg-6"data-aos="fade-right"
+     data-aos-offset="300"
+     data-aos-easing="ease-in-sine">
+          <img src="img/new/seccion3_logo.png" alt="Club Maktub" class="cm-sec3-logo mb-3 reveal">
+          <h2 class="cm-sec3-title text-gradient-ink mb-3 reveal" 
+          >
+            Nuestro camino
+          </h2>
+          <h4>Ecosistema Maktub</h4>
+          <h5 class="cm-sec3-subtitle mb-0 reveal">
+            Tu primer paso como inversionista digital
+          </h5>
+        </div>
+        <div class="col-lg-6"data-aos="fade-left"
+     data-aos-offset="300"
+     data-aos-easing="ease-in-sine">
+          <img class="cm-ellipse-img" src="assets/maktub-3img-un.png" width="600px">
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- SECCIÓN 3 -->
+
+  <!-- SECCIÓN 4 -->
+  <div class="cm-sec4 position-relative overflow-hidden"data-aos="zoom-in-down">
+    <div class="container">
+      <div class="row align-items-center justify-content-center text-center text-lg-start g-5">
+        <div class="col-lg-7 order-sm-1 order-md-0" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom">
+          <div class="cm-card-tilted reveal">
+            <!-- Grid dentro del contenedor grande -->
+            <div class="cm-grid"></div>
+            <!-- Anillo dentro del grid -->
+            <div class="cm-ellipse-area pt-3">
+              <img class="cm-ellipse-img img-subir-bajar pt-5" src="assets/membresia-maktub.png" alt="Membresia Maktub"
+                width="300px">
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-5 order-sm-0 order-md-1" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom">
+          <button class="btn btn-lg btn-primary-mk">ACCESO EXCLUSIVO </button>
+          <h2 class="cm-sec4-title text-gradient-ink mb-4 pt-5">Membresía Maktub</h2>
+          <h5 class="mt-5 text-gray01">Tu primer paso a un crecimiento financiero digital</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- SECCIÓN 4 -->
+
+  <!-- <div class="d-flex align-items-center cm-sec5">
+  <div class="container">
+    <div class="row align-items-center justify-content-center text-center text-lg-start g-5">
+      <div class="col-lg-6">
+       
+      </div>
+      <div class="col-lg-6"></div>
+    </div>
+  </div>
+</div> -->
+
+
+  <!-- SECCIÓN 5 -->
+  <section class="cm-sec5 position-relative overflow-hidden"data-aos="zoom-in-down">
+    <div class="container py-5 py-lg-6">
+      <div class="text-center mb-5" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom">
+        <h2 class="cm-sec4-title text-gradient-ink mb-4">Membresia Maktub</h2>
+        <p class="cm-sec5-subtitle">Tu primer paso a un crecimiento<br class="d-none d-md-block"> financiero digital</p>
+      </div>
+
+      <div class="row g-4 g-xl-5 justify-content-center">
+        <!-- Card 1 -->
+        <div class="col-sm-6 col-xl-3" data-aos="flip-left" data-aos-duration="2000">
+          <article class="cm-card5 reveal">
+            <figure class="cm-card5-figure">
+              <img src="img/new/seccion5_item1.png" alt="CONEX" />
+            </figure>
+            <div class="cm-card5-body">
+              <h3 class="cm-card5-title"><a href="#" class="link-blue">CONEX</a></h3>
+              <p class="cm-card5-text">Plataforma de multiplicación de capital</p>
+            </div>
+          </article>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="col-sm-6 col-xl-3"data-aos="flip-left" data-aos-duration="2000">
+          <article class="cm-card5 reveal">
+            <figure class="cm-card5-figure">
+              <img src="img/new/seccion5_item2.png" alt="Portafolio cripto" />
+            </figure>
+            <div class="cm-card5-body">
+              <h3 class="cm-card5-title"><a href="#" class="link-blue">Portafolio cripto</a></h3>
+              <p class="cm-card5-text">Portafolio de ahorro en criptomonedas</p>
+            </div>
+          </article>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="col-sm-6 col-xl-3" data-aos="flip-right" data-aos-duration="2000">
+          <article class="cm-card5 reveal">
+            <figure class="cm-card5-figure">
+              <img src="img/new/seccion5_item3.png" alt="Curso FID" />
+            </figure>
+            <div class="cm-card5-body">
+              <h3 class="cm-card5-title"><a href="#" class="link-blue">Curso FID</a></h3>
+              <p class="cm-card5-text">Eleva tu entendimiento en inversiones digitales</p>
+            </div>
+          </article>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="col-sm-6 col-xl-3" data-aos="flip-right"data-aos-duration="2000">
+          <article class="cm-card5 reveal">
+            <figure class="cm-card5-figure">
+              <img src="img/new/seccion5_item4.png" alt="Mentorías" />
+            </figure>
+            <div class="cm-card5-body">
+              <h3 class="cm-card5-title"><a href="#" class="link-blue">Mentorías</a></h3>
+              <p class="cm-card5-text">Foro de aprendizaje continuo</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- SECCIÓN 6 -->
+  <section class="cm-sec6 position-relative overflow-hidden"data-aos="zoom-in-down">
+    <!-- cuadrícula derecha (va detrás del logo) -->
+    <div class="sec6-grid" aria-hidden="true"></div>
+
+    <div class="container my-5 py-5 py-lg-6 justify-content-center">
+      <div class="row align-items-center g-5">
+        <!-- Texto izquierda -->
+        <div class="col-lg-6" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom">
+          <h2 class="cm-sec4-title text-gradient-ink mb-4 pt-2">
+            Conoce nuestro Programa de Embajadores
+          </h2>
+          <p class="cm-sec6-copy reveal">
+            Emprendimiento escalable y con
+            crecimiento constante recompensado
+          </p>
+        </div>
+        <!-- Logo derecha -->
+        <div class="col-lg-6 text-center">
+          <img src="assets/maktublogocristal.png" alt="Logo Club Maktub" class="cm-sec6-logo reveal img-fluid img-subir-bajar" data-aos="fade-up"
+            data-aos-anchor-placement="bottom-bottom">
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- SECCIÓN 7 -->
+  <section class="cm-sec7 position-relative overflow-hidden"data-aos="fade-up">
+    <div class="container-fluid position-relative">
+
+      <!-- Título -->
+      <div class="text-center mb-4 mb-lg-5"data-aos="fade-left">
+        <h2 class="cm-sec4-title text-gradient-ink mb-4 pt-5">Testimonios</h2>
+        <h5>
+          Somos el enlace entre quienes quieren más y
+          el sistema que lo permite
+        </h5>
+      </div>
+      <!-- Tarjetas de testimonio -->
+      <section class="bg-transparent pt-5 pb-5"data-aos="fade-up">
+        <div class="container-fluid">
+          <div class="testimonial-marquee">
+            <!-- Fila 1 -->
+            <div class="marquee-row mb-4"data-aos="fade-left">
+              <div class="marquee-track marquee-track-left">
+                <!-- Grupo 1 (se duplicará manualmente para el efecto infinito) -->
+                <article class="testimonial-card">
+                  <div class="card shadow-sm border-0 rounded-4">
+                    <div class="card-body">
+                      <div class="stars mb-3">
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                      </div>
+                      <p class="testimonial-text mb-0">
+                        Obtuve más del 30% de rendimiento en 6 meses y siempre tuve el control de mi dinero.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="testimonial-user d-flex align-items-center mt-3">
+                    <div class="avatar-wrapper me-3">
+                      <img src="assets/testimonial/Profile Image-1.png" alt="Sagrario Ibarra" class="avatar-img" />
+                    </div>
+                    <div>
+                      <h6 class="mb-0 fw-semibold">Sagrario Ibarra</h6>
+                      <small class="text-primary">Coach Fitness</small>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="testimonial-card">
+                  <div class="card shadow-sm border-0 rounded-4">
+                    <div class="card-body">
+                      <div class="stars mb-3">
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                      </div>
+                      <p class="testimonial-text mb-0">
+                        Descubrí que la educación financiera transforma mi relación con el dinero.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="testimonial-user d-flex align-items-center mt-3">
+                    <div class="avatar-wrapper me-3">
+                      <img src="assets/testimonial/Profile Image-2.png" alt="Fernando Salinas" class="avatar-img" />
+                    </div>
+                    <div>
+                      <h6 class="mb-0 fw-semibold">Fernando Salinas</h6>
+                      <small class="text-primary">Consultor Financiero</small>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="testimonial-card">
+                  <div class="card shadow-sm border-0 rounded-4">
+                    <div class="card-body">
+                      <div class="stars mb-3">
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                      </div>
+                      <p class="testimonial-text mb-0">
+                        La planificación adecuada me permite alcanzar mis metas financieras a largo plazo.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="testimonial-user d-flex align-items-center mt-3">
+                    <div class="avatar-wrapper me-3">
+                      <img src="assets/testimonial/Profile Image-3.png" alt="Jorge Ramírez" class="avatar-img" />
+                    </div>
+                    <div>
+                      <h6 class="mb-0 fw-semibold">Jorge Ramírez</h6>
+                      <small class="text-primary">Planificador Financiero</small>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="testimonial-card">
+                  <div class="card shadow-sm border-0 rounded-4">
+                    <div class="card-body">
+                      <div class="stars mb-3">
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                      </div>
+                      <p class="testimonial-text mb-0">
+                        He creado múltiples fuentes de ingreso gracias a mis nuevos conocimientos sobre inversiones.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="testimonial-user d-flex align-items-center mt-3">
+                    <div class="avatar-wrapper me-3">
+                      <img src="assets/testimonial/Profile Image-4.png" alt="Verónica Torres" class="avatar-img" />
+                    </div>
+                    <div>
+                      <h6 class="mb-0 fw-semibold">Verónica Torres</h6>
+                      <small class="text-primary">Emprendedora</small>
+                    </div>
+                  </div>
+                </article>
+
+                <!-- Duplicado para efecto infinito -->
+                <article class="testimonial-card">
+                  <div class="card shadow-sm border-0 rounded-4">
+                    <div class="card-body">
+                      <div class="stars mb-3">
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                      </div>
+                      <p class="testimonial-text mb-0">
+                        Obtuve más del 30% de rendimiento en 6 meses y siempre tuve el control de mi dinero.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="testimonial-user d-flex align-items-center mt-3">
+                    <div class="avatar-wrapper me-3">
+                      <img src="assets/testimonial/Profile Image-1.png" alt="Sagrario Ibarra" class="avatar-img" />
+                    </div>
+                    <div>
+                      <h6 class="mb-0 fw-semibold">Sagrario Ibarra</h6>
+                      <small class="text-primary">Coach Fitness</small>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="testimonial-card">
+                  <div class="card shadow-sm border-0 rounded-4">
+                    <div class="card-body">
+                      <div class="stars mb-3">
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                      </div>
+                      <p class="testimonial-text mb-0">
+                        Descubrí que la educación financiera transforma mi relación con el dinero.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="testimonial-user d-flex align-items-center mt-3">
+                    <div class="avatar-wrapper me-3">
+                      <img src="assets/testimonial/Profile Image-2.png" alt="Fernando Salinas" class="avatar-img" />
+                    </div>
+                    <div>
+                      <h6 class="mb-0 fw-semibold">Fernando Salinas</h6>
+                      <small class="text-primary">Consultor Financiero</small>
+                    </div>
+                  </div>
+                </article>
+              </div>
+            </div>
+
+            <!-- Fila 2 -->
+            <div class="marquee-row p-5"data-aos="fade-right">
+              <div class="marquee-track marquee-track-right">
+                <article class="testimonial-card">
+                  <div class="card shadow-sm border-0 rounded-4">
+                    <div class="card-body">
+                      <div class="stars mb-3">
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                      </div>
+                      <p class="testimonial-text mb-0">
+                        Tengo información que me permite hacer crecer mi dinero con seguridad.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="testimonial-user d-flex align-items-center mt-3">
+                    <div class="avatar-wrapper me-3">
+                      <img src="assets/testimonial/Profile Image-3.png" alt="Paula Equihua" class="avatar-img" />
+                    </div>
+                    <div>
+                      <h6 class="mb-0 fw-semibold">Paula Equihua</h6>
+                      <small class="text-primary">Coach de liderazgo</small>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="testimonial-card">
+                  <div class="card shadow-sm border-0 rounded-4">
+                    <div class="card-body">
+                      <div class="stars mb-3">
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                      </div>
+                      <p class="testimonial-text mb-0">
+                        Obtuve más del 30% de rendimiento en 6 meses y siempre tuve el control de mi dinero.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="testimonial-user d-flex align-items-center mt-3">
+                    <div class="avatar-wrapper me-3">
+                      <img src="assets/testimonial/Profile Image-4.png" alt="Sagrario Ibarra" class="avatar-img" />
+                    </div>
+                    <div>
+                      <h6 class="mb-0 fw-semibold">Sagrario Ibarra</h6>
+                      <small class="text-primary">Coach Fitness</small>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="testimonial-card">
+                  <div class="card shadow-sm border-0 rounded-4">
+                    <div class="card-body">
+                      <div class="stars mb-3">
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                      </div>
+                      <p class="testimonial-text mb-0">
+                        Descubrí que la educación financiera transforma mi relación con el dinero.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="testimonial-user d-flex align-items-center mt-3">
+                    <div class="avatar-wrapper me-3">
+                      <img src="assets/testimonial/Profile Image-1.png" alt="Fernando Salinas" class="avatar-img" />
+                    </div>
+                    <div>
+                      <h6 class="mb-0 fw-semibold">Fernando Salinas</h6>
+                      <small class="text-primary">Consultor Financiero</small>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="testimonial-card">
+                  <div class="card shadow-sm border-0 rounded-4">
+                    <div class="card-body">
+                      <div class="stars mb-3">
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                      </div>
+                      <p class="testimonial-text mb-0">
+                        La planificación adecuada me permite alcanzar mis metas financieras a largo plazo.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="testimonial-user d-flex align-items-center mt-3">
+                    <div class="avatar-wrapper me-3">
+                      <img src="assets/testimonial/Profile Image-2.png" alt="Jorge Ramírez" class="avatar-img" />
+                    </div>
+                    <div>
+                      <h6 class="mb-0 fw-semibold">Jorge Ramírez</h6>
+                      <small class="text-primary">Planificador Financiero</small>
+                    </div>
+                  </div>
+                </article>
+
+                <!-- Duplicado para efecto infinito -->
+                <article class="testimonial-card">
+                  <div class="card shadow-sm border-0 rounded-4">
+                    <div class="card-body">
+                      <div class="stars mb-3">
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                      </div>
+                      <p class="testimonial-text mb-0">
+                        Tengo información que me permite hacer crecer mi dinero con seguridad.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="testimonial-user d-flex align-items-center mt-3">
+                    <div class="avatar-wrapper me-3">
+                      <img src="assets/testimonial/Profile Image-6.png" alt="Paula Equihua" class="avatar-img" />
+                    </div>
+                    <div>
+                      <h6 class="mb-0 fw-semibold">Paula Equihua</h6>
+                      <small class="text-primary">Coach de liderazgo</small>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="testimonial-card">
+                  <div class="card shadow-sm border-0 rounded-4">
+                    <div class="card-body">
+                      <div class="stars mb-3">
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                      </div>
+                      <p class="testimonial-text mb-0">
+                        Obtuve más del 30% de rendimiento en 6 meses y siempre tuve el control de mi dinero.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="testimonial-user d-flex align-items-center mt-3">
+                    <div class="avatar-wrapper me-3">
+                      <img src="assets/testimonial/Profile Image-5.png" alt="Sagrario Ibarra" class="avatar-img" />
+                    </div>
+                    <div>
+                      <h6 class="mb-0 fw-semibold">Sagrario Ibarra</h6>
+                      <small class="text-primary">Coach Fitness</small>
+                    </div>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+  </section>
+
+<!-- Sección 1 -->
+  <section class="parallax-section"
+    style="background-image: url('./assets/gallery/Club_Maktub01-min.jpg');"
+    data-bg-speed="0.35"
+    data-content-speed="0.15">
+    <div class="container info-section-img"data-aos="fade-left">
+      <div class="parallax-content"data-aos="fade-right">
+        <h2 class="tittle-folio">Inducción a embajadores</h2>
+        <p>
+          Aquí va un texto de respaldo que explique la expreciencia.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección 2 -->
+  <section class="parallax-section"
+    style="background-image: url('./assets/gallery/Club_Maktub_04-min.png');"
+    data-bg-speed="0.25"
+    data-content-speed="0.10">
+    <div class="container info-section-img"data-aos="fade-up">
+      <div class="parallax-content">
+        <h2 class="tittle-folio">Curso FID</h2>
+        <p>
+          Aquí va un texto de respaldo que explique la expreciencia.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección 3 -->
+  <section class="parallax-section"
+    style="background-image: url('./assets/gallery/Club_Maktub_03-min.png');"
+    data-bg-speed="0.40"
+    data-content-speed="0.18">
+    <div class="container info-section-img"data-aos="fade-up">
+      <div class="parallax-content">
+        <h2 class="tittle-folio">Mentorias presenciales</h2>
+        <p>
+          Aquí va un texto de respaldo que explique la expreciencia.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección 4 -->
+  <section class="parallax-section"
+    style="background-image: url('./assets/gallery/Club_Maktub_02-min.png');"
+    data-bg-speed="0.30"
+    data-content-speed="0.12">
+    <div class="container info-section-img"data-aos="fade-up">
+      <div class="parallax-content">
+        <h2 class="tittle-folio">Eventos</h2>
+        <p>
+          Aquí va un texto de respaldo que explique la expreciencia.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección 4 -->
+  <section class="parallax-section"
+    style="background-image: url('./assets/gallery/Club_Maktub_02-min.png');"
+    data-bg-speed="0.30"
+    data-content-speed="0.12">
+    <div class="container info-section-img-2 parallax-content">
+      <div class="row">
+        <div class="col-xl-6">
+          <img src="assets/maktub-red-un.png" alt="">
+        </div>
+        <div class="col-xl-6 col-info-mk">
+          <h2 class="tittle-folio text-xl-start">Eventos</h2>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse accusamus corporis quia voluptas voluptatibus excepturi in suscipit culpa adipisci velit. Nesciunt molestiae eligendi explicabo aspernatur totam. Impedit quaerat atque iusto?</p>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="container info-section-img">
+      <div class="parallax-content">
+        <h2 class="tittle-folio">Eventos</h2>
+        <p>
+          Aquí va un texto de respaldo que explique la expreciencia.
+        </p>
+      </div>
+    </div> -->
+  </section>
+  
+
+  <!-- SECCIÓN 8 -->
+  <section class="cm-sec8 position-relative overflow-hidden"data-aos="fade-up">
+    <div class="container py-5 py-lg-6">
+      <div class="row g-5 align-items-start">
+        <!-- Izquierda -->
+        <div class="col-lg-5">
+          <div class="d-flex align-items-center gap-2 mb-4">
+            <img src="img/new/seccion8_logo.png" alt="Club Maktub" class="cm-sec8-logo">
+            <span class="visually-hidden">Club Maktub</span>
+          </div>
+          <h2 class="cm-sec4-title text-gradient-ink mb-4">
+            Preguntas<br>frecuentes
+          </h2>
+
+          <p class="cm-sec8-copy">
+            Aquí respondemos a las preguntas más comunes sobre nuestros
+            servicios y procesos.
+          </p>
+        </div>
+
+        <!-- Derecha: FAQs -->
+        <div class="col-lg-7">
+          <div class="accordion accordion-flush cm-faq" id="faqAccordion">
+            <!-- FAQ: Membresía -->
+            <div class="accordion-item">
+              <h3 class="accordion-header" id="h4">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#c4"
+                  aria-expanded="false" aria-controls="c4">
+                  <span class="faq-title">¿Qué incluye la Membresía Maktub y en qué se diferencian Base y Elite?</span>
+                  
+                </button>
+              </h3>
+              <div id="c4" class="accordion-collapse collapse" aria-labelledby="h4" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                  <h2 class="faq-sub">Accesos, beneficios y acompañamiento</h4>
+                  La <strong>Membresía Base</strong> te da acceso a <em>CONEX</em> (plataforma), al <em>Portafolio
+                    cripto</em> modelo, al <em>Curso FID</em> bajo demanda, y a <em>mentorías grupales</em> programadas.
+                  La <strong>Membresía Elite</strong> agrega <em>sesiones 1:1</em> con un mentor, <em>prioridad de
+                    cupo</em> en eventos presenciales, material avanzado y <em>seguimiento mensual</em> del plan.
+                  <br><br>
+                  Ambas incluyen comunidad, actualizaciones de estrategia y soporte por canal oficial. Los beneficios no
+                  constituyen asesoría financiera personalizada; cada miembro decide y ejecuta sus operaciones.
+                </div>
+              </div>
+            </div>
+
+            <!-- FAQ: Portafolio cripto -->
+            <div class="accordion-item">
+              <h3 class="accordion-header" id="h5">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#c5"
+                  aria-expanded="false" aria-controls="c5">
+                  <span class="faq-title">¿Cómo funciona el Portafolio cripto y quién tiene la custodia?</span>
+
+                </button>
+              </h3>
+              <div id="c5" class="accordion-collapse collapse" aria-labelledby="h5" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                  <h4 class="faq-sub">Ejecución, riesgos y reportes</h4>
+                  El portafolio es un <strong>modelo de asignación</strong> (no manejamos fondos ni tomamos custodia).
+                  Tú operas en tu propio exchange/cartera con <strong>cuentas a tu nombre</strong> y seguridad 2FA.
+                  Proveemos <em>guías de entrada/salida</em>, rebalanceos sugeridos y <em>reportes mensuales</em> de
+                  desempeño.
+                  <br><br>
+                  <strong>Riesgos:</strong> alta volatilidad, riesgo de contraparte del exchange y riesgo tecnológico.
+                  Recomendamos horizonte de <em>mediano/largo plazo (12–36 meses)</em>, diversificación y nunca invertir
+                  dinero que puedas necesitar a corto plazo.
+                </div>
+              </div>
+            </div>
+
+            <!-- FAQ: Programa de embajadores -->
+            <div class="accordion-item">
+              <h3 class="accordion-header" id="h6">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#c6"
+                  aria-expanded="false" aria-controls="c6">
+                  <span class="faq-title">¿Cómo gano como Embajador y qué requisitos hay?</span>
+                 
+                </button>
+              </h3>
+              <div id="c6" class="accordion-collapse collapse" aria-labelledby="h6" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                   <h4 class="faq-sub">Comisiones, pagos y elegibilidad</h4>
+                  Obtienes una <strong>comisión por referidos</strong> cuando tus invitados adquieren la membresía o
+                  cursos. Tendrás un <em>código/URL único</em> y un <em>panel</em> para ver registros y conversiones.
+                  Los <strong>pagos</strong> se realizan de forma <em>mensual</em> (una vez conciliadas las ventas) por
+                  los medios habilitados en tu país.
+                  <br><br>
+                  <strong>Requisitos:</strong> membresía activa, completar la <em>inducción a embajadores</em>, cumplir
+                  lineamientos de marca y, cuando aplique, verificación de identidad (KYC) y datos fiscales. Las tasas y
+                  políticas pueden variar por región y se comunican en la inducción.
+                </div>
+              </div>
+            </div>
+
+          </div><!-- /accordion -->
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- SECCIÓN 9 -->
+  <section class="cm-sec9 position-relative overflow-hidden"data-aos="fade-up"data-aos-duration="1000">
+    <div class="container py-5 py-lg-6">
+
+      <!-- Logo -->
+      <div class="text-center mb-4">
+        <img src="img/new/seccion9_logo.png" class="cm-sec9-logo" alt="Club Maktub">
+      </div>
+
+      <!-- Contacto -->
+      <ul class="cm-contact list-unstyled d-flex flex-wrap justify-content-center gap-5 mb-4">
+        <li>
+          <span class="dot"></span>
+          <span class="lbl">Correo:</span>
+          <a href="mailto:info@clubmaktub.com">info@clubmaktub.com</a>
+        </li>
+        <li>
+          <span class="dot"></span>
+          <span class="lbl">Número:</span>
+          <a href="tel:+529381024983">+52 938-102-4983</a>
+        </li>
+        <li>
+          <span class="dot"></span>
+          <span class="lbl">Ubicación:</span>
+          <a href="#" target="_blank" rel="noopener">Pennsylvania 120 Nápoles</a>
+        </li>
+      </ul>
+
+      <hr class="cm-div my-4">
+
+      <!-- Menú -->
+      <nav class="cm-footnav text-center mb-5">
+        <a href="/" class="cm-footlink">Inicio</a>
+
+        <?php if (isset($_SESSION['id']) && !empty($_SESSION['id'])): ?>
+        <a href="https://mbcapitaldlt.com/membresia.php?l=<?php echo urlencode($_SESSION['id']); ?>"
+          class="cm-footlink">Mis servicios</a>
+        <a href="https://clubmktb.com/oficinavirtual/" class="cm-footlink">Oficina virtual</a>
+        <a href="https://clubmktb.com/oficinavirtual/perfil.php" class="cm-footlink">Perfil</a>
+        <?php else: ?>
+        <!-- Sin sesión: muestra solo acceso a login -->
+        <a href="https://clubmktb.com/oficinavirtual" class="cm-footlink">Iniciar sesión</a>
+        <?php endif; ?>
+      </nav>
+
+
+      <!-- Última fila -->
+      <div class="row align-items-center gy-4">
+        <div class="col-lg-8">
+          <!-- <h3 class="cm-tele-title">Comunidad En Telegram</h3> -->
+          <p class="mb-1">Noticias, Eventos E Información De Valor.</p>
+          <a class="cm-copy" href="img/tyc.pdf" target="_blank">Términos y Condiciones</a> </br>
+          <a class="cm-copy">© 2025 Club Maktub. Todos Los Derechos Reservados.</a>
+        </div>
+
+        <div class="col-lg-4 d-block justify-content-lg-end align-items-center gap-4 text-end">
+          <a href="#" class="btn btn-outline-dark rounded-3 px-4 py-2 fw-semibold">Únete</a> <br>
+          <a href="#" class="btn btn-outline-dark rounded-3 px-4 py-2 fw-semibold pt-2">Comuninidad en Telegram</a>
+          <!-- <div class="d-block align-items-center gap-3 fs-3 cm-social text-end">
+          <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+          <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+          <a href="#" aria-label="X"><i class="bi bi-twitter-x"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+          <a href="#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+        </div> -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- JS -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // ===== Fade-in al cargar y al hacer scroll =====
+    const reveal = () => {
+      $('.reveal').each(function () {
+        const top = this.getBoundingClientRect().top;
+        const vH = window.innerHeight || document.documentElement.clientHeight;
+        if (top < vH - 60) $(this).addClass('show');
+      });
+    };
+    document.addEventListener('scroll', reveal, { passive: true });
+    window.addEventListener('load', reveal);
+
+    // ===== Parallax suave del fondo =====
+    const hero = document.querySelector('.hero-bg');
+    document.addEventListener('scroll', () => {
+      const y = window.scrollY * 0.25; // factor parallax
+      hero.style.backgroundPosition = `center calc(100% + ${y}px)`;
+    }, { passive: true });
+
+    // ===== Contadores (1,000k / 200k estilizados) =====
+    function countUp(el, to, dur = 1400) {
+      const start = performance.now(), from = 0;
+      const fmt = (n) => n >= 1000 ? new Intl.NumberFormat('en-US').format(Math.floor(n / 1000)) + 'k' : Math.floor(n);
+      const step = (t) => {
+        const p = Math.min((t - start) / dur, 1);
+        const val = from + (to - from) * (0.5 - Math.cos(Math.PI * p) / 2); // easeInOut
+        el.textContent = fmt(val);
+        if (p < 1) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    }
+    // lanzar cuando se vea
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          $(e.target).find('.kpi').each(function () {
+            const to = parseInt(this.dataset.countto, 10) || 0;
+            countUp(this, to);
+          });
+          io.disconnect();
+        }
+      });
+    }, { threshold: .4 });
+    io.observe(document.querySelector('.kpis'));
+
+    // Mostrar elementos al entrar en viewport
+    (function () {
+      const els = document.querySelectorAll('.cm-sec2 .reveal');
+      const obs = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('show'); } });
+      }, { threshold: .28 });
+      els.forEach(el => obs.observe(el));
+    })();
+
+    // Activa reveal de esta sección si se entra directo
+    (function () {
+      const els = document.querySelectorAll('.cm-sec3 .reveal');
+      const obs = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('show'); } });
+      }, { threshold: .25 });
+      els.forEach(el => obs.observe(el));
+    })();
+
+    (function () {
+      const els = document.querySelectorAll('.cm-sec4 .reveal');
+      const obs = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('show'); });
+      }, { threshold: .25 });
+      els.forEach(el => obs.observe(el));
+    })();
+    (function () {
+      const els = document.querySelectorAll('.cm-sec5 .reveal');
+      const obs = new IntersectionObserver((es) => {
+        es.forEach(e => { if (e.isIntersecting) e.target.classList.add('show'); });
+      }, { threshold: .25 });
+      els.forEach(el => obs.observe(el));
+    })();
+
+    (function () {
+      const els = document.querySelectorAll('.cm-sec6 .reveal');
+      const obs = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('show'); });
+      }, { threshold: .25 });
+      els.forEach(el => obs.observe(el));
+    })();
+
+    (function () {
+      const els = document.querySelectorAll('.cm-sec7 .reveal');
+      const obs = new IntersectionObserver((es) => {
+        es.forEach(e => { if (e.isIntersecting) e.target.classList.add('show'); });
+      }, { threshold: .25 });
+      els.forEach(el => obs.observe(el));
+    })();
+
+    // Sincroniza foco accesible al abrir
+    document.getElementById('faqAccordion').addEventListener('shown.bs.collapse', function (e) {
+      const btn = e.target.previousElementSibling?.querySelector('.accordion-button');
+      if (btn) btn.focus();
+    });
+
+    document.querySelectorAll('#cmMobileNav .nav-link, #cmMobileNav .btn').forEach(function (el) {
+      el.addEventListener('click', function () {
+        var offcanvasEl = document.getElementById('cmMobileNav');
+        var oc = bootstrap.Offcanvas.getInstance(offcanvasEl);
+        if (oc) oc.hide();
+      });
+    });
+  </script>
+  <script>
+    const heroSection = document.querySelector(".hero");
+    if (heroSection) {
+      const setGradientPosition = (x = 50, y = 35) => {
+        heroSection.style.setProperty("--mouse-x", `${x}%`);
+        heroSection.style.setProperty("--mouse-y", `${y}%`);
+      };
+
+      heroSection.addEventListener("mousemove", (event) => {
+        const rect = heroSection.getBoundingClientRect();
+        const x = ((event.clientX - rect.left) / rect.width) * 100;
+        const y = ((event.clientY - rect.top) / rect.height) * 100;
+        setGradientPosition(x, y);
+      });
+
+      heroSection.addEventListener("mouseleave", () => setGradientPosition());
+    }
+  </script>
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    // You can also pass an optional settings object
+    // below listed default settings
+    AOS.init({
+      // Global settings:
+      disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
+      startEvent: 'DOMContentLoaded', // name of the event dispatched on the document, that AOS should initialize on
+      initClassName: 'aos-init', // class applied after initialization
+      animatedClassName: 'aos-animate', // class applied on animation
+      useClassNames: false, // if true, will add content of `data-aos` as classes on scroll
+      disableMutationObserver: false, // disables automatic mutations' detections (advanced)
+      debounceDelay: 50, // the delay on debounce used while resizing window (advanced)
+      throttleDelay: 99, // the delay on throttle used while scrolling the page (advanced)
+
+
+      // Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
+      offset: 120, // offset (in px) from the original trigger point
+      delay: 0, // values from 0 to 3000, with step 50ms
+      duration: 400, // values from 0 to 3000, with step 50ms
+      easing: 'ease', // default easing for AOS animations
+      once: false, // whether animation should happen only once - while scrolling down
+      mirror: false, // whether elements should animate out while scrolling past them
+      anchorPlacement: 'top-bottom', // defines which position of the element regarding to window should trigger the animation
+
+    });
+  </script>
+  <script>
+    // Parallax configurable
+    (function () {
+      const sections = document.querySelectorAll('.parallax-section');
+
+      function handleParallax() {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+        sections.forEach(section => {
+          const rect = section.getBoundingClientRect();
+          const offsetTop = section.offsetTop;
+          const height = section.offsetHeight;
+
+          // Evita cálculo fuera de vista (micro-optimización)
+          if (rect.bottom < 0 || rect.top > window.innerHeight) return;
+
+          const bgSpeed = parseFloat(section.dataset.bgSpeed) || 0.3;
+          const contentSpeed = parseFloat(section.dataset.contentSpeed) || 0.15;
+
+          const distance = scrollTop - offsetTop;
+
+          // Fondo (parallax)
+          const bgY = distance * bgSpeed;
+          section.style.backgroundPosition = `center ${bgY}px`;
+
+          // Contenido (parallax separado)
+          const content = section.querySelector('.parallax-content');
+          if (content) {
+            const contentY = distance * contentSpeed;
+            content.style.transform = `translate3d(0, ${contentY}px, 0)`;
+          }
+        });
+      }
+
+      window.addEventListener('scroll', handleParallax, { passive: true });
+      window.addEventListener('load', handleParallax);
+      window.addEventListener('resize', handleParallax);
+    })();
+  </script>
+</html>

@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Transacciones | Backoffice Maktub</title>
+  <meta name="description" content="Módulo de transacciones con filtros, trazabilidad de movimientos y monitoreo de operaciones USDT en Maktub.">
+  <meta name="robots" content="index,follow">
+  <meta name="theme-color" content="#2b7fff">
+  <meta property="og:title" content="Transacciones | Backoffice Maktub">
+  <meta property="og:description" content="Consulta, filtra y valida movimientos financieros en el panel de transacciones Maktub.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_MX">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Transacciones | Backoffice Maktub">
+  <meta name="twitter:description" content="Control total de transacciones con indicadores operativos y filtros avanzados.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.cdnfonts.com/css/satoshi" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="cm-body">
+  <a class="cm-skip-link" href="#cm-main-content">Saltar al contenido</a>
+
+  <div class="cm-page">
+    <header class="cm-topbar" role="banner">
+      <div class="cm-topbar__shell">
+        <a class="cm-topbar__brand" href="index.html" aria-label="Maktub Club">
+          <img class="cm-brand-logo" src="assets/img/logo.png" alt="CM">
+        </a>
+
+        <button class="cm-topbar__toggle" type="button" data-cm-menu-toggle aria-expanded="false" aria-controls="cm-main-nav" aria-label="Abrir menú">
+          <i class="cm-topbar__toggle-icon bi bi-list"></i>
+        </button>
+
+        <nav id="cm-main-nav" class="cm-topbar__nav" data-cm-menu aria-label="Navegación principal">
+          <a class="cm-nav-link cm-nav-link--panel" data-cm-nav href="index.html"><span class="cm-nav-link__icon" aria-hidden="true"></span><span>Panel</span></a>
+          <a class="cm-nav-link cm-nav-link--carteras" data-cm-nav href="carteras.html"><span class="cm-nav-link__icon" aria-hidden="true"></span><span>Carteras</span></a>
+          <a class="cm-nav-link cm-nav-link--membresias" data-cm-nav href="membresias.html"><span class="cm-nav-link__icon" aria-hidden="true"></span><span>Membresías</span></a>
+          <a class="cm-nav-link cm-nav-link--referidos" data-cm-nav href="referidos.html"><span class="cm-nav-link__icon" aria-hidden="true"></span><span>Referidos</span></a>
+          <a class="cm-nav-link cm-nav-link--transacciones" data-cm-nav href="transacciones.html"><span class="cm-nav-link__icon" aria-hidden="true"></span><span>Transacciones</span></a>
+          <a class="cm-nav-link cm-nav-link--defi" href="#" aria-label="Maktub DeFi"><span class="cm-nav-link__icon" aria-hidden="true"></span><span>Maktub DeFi</span></a>
+        </nav>
+
+        <div class="cm-topbar__user-menu" data-cm-user-menu>
+          <button class="cm-topbar__user" type="button" aria-label="Abrir menú de usuario" aria-expanded="false" aria-haspopup="menu" aria-controls="cm-user-menu-panel" data-cm-user-menu-toggle>
+            <i class="cm-topbar__user-icon bi bi-person"></i>
+          </button>
+          <div id="cm-user-menu-panel" class="cm-user-menu" role="menu" aria-label="Opciones de usuario" data-cm-user-menu-panel hidden>
+            <a class="cm-user-menu__item" href="perfil.html" role="menuitem">
+              <span class="cm-user-menu__icon" aria-hidden="true">
+                <img src="assets/figma/0593dfecd25a4407ce26fa48f5426a0b80e2885b.svg" alt="">
+              </span>
+              <span class="cm-user-menu__label">Perfil</span>
+            </a>
+            <span class="cm-user-menu__separator" aria-hidden="true"></span>
+            <button class="cm-user-menu__item cm-user-menu__item--button" type="button" role="menuitem" data-cm-user-menu-close>
+              <span class="cm-user-menu__icon" aria-hidden="true">
+                <img src="assets/figma/b7a306d69fd84e57343ad8d74441d21e87445893.svg" alt="">
+              </span>
+              <span class="cm-user-menu__label">Cerrar sesión</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main id="cm-main-content" class="cm-main cm-transactions-page">
+      <section class="cm-transactions-stats" aria-label="Resumen de transacciones">
+        <article class="cm-trans-stat-card">
+          <header class="cm-trans-stat-card__head">
+            <h2 class="cm-trans-stat-card__title">comiciones membresías</h2>
+            <span class="cm-trans-stat-card__icon" aria-hidden="true"><i class="bi bi-currency-dollar"></i></span>
+          </header>
+          <p class="cm-trans-stat-card__value">$ 100.00 <span>USDT</span></p>
+        </article>
+
+        <article class="cm-trans-stat-card">
+          <header class="cm-trans-stat-card__head">
+            <h2 class="cm-trans-stat-card__title">residual conex</h2>
+            <span class="cm-trans-stat-card__icon" aria-hidden="true"><i class="bi bi-credit-card-2-front"></i></span>
+          </header>
+          <p class="cm-trans-stat-card__value">$ 100.00 <span>USDT</span></p>
+        </article>
+
+        <article class="cm-trans-stat-card">
+          <header class="cm-trans-stat-card__head">
+            <h2 class="cm-trans-stat-card__title">comisiones maktub</h2>
+            <span class="cm-trans-stat-card__icon" aria-hidden="true"><i class="bi bi-wallet2"></i></span>
+          </header>
+          <p class="cm-trans-stat-card__value">$ 100.00 <span>USDT</span></p>
+        </article>
+
+        <article class="cm-trans-stat-card">
+          <header class="cm-trans-stat-card__head">
+            <h2 class="cm-trans-stat-card__title">ingresos totales</h2>
+            <span class="cm-trans-stat-card__icon" aria-hidden="true"><i class="bi bi-wallet2"></i></span>
+          </header>
+          <p class="cm-trans-stat-card__value">$ 1,100.00 <span>USDT</span></p>
+        </article>
+      </section>
+
+      <section class="cm-transactions-shell" aria-label="Tabla de transacciones">
+        <div class="cm-transactions-toolbar">
+          <div class="cm-transactions-type-filter" data-cm-tx-type-filter>
+            <button class="cm-transactions-filter-btn" type="button" data-cm-tx-type-toggle aria-expanded="false" aria-controls="cm-tx-type-menu">
+              <span data-cm-tx-type-label>Filtrar por Tipo</span>
+              <i class="bi bi-chevron-down" aria-hidden="true"></i>
+            </button>
+            <div id="cm-tx-type-menu" class="cm-transactions-type-menu" data-cm-tx-type-menu role="listbox" aria-label="Filtrar por tipo" hidden></div>
+          </div>
+
+          <form class="cm-transactions-controls" data-cm-tx-controls aria-label="Controles de búsqueda">
+            <label class="cm-visually-hidden" for="cm-tx-search">Buscar transacciones</label>
+            <div class="cm-transactions-input-wrap cm-transactions-input-wrap--search">
+              <i class="bi bi-search" aria-hidden="true"></i>
+              <input id="cm-tx-search" class="cm-transactions-input" data-cm-tx-search type="search" placeholder="Buscar (usuario, hash, nota, id)...">
+            </div>
+
+            <label class="cm-visually-hidden" for="cm-tx-from">Fecha inicial</label>
+            <div class="cm-transactions-input-wrap">
+              <i class="bi bi-calendar3" aria-hidden="true"></i>
+              <input id="cm-tx-from" class="cm-transactions-input" data-cm-tx-from type="text" placeholder="dd/mm/aaaa" inputmode="numeric" autocomplete="off">
+            </div>
+
+            <label class="cm-visually-hidden" for="cm-tx-to">Fecha final</label>
+            <div class="cm-transactions-input-wrap">
+              <i class="bi bi-calendar3" aria-hidden="true"></i>
+              <input id="cm-tx-to" class="cm-transactions-input" data-cm-tx-to type="text" placeholder="dd/mm/aaaa" inputmode="numeric" autocomplete="off">
+            </div>
+
+            <button class="cm-transactions-export-btn" data-cm-tx-export type="button">
+              <i class="bi bi-download" aria-hidden="true"></i>
+              Exportar CSV
+            </button>
+          </form>
+        </div>
+
+        <hr class="cm-transactions-divider" aria-hidden="true">
+
+        <div class="cm-transactions-table-wrap">
+          <table class="cm-transactions-table" data-cm-tx-table>
+            <thead>
+              <tr>
+                <th scope="col" class="cm-transactions-col-icon"></th>
+                <th scope="col">Concepto</th>
+                <th scope="col">Usuario</th>
+                <th scope="col">Fecha</th>
+                <th scope="col" class="cm-transactions-col-amount">Monto</th>
+                <th scope="col" class="cm-transactions-col-state">Estado</th>
+              </tr>
+            </thead>
+            <tbody data-cm-tx-body>
+              <tr data-cm-tx-row data-cm-tx-type="Pago de membresía" data-cm-tx-date="2025-11-07">
+                <td class="cm-transactions-cell-icon" data-label="Tipo">
+                  <span class="cm-transactions-concept__icon" aria-hidden="true"><i class="bi bi-credit-card-2-front"></i></span>
+                </td>
+                <td data-label="Concepto">Pago de membresía</td>
+                <td data-label="Usuario">MIU 258: @Jesus Ruiz</td>
+                <td data-label="Fecha">2025-11-07 09:35:55</td>
+                <td class="cm-transactions-col-amount" data-label="Monto"><span class="cm-transactions-amount cm-transactions-amount--negative">- 500.00 USDT</span></td>
+                <td class="cm-transactions-col-state" data-label="Estado"><span class="cm-transactions-badge cm-transactions-badge--done">Completado</span></td>
+              </tr>
+              <tr data-cm-tx-row data-cm-tx-type="Retiro" data-cm-tx-date="2025-11-04">
+                <td class="cm-transactions-cell-icon" data-label="Tipo">
+                  <span class="cm-transactions-concept__icon" aria-hidden="true"><i class="bi bi-wallet2"></i></span>
+                </td>
+                <td data-label="Concepto">Retiro</td>
+                <td data-label="Usuario">MIU 228: @David Ruiz</td>
+                <td data-label="Fecha">2025-11-04 18:45:22</td>
+                <td class="cm-transactions-col-amount" data-label="Monto"><span class="cm-transactions-amount cm-transactions-amount--positive">+ 25.00 USDT</span></td>
+                <td class="cm-transactions-col-state" data-label="Estado"><span class="cm-transactions-badge cm-transactions-badge--pending">Pendiente</span></td>
+              </tr>
+              <tr data-cm-tx-row data-cm-tx-type="Compra de tokens" data-cm-tx-date="2028-11-01">
+                <td class="cm-transactions-cell-icon" data-label="Tipo">
+                  <span class="cm-transactions-concept__icon" aria-hidden="true"><i class="bi bi-credit-card-2-front"></i></span>
+                </td>
+                <td data-label="Concepto">Compra de tokens</td>
+                <td data-label="Usuario">MIU 258: @Jesus Ruiz</td>
+                <td data-label="Fecha">2028-11-01 09:35:55</td>
+                <td class="cm-transactions-col-amount" data-label="Monto"><span class="cm-transactions-amount cm-transactions-amount--negative">- 100.00 USDT</span></td>
+                <td class="cm-transactions-col-state" data-label="Estado"><span class="cm-transactions-badge cm-transactions-badge--done">Completado</span></td>
+              </tr>
+              <tr data-cm-tx-row data-cm-tx-type="Depósito" data-cm-tx-date="2025-11-10">
+                <td class="cm-transactions-cell-icon" data-label="Tipo">
+                  <span class="cm-transactions-concept__icon" aria-hidden="true"><i class="bi bi-credit-card-2-front"></i></span>
+                </td>
+                <td data-label="Concepto">Depósito</td>
+                <td data-label="Usuario">MIU 300: @Laura Pérez</td>
+                <td data-label="Fecha">2025-11-10 14:20:00</td>
+                <td class="cm-transactions-col-amount" data-label="Monto"><span class="cm-transactions-amount cm-transactions-amount--negative">+ 1000.00 USDT</span></td>
+                <td class="cm-transactions-col-state" data-label="Estado"><span class="cm-transactions-badge cm-transactions-badge--done">Completado</span></td>
+              </tr>
+              <tr data-cm-tx-row data-cm-tx-type="Intercambio de tokens" data-cm-tx-date="2025-11-12">
+                <td class="cm-transactions-cell-icon" data-label="Tipo">
+                  <span class="cm-transactions-concept__icon" aria-hidden="true"><i class="bi bi-wallet2"></i></span>
+                </td>
+                <td data-label="Concepto">Intercambio de tokens</td>
+                <td data-label="Usuario">MIU 150: @Carlos Sánchez</td>
+                <td data-label="Fecha">2025-11-12 11:15:30</td>
+                <td class="cm-transactions-col-amount" data-label="Monto"><span class="cm-transactions-amount cm-transactions-amount--positive">- 50.00 USDT</span></td>
+                <td class="cm-transactions-col-state" data-label="Estado"><span class="cm-transactions-badge cm-transactions-badge--pending">Pendiente</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <footer class="cm-transactions-footer">
+          <p class="cm-transactions-footer__meta" data-cm-tx-results>Mostrando 1-5 de 5 resultados</p>
+          <div class="cm-transactions-pagination" aria-label="Paginación">
+            <button class="cm-transactions-page-btn" type="button" disabled aria-label="Página anterior"><i class="bi bi-chevron-left"></i></button>
+            <span class="cm-transactions-page-label">Página 1 / 1</span>
+            <button class="cm-transactions-page-btn" type="button" disabled aria-label="Página siguiente"><i class="bi bi-chevron-right"></i></button>
+          </div>
+        </footer>
+      </section>
+    </main>
+
+    <footer class="cm-footer">
+      © 2026 Backoffice Maktub v.2.0
+    </footer>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/es.js" defer></script>
+  <script src="js/main.js" defer></script>
+</body>
+</html>

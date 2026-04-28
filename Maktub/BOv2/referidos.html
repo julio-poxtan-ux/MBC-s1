@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="es-MX">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Backoffice Maktub: gestión de referidos por generación y estado de activación." />
+  <meta name="robots" content="index,follow" />
+  <meta name="author" content="Maktub" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Backoffice - Maktub | Referidos" />
+  <meta property="og:description" content="Sección Referidos del backoffice Maktub." />
+  <meta property="og:locale" content="es_MX" />
+  <meta property="og:url" content="./referidos.html" />
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:title" content="Backoffice - Maktub | Referidos" />
+  <meta property="twitter:description" content="Sección Referidos del backoffice Maktub." />
+  <link rel="canonical" href="./referidos.html" />
+  <link rel="icon" type="image/png" href="assets/img/logo.png" />
+  <title>Backoffice - Maktub | Referidos</title>
+  <link rel="preconnect" href="https://fonts.cdnfonts.com" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="css/tokens.css?=04062026" />
+  <link rel="stylesheet" href="css/styles.css?=04062026" />
+  <link rel="stylesheet" href="css/charts.css?=04062026" />
+</head>
+
+<body class="cm-page--referrals">
+  <div class="cm-app" data-cm-app>
+    <header class="cm-header" role="banner">
+      <div class="cm-header__inner">
+        <a class="cm-brand" href="index.html" aria-label="Inicio Maktub">
+          <img class="cm-brand__logo" src="assets/img/logo.png" alt="Logo Club Maktub" width="100" height="37" />
+        </a>
+
+        <nav class="cm-nav cm-nav--desktop" aria-label="Navegación principal">
+          <a class="cm-nav__item" href="index.html">
+            <img class="cm-nav__icon" src="assets/icons/icon-panel.svg" alt="" aria-hidden="true" />
+            <span>Panel</span>
+          </a>
+          <a class="cm-nav__item" href="carteras.html">
+            <img class="cm-nav__icon" src="assets/icons/icon-carteras.svg" alt="" aria-hidden="true" />
+            <span>Carteras</span>
+          </a>
+          <a class="cm-nav__item" href="membresias.html">
+            <img class="cm-nav__icon" src="assets/icons/icon-membresia.svg" alt="" aria-hidden="true" />
+            <span>Membresías</span>
+          </a>
+          <a class="cm-nav__item cm-nav__item--active" href="referidos.html" aria-current="page">
+            <img class="cm-nav__icon" src="assets/icons/icon-users-round.svg" alt="" aria-hidden="true" />
+            <span>Referidos</span>
+          </a>
+          <a class="cm-nav__item" href="transacciones.html">
+            <img class="cm-nav__icon" src="assets/icons/icon-transacciones.svg" alt="" aria-hidden="true" />
+            <span>Transacciones</span>
+          </a>
+          <a class="cm-nav__item" href="#" aria-label="Maktub DeFi (próximamente)">
+            <img class="cm-nav__icon" src="assets/icons/icon-defi.svg" alt="" aria-hidden="true" />
+            <span>Maktub DeFi</span>
+          </a>
+          <a class="cm-nav__item" href="mis-servicios.html">
+            <img class="cm-nav__icon" src="assets/icons/icon-globe.svg" alt="" aria-hidden="true" />
+            <span>Mis servicios</span>
+          </a>
+        </nav>
+
+        <button class="cm-user-btn" type="button" aria-label="Perfil de usuario">
+          <img class="cm-nav__icon" src="assets/icons/icon-perfil.svg" alt="" aria-hidden="true" />
+        </button>
+
+        <button class="cm-menu-toggle" type="button" data-cm-menu-toggle aria-expanded="false"
+          aria-controls="cm-mobile-menu" aria-label="Abrir menú">
+          <svg class="cm-menu-toggle__icon cm-menu-toggle__icon--open" viewBox="0 0 16 16" aria-hidden="true"
+            focusable="false">
+            <path
+              d="M2 3.75A.75.75 0 0 1 2.75 3h10.5a.75.75 0 0 1 0 1.5H2.75A.75.75 0 0 1 2 3.75Zm0 4A.75.75 0 0 1 2.75 7h10.5a.75.75 0 0 1 0 1.5H2.75A.75.75 0 0 1 2 7.75Zm0 4A.75.75 0 0 1 2.75 11h10.5a.75.75 0 0 1 0 1.5H2.75A.75.75 0 0 1 2 11.75Z" />
+          </svg>
+          <svg class="cm-menu-toggle__icon cm-menu-toggle__icon--close" viewBox="0 0 16 16" aria-hidden="true"
+            focusable="false">
+            <path
+              d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8L4.646 5.354a.5.5 0 0 1 0-.708Z" />
+          </svg>
+        </button>
+      </div>
+
+      <nav class="cm-mobile-menu" id="cm-mobile-menu" data-cm-mobile-menu hidden aria-label="Navegación móvil">
+        <div class="cm-mobile-menu__panel">
+          <div class="cm-mobile-menu__list">
+            <a class="cm-nav__item cm-mobile-menu__item" href="index.html">
+              <img class="cm-nav__icon" src="assets/icons/icon-panel.svg" alt="" aria-hidden="true" />
+              <span>Panel</span>
+            </a>
+            <a class="cm-nav__item cm-mobile-menu__item" href="carteras.html">
+              <img class="cm-nav__icon" src="assets/icons/icon-carteras.svg" alt="" aria-hidden="true" />
+              <span>Carteras</span>
+            </a>
+            <a class="cm-nav__item cm-mobile-menu__item" href="membresias.html">
+              <img class="cm-nav__icon" src="assets/icons/icon-membresia.svg" alt="" aria-hidden="true" />
+              <span>Membresías</span>
+            </a>
+            <a class="cm-nav__item cm-mobile-menu__item cm-nav__item--active" href="referidos.html" aria-current="page">
+              <img class="cm-nav__icon" src="assets/icons/icon-users-round.svg" alt="" aria-hidden="true" />
+              <span>Referidos</span>
+            </a>
+            <a class="cm-nav__item cm-mobile-menu__item" href="transacciones.html">
+              <img class="cm-nav__icon" src="assets/icons/icon-transacciones.svg" alt="" aria-hidden="true" />
+              <span>Transacciones</span>
+            </a>
+            <a class="cm-nav__item cm-mobile-menu__item" href="#" aria-label="Maktub DeFi (próximamente)">
+              <img class="cm-nav__icon" src="assets/icons/icon-defi.svg" alt="" aria-hidden="true" />
+              <span>Maktub DeFi</span>
+            </a>
+            <a class="cm-nav__item cm-mobile-menu__item" href="mis-servicios.html">
+              <img class="cm-nav__icon" src="assets/icons/icon-globe.svg" alt="" aria-hidden="true" />
+              <span>Mis servicios</span>
+            </a>
+          </div>
+          <div class="cm-mobile-menu__divider" aria-hidden="true"></div>
+          <a class="cm-nav__item cm-mobile-menu__item" href="" aria-label="Perfil de usuario">
+            <img class="cm-nav__icon" src="assets/icons/icon-perfil.svg" alt="" aria-hidden="true" />
+            <span>Perfil de usuario</span>
+          </a>
+        </div>
+      </nav>
+    </header>
+
+    <main class="cm-main" role="main">
+      <section class="cm-referrals" data-cm-referrals aria-label="Listado de referidos">
+        <section class="cm-referrals__panel" aria-label="Tabla de referidos">
+          <div class="cm-referrals__toolbar">
+            <div class="cm-referrals__filters" aria-label="Filtros de referidos">
+              <div class="cm-ref-select" data-cm-multiselect="generation">
+                <button class="cm-ref-select__trigger" type="button" data-cm-ms-trigger aria-expanded="false"
+                  aria-controls="cm-ref-generation-menu">
+                  <span class="cm-ref-select__label">Generación</span>
+                  <span class="cm-ref-select__value" data-cm-ms-value>Todas</span>
+                </button>
+                <div class="cm-ref-select__menu" id="cm-ref-generation-menu" data-cm-ms-menu hidden>
+                  <label class="cm-ref-select__option">
+                    <input type="checkbox" value="1" data-cm-ms-option />
+                    <span>Generación 1</span>
+                  </label>
+                  <label class="cm-ref-select__option">
+                    <input type="checkbox" value="2" data-cm-ms-option />
+                    <span>Generación 2</span>
+                  </label>
+                  <label class="cm-ref-select__option">
+                    <input type="checkbox" value="3" data-cm-ms-option />
+                    <span>Generación 3</span>
+                  </label>
+                  <label class="cm-ref-select__option">
+                    <input type="checkbox" value="4" data-cm-ms-option />
+                    <span>Generación 4</span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="cm-ref-select" data-cm-multiselect="miu">
+                <button class="cm-ref-select__trigger" type="button" data-cm-ms-trigger aria-expanded="false"
+                  aria-controls="cm-ref-miu-menu">
+                  <span class="cm-ref-select__label">MIU</span>
+                  <span class="cm-ref-select__value" data-cm-ms-value>Todos</span>
+                </button>
+                <div class="cm-ref-select__menu" id="cm-ref-miu-menu" data-cm-ms-menu hidden>
+                  <label class="cm-ref-select__option">
+                    <input type="checkbox" value="0-4" data-cm-ms-option />
+                    <span>0 a 4</span>
+                  </label>
+                  <label class="cm-ref-select__option">
+                    <input type="checkbox" value="5-8" data-cm-ms-option />
+                    <span>5 a 8</span>
+                  </label>
+                  <label class="cm-ref-select__option">
+                    <input type="checkbox" value="9-12" data-cm-ms-option />
+                    <span>9 a 12</span>
+                  </label>
+                  <label class="cm-ref-select__option">
+                    <input type="checkbox" value="13+" data-cm-ms-option />
+                    <span>13 o más</span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="cm-ref-select" data-cm-multiselect="membership">
+                <button class="cm-ref-select__trigger" type="button" data-cm-ms-trigger aria-expanded="false"
+                  aria-controls="cm-ref-membership-menu">
+                  <span class="cm-ref-select__label">Membresía</span>
+                  <span class="cm-ref-select__value" data-cm-ms-value>Todas</span>
+                </button>
+                <div class="cm-ref-select__menu" id="cm-ref-membership-menu" data-cm-ms-menu hidden>
+                  <label class="cm-ref-select__option">
+                    <input type="checkbox" value="Elite" data-cm-ms-option />
+                    <span>Elite</span>
+                  </label>
+                  <label class="cm-ref-select__option">
+                    <input type="checkbox" value="Premium" data-cm-ms-option />
+                    <span>Premium</span>
+                  </label>
+                  <label class="cm-ref-select__option">
+                    <input type="checkbox" value="Esencial" data-cm-ms-option />
+                    <span>Esencial</span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="cm-ref-select" data-cm-multiselect="status">
+                <button class="cm-ref-select__trigger" type="button" data-cm-ms-trigger aria-expanded="false"
+                  aria-controls="cm-ref-status-menu">
+                  <span class="cm-ref-select__label">Estado</span>
+                  <span class="cm-ref-select__value" data-cm-ms-value>Todos</span>
+                </button>
+                <div class="cm-ref-select__menu" id="cm-ref-status-menu" data-cm-ms-menu hidden>
+                  <label class="cm-ref-select__option">
+                    <input type="checkbox" value="Activo" data-cm-ms-option />
+                    <span>Activos</span>
+                  </label>
+                  <label class="cm-ref-select__option">
+                    <input type="checkbox" value="No activo" data-cm-ms-option />
+                    <span>No activos</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <div class="cm-referrals__toolbar-meta">
+              <label class="cm-ref-search" for="cm-ref-search">
+                <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+                  <path
+                    d="M7 2.5a4.5 4.5 0 1 0 2.795 8.027l2.34 2.34a.5.5 0 0 0 .707-.707l-2.34-2.34A4.5 4.5 0 0 0 7 2.5Zm0 1a3.5 3.5 0 1 1 0 7 3.5 3.5 0 0 1 0-7Z"
+                    fill="currentColor" />
+                </svg>
+                <span class="cm-visually-hidden">Buscar referidos</span>
+                <input id="cm-ref-search" type="search" data-cm-ref-search
+                  placeholder="Buscar por nombre, MIU o membresía..." />
+              </label>
+              <button class="cm-ref-clear" type="button" data-cm-ref-clear>Limpiar filtros</button>
+            </div>
+          </div>
+
+          <div class="cm-referrals__active-filters" data-cm-ref-active hidden aria-live="polite"></div>
+          <p class="cm-visually-hidden" data-cm-ref-announcer aria-live="polite"></p>
+
+          <div class="cm-referrals__table-wrap" role="table" aria-label="Tabla de referidos">
+            <div class="cm-referrals__table-head" role="rowgroup">
+              <div class="cm-referrals__table-row cm-referrals__table-row--head" role="row">
+                <span role="columnheader">Referido</span>
+                <span role="columnheader">Generación</span>
+                <span role="columnheader">MIU</span>
+                <span role="columnheader">Directos</span>
+                <span role="columnheader">Membresía</span>
+                <span role="columnheader">Estado</span>
+                <span role="columnheader">Servicios</span>
+                <span role="columnheader">Acción</span>
+              </div>
+            </div>
+            <div class="cm-referrals__table-body" data-cm-ref-table-body role="rowgroup"></div>
+          </div>
+
+          <div class="cm-referrals__cards" data-cm-ref-cards aria-live="polite"></div>
+          <p class="cm-referrals__empty" data-cm-ref-empty hidden>No hay referidos con los filtros seleccionados.</p>
+
+          <footer class="cm-referrals__footer">
+            <div class="cm-referrals__footer-copy">
+              <p class="cm-referrals__results" data-cm-ref-results>Mostrando 0-0 de 0 resultados</p>
+              <p class="cm-referrals__hint">Puedes combinar varios filtros por categoría para afinar la búsqueda.</p>
+            </div>
+
+            <div class="cm-referrals__pagination" aria-label="Paginación">
+              <button type="button" class="cm-referrals__page-btn" data-cm-ref-prev aria-label="Página anterior">
+                <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+                  <path
+                    d="M9.854 3.146a.5.5 0 1 1 .707.708L6.414 8l4.147 4.146a.5.5 0 0 1-.707.708l-4.5-4.5a.5.5 0 0 1 0-.708l4.5-4.5Z"
+                    fill="currentColor" />
+                </svg>
+              </button>
+              <span class="cm-referrals__page-info" data-cm-ref-page>Página 1 / 1</span>
+              <button type="button" class="cm-referrals__page-btn" data-cm-ref-next aria-label="Página siguiente">
+                <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+                  <path
+                    d="M6.146 12.854a.5.5 0 1 1-.707-.708L9.586 8 5.439 3.854a.5.5 0 1 1 .707-.708l4.5 4.5a.5.5 0 0 1 0 .708l-4.5 4.5Z"
+                    fill="currentColor" />
+                </svg>
+              </button>
+            </div>
+          </footer>
+        </section>
+      </section>
+    </main>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.8/dist/chart.umd.min.js" defer></script>
+  <script src="js/main.js" defer></script>
+</body>
+
+</html>

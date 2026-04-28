@@ -1,0 +1,77 @@
+@font-face {
+    font-family: "HK Guise";
+    src: url("../webfont/HKGuiseBold.eot");
+    src:
+        url("../webfont/HKGuiseBold.eot?#iefix") format("embedded-opentype"),
+        url("../webfont/HKGuiseBold.woff2") format("woff2"),
+        url("../webfont/HKGuiseBold.woff") format("woff");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "HK Guise";
+    src: url("../webfont/HKGuiseSemiBold.eot");
+    src:
+        url("../webfont/HKGuiseSemiBold.eot?#iefix") format("embedded-opentype"),
+        url("../webfont/HKGuiseSemiBold.woff2") format("woff2"),
+        url("../webfont/HKGuiseSemiBold.woff") format("woff");
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "HK Guise";
+    src: url("../webfont/HKGuiseMedium.eot");
+    src:
+        url("../webfont/HKGuiseMedium.eot?#iefix") format("embedded-opentype"),
+        url("../webfont/HKGuiseMedium.woff2") format("woff2"),
+        url("../webfont/HKGuiseMedium.woff") format("woff");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "HK Guise";
+    src: url("../webfont/HKGuiseRegular.eot");
+    src:
+        url("../webfont/HKGuiseRegular.eot?#iefix") format("embedded-opentype"),
+        url("../webfont/HKGuiseRegular.woff2") format("woff2"),
+        url("../webfont/HKGuiseRegular.woff") format("woff");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "HK Guise";
+    src: url("../webfont/HKGuiseLight.eot");
+    src:
+        url("../webfont/HKGuiseLight.eot?#iefix") format("embedded-opentype"),
+        url("../webfont/HKGuiseLight.woff2") format("woff2"),
+        url("../webfont/HKGuiseLight.woff") format("woff");
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "HK Guise";
+    src: url("../webfont/HKGuiseExtraLight.eot");
+    src:
+        url("../webfont/HKGuiseExtraLight.eot?#iefix") format("embedded-opentype"),
+        url("../webfont/HKGuiseExtraLight.woff2") format("woff2"),
+        url("../webfont/HKGuiseExtraLight.woff") format("woff");
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "HK Guise";
+    src: url("../webfont/HKGuiseThin.eot");
+    src:
+        url("../webfont/HKGuiseThin.eot?#iefix") format("embedded-opentype"),
+        url("../webfont/HKGuiseThin.woff2") format("woff2"),
+        url("../webfont/HKGuiseThin.woff") format("woff");
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}

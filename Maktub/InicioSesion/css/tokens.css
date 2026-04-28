@@ -1,0 +1,117 @@
+:root {
+  /* Tipografia */
+  --mk-font-family-primary: "HK Guise", "Satoshi", "Segoe UI", sans-serif;
+  --mk-font-family-alt: "Satoshi", "HK Guise", "Segoe UI", sans-serif;
+  --mk-font-weight-regular: 400;
+  --mk-font-weight-medium: 500;
+  --mk-font-weight-semibold: 600;
+  --mk-font-weight-bold: 700;
+  --mk-font-weight-black: 900;
+
+  --mk-font-size-step: 10px;
+  --mk-font-size-caption: 12px;
+  --mk-font-size-label-md: 14px;
+  --mk-font-size-body-md: 16px;
+  --mk-font-size-body-lg: 18px;
+  --mk-font-size-header: 70px;
+  --mk-font-size-hero: 42px;
+
+  --mk-line-height-step: 16px;
+  --mk-line-height-caption: 16px;
+  --mk-line-height-sm: 20px;
+  --mk-line-height-md: 24px;
+  --mk-line-height-lg: 28px;
+  --mk-line-height-hero: 64px;
+
+  --mk-letter-spacing-none: 0;
+  --mk-letter-spacing-wide: 0.04em;
+
+  /* Alias de compatibilidad */
+  --mk-text-hero: var(--mk-font-size-header);
+  --mk-text-body-lg: var(--mk-font-size-body-lg);
+  --mk-text-body-md: var(--mk-font-size-body-md);
+  --mk-text-label-md: var(--mk-font-size-label-md);
+  --mk-text-caption: var(--mk-font-size-caption);
+  --mk-text-step: var(--mk-font-size-step);
+
+  --mk-line-hero: var(--mk-font-size-header);
+  --mk-line-lg: var(--mk-line-height-lg);
+  --mk-line-md: var(--mk-line-height-md);
+  --mk-line-sm: var(--mk-line-height-sm);
+  --mk-line-caption: var(--mk-line-height-caption);
+
+  --mk-color-white: #ffffff;
+  --mk-color-gray-50: #f6f7f9;
+  --mk-color-gray-100: #edeff3;
+  --mk-color-gray-300: #c8cfda;
+  --mk-color-gray-400: #b3bccc;
+  --mk-color-gray-600: #7687a3;
+  --mk-color-secondary-2: #1c73b8;
+  --mk-color-secondary-3: #c1e7fe;
+  --mk-color-surface: #1b1b1b;
+  --mk-color-red-500: rgba(251, 44, 54, 0.2);
+  --mk-color-red-400: #ff5c63;
+  --mk-color-red-300: #ff9499;
+  --mk-color-red-200: #ffbfc2;
+  --mk-color-red-900: #450407;
+  --mk-color-yellow-400: #fac94d;
+  --mk-color-green-400: #4ddb8a;
+
+  --mk-color-bg-start: #000000;
+  --mk-color-bg-end: #004169;
+  --mk-gradient-app: linear-gradient(
+    127.841deg,
+    var(--mk-color-bg-start) 0.46374%,
+    var(--mk-color-bg-end) 96.019%
+  );
+  --mk-gradient-hero: linear-gradient(90deg, #ffffff 0%, #00a7e4 100%);
+  --mk-gradient-button-disabled: linear-gradient(
+    90deg,
+    rgba(0, 167, 228, 0.5) 4.712%,
+    rgba(22, 22, 24, 0.5) 55.607%
+  );
+  --mk-gradient-button-enabled: linear-gradient(90deg, #00a7e4 4.712%, #161618 55.607%);
+
+  --mk-shadow-card-outer: 0 6px 6.8px rgba(0, 0, 0, 0.25);
+  --mk-shadow-card-inset: inset 0 4px 5.9px rgba(0, 0, 0, 0.28);
+  --mk-shadow-input-inset: inset 0 5px 8px rgba(0, 0, 0, 0.4);
+  --mk-shadow-step-inset: inset 0 10px 10px rgba(0, 0, 0, 0.25);
+  --mk-shadow-button-hover: 0 7px 15px rgba(28, 115, 184, 1);
+
+  --mk-radius-card: 52px;
+  --mk-radius-input: 8px;
+  --mk-radius-button: 12px;
+  --mk-radius-badge: 6px;
+  --mk-radius-full: 9999px;
+
+  --mk-size-logo-w: 80px;
+  --mk-size-logo-h: 91.36px;
+  --mk-size-step: 48px;
+  --mk-size-input-h: 64px;
+  --mk-size-pin: 64px;
+  --mk-size-pin-gap: 12px;
+  --mk-size-member-card-max: 700px;
+  --mk-size-member-content-max: 604px;
+  --mk-size-member-option-w: 300px;
+  --mk-size-member-option-h: 404px;
+  --mk-size-member-image-w: 205px;
+  --mk-size-member-image-h: 315px;
+  --mk-size-member-pay-h: 76px;
+  --mk-size-member-check: 24px;
+  --mk-size-card-max: 623px;
+  --mk-size-content-max: 527px;
+  --mk-size-button-max: 460px;
+  --mk-size-uikit-max: 616px;
+
+  --mk-space-2: 8px;
+  --mk-space-3: 12px;
+  --mk-space-4: 16px;
+  --mk-space-5: 20px;
+  --mk-space-6: 24px;
+  --mk-space-8: 32px;
+  --mk-space-10: 40px;
+  --mk-space-12: 48px;
+
+  --mk-transition-fast: 160ms ease;
+  --mk-outline: 0 0 0 2px rgba(193, 231, 254, 0.95);
+}

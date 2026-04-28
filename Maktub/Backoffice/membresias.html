@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Membresías | Backoffice Maktub</title>
+  <meta name="description" content="Administración de membresías activas, beneficios y planes disponibles en Backoffice Maktub.">
+  <meta name="robots" content="index,follow">
+  <meta name="theme-color" content="#2b7fff">
+  <meta property="og:title" content="Membresías | Backoffice Maktub">
+  <meta property="og:description" content="Consulta estado de suscripción, progreso y opciones de planes para cada usuario.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_MX">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Membresías | Backoffice Maktub">
+  <meta name="twitter:description" content="Controla renovación, historial y beneficios de membresías en una sola vista.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.cdnfonts.com/css/satoshi" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="cm-body">
+  <a class="cm-skip-link" href="#cm-main-content">Saltar al contenido</a>
+
+  <div class="cm-page">
+    <header class="cm-topbar" role="banner">
+      <div class="cm-topbar__shell">
+        <a class="cm-topbar__brand" href="index.html" aria-label="Maktub Club">
+          <img class="cm-brand-logo" src="assets/img/logo.png" alt="CM">
+        </a>
+
+        <button class="cm-topbar__toggle" type="button" data-cm-menu-toggle aria-expanded="false" aria-controls="cm-main-nav" aria-label="Abrir menú">
+          <i class="cm-topbar__toggle-icon bi bi-list"></i>
+        </button>
+
+        <nav id="cm-main-nav" class="cm-topbar__nav" data-cm-menu aria-label="Navegación principal">
+          <a class="cm-nav-link cm-nav-link--panel" data-cm-nav href="index.html"><span class="cm-nav-link__icon" aria-hidden="true"></span><span>Panel</span></a>
+          <a class="cm-nav-link cm-nav-link--carteras" data-cm-nav href="carteras.html"><span class="cm-nav-link__icon" aria-hidden="true"></span><span>Carteras</span></a>
+          <a class="cm-nav-link cm-nav-link--membresias" data-cm-nav href="membresias.html"><span class="cm-nav-link__icon" aria-hidden="true"></span><span>Membresías</span></a>
+          <a class="cm-nav-link cm-nav-link--referidos" data-cm-nav href="referidos.html"><span class="cm-nav-link__icon" aria-hidden="true"></span><span>Referidos</span></a>
+          <a class="cm-nav-link cm-nav-link--transacciones" data-cm-nav href="transacciones.html"><span class="cm-nav-link__icon" aria-hidden="true"></span><span>Transacciones</span></a>
+          <a class="cm-nav-link cm-nav-link--defi" href="#" aria-label="Maktub DeFi"><span class="cm-nav-link__icon" aria-hidden="true"></span><span>Maktub DeFi</span></a>
+        </nav>
+
+        <div class="cm-topbar__user-menu" data-cm-user-menu>
+          <button class="cm-topbar__user" type="button" aria-label="Abrir menú de usuario" aria-expanded="false" aria-haspopup="menu" aria-controls="cm-user-menu-panel" data-cm-user-menu-toggle>
+            <i class="cm-topbar__user-icon bi bi-person"></i>
+          </button>
+          <div id="cm-user-menu-panel" class="cm-user-menu" role="menu" aria-label="Opciones de usuario" data-cm-user-menu-panel hidden>
+            <a class="cm-user-menu__item" href="perfil.html" role="menuitem">
+              <span class="cm-user-menu__icon" aria-hidden="true">
+                <img src="assets/figma/0593dfecd25a4407ce26fa48f5426a0b80e2885b.svg" alt="">
+              </span>
+              <span class="cm-user-menu__label">Perfil</span>
+            </a>
+            <span class="cm-user-menu__separator" aria-hidden="true"></span>
+            <button class="cm-user-menu__item cm-user-menu__item--button" type="button" role="menuitem" data-cm-user-menu-close>
+              <span class="cm-user-menu__icon" aria-hidden="true">
+                <img src="assets/figma/b7a306d69fd84e57343ad8d74441d21e87445893.svg" alt="">
+              </span>
+              <span class="cm-user-menu__label">Cerrar sesión</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main id="cm-main-content" class="cm-main">
+      <section class="cm-membership-page" aria-label="Sección de membresías">
+        <article class="cm-membership-active" aria-label="Membresía activa">
+          <header class="cm-membership-active__head">
+            <div>
+              <h1 class="cm-membership-active__title"><i class="bi bi-shield-check"></i> Membresía Activa</h1>
+              <p class="cm-membership-active__subtitle">Estado actual y detalles de tu suscripción</p>
+            </div>
+            <span class="cm-membership-state">En curso</span>
+          </header>
+
+          <div class="cm-membership-active__body">
+            <article class="cm-membership-hero" aria-label="Tarjeta de plan actual">
+              <div class="cm-membership-hero__top">
+                <i class="bi bi-box-seam"></i>
+                <span class="cm-membership-hero__tag">MKB-ELITE</span>
+              </div>
+              <div class="cm-membership-hero__main">
+                <h2>Pool Embajador</h2>
+                <p>Acceso Premium</p>
+              </div>
+              <div class="cm-membership-hero__progress">
+                <div class="cm-membership-hero__progress-head">
+                  <span>POOL 1</span>
+                  <strong>65%</strong>
+                </div>
+                <div class="cm-membership-hero__track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="65" aria-label="Progreso de membresía">
+                  <span class="cm-membership-hero__value"></span>
+                </div>
+                <div class="cm-membership-hero__dates">
+                  <span>20% Pool siguiente</span>
+                  <span>Fin: 07/11/2026</span>
+                </div>
+              </div>
+            </article>
+
+            <div class="cm-membership-meta">
+              <div class="cm-membership-meta__grid">
+                <article class="cm-membership-metric">
+                  <p>Tipo de Plan</p>
+                  <h3>Membresía Elite <i class="bi bi-star-fill"></i></h3>
+                </article>
+                <article class="cm-membership-metric">
+                  <p>Días Restantes</p>
+                  <h3>230 días</h3>
+                </article>
+                <article class="cm-membership-metric">
+                  <p>Beneficios Activos</p>
+                  <h3>Acceso Total</h3>
+                </article>
+                <article class="cm-membership-metric">
+                  <p>Próxima Renovación</p>
+                  <h3>07 Nov 2026</h3>
+                </article>
+              </div>
+
+              <div class="cm-membership-actions" role="group" aria-label="Acciones de membresía">
+                <button class="cm-membership-btn cm-membership-btn--primary" type="button"><i class="bi bi-lightning-charge"></i> Renovar Membresía</button>
+                <button class="cm-membership-btn cm-membership-btn--dark" type="button">Ver Historial de Pagos</button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <section class="cm-membership-plans" aria-label="Planes disponibles">
+          <h2 class="cm-membership-plans__title">Planes Disponibles</h2>
+          <div class="cm-membership-plan-grid">
+            <article class="cm-membership-plan cm-membership-plan--base" aria-label="Plan Base">
+              <h3 class="cm-membership-plan__name">Base</h3>
+              <p class="cm-membership-plan__price"><strong>100</strong> USDT</p>
+              <p class="cm-membership-plan__caption">Para comenzar tu camino</p>
+              <ul class="cm-membership-plan__list">
+                <li><i class="bi bi-check-lg"></i> Acceso a la plataforma básica</li>
+                <li><i class="bi bi-check-lg"></i> Soporte estándar</li>
+                <li><i class="bi bi-check-lg"></i> Comunidad básica</li>
+              </ul>
+              <button class="cm-membership-plan__button cm-membership-plan__button--dark" type="button">Seleccionar Plan</button>
+            </article>
+
+            <article class="cm-membership-plan cm-membership-plan--elite" aria-label="Plan Elite">
+              <span class="cm-membership-popular">POPULAR</span>
+              <h3 class="cm-membership-plan__name">Elite</h3>
+              <p class="cm-membership-plan__price"><strong>500</strong> USDT</p>
+              <p class="cm-membership-plan__caption">La experiencia completa</p>
+              <ul class="cm-membership-plan__list cm-membership-plan__list--elite">
+                <li><i class="bi bi-check-lg"></i> Todo lo del plan Base</li>
+                <li><i class="bi bi-check-lg"></i> Acceso VIP a eventos</li>
+                <li><i class="bi bi-check-lg"></i> Soporte prioritario 24/7</li>
+                <li><i class="bi bi-check-lg"></i> Mentoría personalizada</li>
+              </ul>
+              <button class="cm-membership-plan__button cm-membership-plan__button--primary" type="button">Plan Actual</button>
+            </article>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <footer class="cm-footer">
+      © 2026 Backoffice Maktub v.2.0
+    </footer>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.9/dist/chart.umd.min.js" defer></script>
+  <script src="js/main.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Perfil de Usuario | Backoffice Maktub</title>
+  <meta name="description" content="Administra tus datos de perfil, contacto y seguridad dentro del Backoffice Maktub.">
+  <meta name="robots" content="index,follow">
+  <meta name="theme-color" content="#2b7fff">
+  <meta property="og:title" content="Perfil de Usuario | Backoffice Maktub">
+  <meta property="og:description" content="Actualiza tu información personal y cambia tu contraseña desde el backoffice.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_MX">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Perfil de Usuario | Backoffice Maktub">
+  <meta name="twitter:description" content="Sección de perfil con datos personales, contacto y seguridad de cuenta.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.cdnfonts.com/css/satoshi" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="cm-body">
+  <a class="cm-skip-link" href="#cm-main-content">Saltar al contenido</a>
+
+  <div class="cm-page">
+    <header class="cm-topbar" role="banner">
+      <div class="cm-topbar__shell">
+        <a class="cm-topbar__brand" href="index.html" aria-label="Maktub Club">
+          <img class="cm-brand-logo" src="assets/img/logo.png" alt="CM">
+        </a>
+        <button class="cm-topbar__toggle" type="button" data-cm-menu-toggle aria-expanded="false" aria-controls="cm-main-nav" aria-label="Abrir menú">
+          <i class="cm-topbar__toggle-icon bi bi-list"></i>
+        </button>
+
+        <nav id="cm-main-nav" class="cm-topbar__nav" data-cm-menu aria-label="Navegación principal">
+          <a class="cm-nav-link cm-nav-link--panel" data-cm-nav href="index.html"><span class="cm-nav-link__icon" aria-hidden="true"></span><span>Panel</span></a>
+          <a class="cm-nav-link cm-nav-link--carteras" data-cm-nav href="carteras.html"><span class="cm-nav-link__icon" aria-hidden="true"></span><span>Carteras</span></a>
+          <a class="cm-nav-link cm-nav-link--membresias" data-cm-nav href="membresias.html"><span class="cm-nav-link__icon" aria-hidden="true"></span><span>Membresías</span></a>
+          <a class="cm-nav-link cm-nav-link--referidos" data-cm-nav href="referidos.html"><span class="cm-nav-link__icon" aria-hidden="true"></span><span>Referidos</span></a>
+          <a class="cm-nav-link cm-nav-link--transacciones" data-cm-nav href="transacciones.html"><span class="cm-nav-link__icon" aria-hidden="true"></span><span>Transacciones</span></a>
+          <a class="cm-nav-link cm-nav-link--defi" href="#" aria-label="Maktub DeFi"><span class="cm-nav-link__icon" aria-hidden="true"></span><span>Maktub DeFi</span></a>
+        </nav>
+
+        <div class="cm-topbar__user-menu" data-cm-user-menu>
+          <button class="cm-topbar__user" type="button" aria-label="Abrir menú de usuario" aria-expanded="false" aria-haspopup="menu" aria-controls="cm-user-menu-panel" data-cm-user-menu-toggle>
+            <i class="cm-topbar__user-icon bi bi-person"></i>
+          </button>
+          <div id="cm-user-menu-panel" class="cm-user-menu" role="menu" aria-label="Opciones de usuario" data-cm-user-menu-panel hidden>
+            <a class="cm-user-menu__item" href="perfil.html" role="menuitem">
+              <span class="cm-user-menu__icon" aria-hidden="true">
+                <img src="assets/figma/0593dfecd25a4407ce26fa48f5426a0b80e2885b.svg" alt="">
+              </span>
+              <span class="cm-user-menu__label">Perfil</span>
+            </a>
+            <span class="cm-user-menu__separator" aria-hidden="true"></span>
+            <button class="cm-user-menu__item cm-user-menu__item--button" type="button" role="menuitem" data-cm-user-menu-close>
+              <span class="cm-user-menu__icon" aria-hidden="true">
+                <img src="assets/figma/b7a306d69fd84e57343ad8d74441d21e87445893.svg" alt="">
+              </span>
+              <span class="cm-user-menu__label">Cerrar sesión</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main id="cm-main-content" class="cm-main cm-profile-page">
+      <h1 class="cm-visually-hidden">Perfil de Usuario</h1>
+
+      <section class="cm-profile-layout" aria-label="Perfil de usuario">
+        <aside class="cm-profile-column cm-profile-column--left" aria-label="Resumen de perfil">
+          <article class="cm-profile-card cm-profile-summary-card" data-node-id="2:1133">
+            <div class="cm-profile-summary" data-node-id="2:1134">
+              <span class="cm-profile-avatar-wrap">
+                <span class="cm-profile-avatar" aria-hidden="true" data-node-id="2:1160" data-cm-profile-avatar>
+                  <span class="cm-profile-avatar__initials" data-cm-profile-initials>JR</span>
+                </span>
+                <label class="cm-profile-avatar-upload" for="cm-profile-photo" aria-label="Adjuntar fotografía" title="Adjuntar fotografía">
+                  <img src="assets/figma/71f1c6894534f002d5a559bebb275a9a63500311.svg" alt="">
+                </label>
+                <input id="cm-profile-photo" class="cm-profile-file-input cm-profile-file-input--avatar" type="file" accept="image/*" data-cm-profile-photo-input>
+              </span>
+
+              <div class="cm-profile-user-info" data-node-id="9:518">
+                <h2 class="cm-profile-user-name" data-node-id="2:1136">Jesus Ruiz</h2>
+                <p class="cm-profile-user-id" data-node-id="2:1138">MIU: 000258</p>
+              </div>
+
+              <div class="cm-profile-meta-list" data-node-id="2:1139">
+                <article class="cm-profile-meta-item" data-node-id="2:1140">
+                  <span class="cm-profile-meta-icon" aria-hidden="true" data-node-id="2:1141">
+                    <span class="cm-profile-duo-icon cm-profile-duo-icon--blue" data-node-id="2:1142">
+                      <img class="cm-profile-duo-icon__head" src="assets/figma/04de86bc32ae1f661a86544993db7436322b9172.svg" alt="">
+                      <img class="cm-profile-duo-icon__body" src="assets/figma/08e8aac90a465a957b0b027bdb7cb6f112c37e30.svg" alt="">
+                    </span>
+                  </span>
+                  <div class="cm-profile-meta-copy" data-node-id="9:516">
+                    <p class="cm-profile-meta-label" data-node-id="2:1147">Registrado desde</p>
+                    <p class="cm-profile-meta-value" data-node-id="2:1149">2025-11-07 09:34:51</p>
+                  </div>
+                </article>
+
+                <article class="cm-profile-meta-item" data-node-id="2:1150">
+                  <span class="cm-profile-meta-icon" aria-hidden="true" data-node-id="2:1151">
+                    <span class="cm-profile-duo-icon cm-profile-duo-icon--purple" data-node-id="2:1152">
+                      <img class="cm-profile-duo-icon__head" src="assets/figma/697e4a98423257da174377a75202e4cc47091c1d.svg" alt="">
+                      <img class="cm-profile-duo-icon__body" src="assets/figma/be0d2ea98f93db9f43cd550f03b8386f3861341c.svg" alt="">
+                    </span>
+                  </span>
+                  <div class="cm-profile-meta-copy" data-node-id="2:1155">
+                    <p class="cm-profile-meta-label" data-node-id="2:1157">Patrocinador</p>
+                    <p class="cm-profile-meta-value" data-node-id="2:1159">Sergio Jacobo</p>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </article>
+
+          <article class="cm-profile-card cm-profile-contact-card" data-node-id="2:1163">
+            <p class="cm-profile-contact-title" data-node-id="10:500">Contacto</p>
+
+            <div class="cm-profile-contact-list" data-node-id="10:499">
+              <article class="cm-profile-contact-item" data-node-id="10:482">
+                <span class="cm-profile-contact-icon cm-profile-contact-icon--phone" aria-hidden="true" data-node-id="10:484">
+                  <img src="assets/figma/70a63e7a03efde7341e650301802ef4b4aa7b65e.svg" alt="">
+                </span>
+                <div class="cm-profile-contact-copy" data-node-id="10:487">
+                  <p class="cm-profile-contact-label" data-node-id="10:488">Teléfono</p>
+                  <p class="cm-profile-contact-value" data-node-id="10:489">9381024983</p>
+                </div>
+              </article>
+
+              <article class="cm-profile-contact-item" data-node-id="10:490">
+                <span class="cm-profile-contact-icon cm-profile-contact-icon--mail" aria-hidden="true" data-node-id="10:491">
+                  <img src="assets/figma/0e21783d1374cf87d631d84b1c92312c013155a7.svg" alt="">
+                </span>
+                <div class="cm-profile-contact-copy" data-node-id="10:495">
+                  <p class="cm-profile-contact-value" data-node-id="10:496">recursosmktb@gmail.com</p>
+                  <p class="cm-profile-contact-label" data-node-id="10:497">Email</p>
+                </div>
+              </article>
+            </div>
+          </article>
+        </aside>
+
+        <div class="cm-profile-column cm-profile-column--right">
+          <article class="cm-profile-card cm-profile-form-card" data-node-id="2:1188">
+            <div class="cm-profile-form-header" data-node-id="9:531">
+              <h2 class="cm-profile-form-title" data-node-id="9:528">Información Personal</h2>
+              <p class="cm-profile-form-subtitle" data-node-id="9:529">Actualiza tus datos personales y de contacto.</p>
+            </div>
+
+            <form class="cm-profile-form cm-validate-form" data-node-id="2:1194" data-cm-success-message="Perfil actualizado correctamente (demo)." data-cm-invalid-message="Revisa la información de perfil antes de guardar." data-cm-no-reset novalidate>
+              <div class="cm-profile-form-row" data-node-id="2:1195">
+                <label class="cm-profile-field" for="cm-profile-nombre" data-node-id="2:1196">
+                  <span class="cm-profile-field-label" data-node-id="2:1198">Nombre</span>
+                  <input id="cm-profile-nombre" class="cm-profile-input" type="text" value="Jesus" autocomplete="given-name" required minlength="2" maxlength="40" pattern="^[A-Za-zÁÉÍÓÚáéíóúÑñÜü' ]{2,40}$" data-cm-error="cm-profile-nombre-error" data-cm-error-message="Ingresa tu nombre." data-cm-pattern-message="El nombre solo puede contener letras y espacios." data-cm-minlength-message="El nombre debe tener al menos 2 caracteres." aria-describedby="cm-profile-nombre-error" data-node-id="2:1199">
+                  <span id="cm-profile-nombre-error" class="cm-field-error" role="alert"></span>
+                </label>
+                <label class="cm-profile-field" for="cm-profile-apellidos" data-node-id="2:1201">
+                  <span class="cm-profile-field-label" data-node-id="2:1203">Apellidos</span>
+                  <input id="cm-profile-apellidos" class="cm-profile-input" type="text" value="Ruiz" autocomplete="family-name" required minlength="2" maxlength="40" pattern="^[A-Za-zÁÉÍÓÚáéíóúÑñÜü' ]{2,40}$" data-cm-error="cm-profile-apellidos-error" data-cm-error-message="Ingresa tus apellidos." data-cm-pattern-message="Los apellidos solo pueden contener letras y espacios." data-cm-minlength-message="Los apellidos deben tener al menos 2 caracteres." aria-describedby="cm-profile-apellidos-error" data-node-id="2:1204">
+                  <span id="cm-profile-apellidos-error" class="cm-field-error" role="alert"></span>
+                </label>
+              </div>
+
+              <label class="cm-profile-field" for="cm-profile-telefono" data-node-id="2:1206">
+                <span class="cm-profile-field-label" data-node-id="2:1208">Teléfono</span>
+                <input id="cm-profile-telefono" class="cm-profile-input" type="text" value="9381024983" inputmode="numeric" autocomplete="tel" required pattern="^[0-9]{10}$" data-cm-error="cm-profile-telefono-error" data-cm-error-message="Ingresa tu número telefónico." data-cm-pattern-message="El teléfono debe contener exactamente 10 dígitos." aria-describedby="cm-profile-telefono-error" data-node-id="2:1209">
+                <span id="cm-profile-telefono-error" class="cm-field-error" role="alert"></span>
+              </label>
+
+              <label class="cm-profile-field" for="cm-profile-wallet-mak" data-node-id="2:1211">
+                <span class="cm-profile-field-label" data-node-id="2:1213">Wallet MAK</span>
+                <input id="cm-profile-wallet-mak" class="cm-profile-input" type="text" value="Solana" required minlength="3" maxlength="80" pattern="^[A-Za-z0-9 .:_-]{3,80}$" data-cm-error="cm-profile-wallet-mak-error" data-cm-error-message="Ingresa la wallet MAK." data-cm-pattern-message="La wallet MAK tiene un formato inválido." data-cm-minlength-message="La wallet MAK debe tener al menos 3 caracteres." aria-describedby="cm-profile-wallet-mak-error" data-node-id="2:1214">
+                <span id="cm-profile-wallet-mak-error" class="cm-field-error" role="alert"></span>
+              </label>
+
+              <label class="cm-profile-field" for="cm-profile-wallet-usdt" data-node-id="2:1216">
+                <span class="cm-profile-field-label" data-node-id="2:1218">Wallet Retiros USDT TRC20</span>
+                <input id="cm-profile-wallet-usdt" class="cm-profile-input" type="text" value="USDT TRC20" required minlength="6" maxlength="120" pattern="^[A-Za-z0-9 .:_-]{6,120}$" data-cm-error="cm-profile-wallet-usdt-error" data-cm-error-message="Ingresa la wallet de retiros." data-cm-pattern-message="La wallet de retiros tiene un formato inválido." data-cm-minlength-message="La wallet de retiros debe tener al menos 6 caracteres." aria-describedby="cm-profile-wallet-usdt-error" data-node-id="2:1219">
+                <span id="cm-profile-wallet-usdt-error" class="cm-field-error" role="alert"></span>
+              </label>
+
+              <button class="cm-profile-submit" type="submit" data-node-id="2:1221">Actualizar perfil</button>
+              <p class="cm-form-message" data-cm-form-message role="status" aria-live="polite"></p>
+            </form>
+          </article>
+
+          <article class="cm-profile-card cm-profile-form-card" data-node-id="2:1223">
+            <div class="cm-profile-form-header" data-node-id="9:527">
+              <h2 class="cm-profile-form-title" data-node-id="9:524">Cambiar Password</h2>
+              <p class="cm-profile-form-subtitle" data-node-id="9:525">Asegura tu cuenta con una contraseña fuerte.</p>
+            </div>
+
+            <form class="cm-profile-form cm-validate-form" data-node-id="2:1229" data-cm-success-message="Contraseña actualizada correctamente (demo)." data-cm-invalid-message="Verifica los campos de contraseña antes de continuar." novalidate>
+              <label class="cm-profile-field" for="cm-profile-password" data-node-id="2:1230">
+                <span class="cm-profile-field-label" data-node-id="2:1232">Password</span>
+                <input id="cm-profile-password" class="cm-profile-input" type="password" autocomplete="new-password" required minlength="8" maxlength="64" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9]).{8,64}$" data-cm-error="cm-profile-password-error" data-cm-error-message="Ingresa una contraseña." data-cm-pattern-message="Debe incluir mayúscula, minúscula, número y carácter especial." data-cm-minlength-message="La contraseña debe tener mínimo 8 caracteres." aria-describedby="cm-profile-password-error" data-node-id="2:1233">
+                <span id="cm-profile-password-error" class="cm-field-error" role="alert"></span>
+              </label>
+
+              <label class="cm-profile-field" for="cm-profile-password-confirm" data-node-id="2:1234">
+                <span class="cm-profile-field-label" data-node-id="2:1236">Confirmar Password</span>
+                <input id="cm-profile-password-confirm" class="cm-profile-input" type="password" autocomplete="new-password" required data-cm-match="cm-profile-password" data-cm-match-message="Las contraseñas no coinciden." data-cm-error="cm-profile-password-confirm-error" data-cm-error-message="Confirma tu contraseña." aria-describedby="cm-profile-password-confirm-error" data-node-id="2:1237">
+                <span id="cm-profile-password-confirm-error" class="cm-field-error" role="alert"></span>
+              </label>
+
+              <button class="cm-profile-submit cm-profile-submit--small" type="submit" data-node-id="2:1238">Cambiar</button>
+              <p class="cm-form-message" data-cm-form-message role="status" aria-live="polite"></p>
+            </form>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="cm-footer">
+      © 2026 Backoffice Maktub v.2.0
+    </footer>
+  </div>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>

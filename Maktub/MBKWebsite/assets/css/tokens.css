@@ -1,0 +1,130 @@
+:root {
+  --font-display: "HK Guise", "Segoe UI", sans-serif;
+  --font-body: "HK Guise", "Segoe UI", sans-serif;
+
+  --color-bg-950: #01040a;
+  --color-bg-900: #030812;
+  --color-bg-850: #071425;
+  --color-bg-800: #0a1d34;
+  --color-surface-glass: rgba(13, 31, 56, 0.64);
+  --color-border-glow: rgba(70, 191, 255, 0.45);
+
+  --color-primary-500: #07b9ff;
+  --color-primary-400: #2fd6ff;
+  --color-primary-300: #8cefff;
+
+  --color-text-100: #eef9ff;
+  --color-text-200: #d6edff;
+  --color-text-300: #9cb9ce;
+
+  --btn-font-size-sm: 0.95rem;
+  --btn-font-size-md: 1.05rem;
+  --btn-font-size-lg: 1.2rem;
+  --btn-font-size-strong: clamp(1.35rem, 2.1vw, 2rem);
+  --btn-font-size-strong-display: clamp(1.5rem, 2.1vw, 2.1rem);
+  --btn-font-weight: 600;
+
+  --btn-height-sm: 2.9rem;
+  --btn-height-md: 3.5rem;
+  --btn-height-lg: 4.2rem;
+  --btn-height-xl: 4.55rem;
+
+  --btn-padding-x-sm: 1.1rem;
+  --btn-padding-x-md: 1.45rem;
+  --btn-padding-x-lg: 1.9rem;
+  --btn-padding-x-xl: 2rem;
+
+  --btn-width-sm: 7rem;
+  --btn-width-md: 8.6rem;
+  --btn-width-lg: 10.6rem;
+  --btn-width-xl: 12.5rem;
+
+  --btn-radius-md: 1rem;
+  --btn-radius-lg: 1.15rem;
+  --btn-radius-pill: 999px;
+  --btn-border-width: 1px;
+
+  --btn-circle-md: 4.1rem;
+  --btn-circle-lg: 4.55rem;
+  --btn-icon-size: 1.15rem;
+  --btn-icon-gap: 0.55rem;
+
+  --btn-bg-primary: #2a7fbe;
+  --btn-bg-primary-hover: #3a95d2;
+  --btn-border-primary: #98d9ff;
+  --btn-border-primary-hover: #b8e9ff;
+  --btn-text-on-primary: #eef8ff;
+
+  --btn-bg-dark: #122946;
+  --btn-bg-dark-hover: #1d3758;
+  --btn-border-dark: #516d8d;
+  --btn-text-on-dark: #ebf3fb;
+
+  --btn-bg-dark-soft: #32465f;
+  --btn-bg-dark-soft-hover: #415b79;
+  --btn-border-dark-soft: #8aa1b8;
+  --btn-text-on-dark-soft: #e9f0f8;
+
+  --btn-bg-light: #bde8ff;
+  --btn-bg-light-hover: #d4f1ff;
+  --btn-border-light-strong: #11bdfc;
+  --btn-text-on-light: #0d2438;
+
+  --btn-bg-white: #f1f5f8;
+  --btn-bg-white-hover: #ffffff;
+  --btn-border-white-strong: #10bfff;
+  --btn-text-on-white: #0c1f34;
+
+  --btn-bg-transparent: transparent;
+  --btn-bg-outline-primary-hover: rgba(18, 185, 255, 0.12);
+  --btn-bg-outline-light-hover: rgba(186, 226, 255, 0.1);
+  --btn-bg-outline-muted-hover: rgba(143, 175, 206, 0.12);
+  --btn-border-primary-strong: #0fbfff;
+  --btn-border-light: #bde5ff;
+  --btn-border-light-hover: #def1ff;
+  --btn-border-muted: #93a9c1;
+  --btn-text-cyan: #67ddff;
+  --btn-text-cyan-hover: #a7ecff;
+  --btn-text-white: #eef7ff;
+  --btn-text-white-hover: #ffffff;
+  --btn-text-muted: #d2deea;
+  --btn-text-muted-hover: #f2f7fb;
+
+  --btn-focus-ring: rgba(110, 211, 255, 0.34);
+  --btn-shadow-primary: 0 10px 20px rgba(0, 30, 55, 0.4);
+  --btn-shadow-primary-glow: 0 0 0 1px rgba(117, 219, 255, 0.22), 0 0 32px rgba(49, 181, 255, 0.56);
+  --btn-shadow-light-glow: 0 0 0 1px rgba(154, 226, 255, 0.34), 0 10px 26px rgba(0, 18, 32, 0.5), 0 0 24px rgba(57, 197, 255, 0.52);
+  --btn-shadow-white: 0 10px 22px rgba(0, 0, 0, 0.3);
+
+  --icon-download: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 3v11'/%3E%3Cpath d='m7 10 5 5 5-5'/%3E%3Cpath d='M5 20h14a2 2 0 0 0 2-2v-1'/%3E%3Cpath d='M3 17v1a2 2 0 0 0 2 2'/%3E%3C/svg%3E");
+
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+
+  --radius-xs: 0.5rem;
+  --radius-sm: 0.75rem;
+  --radius-md: 1rem;
+  --radius-lg: 1.5rem;
+  --radius-xl: 2rem;
+  --radius-pill: 999px;
+
+  --shadow-soft: 0 12px 24px rgba(0, 7, 20, 0.45);
+  --shadow-glow: 0 0 34px rgba(42, 204, 255, 0.24);
+  --shadow-glow-strong: 0 0 55px rgba(19, 182, 255, 0.35);
+
+  --z-base: 1;
+  --z-nav: 1000;
+  --z-overlay: 1200;
+
+  --nav-height: 5.4375rem;
+
+  --ease-out: cubic-bezier(0.2, 0.72, 0.2, 1);
+  --transition-fast: 180ms var(--ease-out);
+  --transition-base: 280ms var(--ease-out);
+}

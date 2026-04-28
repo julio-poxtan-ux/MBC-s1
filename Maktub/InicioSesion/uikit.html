@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>UI Kit Inputs - Onboarding Maktub</title>
+    <meta
+      name="description"
+      content="UI Kit HTML con todos los estados de inputs de onboarding Maktub, basado en Figma."
+    />
+    <meta name="author" content="Maktub Frontend Team" />
+    <meta property="og:title" content="UI Kit Inputs - Onboarding Maktub" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_MX" />
+    <link rel="preconnect" href="https://api.fontshare.com" />
+    <link
+      rel="stylesheet"
+      href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <link rel="stylesheet" href="./css/tokens.css" />
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
+  <body class="mk-body">
+    <a class="mk-skip-link" href="#mk-uikit-main">Saltar a UI Kit</a>
+    <div class="mk-app-shell">
+      <img
+        class="mk-bg-spheres"
+        src="./assets/img/mk-background-spheres.svg"
+        alt=""
+        aria-hidden="true"
+      />
+
+      <header class="mk-header container-fluid px-3 px-md-4">
+        <div class="d-flex justify-content-center align-items-center">
+          <a href="./index_1.html" aria-label="Volver a bienvenida">
+            <img
+              src="./assets/img/mk-logo.svg"
+              alt="Maktub"
+              class="mk-brand-logo"
+              width="80"
+              height="92"
+            />
+          </a>
+        </div>
+      </header>
+
+      <main id="mk-uikit-main" class="container-fluid px-3 px-md-4 pb-5">
+        <section class="mk-uikit-panel mx-auto" aria-labelledby="mk-uikit-title">
+          <header class="mk-uikit-header">
+            <h1 id="mk-uikit-title" class="mk-uikit-title">Inputs - Estados Figma</h1>
+            <p class="mk-uikit-subtitle mb-0">
+              Nodo 142:308 + componente PIN (268:5641) implementados en HTML/CSS modular.
+            </p>
+          </header>
+
+          <div class="mk-input-stack">
+            <article class="mk-input-field">
+              <label for="mk-field-normal" class="mk-input-label">Nombre</label>
+              <div class="mk-input-control">
+                <input
+                  id="mk-field-normal"
+                  class="mk-input-element"
+                  type="text"
+                  placeholder="Nombre completo"
+                />
+              </div>
+            </article>
+
+            <article class="mk-input-field">
+              <label for="mk-field-filled" class="mk-input-label">Nombre</label>
+              <div class="mk-input-control mk-input-control--filled">
+                <input
+                  id="mk-field-filled"
+                  class="mk-input-element mk-input-element--filled"
+                  type="text"
+                  value="NOMBRE COMPLETO"
+                  readonly
+                  aria-label="Nombre en estado completado"
+                />
+              </div>
+            </article>
+
+            <article class="mk-input-field">
+              <label for="mk-field-focus" class="mk-input-label">Nombre</label>
+              <div class="mk-input-control mk-input-control--focus">
+                <input
+                  id="mk-field-focus"
+                  class="mk-input-element mk-input-element--filled"
+                  type="text"
+                  value="NOMBRE COMPLETO"
+                  readonly
+                  aria-label="Nombre en estado focus"
+                />
+              </div>
+            </article>
+
+            <article class="mk-input-field">
+              <label for="mk-field-password-icon" class="mk-input-label">Nombre</label>
+              <div class="mk-input-control">
+                <input
+                  id="mk-field-password-icon"
+                  class="mk-input-element"
+                  type="password"
+                  placeholder="Nombre completo"
+                />
+                <button
+                  class="mk-input-icon-btn"
+                  type="button"
+                  aria-label="Mostrar contraseña"
+                  aria-controls="mk-field-password-icon"
+                  data-mk-toggle-password
+                >
+                  <i class="bi bi-eye" aria-hidden="true"></i>
+                </button>
+              </div>
+            </article>
+
+            <article class="mk-input-field">
+              <label for="mk-field-error" class="mk-input-label">Nombre</label>
+              <div class="mk-input-control mk-input-control--error">
+                <input
+                  id="mk-field-error"
+                  class="mk-input-element mk-input-element--error"
+                  type="text"
+                  placeholder="Nombre completo"
+                  aria-invalid="true"
+                  aria-describedby="mk-error-name"
+                />
+                <button class="mk-input-icon-btn" type="button" aria-label="Mostrar campo">
+                  <i class="bi bi-eye" aria-hidden="true"></i>
+                </button>
+              </div>
+              <p id="mk-error-name" class="mk-inline-error">El nombre es necesario</p>
+            </article>
+
+            <article class="mk-input-field">
+              <label for="mk-field-pass-high" class="mk-input-label">Nombre</label>
+              <div class="mk-input-control">
+                <input
+                  id="mk-field-pass-high"
+                  class="mk-input-element"
+                  type="password"
+                  placeholder="Nombre completo"
+                />
+                <button
+                  class="mk-input-icon-btn"
+                  type="button"
+                  aria-label="Mostrar contraseña"
+                  aria-controls="mk-field-pass-high"
+                  data-mk-toggle-password
+                >
+                  <i class="bi bi-eye" aria-hidden="true"></i>
+                </button>
+              </div>
+              <div class="mk-strength-wrap">
+                <p class="mk-strength-label mb-0">
+                  Seguridad: <strong class="mk-strength-high">ALTA</strong>
+                </p>
+                <span class="mk-strength-bar mk-strength-bar--high" aria-hidden="true"></span>
+              </div>
+            </article>
+
+            <article class="mk-input-field">
+              <label for="mk-field-pass-medium" class="mk-input-label">Nombre</label>
+              <div class="mk-input-control mk-input-control--medium">
+                <input
+                  id="mk-field-pass-medium"
+                  class="mk-input-element"
+                  type="password"
+                  placeholder="Nombre completo"
+                />
+                <button
+                  class="mk-input-icon-btn"
+                  type="button"
+                  aria-label="Mostrar contraseña"
+                  aria-controls="mk-field-pass-medium"
+                  data-mk-toggle-password
+                >
+                  <i class="bi bi-eye" aria-hidden="true"></i>
+                </button>
+              </div>
+              <div class="mk-strength-wrap">
+                <p class="mk-strength-label mb-0">
+                  Seguridad: <strong class="mk-strength-medium">MEDIA</strong>
+                </p>
+                <span class="mk-strength-bar mk-strength-bar--medium" aria-hidden="true"></span>
+              </div>
+              <p class="mk-inline-error mk-inline-error--long">
+                La contraseña debe tener 8+ caracteres, mayúscula, minúscula, número y símbolo.
+              </p>
+            </article>
+
+            <article class="mk-input-field">
+              <label for="mk-field-pass-low" class="mk-input-label">Nombre</label>
+              <div class="mk-input-control mk-input-control--medium">
+                <input
+                  id="mk-field-pass-low"
+                  class="mk-input-element"
+                  type="password"
+                  placeholder="Nombre completo"
+                />
+                <button
+                  class="mk-input-icon-btn"
+                  type="button"
+                  aria-label="Mostrar contraseña"
+                  aria-controls="mk-field-pass-low"
+                  data-mk-toggle-password
+                >
+                  <i class="bi bi-eye" aria-hidden="true"></i>
+                </button>
+              </div>
+              <div class="mk-strength-wrap">
+                <p class="mk-strength-label mb-0">
+                  Seguridad: <strong class="mk-strength-low">BAJA</strong>
+                </p>
+                <span class="mk-strength-bar mk-strength-bar--low" aria-hidden="true"></span>
+              </div>
+              <p class="mk-inline-error mk-inline-error--long">
+                La contraseña debe tener 8+ caracteres, mayúscula, minúscula, número y símbolo.
+              </p>
+            </article>
+
+            <article class="mk-input-field">
+              <label for="mk-field-dropdown" class="mk-input-label">Nombre</label>
+              <div class="mk-input-control">
+                <input
+                  id="mk-field-dropdown"
+                  class="mk-input-element"
+                  type="text"
+                  placeholder="Nombre completo"
+                  readonly
+                  aria-label="Selector desplegable"
+                />
+                <button class="mk-input-icon-btn" type="button" aria-label="Abrir selector">
+                  <i class="bi bi-chevron-down" aria-hidden="true"></i>
+                </button>
+              </div>
+            </article>
+
+            <article class="mk-input-field">
+              <label class="mk-pin-label" for="mk-uikit-pin-1">Código PIN</label>
+              <div
+                class="mk-pin-group"
+                role="group"
+                aria-label="Input PIN normal de seis dígitos"
+                aria-describedby="mk-uikit-pin-helper"
+                data-mk-pin-group
+                data-mk-pin-length="6"
+              >
+                <input
+                  id="mk-uikit-pin-1"
+                  class="mk-pin-input"
+                  type="text"
+                  inputmode="numeric"
+                  pattern="[0-9]*"
+                  maxlength="1"
+                  data-mk-pin-input
+                />
+                <input
+                  class="mk-pin-input"
+                  type="text"
+                  inputmode="numeric"
+                  pattern="[0-9]*"
+                  maxlength="1"
+                  data-mk-pin-input
+                />
+                <input
+                  class="mk-pin-input"
+                  type="text"
+                  inputmode="numeric"
+                  pattern="[0-9]*"
+                  maxlength="1"
+                  data-mk-pin-input
+                />
+                <input
+                  class="mk-pin-input"
+                  type="text"
+                  inputmode="numeric"
+                  pattern="[0-9]*"
+                  maxlength="1"
+                  data-mk-pin-input
+                />
+                <input
+                  class="mk-pin-input"
+                  type="text"
+                  inputmode="numeric"
+                  pattern="[0-9]*"
+                  maxlength="1"
+                  data-mk-pin-input
+                />
+                <input
+                  class="mk-pin-input"
+                  type="text"
+                  inputmode="numeric"
+                  pattern="[0-9]*"
+                  maxlength="1"
+                  data-mk-pin-input
+                />
+              </div>
+              <p id="mk-uikit-pin-helper" class="mk-pin-helper mb-0">
+                Nuevo componente reusable: Input PIN (6 dígitos)
+              </p>
+            </article>
+
+            <article class="mk-input-field">
+              <label class="mk-pin-label" for="mk-uikit-pin-error-1">Código PIN (Error)</label>
+              <div
+                class="mk-pin-group"
+                role="group"
+                aria-label="Input PIN en estado error"
+                aria-describedby="mk-uikit-pin-error"
+              >
+                <input
+                  id="mk-uikit-pin-error-1"
+                  class="mk-pin-input"
+                  type="text"
+                  value="1"
+                  readonly
+                  data-state="error"
+                />
+                <input class="mk-pin-input" type="text" value="2" readonly data-state="error" />
+                <input class="mk-pin-input" type="text" value="0" readonly data-state="error" />
+                <input class="mk-pin-input" type="text" value="8" readonly data-state="error" />
+                <input class="mk-pin-input" type="text" value="5" readonly data-state="error" />
+                <input class="mk-pin-input" type="text" value="4" readonly data-state="error" />
+              </div>
+              <p id="mk-uikit-pin-error" class="mk-inline-error">El código ingresado no es válido.</p>
+            </article>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="./js/main.js" defer></script>
+  </body>
+</html>

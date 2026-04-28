@@ -1,0 +1,55 @@
+/* ============================================================
+   DESIGN TOKENS — CONEX Landing Page
+   MB Capital © 2026
+   ============================================================ */
+
+/* ── Tokens ──────────────────────────────────────────────── */
+
+:root {
+  /* Colores */
+  --c-blue:        #2290ff;
+  --c-blue-dark:   #0068d2;
+  --c-blue-glow:   #5badff;
+  --c-black:       #000000;
+  --c-dark:        #1a1a1a;
+  --c-card:        #2b2b2b;
+  --c-white:       #ffffff;
+  --c-blue-glass:  rgba(34, 144, 255, 0.5);
+
+  /* Gradientes */
+  --g-hero:       linear-gradient(99.52deg, #fff 6.73%, #2290ff 95.69%);
+  --g-section:    linear-gradient(96.38deg, #fff 6.56%, #2290ff 61.64%);
+  --g-decor-tl:   linear-gradient(140.51deg, #2290ff 1.39%, rgba(0,0,0,0) 58.62%);
+  --g-decor-tr:   linear-gradient(134.64deg, #2290ff 1.39%, rgba(0,0,0,0) 58.62%);
+  --g-cta-btn:    linear-gradient(to right, #eff2f4, #62affb);
+  --g-faq-bg:     linear-gradient(26.91deg, rgba(0,0,0,0) 45.9%, #000 79.25%),
+                  linear-gradient(123.21deg, #000 39.63%, #2290ff 106.39%);
+  --g-faq-title:  linear-gradient(179.93deg, #fff 14.63%, #2290ff 114.64%);
+
+  /* Tipografía */
+  --f-primary:  'TWK Everett', sans-serif;
+  --f-display:  'TWK Everett', sans-serif;
+  --f-heading:  'HK Guise', 'TWK Everett', sans-serif;
+
+  /* Layout */
+  --max-w:   1440px;
+  --pad-x:   clamp(20px, 6vw, 100px);
+  --pad-y:   clamp(60px, 8vw, 100px);
+  --nav-h:   80px;
+
+  /* Sombras */
+  --shadow-card:   0 4px 10px 0 #5badff;
+  --shadow-faq:    0 4px 30px 0 #5badff;
+  --shadow-cta:    0 3px 20px 0 #5badff;
+
+  /* Radios */
+  --r-card:  30px;
+  --r-item:  32px;
+  --r-btn:   60px;
+  --r-faq:   19px;
+  --r-hero:  25px;
+  --r-cta:   23px;
+
+  /* Transiciones */
+  --t-base: 0.25s ease;
+}

@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Panel | Backoffice Maktub</title>
+  <meta name="description" content="Panel principal del Backoffice Maktub con resumen de carteras, estado de membresías y métricas clave.">
+  <meta name="robots" content="index,follow">
+  <meta name="theme-color" content="#2b7fff">
+  <meta property="og:title" content="Panel | Backoffice Maktub">
+  <meta property="og:description" content="Resumen financiero y operativo del ecosistema Maktub desde una vista centralizada.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_MX">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Panel | Backoffice Maktub">
+  <meta name="twitter:description" content="Monitorea carteras, membresías y volumen de transacciones en un solo lugar.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.cdnfonts.com/css/satoshi" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="cm-body">
+  <a class="cm-skip-link" href="#cm-main-content">Saltar al contenido</a>
+
+  <div class="cm-page">
+    <header class="cm-topbar" role="banner">
+      <div class="cm-topbar__shell">
+        <a class="cm-topbar__brand" href="index.html" aria-label="Maktub Club">
+          <img class="cm-brand-logo" src="assets/img/logo.png" alt="CM">
+        </a>
+
+        <button class="cm-topbar__toggle" type="button" data-cm-menu-toggle aria-expanded="false" aria-controls="cm-main-nav" aria-label="Abrir menú">
+          <i class="cm-topbar__toggle-icon bi bi-list"></i>
+        </button>
+
+        <nav id="cm-main-nav" class="cm-topbar__nav" data-cm-menu aria-label="Navegación principal">
+          <a class="cm-nav-link cm-nav-link--panel" data-cm-nav href="index.html"><span class="cm-nav-link__icon" aria-hidden="true"></span><span>Panel</span></a>
+          <a class="cm-nav-link cm-nav-link--carteras" data-cm-nav href="carteras.html"><span class="cm-nav-link__icon" aria-hidden="true"></span><span>Carteras</span></a>
+          <a class="cm-nav-link cm-nav-link--membresias" data-cm-nav href="membresias.html"><span class="cm-nav-link__icon" aria-hidden="true"></span><span>Membresías</span></a>
+          <a class="cm-nav-link cm-nav-link--referidos" data-cm-nav href="referidos.html"><span class="cm-nav-link__icon" aria-hidden="true"></span><span>Referidos</span></a>
+          <a class="cm-nav-link cm-nav-link--transacciones" data-cm-nav href="transacciones.html"><span class="cm-nav-link__icon" aria-hidden="true"></span><span>Transacciones</span></a>
+          <a class="cm-nav-link cm-nav-link--defi" href="#" aria-label="Maktub DeFi"><span class="cm-nav-link__icon" aria-hidden="true"></span><span>Maktub DeFi</span></a>
+        </nav>
+
+        <div class="cm-topbar__user-menu" data-cm-user-menu>
+          <button class="cm-topbar__user" type="button" aria-label="Abrir menú de usuario" aria-expanded="false" aria-haspopup="menu" aria-controls="cm-user-menu-panel" data-cm-user-menu-toggle>
+            <i class="cm-topbar__user-icon bi bi-person"></i>
+          </button>
+          <div id="cm-user-menu-panel" class="cm-user-menu" role="menu" aria-label="Opciones de usuario" data-cm-user-menu-panel hidden>
+            <a class="cm-user-menu__item" href="perfil.html" role="menuitem">
+              <span class="cm-user-menu__icon" aria-hidden="true">
+                <img src="assets/figma/0593dfecd25a4407ce26fa48f5426a0b80e2885b.svg" alt="">
+              </span>
+              <span class="cm-user-menu__label">Perfil</span>
+            </a>
+            <span class="cm-user-menu__separator" aria-hidden="true"></span>
+            <button class="cm-user-menu__item cm-user-menu__item--button" type="button" role="menuitem" data-cm-user-menu-close>
+              <span class="cm-user-menu__icon" aria-hidden="true">
+                <img src="assets/figma/b7a306d69fd84e57343ad8d74441d21e87445893.svg" alt="">
+              </span>
+              <span class="cm-user-menu__label">Cerrar sesión</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+
+    <main id="cm-main-content" class="cm-main">
+      <section class="cm-dashboard" aria-label="Dashboard principal">
+        <div class="cm-dashboard__left">
+          <h1 class="cm-visually-hidden">Panel principal</h1>
+
+          <section class="cm-wallet-grid" aria-label="Resumen de carteras">
+            <article class="cm-card cm-wallet-card">
+              <h2 class="cm-wallet-card__title">Cartera Membresías</h2>
+              <p class="cm-wallet-card__value">$1,250.00</p>
+            </article>
+
+            <article class="cm-card cm-wallet-card">
+              <h2 class="cm-wallet-card__title">Cartera residual Conex</h2>
+              <p class="cm-wallet-card__value">
+                $1,250.00
+                <span class="cm-trend cm-trend--positive"><i class="cm-icon bi bi-arrow-up-right"></i>+2.5%</span>
+              </p>
+            </article>
+
+            <article class="cm-card cm-wallet-card">
+              <h2 class="cm-wallet-card__title">Cartera Maktub</h2>
+              <p class="cm-wallet-card__value">$500.00</p>
+            </article>
+
+            <article class="cm-card cm-wallet-card">
+              <h2 class="cm-wallet-card__title">Cartera P2</h2>
+              <p class="cm-wallet-card__value">$320.00</p>
+            </article>
+
+            <article class="cm-card cm-wallet-card">
+              <h2 class="cm-wallet-card__title">Cartera P3</h2>
+              <p class="cm-wallet-card__value">
+                $2,100.00
+                <span class="cm-trend cm-trend--negative"><i class="cm-icon bi bi-arrow-down-right"></i>-0.1%</span>
+              </p>
+            </article>
+
+            <article class="cm-card cm-wallet-card cm-wallet-card--featured">
+              <h2 class="cm-wallet-card__title">Cartera CLUB</h2>
+              <p class="cm-wallet-card__value">$500.00</p>
+            </article>
+          </section>
+
+          <section class="cm-chart-grid" aria-label="Métricas de membresías y volumen">
+            <article class="cm-card">
+              <header class="cm-card__head">
+                <div>
+                  <h2 class="cm-card__title">Miembros totales</h2>
+                  <p class="cm-card__subtitle">Resumen de crecimiento</p>
+                  <p class="cm-card__value">0</p>
+                  <p class="cm-card__subtitle">Comisione por directos: <strong>3 Niveles</strong></p>
+                </div>
+                <span class="cm-badge cm-badge--brand">+5%</span>
+              </header>
+              <div class="cm-chart">
+                <canvas data-cm-chart="members" aria-label="Gráfica de miembros por nivel" role="img"></canvas>
+              </div>
+            </article>
+
+            <article class="cm-card">
+              <header class="cm-card__head">
+                <div>
+                  <h2 class="cm-card__title">Volumen Conex</h2>
+                  <p class="cm-card__subtitle">Transacciones USDT</p>
+                </div>
+                <span class="cm-badge cm-badge--success">0.00 USDT</span>
+              </header>
+              <div class="cm-chart">
+                <canvas data-cm-chart="volume" aria-label="Gráfica de volumen Conex" role="img"></canvas>
+              </div>
+            </article>
+          </section>
+
+          <section class="cm-card cm-card--line" aria-label="Evolución mensual">
+            <header class="cm-card__head">
+              <h2 class="cm-card__title">Status Maktub</h2>
+              <span class="cm-trend cm-trend--positive">(+5% al mes)</span>
+            </header>
+            <div class="cm-chart">
+              <canvas data-cm-chart="status" aria-label="Gráfica de status Maktub" role="img"></canvas>
+            </div>
+          </section>
+        </div>
+
+        <aside class="cm-dashboard__right" aria-label="Panel lateral">
+          <article class="cm-card cm-side-card">
+            <h2 class="cm-card__title">Link de referido</h2>
+            <!-- <label class="cm-label" for="cm-referral-link">URL única</label> -->
+            <input id="cm-referral-link" class="cm-input" type="url" readonly value="https://clubmktb.com/registro.php?r=258" aria-label="Link de referido">
+            <button class="cm-button cm-button--primary" type="button" data-cm-copy-button data-cm-copy-target="cm-referral-link" data-cm-feedback="cm-referral-feedback" data-cm-text-copy="Copiar Enlace" data-cm-text-copied="Enlace Copiado">
+              <i class="cm-icon bi bi-copy"></i>
+              <span data-cm-copy-label>Copiar Enlace</span>
+            </button>
+            <p id="cm-referral-feedback" class="cm-copy-feedback" role="status" aria-live="polite"></p>
+          </article>
+
+          <article class="cm-card cm-side-card">
+            <div class="cm-nft-block">
+              <div>
+                <h2 class="cm-card__title">MIU:0258</h2>
+                <p class="cm-card__subtitle">Tu NFT de perfil es un identificador único e irrepetible para cada usuario de maktub.</p>
+              </div>
+              <div class="cm-nft-visual" aria-hidden="true"></div>
+            </div>
+          </article>
+
+          <article class="cm-card cm-side-card">
+            <header class="cm-card__head">
+              <h2 class="cm-card__title">Estatus Embajador</h2>
+              <span class="cm-badge cm-badge--brand">En curso</span>
+            </header>
+
+            <div class="cm-ambassador-panel">
+              <h3 class="cm-ambassador-panel__title">Pool Embajador</h3>
+              <p class="cm-ambassador-panel__subtitle">Acceso Premium</p>
+
+              <div class="cm-progress-meta">
+                <span>POOL 1</span>
+                <strong>65%</strong>
+              </div>
+              <div class="cm-progress-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="65" aria-label="Progreso de pool">
+                <div class="cm-progress-value"></div>
+              </div>
+              <p class="cm-progress-foot">20% Pool siguiente hasta el 01 Enero 2026</p>
+            </div>
+
+            <a class="cm-button cm-button--ghost" href="membresias.html">Gestionar membresía</a>
+          </article>
+        </aside>
+      </section>
+    </main>
+
+    <footer class="cm-footer">
+      © 2026 Backoffice Maktub v.2.0
+    </footer>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.9/dist/chart.umd.min.js" defer></script>
+  <script src="js/main.js" defer></script>
+</body>
+</html>

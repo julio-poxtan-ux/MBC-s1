@@ -1,0 +1,301 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    scroll-behavior: smooth;
+}
+
+@media (max-width: 768px) {
+    .display-4 {
+        font-size: 2rem;
+    }
+
+    .lead {
+        font-size: 1rem;
+    }
+}
+
+.seccion_trubu {
+    background: linear-gradient(90deg, #000000 0%, #071a24 40%, #053e5a 70%, #0b566a 100%);
+}
+
+.web3-section {
+    padding: 60px 20px;
+    background: linear-gradient(to right, #2cc5aa, #000000 30%);
+    text-align: center;
+    color: white;
+}
+
+.web3-section h2 {
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.web3-section p {
+    margin-bottom: 40px;
+}
+
+.orbit-container {
+    position: relative;
+    width: 90vw;
+    max-width: 600px;
+    margin: 0 auto;
+    aspect-ratio: 1 / 1;
+}
+
+.circle {
+    border-radius: 50%;
+    position: absolute;
+    border: 1px solid white;
+}
+
+.center {
+    width: 120px;
+    height: 120px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #2cc5aa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    text-align: center;
+    padding: 10px;
+    color: white;
+}
+
+.orbit {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.orbit2 {
+    width: 75%;
+    height: 75%;
+    top: 12.5%;
+    left: 12.5%;
+}
+
+.orbit3 {
+    width: 50%;
+    height: 50%;
+    top: 25%;
+    left: 25%;
+}
+
+.hover-dot {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    background: #2cc5aa;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.hover-dot:hover .label {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.label {
+    background-color: #2cc5aa;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 20px;
+    white-space: nowrap;
+    position: absolute;
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    opacity: 0;
+    transition: all 0.3s ease;
+    font-size: 12px;
+    text-align: center;
+    pointer-events: none;
+}
+
+.service-card {
+    background: linear-gradient(180deg, #1ea68e 0%, #0c1b1a 100%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.service-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+}
+
+.investor-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.investor-card:hover {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.4);
+}
+
+.object-fit-cover {
+    object-fit: cover;
+    height: 100%;
+}
+
+.adn-card {
+    min-width: 200px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    flex: 0 0 auto;
+}
+
+.adn-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5);
+}
+
+#adn-carousel {
+    scroll-behavior: smooth;
+    overflow-x: auto;
+}
+
+#adn-carousel::-webkit-scrollbar {
+    height: 6px;
+}
+
+#adn-carousel::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 3px;
+}
+
+.team-img {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.team-img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);
+}
+
+.seccion-ecosistema {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    background: linear-gradient(90deg, #000000 20%, #0b1113 40%, #0f282e 65%, #000000 90%);
+    overflow: hidden;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5%;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.decoracion-cuadros {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 55%;
+    height: 100%;
+    background-image: url('images/cuadritos.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    opacity: 0.15;
+    z-index: 1;
+}
+
+.logo-ecosistema {
+    position: absolute;
+    top: 120px;
+    left: 70px;
+    width: 70px;
+    z-index: 2;
+}
+
+.contenido-ecosistema {
+    position: relative;
+    z-index: 2;
+    max-width: 600px;
+    flex: 1 1 50%;
+}
+
+.titulo-main {
+    font-size: 1.6rem;
+    font-weight: bold;
+    background-color: #0d72d9;
+    display: inline-block;
+    padding: 6px 15px;
+    margin-bottom: 10px;
+}
+
+.subtitulo {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 20px;
+}
+
+.descripcion {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #dcdcdc;
+}
+
+.imagen-muchacha {
+    height: auto;
+    max-height: 90vh;
+    max-width: 450px;
+    object-fit: contain;
+    position: relative;
+    z-index: 2;
+    flex: 1 1 40%;
+}
+
+/* RESPONSIVE QUERIES */
+@media (max-width: 1024px) {
+    .seccion-ecosistema {
+        flex-direction: column;
+        text-align: center;
+        padding: 60px 20px;
+    }
+
+    .logo-ecosistema {
+        top: 40px;
+        left: 20px;
+        width: 50px;
+    }
+
+    .contenido-ecosistema {
+        max-width: 100%;
+    }
+
+    .titulo-main {
+        font-size: 2rem;
+    }
+
+    .subtitulo {
+        font-size: 1.5rem;
+    }
+
+    .descripcion {
+        font-size: 1rem;
+    }
+
+    .imagen-muchacha {
+        max-width: 300px;
+        margin-top: 40px;
+    }
+
+    .decoracion-cuadros {
+        background-size: 120%;
+        opacity: 0.08;
+    }
+}
+
+.cuarto-camino {
+    min-height: 100vh;
+    background: linear-gradient(to bottom, #1f4f87 0%, #60e2c2 100%);
+    padding: 60px 20px;
+}

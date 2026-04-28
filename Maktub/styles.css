@@ -1,0 +1,134 @@
+:root{
+  --c-cyan: #00A1E0;
+  --c-blue: #1C73B8;
+
+  --bg-0: #000000;
+  --bg-1: #06070b;
+
+  --text: rgba(255,255,255,.92);
+  --text-muted: rgba(255,255,255,.72);
+
+  --tile-size: 220px;
+  --tile-radius: 44px;
+
+  --tile-bg: #0a0f1a;
+  --tile-border: rgba(0,161,224,.55);
+
+  --grad: linear-gradient(135deg, var(--c-cyan), var(--c-blue));
+  --shadow-strong: 0 0 120px rgba(0,161,224,.45);
+  --shadow-soft: 0 18px 60px rgba(0,0,0,.45);
+}
+
+/* Background similar to the reference */
+.bg-app{
+  background:
+    radial-gradient(700px 260px at 20% 52%, rgba(0,161,224,.35), transparent 70%),
+    radial-gradient(700px 260px at 50% 52%, rgba(0,161,224,.35), transparent 70%),
+    radial-gradient(700px 260px at 80% 52%, rgba(0,161,224,.35), transparent 70%),
+    linear-gradient(180deg, var(--bg-0), var(--bg-1));
+  color: var(--text);
+}
+
+/* Typography */
+.title{
+  font-weight: 800;
+  letter-spacing: .2px;
+  font-size: clamp(2rem, 4vw, 3.3rem);
+}
+
+.footer-note{
+  color: rgba(255,255,255,.75);
+}
+
+/* Brand tiles (buttons) */
+.brand-tile{
+  width: var(--tile-size);
+  height: var(--tile-size);
+  display: inline-grid;
+  place-items: center;
+  text-decoration: none;
+  position: relative;
+  border-radius: var(--tile-radius);
+  outline: none;
+}
+
+.brand-tile::before{
+  content:"";
+  position: absolute;
+  inset: -18px;
+  border-radius: calc(var(--tile-radius) + 18px);
+  background: radial-gradient(circle at 50% 50%, rgba(0,161,224,.55), transparent 62%);
+  filter: blur(8px);
+  opacity: .95;
+  z-index: 0;
+}
+
+/* Border gradient ring */
+.brand-tile::after{
+  content:"";
+  position: absolute;
+  inset: 0;
+  border-radius: var(--tile-radius);
+  padding: 2px;
+  background: var(--grad);
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: .85;
+  z-index: 1;
+}
+
+.brand-tile__inner{
+  width: 100%;
+  height: 100%;
+  border-radius: var(--tile-radius);
+  background: linear-gradient(180deg, rgba(10,15,26,.92), rgba(10,15,26,.82));
+  /* box-shadow: var(--shadow-soft); */
+  box-shadow: 30px -26px 214px 0 #00A1E0, -28px 33px 160px 0 #003681;
+  display: grid;
+  place-items: center;
+  position: relative;
+  z-index: 2;
+  color: white;
+}
+span.brand-tile__inner {
+  font-size: 2rem;
+  color: white;
+}
+
+.brand-tile__inner::before{
+  /* subtle inner glow */
+  content:"";
+  position: absolute;
+  inset: 0;
+  border-radius: var(--tile-radius);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.06),
+              inset 0 0 30px rgba(0,161,224,.08);
+  pointer-events: none;
+}
+
+/* Logo inside each tile */
+.brand-tile__img{
+  width: 58%;
+  height: 58%;
+  object-fit: contain;
+  filter: drop-shadow(0 10px 20px rgba(0,0,0,.45));
+  opacity: .95;
+}
+
+/* Hover / focus (production-safe) */
+.brand-tile:hover::before{ opacity: 1; filter: blur(10px); }
+.brand-tile:hover{ transform: translateY(-1px); }
+.brand-tile:active{ transform: translateY(0); }
+
+.brand-tile:focus-visible{
+  box-shadow: 0 0 0 .25rem rgba(0,161,224,.25);
+  border-radius: var(--tile-radius);
+}
+
+/* Responsive sizing */
+@media (max-width: 575.98px){
+  :root{ --tile-size: 190px; --tile-radius: 40px; }
+}

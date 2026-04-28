@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Olvidaste contraseña - Maktub</title>
+  <meta name="description" content="Recupera tu acceso en Maktub ingresando tu correo para recibir un código PIN." />
+  <meta name="keywords" content="Maktub, recuperar contraseña, olvidaste contraseña, PIN" />
+  <meta name="author" content="Maktub Frontend Team" />
+  <meta property="og:title" content="Olvidaste contraseña - Maktub" />
+  <meta property="og:description" content="Página de recuperación de contraseña para enviar código PIN a tu correo." />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="es_MX" />
+  <link rel="preconnect" href="https://api.fontshare.com" />
+  <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+  <link rel="stylesheet" href="./css/tokens.css" />
+  <link rel="stylesheet" href="./css/styles.css" />
+</head>
+
+<body class="mk-body">
+  <a class="mk-skip-link" href="#mk-forgot-main">Saltar a recuperar contraseña</a>
+  <div class="mk-app-shell">
+    <img class="mk-bg-spheres" src="./assets/img/esferas.png" alt="" aria-hidden="true" />
+
+    <header class="mk-header container-fluid px-3 px-md-4">
+      <div class="d-flex justify-content-center align-items-center">
+        <a href="./index_1.html" aria-label="Volver al inicio">
+          <img src="./assets/img/mk-logo.svg" alt="Maktub" class="mk-brand-logo" width="80" height="92" />
+        </a>
+      </div>
+    </header>
+
+    <main id="mk-forgot-main"
+      class="mk-main container-fluid d-flex justify-content-center align-items-start px-3 px-md-4">
+      <section class="mk-register-card w-100" aria-labelledby="mk-forgot-title">
+        <form id="mk-forgot-form" class="mk-register-form" novalidate>
+          <header class="mk-register-header text-center">
+            <h1 id="mk-forgot-title" class="mk-title">¿Olvidaste tu contraseña?</h1>
+            <p class="mk-register-subtitle">
+              Te enviaremos un enlace a la dirección con la que creaste tu usuario, para que puedas cambiarla.
+            </p>
+          </header>
+
+          <div class="mk-input-field w-100">
+            <label for="mk-recovery-email" class="mk-input-label">Correo electrónico</label>
+            <div class="mk-input-control">
+              <input id="mk-recovery-email" name="email" class="mk-input-element" type="email"
+                placeholder="Ingresa tu correo electrónico" autocomplete="email" inputmode="email" />
+            </div>
+          </div>
+
+          <button id="mk-send-pin" type="submit" class="mk-btn-primary">Continuar</button>
+
+          <p class="mk-login-copy text-center mb-0">
+            <span class="mk-login-copy-muted">¿Recordaste tu contraseña?</span>
+            <a href="./inicio-sesion.html" class="mk-login-link">Inicia sesión</a>
+          </p>
+        </form>
+      </section>
+    </main>
+  </div>
+
+  <script src="./js/main.js" defer></script>
+</body>
+
+</html>

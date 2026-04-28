@@ -1,0 +1,162 @@
+@import url('https://fonts.cdnfonts.com/css/satoshi');
+
+@font-face {
+  font-family: 'HK Guise';
+  src: url('../webfont/HKGuiseRegular.woff2') format('woff2'),
+    url('../webfont/HKGuiseRegular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'HK Guise';
+  src: url('../webfont/HKGuiseSemiBold.woff2') format('woff2'),
+    url('../webfont/HKGuiseSemiBold.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'HK Guise';
+  src: url('../webfont/HKGuiseBold.woff2') format('woff2'),
+    url('../webfont/HKGuiseBold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --cm-font-heading: 'HK Guise', 'Segoe UI', sans-serif;
+  --cm-font-body: 'Satoshi', 'Segoe UI', sans-serif;
+
+  --cm-color-page-start: #2290ff;
+  --cm-color-page-end: #ffffff;
+  --cm-color-base-blue: #042254;
+  --cm-color-ink: #17324e;
+  --cm-color-muted: #566680;
+  --cm-color-muted-2: #7687a3;
+  --cm-color-muted-3: #64748b;
+  --cm-color-border: rgba(255, 255, 255, 0.6);
+  --cm-color-border-soft: rgba(255, 255, 255, 0.22);
+  --cm-color-border-soft-2: rgba(255, 255, 255, 0.19);
+  --cm-color-card: rgba(255, 255, 255, 0.6);
+  --cm-color-card-strong: rgba(255, 255, 255, 0.9);
+  --cm-color-input-bg: #eff6ff;
+  --cm-color-input-border: #dbeafe;
+  --cm-color-button-primary: #2290ff;
+  --cm-color-button-primary-hover: #1a80e5;
+  --cm-color-button-primary-active: #166fcc;
+  --cm-color-button-disabled: #accff5;
+  --cm-color-positive: #009966;
+  --cm-color-negative: #e7000b;
+  --cm-color-badge-blue-bg: #dbeafe;
+  --cm-color-badge-blue-text: #1447e6;
+  --cm-color-badge-green-bg: #4ddb8a;
+  --cm-color-badge-green-text: rgba(0, 51, 16, 0.5);
+
+  --cm-gradient-page: linear-gradient(
+      263.56deg,
+      rgba(13, 92, 154, 0.15) 1.59%,
+      rgba(255, 255, 255, 0.1) 98.41%
+    ),
+    linear-gradient(96.44deg, var(--cm-color-page-start) 1.59%, var(--cm-color-page-end) 98.41%);
+  --cm-gradient-card: linear-gradient(
+    163.35deg,
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(255, 255, 255, 0.8) 50%,
+    rgba(255, 255, 255, 0.5) 100%
+  );
+  --cm-gradient-card-soft: linear-gradient(
+    141.08deg,
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(255, 255, 255, 0.8) 50%,
+    rgba(255, 255, 255, 0.5) 100%
+  );
+  --cm-gradient-club: linear-gradient(
+      219.05deg,
+      rgba(44, 119, 224, 0.3) 0.84%,
+      rgba(0, 0, 0, 0) 99.16%
+    ),
+    linear-gradient(37.79deg, #00a7e4 0.27%, #000000 69.61%);
+  --cm-gradient-nft: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.8) 0%,
+    rgba(104, 171, 235, 0.8) 100%
+  );
+
+  --cm-space-2: 2px;
+  --cm-space-4: 4px;
+  --cm-space-8: 8px;
+  --cm-space-10: 10px;
+  --cm-space-12: 12px;
+  --cm-space-14: 14px;
+  --cm-space-16: 16px;
+  --cm-space-20: 20px;
+  --cm-space-24: 24px;
+  --cm-space-32: 32px;
+
+  --cm-radius-4: 4px;
+  --cm-radius-8: 8px;
+  --cm-radius-10: 10px;
+  --cm-radius-12: 12px;
+  --cm-radius-14: 14px;
+  --cm-radius-16: 16px;
+  --cm-radius-20: 20px;
+  --cm-radius-pill: 999px;
+
+  --cm-shadow-header: 0 4px 10px 0 rgba(0, 0, 0, 0.25);
+  --cm-shadow-card: 0 8px 30px 0 rgba(0, 0, 0, 0.04);
+  --cm-shadow-soft: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+  --cm-shadow-button: 0 4px 6px 0 rgba(43, 127, 255, 0.2), 0 2px 4px 0 rgba(43, 127, 255, 0.2);
+  --cm-shadow-focus: 0 0 0 3px rgba(34, 144, 255, 0.2);
+
+  --cm-fs-10: 10px;
+  --cm-fs-12: 12px;
+  --cm-fs-13: 13px;
+  --cm-fs-14: 14px;
+  --cm-fs-16: 16px;
+  --cm-fs-18: 18px;
+  --cm-fs-24: 24px;
+  --cm-fs-28: 28px;
+  --cm-fs-30: 30px;
+  --cm-fs-32: 32px;
+  --cm-fs-42: 42px;
+
+  --cm-lh-16: 16px;
+  --cm-lh-20: 20px;
+  --cm-lh-24: 24px;
+  --cm-lh-28: 28px;
+  --cm-lh-32: 32px;
+  --cm-lh-36: 36px;
+
+  --cm-container-max: 1980px;
+  --cm-content-max: 1440px;
+  --cm-main-col: 995px;
+  --cm-side-col: 357px;
+  --cm-header-h: 67px;
+  --cm-main-top-pad: 83px;
+
+  --cm-chart-grid: rgba(100, 116, 139, 0.18);
+  --cm-chart-axis: #64748b;
+  --cm-chart-blue: #2b7fff;
+  --cm-chart-blue-soft: #64a8ff;
+  --cm-chart-navy: #16385c;
+  --cm-chart-line: #00a0ff;
+
+  --cm-motion-fast: 0.2s ease;
+  --cm-motion-std: 0.3s ease;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --cm-gradient-page: linear-gradient(
+        223.24deg,
+        rgba(13, 92, 154, 0.15) 1.59%,
+        rgba(255, 255, 255, 0.1) 98.41%
+      ),
+      linear-gradient(136.76deg, var(--cm-color-page-start) 1.59%, var(--cm-color-page-end) 98.41%);
+    --cm-main-top-pad: 89px;
+  }
+}

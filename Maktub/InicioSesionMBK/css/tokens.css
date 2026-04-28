@@ -1,0 +1,134 @@
+@font-face {
+  font-family: "HK Guise";
+  src: url("../assets/fonts/HKGuiseRegular.woff") format("woff");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "HK Guise";
+  src: url("../assets/fonts/HKGuiseMedium.woff") format("woff");
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "HK Guise";
+  src: url("../assets/fonts/HKGuiseBold.woff") format("woff");
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+
+:root {
+  --mk-color-white: #ffffff;
+  --mk-color-gray-50: #f6f7f9;
+  --mk-color-gray-100: #edeff3;
+  --mk-color-gray-250: #dadfe6;
+  --mk-color-gray-200: #c8cfda;
+  --mk-color-gray-300: #c1d0e2;
+  --mk-color-gray-400: #b3bccc;
+  --mk-color-gray-700: #566680;
+  --mk-color-gray-600: #7687a3;
+
+  --mk-color-secondary-1: #517dac;
+  --mk-color-secondary-2: #1c73b8;
+  --mk-color-secondary-3: #c1e7fe;
+  --mk-color-cyan: #00a7e4;
+  --mk-color-dark: #161618;
+  --mk-color-input-bg: #1b1b1b;
+  --mk-color-bg-start: #202125;
+  --mk-color-focus: #79d8ff;
+  --mk-color-red-900: #450407;
+  --mk-color-red-400: #ff5c63;
+  --mk-color-red-300: #ff9499;
+  --mk-color-red-200: #ffbfc2;
+  --mk-color-yellow-400: #fac94d;
+  --mk-color-green-400: #4ddb8a;
+
+  --mk-gradient-page: linear-gradient(119.492deg, var(--mk-color-bg-start) 23.382%, var(--mk-color-cyan) 99.547%);
+  --mk-gradient-button: linear-gradient(90deg, var(--mk-color-cyan) 4.712%, var(--mk-color-dark) 55.607%);
+  --mk-gradient-button-disabled: linear-gradient(
+    90deg,
+    rgba(0, 167, 228, 0.5) 4.712%,
+    rgba(22, 22, 24, 0.5) 55.607%
+  );
+
+  --mk-font-primary: "HK Guise", "Segoe UI", -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+
+  --mk-font-size-hero-sm: 44px;
+  --mk-font-size-hero-md: 52px;
+  --mk-font-size-body-lg: 18px;
+  --mk-font-size-body-md: 16px;
+  --mk-font-size-caption-xxs: 10px;
+
+  --mk-line-height-52: 52px;
+  --mk-line-height-64: 64px;
+  --mk-line-height-28: 28px;
+  --mk-line-height-24: 24px;
+  --mk-line-height-16: 16px;
+
+  --mk-letter-spacing-0: 0;
+
+  --mk-radius-sm: 5px;
+  --mk-radius-md: 12px;
+  --mk-radius-xl: 52px;
+  --mk-radius-pill: 999px;
+
+  --mk-space-2: 8px;
+  --mk-space-3: 12px;
+  --mk-space-4: 16px;
+  --mk-space-5: 20px;
+  --mk-space-6: 24px;
+  --mk-space-8: 32px;
+  --mk-space-12: 48px;
+  --mk-space-16: 64px;
+
+  --mk-layout-main-max: 1322px;
+  --mk-layout-left-width: 572px;
+  --mk-layout-content-max: 527px;
+  --mk-layout-register-title-max: 504px;
+  --mk-layout-register-btn: 460px;
+  --mk-layout-cta-width: 468px;
+  --mk-layout-input-max: 576px;
+  --mk-layout-illustration-width: 686px;
+  --mk-layout-illustration-height: 915px;
+  --mk-layout-min-height: 100vh;
+
+  --mk-shadow-step-inset: inset 0 10px 10px rgba(0, 0, 0, 0.25);
+  --mk-shadow-illustration: 0 24px 80px rgba(0, 0, 0, 0.25);
+
+  --mk-transition-fast: 0.2s ease;
+  --mk-transition-base: 0.3s ease;
+
+  --mk-z-bg: 0;
+  --mk-z-content: 10;
+}
+
+@media (max-width: 991.98px) {
+  :root {
+    --mk-font-size-hero-sm: 36px;
+    --mk-font-size-hero-md: 44px;
+    --mk-line-height-52: 44px;
+    --mk-line-height-64: 52px;
+    --mk-layout-left-width: 100%;
+    --mk-layout-content-max: 100%;
+    --mk-layout-cta-width: 100%;
+    --mk-layout-illustration-width: min(100%, 460px);
+    --mk-layout-illustration-height: auto;
+  }
+}
+
+@media (max-width: 575.98px) {
+  :root {
+    --mk-font-size-hero-sm: 32px;
+    --mk-font-size-hero-md: 36px;
+    --mk-line-height-52: 40px;
+    --mk-line-height-64: 44px;
+    --mk-font-size-body-lg: 16px;
+    --mk-line-height-28: 24px;
+    --mk-layout-min-height: auto;
+  }
+}

@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="es-MX">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="description" content="Backoffice de Maktub: panel principal con carteras, métricas y estatus de embajador." />
+    <meta name="robots" content="index,follow" />
+    <meta name="author" content="Maktub" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Backoffice - Maktub" />
+    <meta property="og:description" content="Dashboard principal del backoffice Maktub." />
+    <meta property="og:locale" content="es_MX" />
+    <meta property="og:url" content="./index.html" />
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:title" content="Backoffice - Maktub" />
+    <meta property="twitter:description" content="Dashboard principal del backoffice Maktub." />
+    <link rel="canonical" href="./index.html" />
+    <link rel="icon" type="image/png" href="assets/img/logo.png" />
+    <title>Backoffice - Maktub | Panel</title>
+    <link rel="preconnect" href="https://fonts.cdnfonts.com" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/tokens.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/charts.css" />
+  </head>
+  <body>
+    <div class="cm-app" data-cm-app>
+      <header class="cm-header" role="banner">
+        <div class="cm-header__inner">
+          <a class="cm-brand" href="index.html" aria-label="Inicio Maktub">
+            <img class="cm-brand__logo" src="assets/img/logo.png" alt="Logo Club Maktub" width="100" height="37" />
+          </a>
+
+          <nav class="cm-nav cm-nav--desktop" aria-label="Navegación principal">
+            <a class="cm-nav__item cm-nav__item--active" href="index.html" aria-current="page">
+              <img class="cm-nav__icon" src="assets/icons/icon-panel.svg" alt="" aria-hidden="true" />
+              <span>Panel</span>
+            </a>
+            <a class="cm-nav__item" href="carteras.html">
+              <img class="cm-nav__icon" src="assets/icons/icon-carteras.svg" alt="" aria-hidden="true" />
+              <span>Carteras</span>
+            </a>
+            <a class="cm-nav__item" href="membresias.html">
+              <img class="cm-nav__icon" src="assets/icons/icon-membresia.svg" alt="" aria-hidden="true" />
+              <span>Membresías</span>
+            </a>
+            <a class="cm-nav__item" href="referidos.html">
+              <img class="cm-nav__icon" src="assets/icons/icon-users-round.svg" alt="" aria-hidden="true" />
+              <span>Referidos</span>
+            </a>
+            <a class="cm-nav__item" href="transacciones.html">
+              <img class="cm-nav__icon" src="assets/icons/icon-transacciones.svg" alt="" aria-hidden="true" />
+              <span>Transacciones</span>
+            </a>
+            <a class="cm-nav__item" href="#" aria-label="Maktub DeFi (próximamente)">
+              <img class="cm-nav__icon" src="assets/icons/icon-defi.svg" alt="" aria-hidden="true" />
+              <span>Maktub DeFi</span>
+            </a>
+            <a class="cm-nav__item" href="mis-servicios.html">
+              <img class="cm-nav__icon" src="assets/icons/icon-globe.svg" alt="" aria-hidden="true" />
+              <span>Mis servicios</span>
+            </a>
+          </nav>
+
+          <button class="cm-user-btn" type="button" aria-label="Perfil de usuario">
+            <img class="cm-nav__icon" src="assets/icons/icon-perfil.svg" alt="" aria-hidden="true" />
+          </button>
+
+          <button
+            class="cm-menu-toggle"
+            type="button"
+            data-cm-menu-toggle
+            aria-expanded="false"
+            aria-controls="cm-mobile-menu"
+            aria-label="Abrir menú"
+          >
+            <svg class="cm-menu-toggle__icon cm-menu-toggle__icon--open" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+              <path d="M2 3.75A.75.75 0 0 1 2.75 3h10.5a.75.75 0 0 1 0 1.5H2.75A.75.75 0 0 1 2 3.75Zm0 4A.75.75 0 0 1 2.75 7h10.5a.75.75 0 0 1 0 1.5H2.75A.75.75 0 0 1 2 7.75Zm0 4A.75.75 0 0 1 2.75 11h10.5a.75.75 0 0 1 0 1.5H2.75A.75.75 0 0 1 2 11.75Z" />
+            </svg>
+            <svg class="cm-menu-toggle__icon cm-menu-toggle__icon--close" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+              <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8L4.646 5.354a.5.5 0 0 1 0-.708Z" />
+            </svg>
+          </button>
+        </div>
+
+        <nav class="cm-mobile-menu" id="cm-mobile-menu" data-cm-mobile-menu hidden aria-label="Navegación móvil">
+          <div class="cm-mobile-menu__panel">
+            <div class="cm-mobile-menu__list">
+              <a class="cm-nav__item cm-mobile-menu__item cm-nav__item--active" href="index.html" aria-current="page">
+                <img class="cm-nav__icon" src="assets/icons/icon-panel.svg" alt="" aria-hidden="true" />
+                <span>Panel</span>
+              </a>
+              <a class="cm-nav__item cm-mobile-menu__item" href="carteras.html">
+                <img class="cm-nav__icon" src="assets/icons/icon-carteras.svg" alt="" aria-hidden="true" />
+                <span>Carteras</span>
+              </a>
+              <a class="cm-nav__item cm-mobile-menu__item" href="membresias.html">
+                <img class="cm-nav__icon" src="assets/icons/icon-membresia.svg" alt="" aria-hidden="true" />
+                <span>Membresías</span>
+              </a>
+              <a class="cm-nav__item cm-mobile-menu__item" href="referidos.html">
+                <img class="cm-nav__icon" src="assets/icons/icon-users-round.svg" alt="" aria-hidden="true" />
+                <span>Referidos</span>
+              </a>
+              <a class="cm-nav__item cm-mobile-menu__item" href="transacciones.html">
+                <img class="cm-nav__icon" src="assets/icons/icon-transacciones.svg" alt="" aria-hidden="true" />
+                <span>Transacciones</span>
+              </a>
+              <a class="cm-nav__item cm-mobile-menu__item" href="#" aria-label="Maktub DeFi (próximamente)">
+                <img class="cm-nav__icon" src="assets/icons/icon-defi.svg" alt="" aria-hidden="true" />
+                <span>Maktub DeFi</span>
+                <svg class="cm-nav__icon cm-nav__icon--tiny" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+                  <path d="M6 2.5a.5.5 0 0 0 0 1h5.793L5.146 10.146a.5.5 0 1 0 .708.708L12.5 4.207V10a.5.5 0 0 0 1 0v-7a.5.5 0 0 0-.5-.5h-7Z" />
+                </svg>
+              </a>
+              <a class="cm-nav__item cm-mobile-menu__item" href="mis-servicios.html">
+                <img class="cm-nav__icon" src="assets/icons/icon-globe.svg" alt="" aria-hidden="true" />
+                <span>Mis servicios</span>
+              </a>
+            </div>
+
+            <div class="cm-mobile-menu__divider" aria-hidden="true"></div>
+
+            <a class="cm-nav__item cm-mobile-menu__item" href="#" aria-label="Perfil de usuario">
+              <img class="cm-nav__icon" src="assets/icons/icon-perfil.svg" alt="" aria-hidden="true" />
+              <span>Perfil de usuario</span>
+            </a>
+          </div>
+        </nav>
+      </header>
+
+      <main class="cm-main" role="main">
+        <section class="cm-dashboard" aria-label="Dashboard principal Maktub">
+          <div class="cm-dashboard__content">
+            <div class="cm-dashboard__primary">
+              <section class="cm-stat-grid" aria-label="Resumen de carteras">
+                <article class="cm-card cm-stat-card">
+                  <h2 class="cm-stat-card__title">Cartera Membresías</h2>
+                  <div class="cm-stat-card__row">
+                    <p class="cm-stat-card__value">$1,250.00</p>
+                  </div>
+                </article>
+
+                <article class="cm-card cm-stat-card">
+                  <h2 class="cm-stat-card__title">Cartera Residual Conex</h2>
+                  <div class="cm-stat-card__row">
+                    <p class="cm-stat-card__value">$1,250.00</p>
+                    <p class="cm-stat-card__trend cm-stat-card__trend--up" aria-label="Incremento de 2.5 por ciento">
+                      <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+                        <path d="M4 10.5a.5.5 0 0 0 .854.354L9.5 6.207V9.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5H5.5a.5.5 0 0 0 0 1h3.293L4.146 10.146A.5.5 0 0 0 4 10.5Z" fill="currentColor" />
+                      </svg>
+                      +2.5%
+                    </p>
+                  </div>
+                </article>
+
+                <article class="cm-card cm-stat-card">
+                  <h2 class="cm-stat-card__title">Cartera Maktub</h2>
+                  <div class="cm-stat-card__row">
+                    <p class="cm-stat-card__value">$500.00</p>
+                  </div>
+                </article>
+
+                <article class="cm-card cm-stat-card">
+                  <h2 class="cm-stat-card__title">Cartera PG2</h2>
+                  <div class="cm-stat-card__row">
+                    <p class="cm-stat-card__value">$320.00</p>
+                  </div>
+                </article>
+
+                <article class="cm-card cm-stat-card">
+                  <h2 class="cm-stat-card__title">Cartera PG3</h2>
+                  <div class="cm-stat-card__row">
+                    <p class="cm-stat-card__value">$2,100.00</p>
+                    <p class="cm-stat-card__trend cm-stat-card__trend--down" aria-label="Disminución de 0.1 por ciento">
+                      <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+                        <path d="M12 5.5a.5.5 0 0 0-.854-.354L6.5 9.793V6.5a.5.5 0 0 0-1 0V11a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 0-1H7.207l4.647-4.646A.5.5 0 0 0 12 5.5Z" fill="currentColor" />
+                      </svg>
+                      -0.1%
+                    </p>
+                  </div>
+                </article>
+
+                <article class="cm-card cm-stat-card cm-stat-card--club">
+                  <h2 class="cm-stat-card__title">Cartera CLUB</h2>
+                  <div class="cm-stat-card__row">
+                    <p class="cm-stat-card__value">$500.00</p>
+                  </div>
+                </article>
+              </section>
+
+              <section class="cm-chart-grid" aria-label="Métricas principales">
+                <article class="cm-card cm-chart-card">
+                  <header class="cm-chart-card__header">
+                    <div class="cm-chart-card__head">
+                      <div class="cm-chart-card__title-wrap">
+                        <h2 class="cm-chart-card__title">Miembros totales</h2>
+                        <p class="cm-chart-card__subtitle">Resumen de crecimiento</p>
+                      </div>
+                      <span class="cm-badge cm-badge--blue" aria-label="101 miembros">101</span>
+                    </div>
+                    <p class="cm-chart-card__metric">0</p>
+                    <p class="cm-chart-card__hint">Comisione por directos: <span class="cm-chart-card__hint-link">3 Generaciones</span></p>
+                  </header>
+                  <div class="cm-chart-wrap">
+                    <canvas
+                      id="cm-members-chart"
+                      class="cm-chart-canvas"
+                      role="img"
+                      aria-label="Gráfica de barras de miembros por generación"
+                    ></canvas>
+                  </div>
+                </article>
+
+                <article class="cm-card cm-chart-card">
+                  <header class="cm-chart-card__header">
+                    <div class="cm-chart-card__head">
+                      <div class="cm-chart-card__title-wrap">
+                        <h2 class="cm-chart-card__title">Volumen Conex</h2>
+                        <p class="cm-chart-card__subtitle">Transacciones USDT</p>
+                      </div>
+                      <span class="cm-badge cm-badge--green">0.00 USDT</span>
+                    </div>
+                  </header>
+                  <div class="cm-chart-wrap">
+                    <canvas
+                      id="cm-volume-chart"
+                      class="cm-chart-canvas"
+                      role="img"
+                      aria-label="Gráfica de barras de volumen por nivel"
+                    ></canvas>
+                  </div>
+                </article>
+              </section>
+
+              <article class="cm-card cm-line-card" aria-label="Status Maktub mensual">
+                <header class="cm-line-card__head">
+                  <h2 class="cm-line-card__title">Status Maktub</h2>
+                  <p class="cm-line-card__trend">(+5% al mes)</p>
+                </header>
+                <div class="cm-line-card__chart">
+                  <canvas
+                    id="cm-status-chart"
+                    class="cm-chart-canvas"
+                    role="img"
+                    aria-label="Gráfica lineal del status Maktub por mes"
+                  ></canvas>
+                </div>
+              </article>
+            </div>
+
+            <aside class="cm-aside" aria-label="Información lateral">
+              <section class="cm-side-card" aria-label="Link de referido">
+                <h2 class="cm-side-card__title">Link de referido</h2>
+                <form class="cm-referral-form" data-cm-referral-form>
+                  <label class="cm-visually-hidden" for="cm-referral-url">URL de referido</label>
+                  <input
+                    id="cm-referral-url"
+                    class="cm-input"
+                    data-cm-referral-input
+                    type="url"
+                    required
+                    value="https://clubmktb.com/registro.php?r=258"
+                    aria-invalid="false"
+                  />
+                  <button class="cm-btn cm-btn--primary" data-cm-copy-btn type="submit">
+                    <svg class="cm-btn__icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+                      <path d="M10 1.5a1.5 1.5 0 0 1 1.5 1.5v1H10V3h1V2H6v1h1v1H5.5V3A1.5 1.5 0 0 1 7 1.5h3Zm-7 4h7A1.5 1.5 0 0 1 11.5 7v6A1.5 1.5 0 0 1 10 14.5H3A1.5 1.5 0 0 1 1.5 13V7A1.5 1.5 0 0 1 3 5.5Zm9 2h1.5A1.5 1.5 0 0 1 15 9v4A1.5 1.5 0 0 1 13.5 14H12v-1h1.5a.5.5 0 0 0 .5-.5V9a.5.5 0 0 0-.5-.5H12v-1Z" fill="currentColor" />
+                    </svg>
+                    Copiar Enlace
+                  </button>
+                  <p class="cm-feedback" data-cm-copy-feedback aria-live="polite"></p>
+                </form>
+              </section>
+
+              <section class="cm-side-card cm-miu-card" aria-label="Tarjeta MIU">
+                <div class="cm-miu-card__info">
+                  <p class="cm-miu-card__id">MIU:<br /><strong>0258</strong></p>
+                  <p class="cm-miu-card__desc">Tu NFT de perfil es un identificador único.</p>
+                </div>
+                <div class="cm-miu-card__visual">
+                  <img
+                    class="cm-miu-card__nft"
+                    src="assets/img/cm-membresia-base.png"
+                    alt="NFT de membresía del usuario MIU 0258"
+                    width="124"
+                  />
+                </div>
+              </section>
+
+              <section class="cm-side-card cm-ambassador-card" aria-label="Status embajador">
+                <h2 class="cm-ambassador-card__title">Status Embajador</h2>
+                <div class="cm-ambassador-card__panel">
+                  <p class="cm-ambassador-card__subtitle">Progreso</p>
+                  <img
+                    class="cm-ambassador-card__image"
+                    src="assets/icons/embajador-1mm.png"
+                    alt="Insignia de embajador nivel 1M"
+                    width="146"
+                    height="159"
+                  />
+                  <div class="cm-progress">
+                    <div class="cm-progress__row"><span>Pool 1</span><span>65%</span></div>
+                    <div class="cm-progress__track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="65" aria-label="Progreso pool 1">
+                      <div class="cm-progress__bar"></div>
+                    </div>
+                    <div class="cm-progress__row"><span>20% Poll siguiente</span><span>Hasta 1/2026</span></div>
+                    <button class="cm-btn cm-btn--primary cm-btn--pill" type="button">En curso</button>
+                  </div>
+                </div>
+              </section>
+            </aside>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.8/dist/chart.umd.min.js" defer></script>
+    <script src="js/main.js" defer></script>
+  </body>
+</html>

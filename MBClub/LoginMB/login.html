@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Inicia Sesión - Energía Financiera</title>
+
+    <!-- Bootstrap 5.3 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"rel="stylesheet"integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"crossorigin="anonymous"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet"
+    />
+    <!-- Estilos personalizados -->
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/form-controls.css" />
+    <link rel="stylesheet" href="font/stylesheet.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+  </head>
+  <body class="bg-main text-white">
+    <main class="login-page login-bg min-vh-100 d-flex align-items-center justify-content-center px-3">
+      <section class="login-shell w-100">
+        <div class="login-card-minimal mx-auto">
+          <img
+            src="img/logo-M-academia 2.png"
+            alt="MB Academia"
+            class="login-logo"
+          />
+          <p class="login-kicker mb-2">Acceso de usuario</p>
+          <h1 class="login-title mb-2">Inicia sesión</h1>
+          <p class="text-muted mb-4">
+            Ingresa con tu correo o MIU.
+          </p>
+
+          <div
+            id="loginSuccess"
+            class="alert alert-success py-2 px-3 mb-4 d-none"
+            role="status"
+          >
+            Validación correcta. Listo para conectar con backend.
+          </div>
+
+          <form class="needs-validation" id="loginForm" novalidate>
+            <div class="mb-3">
+              <label for="miuEmail" class="form-label">Correo o MIU</label>
+              <input
+                type="text"
+                class="form-control form-control-rounded"
+                id="miuEmail"
+                name="miuEmail"
+                placeholder="correo@dominio.com o MIU 0000"
+                autocomplete="username"
+                required
+                aria-describedby="miuEmailHelp"
+              />
+              <div id="miuEmailHelp" class="invalid-feedback">
+                Ingresa un correo válido o un MIU de 4 a 10 dígitos.
+              </div>
+            </div>
+
+            <div class="mb-2">
+              <label for="password" class="form-label">Contraseña</label>
+              <div class="position-relative">
+                <input
+                  type="password"
+                  class="form-control form-control-rounded"
+                  id="password"
+                  name="password"
+                  placeholder="Mínimo 8 caracteres"
+                  required
+                  minlength="8"
+                  autocomplete="current-password"
+                  aria-describedby="passwordHelp"
+                />
+                <button
+                  type="button"
+                  class="btn-eye"
+                  id="togglePassword"
+                  aria-label="Mostrar u ocultar contraseña"
+                  aria-pressed="false"
+                >
+                  <i class="bi bi-eye"></i>
+                </button>
+                <div id="passwordHelp" class="invalid-feedback">
+                  La contraseña debe tener al menos 8 caracteres.
+                </div>
+              </div>
+            </div>
+
+            <div class="d-flex justify-content-end mb-4">
+              <a href="./forgot-pass.html" class="link-muted">
+                ¿Olvidaste tu contraseña?
+              </a>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-main w-100">
+              Entrar
+            </button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <!-- Bootstrap JS -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      (() => {
+        const form = document.querySelector('#loginForm');
+        const identifierInput = document.querySelector('#miuEmail');
+        const passwordInput = document.querySelector('#password');
+        const togglePassword = document.querySelector('#togglePassword');
+        const successAlert = document.querySelector('#loginSuccess');
+
+        if (!form || !identifierInput || !passwordInput || !togglePassword) {
+          return;
+        }
+
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const miuPattern = /^(miu[:\s-]*)?\d{4,10}$/i;
+
+        const validateIdentifier = () => {
+          const value = identifierInput.value.trim();
+          const isValid = emailPattern.test(value) || miuPattern.test(value);
+
+          identifierInput.setCustomValidity(
+            value && isValid ? '' : 'Ingresa un correo o MIU válido.'
+          );
+        };
+
+        const validatePassword = () => {
+          const value = passwordInput.value.trim();
+          passwordInput.setCustomValidity(
+            value.length >= 8 ? '' : 'La contraseña debe tener al menos 8 caracteres.'
+          );
+        };
+
+        identifierInput.addEventListener('input', validateIdentifier);
+        passwordInput.addEventListener('input', validatePassword);
+
+        togglePassword.addEventListener('click', () => {
+          const isHidden = passwordInput.type === 'password';
+          passwordInput.type = isHidden ? 'text' : 'password';
+          togglePassword.setAttribute('aria-pressed', String(isHidden));
+          togglePassword.innerHTML = isHidden
+            ? '<i class="bi bi-eye-slash"></i>'
+            : '<i class="bi bi-eye"></i>';
+        });
+
+        form.addEventListener('submit', (event) => {
+          validateIdentifier();
+          validatePassword();
+
+          if (!form.checkValidity()) {
+            event.preventDefault();
+            event.stopPropagation();
+            successAlert.classList.add('d-none');
+          } else {
+            event.preventDefault();
+            successAlert.classList.remove('d-none');
+          }
+
+          form.classList.add('was-validated');
+        });
+      })();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,512 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MB eLearning | Componentes</title>
+  <meta name="description" content="Catalogo de componentes base para MB eLearning.">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="css/tokens.css" rel="stylesheet">
+  <link href="css/styles.css" rel="stylesheet">
+  <link href="webfont/stylesheet.css" rel="stylesheet">
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg fixed-top mb-navbar">
+    <div class="container-fluid mb-container">
+      <a class="navbar-brand d-flex align-items-center gap-2" href="index.html" aria-label="MB eLearning">
+        <span class="mb-brand">
+          <img src="./assets/icon-logo-menu.png" alt="MB Club" class="img-fluid">
+        </span>
+      </a>
+
+      <div class="ms-auto d-flex align-items-center gap-2">
+        <a class="btn mb-button-ghost" href="index.html">Inicio</a>
+        <a class="btn mb-button-ghost" href="course.html">Curso</a>
+        <a class="btn mb-button-ghost" href="profile.html">Perfil</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container-fluid mb-container mb-section pt-4 mb-components">
+    <section class="mb-components-hero">
+      <div class="mb-components-orb"><i class="bi bi-grid-3x3-gap-fill" aria-hidden="true"></i></div>
+      <div class="mb-components-eyebrow">MB eLearning</div>
+      <h1 class="mb-components-title">Componentes UI</h1>
+      <p class="mb-components-subtitle">Catalogo de estilos y piezas listas para armar pantallas.</p>
+      <div class="d-flex flex-wrap justify-content-center gap-2 mt-3">
+        <span class="mb-chip mb-chip--blue">Tokens</span>
+        <span class="mb-chip">Componentes</span>
+        <span class="mb-chip">Version 1.0</span>
+      </div>
+    </section>
+
+    <section class="mb-component-section">
+      <div class="mb-component-header">
+        <h2>Paleta de colores</h2>
+        <p>Variables de color definidas en <code>:root</code>.</p>
+      </div>
+      <div class="mb-component-panel">
+        <div class="mb-component-grid">
+          <div class="mb-color-card" style="--swatch: var(--color-base-900);">
+            <div class="mb-color-swatch"></div>
+            <div class="mb-color-name">Base 900</div>
+            <div class="mb-color-var">--color-base-900</div>
+          </div>
+          <div class="mb-color-card" style="--swatch: var(--color-base-850);">
+            <div class="mb-color-swatch"></div>
+            <div class="mb-color-name">Base 850</div>
+            <div class="mb-color-var">--color-base-850</div>
+          </div>
+          <div class="mb-color-card" style="--swatch: var(--color-base-800);">
+            <div class="mb-color-swatch"></div>
+            <div class="mb-color-name">Base 800</div>
+            <div class="mb-color-var">--color-base-800</div>
+          </div>
+          <div class="mb-color-card" style="--swatch: var(--color-surface-1);">
+            <div class="mb-color-swatch"></div>
+            <div class="mb-color-name">Surface 1</div>
+            <div class="mb-color-var">--color-surface-1</div>
+          </div>
+          <div class="mb-color-card" style="--swatch: var(--color-surface-2);">
+            <div class="mb-color-swatch"></div>
+            <div class="mb-color-name">Surface 2</div>
+            <div class="mb-color-var">--color-surface-2</div>
+          </div>
+          <div class="mb-color-card" style="--swatch: var(--color-surface-3);">
+            <div class="mb-color-swatch"></div>
+            <div class="mb-color-name">Surface 3</div>
+            <div class="mb-color-var">--color-surface-3</div>
+          </div>
+          <div class="mb-color-card" style="--swatch: var(--color-border-1);">
+            <div class="mb-color-swatch"></div>
+            <div class="mb-color-name">Border 1</div>
+            <div class="mb-color-var">--color-border-1</div>
+          </div>
+          <div class="mb-color-card" style="--swatch: var(--color-border-2);">
+            <div class="mb-color-swatch"></div>
+            <div class="mb-color-name">Border 2</div>
+            <div class="mb-color-var">--color-border-2</div>
+          </div>
+          <div class="mb-color-card" style="--swatch: var(--color-text-1);">
+            <div class="mb-color-swatch"></div>
+            <div class="mb-color-name">Text 1</div>
+            <div class="mb-color-var">--color-text-1</div>
+          </div>
+          <div class="mb-color-card" style="--swatch: var(--color-text-2);">
+            <div class="mb-color-swatch"></div>
+            <div class="mb-color-name">Text 2</div>
+            <div class="mb-color-var">--color-text-2</div>
+          </div>
+          <div class="mb-color-card" style="--swatch: var(--color-text-3);">
+            <div class="mb-color-swatch"></div>
+            <div class="mb-color-name">Text 3</div>
+            <div class="mb-color-var">--color-text-3</div>
+          </div>
+          <div class="mb-color-card" style="--swatch: var(--color-accent);">
+            <div class="mb-color-swatch"></div>
+            <div class="mb-color-name">Accent</div>
+            <div class="mb-color-var">--color-accent</div>
+          </div>
+          <div class="mb-color-card" style="--swatch: var(--color-accent-2);">
+            <div class="mb-color-swatch"></div>
+            <div class="mb-color-name">Accent 2</div>
+            <div class="mb-color-var">--color-accent-2</div>
+          </div>
+          <div class="mb-color-card" style="--swatch: var(--color-success);">
+            <div class="mb-color-swatch"></div>
+            <div class="mb-color-name">Success</div>
+            <div class="mb-color-var">--color-success</div>
+          </div>
+          <div class="mb-color-card" style="--swatch: var(--color-warning);">
+            <div class="mb-color-swatch"></div>
+            <div class="mb-color-name">Warning</div>
+            <div class="mb-color-var">--color-warning</div>
+          </div>
+          <div class="mb-color-card" style="--swatch: var(--color-danger);">
+            <div class="mb-color-swatch"></div>
+            <div class="mb-color-name">Danger</div>
+            <div class="mb-color-var">--color-danger</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-component-section">
+      <div class="mb-component-header">
+        <h2>Tipografia</h2>
+        <p>Jerarquia tipografica y estilos base.</p>
+      </div>
+      <div class="mb-component-panel">
+        <div class="row g-4">
+          <div class="col-12 col-lg-6">
+            <div class="mb-type-card">
+              <div class="mb-type-row">
+                <div class="mb-type-label">Heading 1</div>
+                <div class="mb-type-sample mb-type-h1">Heading 1</div>
+              </div>
+              <div class="mb-type-row">
+                <div class="mb-type-label">Heading 2</div>
+                <div class="mb-type-sample mb-type-h2">Heading 2</div>
+              </div>
+              <div class="mb-type-row">
+                <div class="mb-type-label">Heading 3</div>
+                <div class="mb-type-sample mb-type-h3">Heading 3</div>
+              </div>
+              <div class="mb-type-row">
+                <div class="mb-type-label">Body</div>
+                <div class="mb-type-sample mb-type-body">Texto base para parrafos.</div>
+              </div>
+              <div class="mb-type-row">
+                <div class="mb-type-label">Small</div>
+                <div class="mb-type-sample mb-type-small">Texto auxiliar y etiquetas.</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-lg-6">
+            <div class="mb-type-card">
+              <div class="mb-type-row">
+                <div class="mb-type-label">Lead</div>
+                <div class="mb-type-sample mb-type-body">Copy principal para explicar una seccion.</div>
+              </div>
+              <div class="mb-type-row">
+                <div class="mb-type-label">Body</div>
+                <div class="mb-type-sample mb-type-body">Texto secundario con <span style="color:var(--color-accent);">resaltado</span> puntual.</div>
+              </div>
+              <div class="mb-type-row">
+                <div class="mb-type-label">Meta</div>
+                <div class="mb-type-sample mb-type-small">Meta, labels y descripciones cortas.</div>
+              </div>
+              <div class="mb-type-row">
+                <div class="mb-type-label">Code</div>
+                <div class="mb-type-sample mb-type-small"><code>--color-accent</code></div>
+              </div>
+              <div class="mb-type-row">
+                <div class="mb-type-label">Mono</div>
+                <div class="mb-type-sample mb-type-small" style="font-family:var(--font-mono);">0123456789</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-component-section">
+      <div class="mb-component-header">
+        <h2>Botones e iconos</h2>
+        <p>Estados principales y acciones rapidas.</p>
+      </div>
+      <div class="mb-component-panel">
+        <div class="d-flex flex-wrap gap-2">
+          <button class="btn mb-button-primary">Primario</button>
+          <button class="btn mb-button-secondary">Secundario</button>
+          <button class="btn mb-button-ghost">Ghost</button>
+          <button class="btn mb-button-primary" disabled>Disabled</button>
+          <button class="btn mb-button-secondary"><i class="bi bi-play-fill" aria-hidden="true"></i> Con icono</button>
+        </div>
+        <div class="mb-divider"></div>
+        <div class="d-flex flex-wrap gap-2">
+          <button class="mb-icon-btn" type="button" aria-label="Favorito"><i class="bi bi-heart" aria-hidden="true"></i></button>
+          <button class="mb-icon-btn" type="button" aria-label="Config"><i class="bi bi-gear" aria-hidden="true"></i></button>
+          <button class="mb-icon-btn" type="button" aria-label="Notificaciones"><i class="bi bi-bell" aria-hidden="true"></i></button>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-component-section">
+      <div class="mb-component-header">
+        <h2>Menus</h2>
+        <p>Dropdown y menu de usuario.</p>
+      </div>
+      <div class="mb-component-panel">
+        <div class="row g-4 align-items-start">
+          <div class="col-12 col-lg-5">
+            <button class="mb-userchip mb-userchip-button" type="button" aria-label="Menu usuario">
+              <div class="me-1">
+                <div class="name">Sergio Jacobo</div>
+                <div class="meta">Estudiante Pro</div>
+              </div>
+              <img src="assets/img/Perfil%20de%20usuario.png" alt="Foto de perfil de Sergio">
+            </button>
+          </div>
+          <div class="col-12 col-lg-7 d-flex flex-wrap gap-4">
+            <ul class="mb-user-menu mb-menu-static">
+              <li>
+                <button class="dropdown-item" type="button">
+                  <i class="bi bi-gear" aria-hidden="true"></i>
+                  Opciones
+                </button>
+              </li>
+              <li>
+                <button class="dropdown-item" type="button">
+                  <i class="bi bi-life-preserver" aria-hidden="true"></i>
+                  Centro de ayuda
+                </button>
+              </li>
+              <li><hr class="dropdown-divider"></li>
+              <li>
+                <button class="dropdown-item mb-logout" type="button">
+                  <i class="bi bi-box-arrow-right" aria-hidden="true"></i>
+                  Cerrar sesion
+                </button>
+              </li>
+            </ul>
+            <div class="mb-search position-relative" style="width:260px;">
+              <i class="bi bi-search" aria-hidden="true"></i>
+              <label class="visually-hidden" for="mbSearchDemo">Buscar</label>
+              <input id="mbSearchDemo" class="form-control" type="search" placeholder="Buscar..." autocomplete="off">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-component-section">
+      <div class="mb-component-header">
+        <h2>Chips y estados</h2>
+        <p>Etiquetas, badges y estados rapidos.</p>
+      </div>
+      <div class="mb-component-panel">
+        <div class="d-flex flex-wrap gap-2">
+          <span class="mb-chip"><i class="bi bi-star-fill" aria-hidden="true"></i>4.8</span>
+          <span class="mb-chip">55 valoraciones</span>
+          <span class="mb-chip mb-chip--blue">Nuevo</span>
+          <span class="mb-chip mb-chip--new">Destacado</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-component-section">
+      <div class="mb-component-header">
+        <h2>Tarjetas</h2>
+        <p>Variantes principales de cards y banners.</p>
+      </div>
+      <div class="mb-component-panel">
+        <div class="row g-4" data-active-group>
+          <div class="col-12 col-lg-6">
+            <article class="mb-card is-active" data-card data-href="course.html" tabindex="0" role="button" aria-label="Featured card">
+              <div class="p-3">
+                <div class="mb-featured-cover">
+                  <img src="assets/img/FeaturedCard.png" alt="FeaturedCard reference">
+                  <span class="mb-badge">Nuevo</span>
+                </div>
+                <div class="mt-3 d-flex gap-2 flex-wrap">
+                  <span class="mb-chip"><i class="bi bi-star-fill" aria-hidden="true"></i>4.7</span>
+                  <span class="mb-chip">55 valoraciones</span>
+                  <span class="mb-chip mb-chip--new">Nuevo</span>
+                </div>
+                <h3 class="mb-title">Analisis Tecnico Master Polygon</h3>
+                <p class="mb-desc">Aprende a leer graficos como un profesional y predice movimientos del mercado.</p>
+              </div>
+            </article>
+          </div>
+
+          <div class="col-12 col-lg-6">
+            <article class="mb-card" data-card data-href="course.html" tabindex="0" role="button" aria-label="Library card">
+              <div class="p-3">
+                <div class="mb-library-cover">
+                  <img src="assets/img/LibraryCard.png" alt="LibraryCard reference">
+                  <div class="mb-progress-ring" aria-label="Progreso 50%">50%</div>
+                </div>
+                <div class="pt-4">
+                  <div class="mb-meta-kicker">CLASE 5 DE 8</div>
+                  <h3 class="mb-title mb-0">Masterclass de DeFi</h3>
+                  <p class="mb-desc mt-2">Finanzas descentralizadas explicadas desde cero.</p>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <div class="col-12 col-lg-6">
+            <article class="mb-card" data-card data-href="course.html" tabindex="0" role="button" aria-label="Mentor live card">
+              <div class="p-3">
+                <div class="mb-library-cover">
+                  <img src="assets/img/LibraryCard%20Mentor.png" alt="LibraryCard Mentor reference">
+                  <span class="mb-live-pill">En vivo ahora</span>
+                  <div class="mb-progress-ring" aria-label="Progreso 80%">80%</div>
+                </div>
+                <div class="pt-4">
+                  <div class="mb-meta-kicker">Sesion 42</div>
+                  <h3 class="mb-title mb-0">Analisis de Mercado Semanal</h3>
+                  <p class="mb-desc mt-2">Revision de tendencias del mercado crypto y tradicional.</p>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <div class="col-12 col-lg-6">
+            <article class="mb-card" data-card data-href="profile.html" tabindex="0" role="button" aria-label="Banner">
+              <div class="p-3">
+                <div class="mb-banner">
+                  <div class="left">
+                    <div class="icon"><i class="bi bi-gift" aria-hidden="true"></i></div>
+                    <div>
+                      <h3>Adquiere la membresia para un conocido o amigo y llevala gratis</h3>
+                      <p>Mas informacion <i class="bi bi-arrow-right" aria-hidden="true"></i></p>
+                    </div>
+                  </div>
+                  <span class="mb-chip">CTA</span>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <div class="col-12">
+            <article class="mb-quick-card" data-card data-href="course.html" tabindex="0" role="button" aria-label="Tutorial rapido">
+              <span class="mb-quick-card__time">6:10 min</span>
+              <div class="mb-quick-card__logo" aria-hidden="true">N</div>
+              <div class="mb-quick-card__content">
+                <div class="mb-quick-card__tag">Herramientas</div>
+                <h3 class="mb-quick-card__title">Configurando tu primera Wallet</h3>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-component-section">
+      <div class="mb-component-header">
+        <h2>Formularios y switches</h2>
+        <p>Inputs, selectores y estados interactivos.</p>
+      </div>
+      <div class="mb-component-panel">
+        <div class="mb-form-grid">
+          <div class="mb-form-field">
+            <label class="mb-form-label" for="mbNameDemo">Nombre</label>
+            <input id="mbNameDemo" class="form-control mb-input" type="text" placeholder="Nombre completo">
+          </div>
+          <div class="mb-form-field">
+            <label class="mb-form-label" for="mbEmailDemo">Correo</label>
+            <input id="mbEmailDemo" class="form-control mb-input" type="email" placeholder="correo@mbcapital.io">
+          </div>
+          <div class="mb-form-field">
+            <label class="mb-form-label" for="mbSelectDemo">Plan</label>
+            <select id="mbSelectDemo" class="form-control mb-input">
+              <option>Estudiante Pro</option>
+              <option>Mentoria Plus</option>
+              <option>Inversionista</option>
+            </select>
+          </div>
+          <div class="mb-form-field">
+            <label class="mb-form-label" for="mbNoteDemo">Notas</label>
+            <textarea id="mbNoteDemo" class="form-control mb-input" rows="3" placeholder="Notas para el equipo"></textarea>
+          </div>
+        </div>
+        <div class="mb-divider"></div>
+        <div class="d-flex flex-wrap gap-4 align-items-center">
+          <div class="d-flex align-items-center gap-3">
+            <div class="mb-switch" role="switch" tabindex="0" aria-checked="true" data-switch></div>
+            <div>
+              <div class="fw-semibold">Notificaciones</div>
+              <div class="text-muted" style="font-size:.82rem;">Alertas semanales</div>
+            </div>
+          </div>
+          <div class="d-flex align-items-center gap-3">
+            <div class="mb-switch" role="switch" tabindex="0" aria-checked="false" data-switch></div>
+            <div>
+              <div class="fw-semibold">Modo privado</div>
+              <div class="text-muted" style="font-size:.82rem;">Ocultar actividad</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-component-section">
+      <div class="mb-component-header">
+        <h2>Progreso</h2>
+        <p>Indicadores de avance y barras.</p>
+      </div>
+      <div class="mb-component-panel">
+        <div class="row g-4 align-items-center">
+          <div class="col-12 col-lg-4">
+            <div class="mb-ring-sample">
+              <div class="mb-progress-ring" aria-label="Progreso 72%">72%</div>
+            </div>
+          </div>
+          <div class="col-12 col-lg-8">
+            <div class="mb-progress-block">
+              <div class="mb-progress-label">Nivel de progreso</div>
+              <div class="mb-progress-header">
+                <div class="mb-progress-value">72% Completado</div>
+                <div class="mb-progress-count">18 de 25 lecciones</div>
+              </div>
+              <div class="mb-progress-bar" aria-label="Barra de progreso">
+                <span style="width:72%;"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-component-section">
+      <div class="mb-component-header">
+        <h2>Listas y estados</h2>
+        <p>KPIs y items seleccionables.</p>
+      </div>
+      <div class="mb-component-panel">
+        <div class="mb-kpis" role="list">
+          <div class="mb-kpi" role="listitem">
+            <div class="icon"><i class="bi bi-lightning-charge" aria-hidden="true"></i></div>
+            <div class="text-start">
+              <p class="label">Racha</p>
+              <p class="value">5 dias</p>
+            </div>
+          </div>
+          <div class="mb-kpi" role="listitem">
+            <div class="icon"><i class="bi bi-clock" aria-hidden="true"></i></div>
+            <div class="text-start">
+              <p class="label">Tiempo</p>
+              <p class="value">12h 30m</p>
+            </div>
+          </div>
+        </div>
+        <div class="mb-divider"></div>
+        <div class="d-flex flex-column gap-2">
+          <div class="mb-lesson is-active">
+            <div class="left">
+              <div class="icon"><i class="bi bi-play" aria-hidden="true"></i></div>
+              <div>
+                <p class="title">Introduccion al trading</p>
+                <p class="time">05:15 min</p>
+              </div>
+            </div>
+            <span class="mb-chip">Activo</span>
+          </div>
+          <div class="mb-lesson">
+            <div class="left">
+              <div class="icon"><i class="bi bi-check" aria-hidden="true"></i></div>
+              <div>
+                <p class="title">Analisis de tendencia</p>
+                <p class="time">07:40 min</p>
+              </div>
+            </div>
+            <span class="mb-chip mb-chip--blue">Completado</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="mb-footer">
+      <div class="d-flex flex-wrap align-items-center justify-content-between gap-2">
+        <div>(c) <span id="mbYear"></span> MB eLearning</div>
+        <div class="d-flex gap-3">
+          <a class="text-decoration-none" href="index.html">Inicio</a>
+          <a class="text-decoration-none" href="course.html">Curso</a>
+          <a class="text-decoration-none" href="profile.html">Perfil</a>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    document.getElementById('mbYear').textContent = new Date().getFullYear();
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

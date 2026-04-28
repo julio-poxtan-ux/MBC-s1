@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="es-MX">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Onboarding MBK | Layout Base</title>
+    <meta
+      name="description"
+      content="Plantilla base reutilizable para flujos de onboarding MBK (registro, login, compra, confirmación y recuperación de contraseñas)."
+    />
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/tokens.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body class="mk-page-shell mk-page-shell--base">
+    <a class="mk-skip-link" href="#mk-main">Saltar al contenido principal</a>
+
+    <header class="mk-header" role="banner">
+      <div class="mk-header__inner">
+        <a href="index.html" class="mk-header__brand mk-focus-ring" aria-label="MBK onboarding inicio">MB<span>K</span> Onboarding</a>
+        <nav class="mk-header__nav" aria-label="Navegación principal onboarding">
+          <a class="mk-header__link mk-focus-ring" href="index.html">Registro</a>
+          <a class="mk-header__link mk-focus-ring" href="#">Login</a>
+          <a class="mk-header__link mk-focus-ring" href="#">Membresía</a>
+          <a class="mk-header__link mk-focus-ring" href="#">Confirmación</a>
+          <a class="mk-header__link mk-focus-ring" href="#">Contraseñas</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="mk-main" class="mk-main">
+      <section class="mk-layout-card">
+        <h1>Layout base reusable</h1>
+        <p>
+          Este archivo establece el mismo fondo y el mismo header para todas las páginas del flujo. Sustituye el contenido de
+          esta tarjeta por la vista específica de cada paso y conserva el shell visual para mantener consistencia.
+        </p>
+      </section>
+    </main>
+
+    <footer class="mk-footer">© 2026 MBK · Onboarding UI Foundation</footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="es-MX">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Onboarding MBK | Bienvenido</title>
+  <meta name="description"
+    content="Onboarding MBK: confirma tus datos y completa el alta de cuenta para comenzar en el ecosistema Maktub." />
+  <meta name="robots" content="index,follow" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Onboarding MBK | Bienvenido" />
+  <meta property="og:description" content="Completa los pasos de registro para crear tu cuenta en Maktub." />
+  <meta property="og:locale" content="es_MX" />
+  <meta name="theme-color" content="#0f2b42" />
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="css/tokens.css" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="assets/fonts/stylesheet.css">
+</head>
+
+<body class="mk-page-shell mk-page-shell--onboarding">
+  <a class="mk-skip-link" href="#mk-main">Saltar al contenido principal</a>
+
+  <main id="mk-main" class="mk-main" aria-labelledby="mk-title" data-mk-page="onboarding-welcome">
+    <section class="mk-onboarding container-fluid px-0">
+      <div class="mk-onboarding__wrapper d-flex flex-column flex-lg-row align-items-center justify-content-center">
+        <div class="mk-onboarding__panel">
+          <form class="mk-onboarding__card" data-mk-onboarding-form novalidate>
+            <header class="mk-onboarding__intro">
+              <img src="assets/img/logo-header.svg" alt="MBK" class="logo-header_login">
+              <h1 id="mk-title" class="mk-title pt-5 mt-5">¡Bienvenido!</h1>
+              <p class="mk-lead">Completa los siguientes pasos para crear tu cuenta.</p>
+            </header>
+
+            <ol class="mk-step-list" aria-label="Indicador de progreso">
+              <li class="mk-step" aria-current="step">
+                <span class="mk-step__badge" aria-hidden="true">1</span>
+                <span class="mk-step__label">Crear tu cuenta</span>
+              </li>
+              <li class="mk-step">
+                <span class="mk-step__badge" aria-hidden="true">2</span>
+                <span class="mk-step__label">Confirmar código</span>
+              </li>
+              <li class="mk-step">
+                <span class="mk-step__badge" aria-hidden="true">3</span>
+                <span class="mk-step__label">Bienvenido a Maktub</span>
+              </li>
+            </ol>
+
+            <fieldset class="mk-consent-block border-0 p-0 m-0">
+              <legend class="visually-hidden">Aceptación de términos y condiciones</legend>
+              <div class="form-check mk-form-check">
+                <input class="form-check-input mk-check-input mk-focus-ring" type="checkbox" id="mkTerms"
+                  aria-describedby="mkTermsFeedback" />
+                <label class="form-check-label mk-check-label" for="mkTerms">
+                  Leí y estoy de acuerdo con
+                  <a class="mk-focus-ring" href="#" aria-label="Leer términos y condiciones">Términos y condiciones</a>.
+                </label>
+              </div>
+              <p id="mkTermsFeedback" class="mk-form-feedback" aria-live="polite"></p>
+            </fieldset>
+
+            <div class="mk-btn-wrap">
+              <button type="submit" class="btn mk-btn-primary mk-focus-ring" id="mkContinueBtn" disabled
+                aria-disabled="true">
+                Continuar
+              </button>
+            </div>
+
+            <p class="mk-login-prompt">
+              <span>¿Ya tienes cuenta?</span>
+              <a class="mk-login-link mk-focus-ring" href="#" aria-label="Ir a inicio de sesión">Inicia sesión</a>
+            </p>
+          </form>
+        </div>
+
+        <aside class="mk-onboarding__visual d-flex justify-content-center" aria-label="Ilustración de bienvenida">
+          <img src="assets/img/mk-onboarding-illustration.png"
+            alt="Ilustración tecnológica de un cubo brillante con elementos espaciales" width="686" height="915"
+            decoding="async" fetchpriority="high" class="img-contend-onboarding" />
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/main.js" defer></script>
+</body>
+
+</html>

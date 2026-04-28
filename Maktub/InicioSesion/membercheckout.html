@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Escoge una membresía - Maktub</title>
+  <meta name="description" content="Selecciona tu membresía Maktub y continúa al checkout de pago." />
+  <meta name="keywords" content="Maktub, membresía, checkout, pago, onboarding, elite, básico" />
+  <meta name="author" content="Maktub Frontend Team" />
+  <meta property="og:title" content="Escoge una membresía - Maktub" />
+  <meta property="og:description"
+    content="Pantalla de selección de membresía implementada desde Figma con estados de tarjeta y validación." />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="es_MX" />
+  <link rel="preconnect" href="https://api.fontshare.com" />
+  <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+  <link rel="stylesheet" href="./css/tokens.css" />
+  <link rel="stylesheet" href="./css/styles.css" />
+</head>
+
+<body class="mk-body">
+  <a class="mk-skip-link" href="#mk-membercheckout-main">Saltar a selección de membresía</a>
+  <div class="mk-app-shell">
+    <img class="mk-bg-spheres" src="./assets/img/esferas.png" alt="" aria-hidden="true" />
+
+    <header class="mk-header container-fluid px-3 px-md-4">
+      <div class="d-flex justify-content-center align-items-center">
+        <a href="./index_1.html" aria-label="Volver al inicio">
+          <img src="./assets/img/mk-logo.svg" alt="Maktub" class="mk-brand-logo" width="80" height="92" />
+        </a>
+      </div>
+    </header>
+
+    <main id="mk-membercheckout-main"
+      class="mk-main container-fluid d-flex justify-content-center align-items-start px-3 px-md-4">
+      <section class="mk-membercheckout-card w-100" aria-labelledby="mk-membercheckout-title">
+        <form id="mk-membercheckout-form" class="mk-membercheckout-form" novalidate data-mk-membercheckout-form>
+          <header class="mk-membercheckout-header text-center">
+            <h1 id="mk-membercheckout-title" class="mk-title">
+              Escoge una membresía
+            </h1>
+            <p class="mk-membercheckout-subtitle">
+              Selecciona la opción de Membresía que mejor se ajuste a ti.
+            </p>
+          </header>
+
+          <div class="mk-membercheckout-options" role="radiogroup" aria-label="Opciones de membresía"
+            aria-describedby="mk-member-error">
+            <button class="mk-membership-card mk-membership-card--unselected" type="button" role="radio"
+              aria-checked="false" data-mk-membership-card data-membership="basic">
+              <p class="mk-membership-price">Base 100 USDT</p>
+              <span class="mk-membership-image-wrap">
+                <img class="mk-membership-image" src="./assets/img/mk-membership-base.png"
+                  alt="Tarjeta de Membresía Maktub Base" width="205" height="315" />
+              </span>
+              <span class="mk-membership-check visually-hidden" aria-hidden="true">
+                <img src="./assets/icons/mk-check-circle-filled.svg" alt="" width="24" height="24" />
+              </span>
+            </button>
+
+            <button class="mk-membership-card mk-membership-card--unselected" type="button" role="radio"
+              aria-checked="true" data-mk-membership-card data-membership="elite" data-selected="true">
+              <p class="mk-membership-price">Elite 500 USDT</p>
+              <span class="mk-membership-image-wrap">
+                <img class="mk-membership-image" src="./assets/img/mk-membership-elite.png"
+                  alt="Tarjeta de Membresía Maktub Elite" width="205" height="315" />
+              </span>
+              <span class="mk-membership-check" aria-hidden="true">
+                <img src="./assets/icons/mk-check-circle-filled.svg" alt="" width="24" height="24" />
+              </span>
+            </button>
+          </div>
+
+          <input id="mk-member-selection" type="hidden" name="membership" value="elite" />
+
+          <p id="mk-member-error" class="mk-inline-error mk-membercheckout-error visually-hidden" role="alert"></p>
+
+          <button id="mk-member-pay-btn" type="submit" class="mk-btn-primary mk-member-pay-btn" disabled
+            aria-disabled="true">
+            Pagar
+          </button>
+
+          <p id="mk-member-success" class="mk-inline-success text-center visually-hidden" role="status"
+            aria-live="polite"></p>
+        </form>
+      </section>
+    </main>
+  </div>
+
+  <div class="mk-membership-modal visually-hidden" data-mk-membership-modal aria-hidden="true">
+    <button type="button" class="mk-membership-modal-backdrop" data-mk-modal-close
+      aria-label="Cerrar modal de pago"></button>
+
+    <section class="mk-membership-modal-dialog" role="dialog" aria-modal="true"
+      aria-labelledby="mk-membership-modal-title" aria-describedby="mk-membership-modal-subtitle">
+      <header class="mk-membership-modal-header text-center">
+        <h2 id="mk-membership-modal-title" class="mk-membership-modal-title">
+          Membresía
+        </h2>
+        <p id="mk-membership-modal-price" class="mk-membership-modal-price">
+          500 USDT
+        </p>
+        <p id="mk-membership-modal-subtitle" class="mk-membership-modal-subtitle">
+          Selecciona tu moneda de pago (Red Polygon)
+        </p>
+      </header>
+
+      <div class="mk-membership-payment-options" role="radiogroup" aria-label="Moneda o método de pago">
+        <div class="mk-payment-option mk-payment-option--with-networks" role="radio" aria-checked="false"
+          tabindex="0" data-mk-payment-option data-payment-method="usdt">
+          <img src="assets/img/usdt.svg" alt="" class="mk-payment-option-icon" width="54" height="54" />
+          <span class="mk-payment-option-label">USDT</span>
+          <div class="mk-payment-network-picker visually-hidden" data-mk-payment-network-picker
+            data-payment-parent="usdt" aria-label="Selecciona una red para USDT">
+            <button class="mk-payment-network-option" type="button" data-mk-payment-network-option
+              data-payment-method="usdt" data-network="polygon" aria-pressed="true">
+              <img src="./assets/icons/network-polygon.svg" alt="" width="18" height="18" />
+              <span>Polygon</span>
+            </button>
+            <button class="mk-payment-network-option" type="button" data-mk-payment-network-option
+              data-payment-method="usdt" data-network="solana" aria-pressed="false">
+              <img src="./assets/icons/network-solana.svg" alt="" width="18" height="18" />
+              <span>Solana</span>
+            </button>
+            <button class="mk-payment-network-option" type="button" data-mk-payment-network-option
+              data-payment-method="usdt" data-network="ethereum" aria-pressed="false">
+              <img src="./assets/icons/network-ethereum.svg" alt="" width="18" height="18" />
+              <span>Ethereum</span>
+            </button>
+          </div>
+          <span class="mk-payment-option-check" aria-hidden="true">
+            <img src="assets/img/icon-checkcircle.svg" alt="" width="24" height="24" />
+          </span>
+        </div>
+
+        <div class="mk-payment-option mk-payment-option--with-networks" role="radio" aria-checked="false"
+          tabindex="0" data-mk-payment-option data-payment-method="usdc">
+          <img src="assets/img/usdc.svg" alt="" class="mk-payment-option-icon" width="54" height="54" />
+          <span class="mk-payment-option-label">USDC</span>
+          <div class="mk-payment-network-picker visually-hidden" data-mk-payment-network-picker
+            data-payment-parent="usdc" aria-label="Selecciona una red para USDC">
+            <button class="mk-payment-network-option" type="button" data-mk-payment-network-option
+              data-payment-method="usdc" data-network="polygon" aria-pressed="true">
+              <img src="./assets/icons/network-polygon.svg" alt="" width="18" height="18" />
+              <span>Polygon</span>
+            </button>
+            <button class="mk-payment-network-option" type="button" data-mk-payment-network-option
+              data-payment-method="usdc" data-network="solana" aria-pressed="false">
+              <img src="./assets/icons/network-solana.svg" alt="" width="18" height="18" />
+              <span>Solana</span>
+            </button>
+            <button class="mk-payment-network-option" type="button" data-mk-payment-network-option
+              data-payment-method="usdc" data-network="ethereum" aria-pressed="false">
+              <img src="./assets/icons/network-ethereum.svg" alt="" width="18" height="18" />
+              <span>Ethereum</span>
+            </button>
+          </div>
+          <span class="mk-payment-option-check" aria-hidden="true">
+            <img src="assets/img/icon-checkcircle.svg" alt="" width="24" height="24" />
+          </span>
+        </div>
+
+        <button class="mk-payment-option" type="button" role="radio" aria-checked="false" data-mk-payment-option
+          data-payment-method="cades">
+          <img src="assets/img/icon-maktub-pay.svg" alt="" class="mk-payment-option-icon" width="47" height="54" />
+          <span class="mk-payment-option-label">CaDes</span>
+          <span class="mk-payment-option-subtext">125,000 USDT</span>
+          <span class="mk-payment-option-check" aria-hidden="true">
+            <img src="assets/img/icon-checkcircle.svg" alt="" width="24" height="24" />
+          </span>
+        </button>
+
+        <button class="mk-payment-option" type="button" role="radio" aria-checked="false" data-mk-payment-option
+          data-payment-method="club-wallet">
+          <img src="assets/img/icon-club.svg" alt="" class="mk-payment-option-icon" width="54" height="46" />
+          <span class="mk-payment-option-label">Cartera Club</span>
+          <span class="mk-payment-option-subtext">125,000 USDT</span>
+          <span class="mk-payment-option-check" aria-hidden="true">
+            <img src="assets/img/icon-checkcircle.svg" alt="" width="24" height="24" />
+          </span>
+        </button>
+      </div>
+
+      <button type="button" class="mk-membership-modal-submit" data-mk-modal-ack>
+        Generar dirección de pago
+      </button>
+    </section>
+  </div>
+
+  <script src="./js/main.js" defer></script>
+</body>
+
+</html>

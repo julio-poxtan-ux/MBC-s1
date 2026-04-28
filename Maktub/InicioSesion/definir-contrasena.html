@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Definir contraseña - Maktub</title>
+  <meta name="description" content="Define una nueva contraseña para tu cuenta Maktub." />
+  <meta name="keywords" content="Maktub, nueva contraseña, recuperar cuenta, seguridad" />
+  <meta name="author" content="Maktub Frontend Team" />
+  <meta property="og:title" content="Definir contraseña - Maktub" />
+  <meta property="og:description" content="Pantalla para establecer una nueva contraseña segura en Maktub." />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="es_MX" />
+  <link rel="preconnect" href="https://api.fontshare.com" />
+  <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+  <link rel="stylesheet" href="./css/tokens.css" />
+  <link rel="stylesheet" href="./css/styles.css" />
+</head>
+
+<body class="mk-body">
+  <a class="mk-skip-link" href="#mk-define-main">Saltar a definir contraseña</a>
+  <div class="mk-app-shell">
+    <img class="mk-bg-spheres" src="./assets/img/esferas.png" alt="" aria-hidden="true" />
+
+    <header class="mk-header container-fluid px-3 px-md-4">
+      <div class="d-flex justify-content-center align-items-center">
+        <a href="./index_1.html" aria-label="Volver al inicio">
+          <img src="./assets/img/mk-logo.svg" alt="Maktub" class="mk-brand-logo" width="80" height="92" />
+        </a>
+      </div>
+    </header>
+
+    <main id="mk-define-main"
+      class="mk-main container-fluid d-flex justify-content-center align-items-start px-3 px-md-4">
+      <section class="mk-register-card w-100" aria-labelledby="mk-define-title">
+        <form id="mk-define-password-form" class="mk-register-form" novalidate data-mk-define-password-form>
+          <header class="mk-register-header text-center">
+            <h1 id="mk-define-title" class="mk-title">Definir contraseña</h1>
+            <p class="mk-register-subtitle">
+              Crea una nueva contraseña para tu cuenta.
+            </p>
+          </header>
+
+          <div class="mk-input-field w-100">
+            <label for="mk-new-password" class="mk-input-label">Nueva contraseña</label>
+            <div class="mk-input-control">
+              <input id="mk-new-password" name="newPassword" class="mk-input-element" type="password"
+                placeholder="Ingresa tu nueva contraseña" autocomplete="new-password"
+                aria-describedby="mk-new-password-error mk-define-password-strength-copy" />
+              <button class="mk-input-icon-btn" type="button" aria-label="Mostrar contraseña"
+                aria-controls="mk-new-password" data-mk-toggle-password>
+                <i class="bi bi-eye" aria-hidden="true"></i>
+              </button>
+            </div>
+            <p id="mk-new-password-error" class="mk-inline-error mk-inline-error--long visually-hidden" role="alert">
+              La contraseña debe tener 8+ caracteres, 1 mayúscula, 1 minúscula, 1 número y 1 símbolo.
+            </p>
+          </div>
+
+          <div class="mk-input-field w-100">
+            <label for="mk-confirm-new-password" class="mk-input-label">Confirmar contraseña</label>
+            <div class="mk-input-control">
+              <input id="mk-confirm-new-password" name="confirmNewPassword" class="mk-input-element" type="password"
+                placeholder="Repite la nueva contraseña" autocomplete="new-password"
+                aria-describedby="mk-confirm-new-password-error mk-define-password-strength-copy" />
+              <button class="mk-input-icon-btn" type="button" aria-label="Mostrar contraseña"
+                aria-controls="mk-confirm-new-password" data-mk-toggle-password>
+                <i class="bi bi-eye" aria-hidden="true"></i>
+              </button>
+            </div>
+            <div id="mk-define-password-strength" class="mk-strength-wrap mk-register-strength visually-hidden"
+              aria-live="polite">
+              <p id="mk-define-password-strength-copy" class="mk-strength-label mb-0">
+                Seguridad: <strong id="mk-define-strength-level" class="mk-strength-low">BAJA</strong>
+              </p>
+              <span id="mk-define-strength-bar" class="mk-strength-bar mk-strength-bar--low"></span>
+            </div>
+            <p id="mk-confirm-new-password-error" class="mk-inline-error mk-inline-error--long visually-hidden"
+              role="alert"></p>
+          </div>
+
+          <button id="mk-save-password" type="submit" class="mk-btn-primary">
+            Guardar contraseña
+          </button>
+        </form>
+      </section>
+    </main>
+  </div>
+
+  <script src="./js/main.js" defer></script>
+</body>
+
+</html>

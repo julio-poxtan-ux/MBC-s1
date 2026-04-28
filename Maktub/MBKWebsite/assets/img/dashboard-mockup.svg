@@ -1,0 +1,23 @@
+<svg width="1100" height="620" viewBox="0 0 1100 620" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="48" y1="42" x2="1040" y2="560" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#06152A"/>
+      <stop offset="1" stop-color="#0A2C4A"/>
+    </linearGradient>
+  </defs>
+  <rect width="1100" height="620" rx="26" fill="#020A15"/>
+  <rect x="22" y="22" width="1056" height="576" rx="20" fill="url(#bg)" stroke="#2BBFF4" stroke-opacity="0.5"/>
+  <rect x="58" y="62" width="984" height="56" rx="10" fill="#081E36"/>
+  <text x="90" y="96" fill="#9FDFFF" font-family="Segoe UI, Arial" font-size="18">Hola, Sergio</text>
+  <rect x="58" y="142" width="984" height="122" rx="14" fill="#0B2A49"/>
+  <text x="86" y="196" fill="#E6F7FF" font-family="Segoe UI, Arial" font-size="48">100,000.00</text>
+  <rect x="58" y="286" width="472" height="262" rx="14" fill="#0A223D"/>
+  <rect x="570" y="286" width="472" height="262" rx="14" fill="#0A223D"/>
+  <rect x="88" y="322" width="412" height="24" rx="8" fill="#104E7A"/>
+  <rect x="88" y="360" width="180" height="140" rx="12" fill="#0D3A62"/>
+  <rect x="284" y="360" width="216" height="140" rx="12" fill="#0D3A62"/>
+  <rect x="600" y="322" width="410" height="24" rx="8" fill="#104E7A"/>
+  <circle cx="810" cy="430" r="74" fill="#0E446F"/>
+  <path d="M780 430h60" stroke="#6FE5FF" stroke-width="8" stroke-linecap="round"/>
+  <path d="M810 400v60" stroke="#6FE5FF" stroke-width="8" stroke-linecap="round"/>
+</svg>
