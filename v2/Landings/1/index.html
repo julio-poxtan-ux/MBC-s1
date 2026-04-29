@@ -108,6 +108,13 @@
             decoding="async"
           />
           <div class="hero-image-vignette" aria-hidden="true"></div>
+          <button class="hero-play-btn" id="heroPlayBtn" aria-label="Ver video">
+            <svg class="hero-play-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <circle cx="32" cy="32" r="32" fill="rgba(255,255,255,0.15)"/>
+              <circle cx="32" cy="32" r="30" stroke="rgba(255,255,255,0.6)" stroke-width="1.5"/>
+              <polygon points="26,20 50,32 26,44" fill="white"/>
+            </svg>
+          </button>
         </div>
 
         <!-- Contenido textual -->
@@ -486,6 +493,29 @@
     </section>
 
   </main>
+
+  <!-- Modal de video -->
+  <div class="video-modal" id="videoModal" role="dialog" aria-modal="true" aria-label="Video CONEX" hidden>
+    <div class="video-modal-backdrop" id="videoModalBackdrop"></div>
+    <div class="video-modal-inner">
+      <button class="video-modal-close" id="videoModalClose" aria-label="Cerrar video">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <line x1="4" y1="4" x2="20" y2="20" stroke="white" stroke-width="2" stroke-linecap="round"/>
+          <line x1="20" y1="4" x2="4" y2="20" stroke="white" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+      <div class="video-modal-frame">
+        <iframe
+          id="videoModalIframe"
+          src=""
+          title="Video CONEX"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      </div>
+    </div>
+  </div>
 
   <script src="js/main.js" defer></script>
 </body>

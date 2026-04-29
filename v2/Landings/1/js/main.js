@@ -53,4 +53,35 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.querySelectorAll('[data-animate]').forEach(el => observer.observe(el));
 
+  /* ── Modal de video ─────────────────────────────────────── */
+  const modal     = document.getElementById('videoModal');
+  const iframe    = document.getElementById('videoModalIframe');
+  const openBtn   = document.getElementById('heroPlayBtn');
+  const closeBtn  = document.getElementById('videoModalClose');
+  const backdrop  = document.getElementById('videoModalBackdrop');
+  const VIDEO_URL = 'https://www.youtube.com/embed/F6qBbU4jW-c?autoplay=1&rel=0';
+
+  function openModal() {
+    iframe.src = VIDEO_URL;
+    modal.hidden = false;
+    document.body.style.overflow = 'hidden';
+    closeBtn.focus();
+  }
+
+  function closeModal() {
+    modal.hidden = true;
+    iframe.src = '';
+    document.body.style.overflow = '';
+    openBtn.focus();
+  }
+
+  if (openBtn && modal) {
+    openBtn.addEventListener('click', openModal);
+    closeBtn.addEventListener('click', closeModal);
+    backdrop.addEventListener('click', closeModal);
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && !modal.hidden) closeModal();
+    });
+  }
+
 });
