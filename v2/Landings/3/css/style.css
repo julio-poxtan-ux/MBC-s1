@@ -426,7 +426,7 @@ a {
    8. TU SPACIO PRODUCTIVO
    ============================================================================= */
 .productivo-section {
-  background: linear-gradient(to bottom, var(--gray-bg), var(--white));
+  background: url('../assets/img/bg-tu-espacio-productivo.png') center / cover no-repeat;
   position: relative;
   overflow: hidden;
 }
