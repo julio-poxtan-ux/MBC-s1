@@ -1,0 +1,5 @@
+node_modules/
+.env
+*.log
+.DS_Store
+TaskManager/assets/js/.DS_Store

@@ -1,15 +1,7 @@
 /* ========================================================================
    BITÁCORA — app.js
-   Lógica frontend · persistencia en Firestore + Firebase Storage
+   Lógica frontend · persistencia en localStorage + export JSON/ZIP
    ======================================================================== */
-
-import { db, storage } from './firebase.js';
-import {
-  collection, doc, setDoc, updateDoc, deleteDoc, onSnapshot
-} from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
-import {
-  ref, uploadBytes, getDownloadURL, deleteObject
-} from "https://www.gstatic.com/firebasejs/10.12.0/firebase-storage.js";
 
 (() => {
   'use strict';
@@ -17,6 +9,7 @@ import {
   // ---------------------------------------------------------------------
   // Estado y constantes
   // ---------------------------------------------------------------------
+  const STORAGE_KEY = 'bitacora.v1';
   const MAX_IMAGE_MB = 5;
 
   /** @typedef {{
@@ -38,80 +31,57 @@ import {
     busqueda: '',
     plataformaFiltro: '',      // '' = todas
     editandoId: null,
+    /**
+     * Imágenes seleccionadas en el formulario:
+     * - Nueva sin guardar:  { file: File, nombre, blobUrl }
+     * - Existente en disco: { file: null, nombre, blobUrl, path }
+     */
     imagenActual: null,
     imagenEsperada: null,
   };
 
   // ---------------------------------------------------------------------
-  // Persistencia — Firestore
+  // Persistencia — localStorage
   // ---------------------------------------------------------------------
   function cargar() {
-    const col = collection(db, 'incidencias');
-    onSnapshot(
-      col,
-      (snapshot) => {
-        state.incidencias = snapshot.docs.map(d => ({ ...d.data(), id: d.id }));
-        render();
-      },
-      (error) => {
-        console.error('Firestore error:', error);
-        if (error.code === 'permission-denied') {
-          toast('Sin permiso de Firestore. Revisá las reglas de seguridad en Firebase Console.');
-        } else {
-          toast('Error de conexión con la base de datos.');
-        }
-      }
-    );
-  }
-
-  async function crearIncidencia(datos) {
-    const docRef = doc(db, 'incidencias', datos.id);
-    await setDoc(docRef, datos);
-  }
-
-  async function actualizarIncidencia(id, cambios) {
-    const docRef = doc(db, 'incidencias', id);
-    await updateDoc(docRef, { ...cambios, actualizadoEn: new Date().toISOString() });
-  }
-
-  async function eliminarIncidencia(id) {
-    await deleteDoc(doc(db, 'incidencias', id));
-  }
-
-  // ---------------------------------------------------------------------
-  // Persistencia — Firebase Storage (imágenes)
-  // ---------------------------------------------------------------------
-  async function subirImagen(file, incidenciaId, sufijo) {
-    const ext = (file.name.split('.').pop() || 'png').toLowerCase();
-    const ruta = `capturas/${incidenciaId}_${sufijo}.${ext}`;
-    const storageRef = ref(storage, ruta);
-    await uploadBytes(storageRef, file);
-    const url = await getDownloadURL(storageRef);
-    return url;
-  }
-
-  async function eliminarImagenStorage(url) {
-    if (!url || url.startsWith('data:')) return;
     try {
-      const storageRef = ref(storage, url);
-      await deleteObject(storageRef);
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if (!raw) return;
+      const data = JSON.parse(raw);
+      if (Array.isArray(data?.incidencias)) state.incidencias = data.incidencias;
     } catch (e) {
-      console.warn('No se pudo eliminar imagen de Storage:', e);
+      console.warn('No se pudo leer localStorage:', e);
     }
   }
 
+  function guardar() {
+    const payload = {
+      version: '1.0',
+      actualizadoEn: new Date().toISOString(),
+      incidencias: state.incidencias,
+    };
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(payload));
+    } catch (e) {
+      toast('No se pudo guardar localmente (el almacenamiento puede estar lleno).');
+    }
+    // Escribir al archivo JSON si hay una carpeta conectada
+    guardarEnArchivo();
+  }
+
   // ---------------------------------------------------------------------
-  // Persistencia — File System Access API + IndexedDB (carpeta local)
+  // Persistencia — File System Access API + IndexedDB
   // ---------------------------------------------------------------------
   const FS_DB   = 'bitacora.fs';
   const FS_STORE = 'handles';
 
+  /** Abre la base IndexedDB que guarda los FileSystemHandle */
   function abrirDB() {
     return new Promise((resolve, reject) => {
       const req = indexedDB.open(FS_DB, 1);
       req.onupgradeneeded = () => req.result.createObjectStore(FS_STORE);
       req.onsuccess = () => resolve(req.result);
-      req.onerror = () => reject(req.error);
+      req.onerror  = () => reject(req.error);
     });
   }
   async function dbGet(key) {
@@ -119,7 +89,7 @@ import {
     return new Promise((resolve, reject) => {
       const req = db.transaction(FS_STORE, 'readonly').objectStore(FS_STORE).get(key);
       req.onsuccess = () => resolve(req.result);
-      req.onerror = () => reject(req.error);
+      req.onerror  = () => reject(req.error);
     });
   }
   async function dbPut(key, value) {
@@ -127,7 +97,7 @@ import {
     return new Promise((resolve, reject) => {
       const req = db.transaction(FS_STORE, 'readwrite').objectStore(FS_STORE).put(value, key);
       req.onsuccess = () => resolve();
-      req.onerror = () => reject(req.error);
+      req.onerror  = () => reject(req.error);
     });
   }
 
@@ -139,12 +109,17 @@ import {
     imageCache: new Map(),
   };
 
+  /** Verifica (y solicita si hace falta) permiso readwrite sobre el handle */
   async function verificarPermiso(handle) {
     const opts = { mode: 'readwrite' };
     if (await handle.queryPermission(opts) === 'granted') return true;
     return (await handle.requestPermission(opts)) === 'granted';
   }
 
+  /**
+   * Escribe state.incidencias en data/incidencias.json (sin base64 de imágenes).
+   * Las imágenes se almacenan como rutas relativas: assets/img/YYYY-MM-DD/archivo.ext
+   */
   async function guardarEnArchivo() {
     if (!fsState.dirHandle) return;
     try {
@@ -156,13 +131,14 @@ import {
         version: '1.0',
         actualizadoEn: new Date().toISOString(),
         totalIncidencias: state.incidencias.length,
+        // Guardar sin data URLs — solo rutas relativas o null
         incidencias: state.incidencias.map(i => ({
           ...i,
-          imagen: (i.imagen && i.imagen.startsWith('data:')) ? null : (i.imagen || null),
+          imagen:         (i.imagen         && i.imagen.startsWith('data:'))         ? null : (i.imagen         || null),
           imagenEsperada: (i.imagenEsperada && i.imagenEsperada.startsWith('data:')) ? null : (i.imagenEsperada || null),
         })),
       };
-      const fh = await dataDir.getFileHandle('incidencias.json', { create: true });
+      const fh       = await dataDir.getFileHandle('incidencias.json', { create: true });
       const writable = await fh.createWritable();
       await writable.write(JSON.stringify(payload, null, 2));
       await writable.close();
@@ -172,27 +148,35 @@ import {
     }
   }
 
+  /** Lee data/incidencias.json y carga imágenes en cache de blob URLs */
   async function cargarDesdeArchivo() {
     if (!fsState.dirHandle) return;
     try {
       const dataDir = await fsState.dirHandle.getDirectoryHandle('data');
-      const fh = await dataDir.getFileHandle('incidencias.json');
-      const file = await fh.getFile();
-      const data = JSON.parse(await file.text());
+      const fh      = await dataDir.getFileHandle('incidencias.json');
+      const file    = await fh.getFile();
+      const data    = JSON.parse(await file.text());
       if (Array.isArray(data?.incidencias)) {
         state.incidencias = data.incidencias;
+        try { localStorage.setItem(STORAGE_KEY, JSON.stringify(data)); } catch (_) {}
       }
     } catch (e) {
       if (e.name !== 'NotFoundError') console.warn('No se pudo leer incidencias.json:', e);
     }
+    // Cargar imágenes desde sus archivos en la carpeta
     await cargarImagenesEnCache();
   }
 
+  /**
+   * Para cada incidencia con imagen (ruta relativa), lee el archivo del disco
+   * y genera un blob URL temporal para mostrar en la UI.
+   * Carga tanto la captura actual (cache[id]) como la esperada (cache[id+':esp']).
+   */
   async function cargarImagenesEnCache() {
     if (!fsState.dirHandle) return;
 
     async function leerEnCache(ruta, cacheKey) {
-      if (!ruta || ruta.startsWith('data:') || ruta.startsWith('http')) return;
+      if (!ruta || ruta.startsWith('data:')) return;
       if (fsState.imageCache.has(cacheKey)) return;
       try {
         const partes = ruta.split('/');
@@ -200,18 +184,65 @@ import {
         for (let i = 0; i < partes.length - 1; i++) {
           handle = await handle.getDirectoryHandle(partes[i]);
         }
-        const fh = await handle.getFileHandle(partes[partes.length - 1]);
+        const fh  = await handle.getFileHandle(partes[partes.length - 1]);
         const img = await fh.getFile();
         fsState.imageCache.set(cacheKey, URL.createObjectURL(img));
       } catch (_) { /* archivo no encontrado → placeholder */ }
     }
 
     for (const inc of state.incidencias) {
-      await leerEnCache(inc.imagen, inc.id);
+      await leerEnCache(inc.imagen,         inc.id);
       await leerEnCache(inc.imagenEsperada, inc.id + ':esp');
     }
   }
 
+  /**
+   * Guarda una imagen (File) en assets/img/YYYY-MM-DD/ y devuelve la ruta relativa.
+   * @param {string} id       - id de la incidencia
+   * @param {string} titulo
+   * @param {string} creadoEn - ISO date string
+   * @param {File}   file
+   * @param {'actual'|'esperada'} tipo - sufijo del nombre de archivo
+   * @returns {Promise<string|null>}
+   */
+  async function guardarImagenEnDisco(id, titulo, creadoEn, file, tipo = 'actual') {
+    if (!fsState.dirHandle) return null;
+    try {
+      const fecha     = claveDia(creadoEn);
+      const assetsDir = await fsState.dirHandle.getDirectoryHandle('assets', { create: true });
+      const imgDir    = await assetsDir.getDirectoryHandle('img',   { create: true });
+      const fechaDir  = await imgDir.getDirectoryHandle(fecha,      { create: true });
+
+      const ext      = (file.name.split('.').pop() || 'png').toLowerCase();
+      const nombre   = `${id}_${sanitizar(titulo) || 'captura'}_${tipo}.${ext}`;
+      const fh       = await fechaDir.getFileHandle(nombre, { create: true });
+      const writable = await fh.createWritable();
+      await writable.write(file);
+      await writable.close();
+
+      return `assets/img/${fecha}/${nombre}`;
+    } catch (e) {
+      console.warn(`No se pudo guardar la imagen (${tipo}) en disco:`, e);
+      toast('No se pudo guardar la imagen. Verificá los permisos.');
+      return null;
+    }
+  }
+
+  /** src para la captura actual (blob URL del cache, data URL legado, o null) */
+  function srcImagen(inc) {
+    if (!inc.imagen) return null;
+    if (inc.imagen.startsWith('data:')) return inc.imagen;
+    return fsState.imageCache.get(inc.id) ?? null;
+  }
+
+  /** src para la captura esperada */
+  function srcImagenEsperada(inc) {
+    if (!inc.imagenEsperada) return null;
+    if (inc.imagenEsperada.startsWith('data:')) return inc.imagenEsperada;
+    return fsState.imageCache.get(inc.id + ':esp') ?? null;
+  }
+
+  /** Al abrir la app, intenta restaurar el handle guardado en IndexedDB */
   async function iniciarCarpeta() {
     if (!fsState.disponible) return;
     try {
@@ -228,6 +259,7 @@ import {
     }
   }
 
+  /** Pide al usuario que elija la carpeta de datos */
   async function conectarCarpeta() {
     if (!fsState.disponible) {
       toast('Tu navegador no soporta escritura de archivos. Usá Chrome o Edge.');
@@ -245,8 +277,9 @@ import {
     }
   }
 
+  /** Actualiza el botón topbar y el hint del file-drop según el estado de conexión */
   function actualizarIndicadorCarpeta() {
-    const btn = document.getElementById('btnCarpeta');
+    const btn  = document.getElementById('btnCarpeta');
     const hint = document.getElementById('fileDropFolderHint');
     const conectado = !!fsState.dirHandle;
 
@@ -262,6 +295,7 @@ import {
       }
     }
 
+    // Mostrar/ocultar aviso en el área de drop de imagen
     if (hint) hint.style.display = conectado ? 'none' : '';
   }
 
@@ -284,6 +318,7 @@ import {
     return d.toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit' });
   }
   function claveDia(iso) {
+    // YYYY-MM-DD en zona local
     const d = new Date(iso);
     const y = d.getFullYear();
     const m = String(d.getMonth() + 1).padStart(2, '0');
@@ -311,11 +346,11 @@ import {
   }
   function escHTML(s) {
     return String(s ?? '').replace(/[&<>"']/g, c => ({
-      '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+      '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
     }[c]));
   }
   function hostDe(url) {
-    try { return new URL(url).host.replace(/^www\./, ''); } catch { return url; }
+    try { return new URL(url).host.replace(/^www\./,''); } catch { return url; }
   }
 
   // ---------------------------------------------------------------------
@@ -377,22 +412,26 @@ import {
     const select = document.getElementById('selectPlataforma');
     const datalist = document.getElementById('plataformasLista');
 
+    // Plataformas únicas de las incidencias guardadas
     const usadas = [...new Set(
       state.incidencias
         .map(i => (i.plataforma || '').trim())
         .filter(Boolean)
     )].sort((a, b) => a.localeCompare(b, 'es'));
 
+    // Datalist del formulario: combinar sugerencias estáticas + usadas
     const estaticas = ['Frontend-UX-UI', 'Backend', 'Dirección', 'MKT', 'PM'];
     const todasOpciones = [...new Set([...estaticas, ...usadas])].sort((a, b) => a.localeCompare(b, 'es'));
     datalist.innerHTML = todasOpciones.map(p => `<option value="${escHTML(p)}">`).join('');
 
+    // Select del filtro: solo las plataformas que existen en incidencias
     const valorActual = state.plataformaFiltro;
     select.innerHTML = '<option value="">Todas las plataformas</option>' +
       usadas.map(p =>
         `<option value="${escHTML(p)}"${p === valorActual ? ' selected' : ''}>${escHTML(p)}</option>`
       ).join('');
 
+    // Si la plataforma filtrada ya no existe, resetear
     if (valorActual && !usadas.includes(valorActual)) {
       state.plataformaFiltro = '';
     }
@@ -415,18 +454,6 @@ import {
     return entries;
   }
 
-  function srcImagen(inc) {
-    if (!inc.imagen) return null;
-    if (inc.imagen.startsWith('data:') || inc.imagen.startsWith('http')) return inc.imagen;
-    return fsState.imageCache.get(inc.id) ?? null;
-  }
-
-  function srcImagenEsperada(inc) {
-    if (!inc.imagenEsperada) return null;
-    if (inc.imagenEsperada.startsWith('data:') || inc.imagenEsperada.startsWith('http')) return inc.imagenEsperada;
-    return fsState.imageCache.get(inc.id + ':esp') ?? null;
-  }
-
   function renderTimeline() {
     const cont = document.getElementById('timeline');
     const empty = document.getElementById('emptyState');
@@ -435,11 +462,12 @@ import {
     if (lista.length === 0) {
       cont.innerHTML = '';
       empty.classList.remove('d-none');
+      // mensaje del estado vacío según contexto
       const h = empty.querySelector('.empty-title');
       const p = empty.querySelector('.empty-text');
       if (state.busqueda) {
         h.textContent = 'Sin resultados';
-        p.innerHTML = `No encontramos incidencias que coincidan con <em>"${escHTML(state.busqueda)}"</em>.`;
+        p.innerHTML = `No encontramos incidencias que coincidan con <em>“${escHTML(state.busqueda)}”</em>.`;
       } else if (state.vista === 'archivadas') {
         h.textContent = 'Nada archivado';
         p.textContent = 'Las incidencias que archivés aparecerán aquí.';
@@ -469,6 +497,7 @@ import {
       `;
     }).join('');
 
+    // Eventos de cada card
     cont.querySelectorAll('[data-action]').forEach(el => {
       el.addEventListener('click', ev => {
         ev.stopPropagation();
@@ -505,7 +534,7 @@ import {
           </div>
         </div>`;
     } else if (imgSrc || espSrc) {
-      const src = imgSrc || espSrc;
+      const src   = imgSrc || espSrc;
       const label = imgSrc ? 'Actual' : 'Esperada';
       mediaHTML = `
         <div class="incident-media" data-action="abrir">
@@ -520,7 +549,7 @@ import {
     }
 
     const links = [];
-    if (i.urlSitio) links.push(`<a class="incident-link" href="${escHTML(i.urlSitio)}" target="_blank" rel="noopener"><i class="bi bi-globe"></i>${escHTML(hostDe(i.urlSitio))}</a>`);
+    if (i.urlSitio)  links.push(`<a class="incident-link" href="${escHTML(i.urlSitio)}" target="_blank" rel="noopener"><i class="bi bi-globe"></i>${escHTML(hostDe(i.urlSitio))}</a>`);
     if (i.urlGithub) links.push(`<a class="incident-link" href="${escHTML(i.urlGithub)}" target="_blank" rel="noopener"><i class="bi bi-github"></i>${escHTML(hostDe(i.urlGithub))}</a>`);
 
     const plataformaHTML = i.plataforma
@@ -567,7 +596,7 @@ import {
     const estadoTxt = i.archivado ? 'Archivada' : (i.revisado ? 'Revisada' : 'Pendiente');
 
     const linksHTML = [
-      i.urlSitio ? `<a class="detail-link-row" href="${escHTML(i.urlSitio)}" target="_blank" rel="noopener"><i class="bi bi-globe"></i><span>${escHTML(i.urlSitio)}</span><i class="bi bi-arrow-up-right ms-auto"></i></a>` : '',
+      i.urlSitio  ? `<a class="detail-link-row" href="${escHTML(i.urlSitio)}" target="_blank" rel="noopener"><i class="bi bi-globe"></i><span>${escHTML(i.urlSitio)}</span><i class="bi bi-arrow-up-right ms-auto"></i></a>` : '',
       i.urlGithub ? `<a class="detail-link-row" href="${escHTML(i.urlGithub)}" target="_blank" rel="noopener"><i class="bi bi-github"></i><span>${escHTML(i.urlGithub)}</span><i class="bi bi-arrow-up-right ms-auto"></i></a>` : '',
     ].join('');
 
@@ -588,7 +617,7 @@ import {
           </div>
         </div>`;
     } else if (detalleSrc || detalleEsp) {
-      const src = detalleSrc || detalleEsp;
+      const src   = detalleSrc || detalleEsp;
       const label = detalleSrc ? 'Estado actual' : 'Estado esperado';
       mediaHTML = `
         <div class="detail-hero">
@@ -630,7 +659,7 @@ import {
 
         <div class="detail-section d-flex flex-wrap gap-2 justify-content-between align-items-center">
           <div class="form-check form-switch form-check-lg m-0">
-            <input class="form-check-input" type="checkbox" id="d-revisado" ${i.revisado ? 'checked' : ''}>
+            <input class="form-check-input" type="checkbox" id="d-revisado" ${i.revisado ? 'checked':''}>
             <label class="form-check-label" for="d-revisado">Marcada como <strong>revisada</strong></label>
           </div>
           <div class="d-flex gap-2">
@@ -645,6 +674,7 @@ import {
       </div>
     `;
 
+    // Handlers del detalle
     const content = document.getElementById('detalleContent');
     content.querySelector('#d-revisado').addEventListener('change', () => {
       toggleRevisado(id); abrirDetalle(id);
@@ -666,31 +696,27 @@ import {
   }
 
   // ---------------------------------------------------------------------
-  // CRUD — todas las operaciones van a Firestore
+  // CRUD
   // ---------------------------------------------------------------------
-  async function toggleRevisado(id) {
+  function toggleRevisado(id) {
     const i = state.incidencias.find(x => x.id === id);
     if (!i) return;
-    const nuevo = !i.revisado;
-    await actualizarIncidencia(id, { revisado: nuevo });
-    toast(nuevo ? 'Marcada como revisada.' : 'Marcada como pendiente.');
+    i.revisado = !i.revisado;
+    i.actualizadoEn = new Date().toISOString();
+    guardar(); render();
+    toast(i.revisado ? 'Marcada como revisada.' : 'Marcada como pendiente.');
   }
-
-  async function toggleArchivar(id) {
+  function toggleArchivar(id) {
     const i = state.incidencias.find(x => x.id === id);
     if (!i) return;
-    const nuevo = !i.archivado;
-    await actualizarIncidencia(id, { archivado: nuevo });
-    toast(nuevo ? 'Incidencia archivada.' : 'Incidencia restaurada.');
+    i.archivado = !i.archivado;
+    i.actualizadoEn = new Date().toISOString();
+    guardar(); render();
+    toast(i.archivado ? 'Incidencia archivada.' : 'Incidencia restaurada.');
   }
-
-  async function eliminar(id) {
-    const i = state.incidencias.find(x => x.id === id);
-    if (i) {
-      await eliminarImagenStorage(i.imagen);
-      await eliminarImagenStorage(i.imagenEsperada);
-    }
-    await eliminarIncidencia(id);
+  function eliminar(id) {
+    state.incidencias = state.incidencias.filter(x => x.id !== id);
+    guardar(); render();
     toast('Incidencia eliminada.');
   }
 
@@ -702,7 +728,6 @@ import {
   function resetForm() {
     state.editandoId = null;
     state.imagenActual = null;
-    state.imagenEsperada = null;
     document.getElementById('formIncidencia').reset();
     document.getElementById('formIncidencia').classList.remove('was-validated');
     document.getElementById('f-titulo').classList.remove('is-invalid');
@@ -731,14 +756,14 @@ import {
     if (i.imagen) {
       const src = srcImagen(i);
       if (src) {
-        state.imagenActual = { file: null, nombre: i.imagenNombre || 'captura', blobUrl: src, url: i.imagen };
+        state.imagenActual = { file: null, nombre: i.imagenNombre || 'captura', blobUrl: src, path: i.imagen };
         mostrarPreview(src, i.imagenNombre || 'captura');
       }
     }
     if (i.imagenEsperada) {
       const srcEsp = srcImagenEsperada(i);
       if (srcEsp) {
-        state.imagenEsperada = { file: null, nombre: i.imagenEsperadaNombre || 'esperada', blobUrl: srcEsp, url: i.imagenEsperada };
+        state.imagenEsperada = { file: null, nombre: i.imagenEsperadaNombre || 'esperada', blobUrl: srcEsp, path: i.imagenEsperada };
         mostrarPreviewEsp(srcEsp, i.imagenEsperadaNombre || 'esperada');
       }
     }
@@ -749,7 +774,7 @@ import {
   }
 
   async function guardarFormulario() {
-    const form = document.getElementById('formIncidencia');
+    const form   = document.getElementById('formIncidencia');
     const titulo = document.getElementById('f-titulo').value.trim();
     if (!titulo) {
       document.getElementById('f-titulo').classList.add('is-invalid');
@@ -757,77 +782,75 @@ import {
       return;
     }
 
-    const btnGuardar = document.getElementById('btnGuardar');
-    btnGuardar.disabled = true;
-    btnGuardar.innerHTML = '<span class="spinner-border spinner-border-sm me-1"></span> Guardando…';
+    const ahora = new Date().toISOString();
+    // Generar el id antes de guardar la imagen (necesario para el nombre del archivo)
+    const id = state.editandoId || uid();
 
-    try {
-      const ahora = new Date().toISOString();
-      const id = state.editandoId || uid();
-      const creadoEn = state.editandoId
-        ? (state.incidencias.find(x => x.id === id)?.creadoEn ?? ahora)
-        : ahora;
+    const creadoEn = state.editandoId
+      ? (state.incidencias.find(x => x.id === id)?.creadoEn ?? ahora)
+      : ahora;
 
-      // Resolver imagen actual
-      let urlImagen = null;
-      let imagenNombre = null;
-      if (state.imagenActual) {
-        if (state.imagenActual.file) {
-          urlImagen = await subirImagen(state.imagenActual.file, id, 'actual');
-          imagenNombre = state.imagenActual.nombre;
-        } else if (state.imagenActual.url) {
-          urlImagen = state.imagenActual.url;
-          imagenNombre = state.imagenActual.nombre;
-        }
+    // --- Resolver captura actual ---
+    let rutaImagen   = null;
+    let imagenNombre = null;
+    if (state.imagenActual) {
+      if (state.imagenActual.file) {
+        rutaImagen = await guardarImagenEnDisco(id, titulo, creadoEn, state.imagenActual.file, 'actual');
+        imagenNombre = state.imagenActual.nombre;
+        if (rutaImagen) fsState.imageCache.set(id, state.imagenActual.blobUrl);
+      } else if (state.imagenActual.path) {
+        rutaImagen   = state.imagenActual.path;
+        imagenNombre = state.imagenActual.nombre;
       }
-
-      // Resolver imagen esperada
-      let urlEsperada = null;
-      let imagenEsperadaNombre = null;
-      if (state.imagenEsperada) {
-        if (state.imagenEsperada.file) {
-          urlEsperada = await subirImagen(state.imagenEsperada.file, id, 'esperada');
-          imagenEsperadaNombre = state.imagenEsperada.nombre;
-        } else if (state.imagenEsperada.url) {
-          urlEsperada = state.imagenEsperada.url;
-          imagenEsperadaNombre = state.imagenEsperada.nombre;
-        }
-      }
-
-      const datos = {
-        titulo,
-        plataforma: document.getElementById('f-plataforma').value.trim(),
-        comentario: document.getElementById('f-comentario').value.trim(),
-        imagen: urlImagen,
-        imagenNombre,
-        imagenEsperada: urlEsperada,
-        imagenEsperadaNombre,
-        urlSitio: document.getElementById('f-sitio').value.trim(),
-        urlGithub: document.getElementById('f-github').value.trim(),
-        revisado: document.getElementById('f-revisado').checked,
-      };
-
-      if (state.editandoId) {
-        await actualizarIncidencia(id, datos);
-        toast('Incidencia actualizada.');
-      } else {
-        await crearIncidencia({ id, ...datos, archivado: false, creadoEn: ahora, actualizadoEn: ahora });
-        toast('Incidencia creada.');
-      }
-
-      modalForm().hide();
-    } catch (e) {
-      console.error('Error al guardar:', e);
-      toast('No se pudo guardar. Verificá tu conexión.');
-    } finally {
-      btnGuardar.disabled = false;
-      btnGuardar.innerHTML = '<i class="bi bi-check2 me-1"></i> Guardar';
     }
+
+    // --- Resolver captura esperada ---
+    let rutaEsperada        = null;
+    let imagenEsperadaNombre = null;
+    if (state.imagenEsperada) {
+      if (state.imagenEsperada.file) {
+        rutaEsperada = await guardarImagenEnDisco(id, titulo, creadoEn, state.imagenEsperada.file, 'esperada');
+        imagenEsperadaNombre = state.imagenEsperada.nombre;
+        if (rutaEsperada) fsState.imageCache.set(id + ':esp', state.imagenEsperada.blobUrl);
+      } else if (state.imagenEsperada.path) {
+        rutaEsperada         = state.imagenEsperada.path;
+        imagenEsperadaNombre = state.imagenEsperada.nombre;
+      }
+    }
+
+    const datos = {
+      titulo,
+      plataforma:           document.getElementById('f-plataforma').value.trim(),
+      comentario:           document.getElementById('f-comentario').value.trim(),
+      imagen:               rutaImagen,
+      imagenNombre,
+      imagenEsperada:       rutaEsperada,
+      imagenEsperadaNombre,
+      urlSitio:             document.getElementById('f-sitio').value.trim(),
+      urlGithub:            document.getElementById('f-github').value.trim(),
+      revisado:             document.getElementById('f-revisado').checked,
+    };
+
+    if (state.editandoId) {
+      const idx = state.incidencias.findIndex(x => x.id === id);
+      if (idx > -1) {
+        state.incidencias[idx] = { ...state.incidencias[idx], ...datos, actualizadoEn: ahora };
+      }
+      toast('Incidencia actualizada.');
+    } else {
+      state.incidencias.unshift({ id, ...datos, archivado: false, creadoEn: ahora, actualizadoEn: ahora });
+      toast('Incidencia creada.');
+    }
+
+    guardar();
+    render();
+    modalForm().hide();
   }
 
   // ---------------------------------------------------------------------
   // Imagen — file input y drag & drop
   // ---------------------------------------------------------------------
+  // ---- Captura actual ----
   function mostrarPreview(src, nombre) {
     document.getElementById('fileDropInner').classList.add('d-none');
     document.getElementById('filePreview').classList.remove('d-none');
@@ -848,6 +871,7 @@ import {
     if (!file) return;
     if (!file.type.startsWith('image/')) { toast('El archivo debe ser una imagen.'); return; }
     if (file.size > MAX_IMAGE_MB * 1024 * 1024) { toast(`La imagen supera ${MAX_IMAGE_MB} MB.`); return; }
+    if (!fsState.dirHandle) { toast('Conectá una carpeta de datos antes de adjuntar imágenes.'); return; }
     if (state.imagenActual?.file && state.imagenActual?.blobUrl) {
       URL.revokeObjectURL(state.imagenActual.blobUrl);
     }
@@ -856,6 +880,7 @@ import {
     mostrarPreview(blobUrl, file.name);
   }
 
+  // ---- Captura esperada ----
   function mostrarPreviewEsp(src, nombre) {
     document.getElementById('fileDropInnerEsp').classList.add('d-none');
     document.getElementById('filePreviewEsp').classList.remove('d-none');
@@ -876,6 +901,7 @@ import {
     if (!file) return;
     if (!file.type.startsWith('image/')) { toast('El archivo debe ser una imagen.'); return; }
     if (file.size > MAX_IMAGE_MB * 1024 * 1024) { toast(`La imagen supera ${MAX_IMAGE_MB} MB.`); return; }
+    if (!fsState.dirHandle) { toast('Conectá una carpeta de datos antes de adjuntar imágenes.'); return; }
     if (state.imagenEsperada?.file && state.imagenEsperada?.blobUrl) {
       URL.revokeObjectURL(state.imagenEsperada.blobUrl);
     }
@@ -885,7 +911,7 @@ import {
   }
 
   // ---------------------------------------------------------------------
-  // Exportación: ZIP con JSON + capturas
+  // Exportación: ZIP con JSON + carpeta capturas/
   // ---------------------------------------------------------------------
   async function exportarZIP() {
     if (state.incidencias.length === 0) {
@@ -900,46 +926,39 @@ import {
     const zip = new JSZip();
     const carpetaCapturas = zip.folder('capturas');
 
-    async function resolverImagenExport(inc, url, sufijo) {
-      if (!url) return null;
-      if (url.startsWith('data:')) {
-        const ext = extDeDataUrl(url);
+    // Helper: saca la imagen del cache/base64 y la agrega al ZIP
+    async function resolverImagenExport(inc, ruta, cacheKey, sufijo) {
+      if (!ruta) return null;
+      if (ruta.startsWith('data:')) {
+        const ext    = extDeDataUrl(ruta);
         const nombre = `${inc.id}_${sanitizar(inc.titulo) || 'captura'}_${sufijo}.${ext}`;
-        carpetaCapturas.file(nombre, dataUrlABlob(url));
+        carpetaCapturas.file(nombre, dataUrlABlob(ruta));
         return `capturas/${nombre}`;
       }
-      if (url.startsWith('http')) {
-        try {
-          const blob = await (await fetch(url)).blob();
-          const ext = url.split('?')[0].split('.').pop() || 'png';
-          const nombre = `${inc.id}_${sanitizar(inc.titulo) || 'captura'}_${sufijo}.${ext}`;
-          carpetaCapturas.file(nombre, blob);
-          return `capturas/${nombre}`;
-        } catch (_) { return url; }
-      }
-      const blobUrl = fsState.imageCache.get(sufijo === 'actual' ? inc.id : inc.id + ':esp');
+      const blobUrl = fsState.imageCache.get(cacheKey);
       if (blobUrl) {
         try {
-          const blob = await (await fetch(blobUrl)).blob();
-          const ext = url.split('.').pop() || 'png';
+          const blob   = await (await fetch(blobUrl)).blob();
+          const ext    = ruta.split('.').pop() || 'png';
           const nombre = `${inc.id}_${sanitizar(inc.titulo) || 'captura'}_${sufijo}.${ext}`;
           carpetaCapturas.file(nombre, blob);
           return `capturas/${nombre}`;
-        } catch (_) { }
+        } catch (_) {}
       }
-      return url;
+      return ruta; // fallback: ruta original
     }
 
+    // Construir exportData con imágenes en carpeta capturas/
     const exportData = await Promise.all(state.incidencias.map(async i => {
-      const rutaExport    = await resolverImagenExport(i, i.imagen, 'actual');
-      const rutaEspExport = await resolverImagenExport(i, i.imagenEsperada, 'esperada');
+      const rutaExport    = await resolverImagenExport(i, i.imagen,         i.id,          'actual');
+      const rutaEspExport = await resolverImagenExport(i, i.imagenEsperada, i.id + ':esp', 'esperada');
       return {
         id: i.id,
         titulo: i.titulo,
         plataforma: i.plataforma || '',
         comentario: i.comentario,
-        imagen: rutaExport ?? null,
-        imagenEsperada: rutaEspExport ?? null,
+        imagen:               rutaExport    ?? null,
+        imagenEsperada:       rutaEspExport ?? null,
         imagenEsperadaNombre: i.imagenEsperadaNombre ?? null,
         urlSitio: i.urlSitio,
         urlGithub: i.urlGithub,
@@ -959,7 +978,7 @@ import {
 
     zip.file('incidencias.json', JSON.stringify(payload, null, 2));
     zip.file('README.txt',
-      `Bitácora — Exportación
+`Bitácora — Exportación
 ------------------------
 Fecha: ${new Date().toLocaleString('es-ES')}
 Total: ${exportData.length} incidencia(s)
@@ -967,6 +986,8 @@ Total: ${exportData.length} incidencia(s)
 Contenido:
   incidencias.json   → datos estructurados
   capturas/          → imágenes de cada incidencia
+
+Podés volver a importar este archivo (JSON o ZIP completo) desde la aplicación.
 `);
 
     const blob = await zip.generateAsync({ type: 'blob' });
@@ -982,11 +1003,12 @@ Contenido:
   }
 
   // ---------------------------------------------------------------------
-  // Importación
+  // Importación (acepta JSON plano; si las imágenes son rutas relativas,
+  // quedan sin imagen hasta re-subirlas).
   // ---------------------------------------------------------------------
   function importarJSON(file) {
     const reader = new FileReader();
-    reader.onload = async () => {
+    reader.onload = () => {
       try {
         const data = JSON.parse(reader.result);
         const lista = Array.isArray(data) ? data : data.incidencias;
@@ -998,9 +1020,9 @@ Contenido:
           titulo: String(x.titulo || 'Sin título'),
           plataforma: String(x.plataforma || ''),
           comentario: String(x.comentario || ''),
-          imagen: (typeof x.imagen === 'string' && x.imagen.startsWith('data:')) ? x.imagen : null,
-          imagenNombre: x.imagenNombre || null,
-          imagenEsperada: (typeof x.imagenEsperada === 'string' && x.imagenEsperada.startsWith('data:')) ? x.imagenEsperada : null,
+          imagen:               (typeof x.imagen         === 'string' && x.imagen.startsWith('data:'))         ? x.imagen         : null,
+          imagenNombre:         x.imagenNombre || null,
+          imagenEsperada:       (typeof x.imagenEsperada === 'string' && x.imagenEsperada.startsWith('data:')) ? x.imagenEsperada : null,
           imagenEsperadaNombre: x.imagenEsperadaNombre || null,
           urlSitio: String(x.urlSitio || ''),
           urlGithub: String(x.urlGithub || ''),
@@ -1015,15 +1037,15 @@ Contenido:
           `Aceptar = reemplazar todo lo actual\nCancelar = combinar con las existentes`
         );
 
-        const existentes = new Set(state.incidencias.map(i => i.id));
-        const paraImportar = reemplazar ? nuevas : nuevas.filter(n => !existentes.has(n.id));
-
-        for (const inc of paraImportar) {
-          const { id, ...datos } = inc;
-          await crearIncidencia({ id, ...datos });
+        if (reemplazar) {
+          state.incidencias = nuevas;
+        } else {
+          const ids = new Set(state.incidencias.map(i => i.id));
+          nuevas.forEach(n => { if (!ids.has(n.id)) state.incidencias.push(n); });
         }
-
-        toast(`Importadas ${paraImportar.length} incidencia(s).`);
+        guardar();
+        render();
+        toast(`Importadas ${nuevas.length} incidencia(s).`);
       } catch (e) {
         console.error(e);
         toast('No se pudo leer el JSON.');
@@ -1036,6 +1058,7 @@ Contenido:
   // Bindings
   // ---------------------------------------------------------------------
   function bind() {
+    // Nueva incidencia
     document.getElementById('btnNueva').addEventListener('click', resetForm);
     document.getElementById('btnGuardar').addEventListener('click', guardarFormulario);
     document.getElementById('formIncidencia').addEventListener('submit', ev => {
@@ -1043,10 +1066,12 @@ Contenido:
     });
     document.getElementById('modalIncidencia').addEventListener('hidden.bs.modal', resetForm);
 
+    // Quitar validación al tipear
     document.getElementById('f-titulo').addEventListener('input', e => {
       if (e.target.value.trim()) e.target.classList.remove('is-invalid');
     });
 
+    // File input
     const drop = document.getElementById('fileDrop');
     const input = document.getElementById('f-imagen');
     drop.addEventListener('click', e => {
@@ -1054,10 +1079,10 @@ Contenido:
       input.click();
     });
     input.addEventListener('change', e => procesarArchivo(e.target.files[0]));
-    ['dragenter', 'dragover'].forEach(ev => drop.addEventListener(ev, e => {
+    ['dragenter','dragover'].forEach(ev => drop.addEventListener(ev, e => {
       e.preventDefault(); drop.classList.add('is-dragover');
     }));
-    ['dragleave', 'drop'].forEach(ev => drop.addEventListener(ev, e => {
+    ['dragleave','drop'].forEach(ev => drop.addEventListener(ev, e => {
       e.preventDefault(); drop.classList.remove('is-dragover');
     }));
     drop.addEventListener('drop', e => {
@@ -1066,17 +1091,18 @@ Contenido:
     });
     document.getElementById('btnQuitarImagen').addEventListener('click', cerrarPreview);
 
-    const dropEsp = document.getElementById('fileDropEsp');
-    const inputEsp = document.getElementById('f-imagen-esp');
+    // Drop zone — captura esperada
+    const dropEsp   = document.getElementById('fileDropEsp');
+    const inputEsp  = document.getElementById('f-imagen-esp');
     dropEsp.addEventListener('click', e => {
       if (e.target.closest('#btnQuitarImagenEsp')) return;
       inputEsp.click();
     });
     inputEsp.addEventListener('change', e => procesarArchivoEsp(e.target.files[0]));
-    ['dragenter', 'dragover'].forEach(ev => dropEsp.addEventListener(ev, e => {
+    ['dragenter','dragover'].forEach(ev => dropEsp.addEventListener(ev, e => {
       e.preventDefault(); dropEsp.classList.add('is-dragover');
     }));
-    ['dragleave', 'drop'].forEach(ev => dropEsp.addEventListener(ev, e => {
+    ['dragleave','drop'].forEach(ev => dropEsp.addEventListener(ev, e => {
       e.preventDefault(); dropEsp.classList.remove('is-dragover');
     }));
     dropEsp.addEventListener('drop', e => {
@@ -1085,6 +1111,7 @@ Contenido:
     });
     document.getElementById('btnQuitarImagenEsp').addEventListener('click', cerrarPreviewEsp);
 
+    // Filtros
     document.querySelectorAll('input[name="vista"]').forEach(r => {
       r.addEventListener('change', e => { state.vista = e.target.value; render(); });
     });
@@ -1103,10 +1130,12 @@ Contenido:
       });
     });
 
+    // Carpeta de datos
     const btnCarpeta = document.getElementById('btnCarpeta');
     if (btnCarpeta) btnCarpeta.addEventListener('click', conectarCarpeta);
     actualizarIndicadorCarpeta();
 
+    // Import / Export
     document.getElementById('btnExport').addEventListener('click', exportarZIP);
     document.getElementById('btnImport').addEventListener('click', () => document.getElementById('inputImport').click());
     document.getElementById('btnImportEmpty').addEventListener('click', () => document.getElementById('inputImport').click());
@@ -1116,6 +1145,7 @@ Contenido:
       e.target.value = '';
     });
 
+    // Atajo de teclado: "N" para nueva
     document.addEventListener('keydown', e => {
       if ((e.key === 'n' || e.key === 'N') && !e.metaKey && !e.ctrlKey && !e.altKey) {
         const tag = document.activeElement?.tagName;
@@ -1131,8 +1161,9 @@ Contenido:
   // Arranque
   // ---------------------------------------------------------------------
   document.addEventListener('DOMContentLoaded', async () => {
+    cargar();          // carga desde localStorage primero
     bind();
-    await iniciarCarpeta();
-    cargar(); // onSnapshot de Firestore — renderiza cuando llegan los datos
+    await iniciarCarpeta(); // intenta restaurar carpeta y leer JSON (puede sobreescribir estado)
+    render();
   });
 })();

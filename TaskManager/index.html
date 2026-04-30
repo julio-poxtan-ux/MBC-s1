@@ -20,6 +20,7 @@
   <!-- Custom styles -->
   <link href="assets/css/styles.css" rel="stylesheet">
 </head>
+
 <body>
 
   <!-- TOPBAR ---------------------------------------------------------- -->
@@ -180,7 +181,7 @@
                 <div class="input-group">
                   <span class="input-group-text"><i class="bi bi-layers"></i></span>
                   <input type="text" class="form-control" id="f-plataforma" list="plataformasLista"
-                    placeholder="Web, iOS, Android…" maxlength="60" autocomplete="off">
+                    placeholder="Frontend, Backend, Dirección, UX, UI, MKT," maxlength="60" autocomplete="off">
                 </div>
               </div>
             </div>
@@ -289,8 +290,8 @@
 
   <!-- Datalist dinámico de plataformas -->
   <datalist id="plataformasLista">
-    <option value="Web">
-    <option value="iOS">
+    <option value="Frontend">
+    <option value="Backend">
     <option value="Android">
     <option value="Desktop">
     <option value="Email">
@@ -312,6 +313,6 @@
   <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
-  <script src="assets/js/app.js"></script>
+  <script type="module" src="assets/js/app.js"></script>
 </body>
 </html>
